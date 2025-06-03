@@ -2,71 +2,103 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Shaaz Driving Academy</title>
-  <link rel="stylesheet" href="style.css"/>
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
   <header>
-    <div class="logo">Shaaz Driving Academy</div>
-    <nav>
-      <a href="#home">Home</a>
-      <a href="#locations">Locations & Prices</a>
-      <a href="#courses">Courses</a>
-      <a href="#vehicle">Vehicle for Hire</a>
-      <a href="#certification">Check Certification</a>
-      <a href="#login">My Login</a>
-      <a href="#contact">Contact Us</a>
-    </nav>
+    <div class="container header-container">
+      <h1>Shaaz Driving Academy</h1>
+      <nav>
+        <ul class="nav-links">
+          <li><a href="#about">About Us</a></li>
+          <li><a href="#courses">Courses</a></li>
+          <li><a href="#locations">Locations</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
   </header>
 
-  <section id="hero">
-    <h1>Welcome to Shaaz Driving Academy</h1>
-    <p>Location: [Enter address]</p>
-    <p>Phone: [Enter phone number]</p>
-    <p>Hours: [Enter business hours]</p>
-    <a class="cta-button" href="#register">Register Online</a>
-  </section>
+  <main>
+    <section class="hero-section">
+      <div class="container hero-container">
+        <h2>Your journey to safe driving starts here</h2>
+        <p><!-- Add your driving school intro here --></p>
+        <a href="#courses" class="btn-primary">View Courses</a>
+      </div>
+    </section>
 
-  <section id="locations">
-    <h2>Our Locations & Prices</h2>
-    <p>[Details about locations and pricing go here]</p>
-  </section>
+    <section id="about" class="info-section">
+      <div class="container">
+        <h3>About Us</h3>
+        <p><!-- About us info here --></p>
+      </div>
+    </section>
 
-  <section id="courses">
-    <h2>Courses We Offer</h2>
-    <p>[Description of available courses]</p>
-    <ul>
-      <li>[Course 1]</li>
-      <li>[Course 2]</li>
-      <li>[Course 3]</li>
-    </ul>
-  </section>
+    <section id="courses" class="info-section">
+      <div class="container">
+        <h3>Courses</h3>
+        <p><!-- Courses details here --></p>
+      </div>
+    </section>
 
-  <section id="vehicle">
-    <h2>Vehicle for Hire</h2>
-    <p>[Information about vehicle availability and pricing]</p>
-  </section>
+    <section id="locations" class="info-section">
+      <div class="container">
+        <h3>Locations</h3>
+        <p><!-- Locations info here --></p>
+      </div>
+    </section>
 
-  <section id="certification">
-    <h2>Check Certification</h2>
-    <p>[Instructions or a link to check certification]</p>
-  </section>
+    <section id="contact" class="info-section">
+      <div class="container">
+        <h3>Contact</h3>
+        <p><!-- Contact info here --></p>
+      </div>
+    </section>
+  </main>
 
-  <section id="login">
-    <h2>Student Login</h2>
-    <p>[Login instructions or portal placeholder]</p>
-  </section>
-
-  <section id="contact">
-    <h2>Contact Us</h2>
-    <p>Email: [Your email]</p>
-    <p>Phone: [Your phone]</p>
-    <p>Address: [Your location]</p>
+  <!-- Bottom info section with 4 columns -->
+  <section class="bottom-info">
+    <div class="container bottom-info-container">
+      <div class="info-column">
+        <h4>About Us</h4>
+        <p>Shaaz Driving Academy is dedicated to providing quality driver education with experienced instructors.</p>
+      </div>
+      <div class="info-column">
+        <h4>View Courses</h4>
+        <ul>
+          <li><a href="#courses">Beginner Course</a></li>
+          <li><a href="#courses">Advanced Course</a></li>
+          <li><a href="#courses">Defensive Driving</a></li>
+        </ul>
+      </div>
+      <div class="info-column">
+        <h4>Locations</h4>
+        <ul>
+          <li><a href="#locations">Scarborough</a></li>
+          <li><a href="#locations">Downtown Toronto</a></li>
+          <li><a href="#locations">Markham</a></li>
+        </ul>
+      </div>
+      <div class="info-column">
+        <h4>Other Links</h4>
+        <ul>
+          <li><a href="#certification">Check Certification</a></li>
+          <li><a href="#vehicle">Vehicle for Hire</a></li>
+          <li><a href="#contact">Contact Us</a></li>
+        </ul>
+      </div>
+    </div>
   </section>
 
   <footer>
-    <p>&copy; 2025 Shaaz Driving Academy. All rights reserved.</p>
+    <div class="container footer-container">
+      <p>© 2025 Shaaz Driving Academy. All rights reserved.</p>
+      <p>123 Your Street, Scarborough, ON M1M 1M1 | Phone: (123) 456-7890 | Email: info@shaazdriving.com</p>
+      <p><small>Licensed by [Relevant Authority]. Your safety is our priority.</small></p>
+    </div>
   </footer>
 </body>
 </html>
