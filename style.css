@@ -115,14 +115,17 @@ h1 {
 .bottom-info-container {
   display: flex;
   justify-content: space-between;
-  flex-wrap: wrap;
-  gap: 20px;
+  flex-wrap: nowrap; /* prevent wrapping */
+  gap: 40px;         /* add more space between columns */
+  max-width: 1200px; /* limit max width */
+  margin: 0 auto;    /* center horizontally */
 }
 
 .info-column {
-  flex: 1 1 200px;
-  min-width: 160px;
+  flex: 1 1 0;       /* all columns share equal width */
+  min-width: 0;      /* allow columns to shrink if needed */
 }
+
 
 .info-column h4 {
   font-weight: 700;
@@ -171,10 +174,13 @@ footer p {
 
 /* Responsive */
 @media (max-width: 768px) {
-  .header-container {
+  .bottom-info-container {
+    flex-wrap: wrap;
     flex-direction: column;
-    align-items: flex-start;
+    gap: 30px;
   }
+}
+
 
   .nav-links {
     flex-direction: column;
