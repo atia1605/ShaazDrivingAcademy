@@ -2,175 +2,388 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Shaaz Driving Academy</title>
-  <link rel="stylesheet" href="style.css"/>
+  <!-- Google Fonts for modern look -->
+  <link href="https://fonts.googleapis.com/css?family=Inter:400,700&display=swap" rel="stylesheet">
+  <!-- Font Awesome for icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    .faq-list {
+      margin-top: 10px;
+    }
+    .faq-item {
+      margin-bottom: 12px;
+      border-radius: 6px;
+      overflow: hidden;
+      box-shadow: 0 1px 4px rgba(0,0,0,0.04);
+    }
+    .faq-question {
+      width: 100%;
+      background: #fff;
+      color: #003a75;
+      border: none;
+      border-bottom: 1px solid #eee;
+      padding: 14px 16px;
+      text-align: left;
+      font-weight: 600;
+      cursor: pointer;
+      transition: background 0.2s, color 0.2s;
+      outline: none;
+      position: relative;
+      font-size: 1em;
+    }
+    .faq-question::after {
+      content: '\25BC';
+      position: absolute;
+      right: 18px;
+      font-size: 1em;
+      transition: transform 0.2s;
+    }
+    .faq-item.open .faq-question {
+      background: #f9b000;
+      color: #fff;
+    }
+    .faq-item.open .faq-question::after {
+      transform: rotate(180deg);
+    }
+    .faq-answer {
+      display: none;
+      background: #f4f7fb;
+      padding: 12px 16px;
+      color: #333;
+      font-size: 0.98em;
+    }
+    .faq-item.open .faq-answer {
+      display: block;
+    }
+  </style>
 </head>
 <body>
+  <!-- Header & Navigation -->
   <header>
-    <div class="logo">Shaaz Driving Academy</div>
-    <nav>
-      <ul>
-        <li><a href="#about">About Us</a></li>
-        <li><a href="#courses">Courses</a></li>
-        <li><a href="#locations">Locations</a></li>
-        <li><a href="#contact" class="cta">Contact</a></li>
-      </ul>
-    </nav>
+    <div class="container header-container">
+      <h1>Shaaz Driving Academy</h1>
+      <nav>
+        <ul class="nav-links">
+          <li><a href="#about">About Us</a></li>
+          <li class="dropdown">
+            <a href="#courses">Courses <i class="fa fa-caret-down"></i></a>
+            <ul class="dropdown-content">
+              <li><a href="#certification-courses">Certification Courses</a></li>
+              <li><a href="#individual-lessons">Individual Lessons</a></li>
+              <li><a href="#classroom-training">Classroom Training</a></li>
+              <li><a href="#senior-courses">Courses for Seniors</a></li>
+              <li><a href="#immigrant-courses">Courses for New Immigrants</a></li>
+            </ul>
+          </li>
+          <li><a href="#locations">Locations & Prices</a></li>
+          <li><a href="#vehicle">Vehicle for Hire</a></li>
+          <li><a href="#faq">FAQ</a></li>
+          <li><a href="#contact">Contact</a></li>
+          <li><a href="#register" class="btn-primary">Register Online</a></li>
+        </ul>
+      </nav>
+    </div>
   </header>
 
-  <section class="hero">
-    <div class="container">
-      <h1>Your Journey to Safe Driving Starts Here</h1>
-      <div class="hero-buttons">
-        <a href="#courses">View Courses</a>
-        <a href="#contact">Get Started</a>
-      </div>
+  <!-- Hero Section -->
+  <section class="hero-section">
+    <div class="container hero-container">
+      <h2>Ministry-Approved BDE Course Provider</h2>
+      <p>Online & Virtual Driving Courses across the GTA available now!</p>
+      <a href="#register" class="btn-primary">Register Online</a>
+      <a href="tel:1234567890" class="btn-secondary"><i class="fa fa-phone"></i> Call 123-456-7890</a>
     </div>
   </section>
 
-  <section id="about" class="about">
+  <!-- About Us -->
+  <section id="about" class="info-section">
     <div class="container">
-      <h2>About Us</h2>
-      <p>[Add your academy's mission, experience, and training philosophy here]</p>
+      <h3>About Us</h3>
+      <p>Shaaz Driving Academy is a Ministry Approved Beginner Driver Education course provider. All of our in-class and in-car curriculum is taught by professional, fully licensed instructors. We are dedicated to providing quality driver education and have served the GTA for over 30 years.</p>
     </div>
   </section>
 
-  <section id="courses" class="courses">
-  <div class="container" style="display: flex; gap: 40px; align-items: flex-start;">
-    <div style="flex: 2;">
-      <h2>Our Driving Courses</h2>
+  <!-- Courses -->
+  <section id="courses" class="info-section">
+    <div class="container">
+      <h3>Our Driving Courses</h3>
       <div class="course-packages">
-        <div class="package">
-          <h3>Beginner Course</h3>
-          <p>[Details about beginner package]</p>
+        <div class="course-card" id="certification-courses">
+          <h4>Package 1</h4>
+          <ul>
+            <li>10 Hours Of In-Car Training</li>
+            <li>20 Hours Of In-class Sessions</li>
+            <li>Certification with The Ministry of Transportation</li>
+            <li>10 hours homelink</li>
+          </ul>
+          <p class="note">Plus(+) Tax & Certification Fee</p>
         </div>
-        <div class="package">
-          <h3>Intermediate Course</h3>
-          <p>[Details about intermediate package]</p>
+        <div class="course-card">
+          <h4>Package 2</h4>
+          <ul>
+            <li>11 Hours Of In-Car Training</li>
+            <li>20 Hours Of In-Class Sessions</li>
+            <li>Certification With Ministry of Transportation</li>
+            <li>10 hours homelink</li>
+            <li>Use of an Instructor car for local G2 Road Test</li>
+            <li>We will also book your Road Test</li>
+          </ul>
+          <p class="note">Plus(+) Tax & Certification Fee</p>
         </div>
-        <div class="package">
-          <h3>Advanced Course</h3>
-          <p>[Details about advanced package]</p>
+        <div class="course-card">
+          <h4>Package 3</h4>
+          <ul>
+            <li>15 Hours Of In-Car Training</li>
+            <li>20 Hours Of In-Class Sessions</li>
+            <li>Certification With Ministry of Transportation</li>
+            <li>10 hours homelink</li>
+            <li>Use of an Instructor's car For local G2 Road Test</li>
+            <li>We will also book your Road Test</li>
+          </ul>
+          <p class="note">Plus(+) Tax & Certification Fee</p>
+        </div>
+      </div>
+      <h4 id="individual-lessons">Individual Lessons</h4>
+      <section class="two-column-section" id="individual-packages">
+        <div class="container two-column-container">
+          <!-- G1 to G2 Packages -->
+          <div class="main-column">
+            <h3>Individual Packages for G1 to get G2</h3>
+            <div class="package-list">
+              <div class="package-card">
+                <span>5 hours of lessons</span>
+                <span class="price">$250 + HST</span>
+                <a href="#book-g1g2-5" class="btn-primary">BOOK NOW</a>
+              </div>
+              <div class="package-card">
+                <span>10 hours of lessons</span>
+                <span class="price">$490 + HST</span>
+                <a href="#book-g1g2-10" class="btn-primary">BOOK NOW</a>
+              </div>
+              <div class="package-card">
+                <span>1 Hour and Road Test (in town)</span>
+                <span class="price">$195 + HST</span>
+                <a href="#book-g1g2-1rt" class="btn-primary">BOOK NOW</a>
+              </div>
+              <div class="package-card">
+                <span>3 Hours and Road Test mini package (in town)</span>
+                <span class="price">$300 + HST</span>
+                <a href="#book-g1g2-3rt" class="btn-primary">BOOK NOW</a>
+              </div>
+              <div class="package-card">
+                <span>5 Hours and Road Test (in town)</span>
+                <span class="price">$390 + HST</span>
+                <a href="#book-g1g2-5rt" class="btn-primary">BOOK NOW</a>
+              </div>
+              <div class="package-card">
+                <span>10 Hours and Road Test (in town)</span>
+                <span class="price">$625 + HST</span>
+                <a href="#book-g1g2-10rt" class="btn-primary">BOOK NOW</a>
+              </div>
+            </div>
+          </div>
+          <!-- G2 to G Packages -->
+          <aside class="sidebar-column">
+            <h3>Individual Packages for G2 to get G</h3>
+            <div class="package-list">
+              <div class="package-card">
+                <span>5 hours of lessons</span>
+                <span class="price">$300 + HST</span>
+                <a href="#book-g2g-5" class="btn-primary">BOOK NOW</a>
+              </div>
+              <div class="package-card">
+                <span>10 hours of lessons</span>
+                <span class="price">$590 + HST</span>
+                <a href="#book-g2g-10" class="btn-primary">BOOK NOW</a>
+              </div>
+              <div class="package-card">
+                <span>1 Hour and Road Test (in town)</span>
+                <span class="price">$220 + HST</span>
+                <a href="#book-g2g-1rt" class="btn-primary">BOOK NOW</a>
+              </div>
+              <div class="package-card">
+                <span>3 Hours and Road Test mini package (in town)</span>
+                <span class="price">$340 + HST</span>
+                <a href="#book-g2g-3rt" class="btn-primary">BOOK NOW</a>
+              </div>
+              <div class="package-card">
+                <span>5 Hours and Road Test (in town)</span>
+                <span class="price">$475 + HST</span>
+                <a href="#book-g2g-5rt" class="btn-primary">BOOK NOW</a>
+              </div>
+              <div class="package-card">
+                <span>10 Hours and Road Test (in town)</span>
+                <span class="price">$750 + HST</span>
+                <a href="#book-g2g-10rt" class="btn-primary">BOOK NOW</a>
+              </div>
+            </div>
+          </aside>
+        </div>
+      </section>
+      <h4 id="classroom-training">Classroom Training</h4>
+      <ul>
+        <li>In-class</li>
+        <li>In-Car Class</li>
+        <li>Digital</li>
+      </ul>
+      <h4 id="senior-courses">Courses for Seniors</h4>
+      <h4 id="immigrant-courses">Courses for New Immigrants</h4>
+    </div>
+  </section>
+
+  <!-- Locations -->
+  <section id="locations" class="info-section">
+    <div class="container">
+      <h3>Our Locations</h3>
+      <div class="locations-list">
+        <div class="location-card">
+          <h4>Scarborough</h4>
+          <p>123 Your Street, Scarborough, ON M1M 1M1</p>
+          <p>Phone: (123) 456-7890</p>
+        </div>
+        <div class="location-card">
+          <h4>Downtown Toronto</h4>
+          <p>456 Main St, Toronto, ON M5A 1A1</p>
+          <p>Phone: (123) 456-7891</p>
+        </div>
+        <div class="location-card">
+          <h4>Markham</h4>
+          <p>789 Markham Rd, Markham, ON L3S 1A1</p>
+          <p>Phone: (123) 456-7892</p>
+        </div>
+        <!-- Add more locations as needed -->
+      </div>
+    </div>
+  </section>
+
+  <!-- Vehicle for Hire -->
+  <section id="vehicle" class="info-section">
+    <div class="container">
+      <h3>Vehicle for Hire (PTC License)</h3>
+      <p>Get certified for vehicle-for-hire (PTC) licensing. Program overview, schedule, and registration details available. <a href="#register" class="btn-primary">Register Online</a></p>
+    </div>
+  </section>
+
+  <!-- Testimonials -->
+  <section id="testimonials" class="info-section">
+    <div class="container">
+      <h3>Testimonials</h3>
+      <div class="testimonials-list">
+        <div class="testimonial-card">
+          <p>"Great instructor. Great presentations. Amazing course!"</p>
+          <span>- Alex T.</span>
+        </div>
+        <div class="testimonial-card">
+          <p>"Brilliant instructor! Good content. Learned lots. This course has definitely made me know the importance of driving."</p>
+          <span>- Jade</span>
+        </div>
+        <div class="testimonial-card">
+          <p>"Awesome class! The instructors have so much knowledge to share to new drivers."</p>
+          <span>- Patrick M.</span>
         </div>
       </div>
     </div>
+  </section>
 
- <aside style="flex: 1; background: #f9f9f9; padding: 20px; border-radius: 8px; border: 1px solid #ddd;">
-  <h3>Frequently Asked Questions</h3>
-
-  <div class="faq-item">
-    <button class="faq-question">What documents do I need to bring to start driving lessons?</button>
-    <div class="faq-answer">
-      <p>You need to bring your learner’s permit, a valid ID, and any other documents required by your local licensing authority.</p>
-    </div>
-  </div>
-
-  <div class="faq-item">
-    <button class="faq-question">How many driving lessons do I need?</button>
-    <div class="faq-answer">
-      <p>The number of lessons varies depending on your experience and confidence. Typically, students take between 10 and 30 hours of lessons.</p>
-    </div>
-  </div>
-
-  <div class="faq-item">
-    <button class="faq-question">What payment methods do you accept?</button>
-    <div class="faq-answer">
-      <p>We accept cash, credit/debit cards, e-transfers, and payment plans can also be arranged.</p>
-    </div>
-  </div>
-
-  <div class="faq-item">
-    <button class="faq-question">Can I change or cancel a lesson?</button>
-    <div class="faq-answer">
-      <p>Yes, you can reschedule or cancel lessons with at least 24 hours notice to avoid any fees.</p>
-    </div>
-  </div>
-
-  <div class="faq-item">
-    <button class="faq-question">How soon can I start driving lessons?</button>
-    <div class="faq-answer">
-      <p>You can start lessons as soon as you have your learner’s permit and all required documents.</p>
-    </div>
-  </div>
-</aside>
-
-
-  </div>
-</section>
-
-
-  <section id="locations" class="locations">
+  <!-- Awards & Certifications -->
+  <section id="awards" class="info-section">
     <div class="container">
-      <h2>Our Locations</h2>
-      <p>[Add address and branches or Google Maps integration here]</p>
+      <h3>Awards & Certifications</h3>
+      <div class="awards-list">
+        <div class="award-card"><i class="fa fa-trophy"></i> Winner 2025 Consumer Choice Award</div>
+        <div class="award-card"><i class="fa fa-trophy"></i> Winner 2023 Consumer Choice Award</div>
+        <div class="award-card"><i class="fa fa-trophy"></i> Winner 2022 Consumer Choice Award</div>
+        <div class="award-card"><i class="fa fa-certificate"></i> Ministry-Approved BDE Course Provider</div>
+      </div>
     </div>
   </section>
 
-  <section class="testimonials">
+  <!-- FAQ -->
+  <section id="faq" class="info-section">
     <div class="container">
-      <h2>What Our Students Say</h2>
-      <p>[Student feedback and testimonials can go here]</p>
+      <h3>Frequently Asked Questions</h3>
+      <div class="faq-list">
+        <div class="faq-item">
+          <button class="faq-question" type="button">How do I get a driving instructor and schedule in car lessons?</button>
+          <div class="faq-answer">
+            <p>On your final day of in-class instruction, you will receive an in-car instructor's name and number. You will then contact the instructor and book appointments based on availability.</p>
+          </div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-question" type="button">How do I book my road test?</button>
+          <div class="faq-answer">
+            <p>Log on to <a href="https://www.drivetest.ca" target="_blank">www.drivetest.ca</a>, fill in your information and book your road test for the next available date at a DriveTest centre near you.</p>
+          </div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-question" type="button">Can I do a course without G1?</button>
+          <div class="faq-answer">
+            <p>In-class can be done without the G1 license. G1 license is required for in-car instruction.</p>
+          </div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-question" type="button">How can I pay the balance?</button>
+          <div class="faq-answer">
+            <p>Balance of payment can be paid by cash or cheque at our driving school location.</p>
+          </div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-question" type="button">Do I need to bring my certificate to the road test?</button>
+          <div class="faq-answer">
+            <p>A paper copy is required for the road test day. You are certified electronically through the MTO system.</p>
+          </div>
+        </div>
+      </div>
     </div>
   </section>
 
+  <!-- Contact -->
+  <section id="contact" class="info-section">
+    <div class="container">
+      <h3>Contact Us</h3>
+      <p>Email: info@shaazdriving.com | Phone: (123) 456-7890</p>
+      <form class="contact-form">
+        <input type="text" placeholder="Your Name" required />
+        <input type="email" placeholder="Your Email" required />
+        <textarea placeholder="Your Message" required></textarea>
+        <button type="submit" class="btn-primary">Send Message</button>
+      </form>
+    </div>
+  </section>
+
+  <!-- Footer -->
   <footer>
-    <div class="bottom-info-container">
-      <div class="info-column">
-        <h4>About Us</h4>
-        <ul>
-          <li><a href="#">Company Info</a></li>
-          <li><a href="#">Our Instructors</a></li>
-          <li><a href="#">Testimonials</a></li>
-        </ul>
-      </div>
-      <div class="info-column">
-        <h4>View Courses</h4>
-        <ul>
-          <li><a href="#">Beginner Course</a></li>
-          <li><a href="#">Intermediate Course</a></li>
-          <li><a href="#">Advanced Course</a></li>
-        </ul>
-      </div>
-      <div class="info-column">
-        <h4>Locations</h4>
-        <ul>
-          <li><a href="#">Scarborough</a></li>
-          <li><a href="#">Downtown Toronto</a></li>
-          <li><a href="#">Mississauga</a></li>
-        </ul>
-      </div>
-      <div class="info-column">
-        <h4>Other Links</h4>
-        <ul>
-          <li><a href="#">Privacy Policy</a></li>
-          <li><a href="#">Terms & Conditions</a></li>
-          <li><a href="#">Contact Us</a></li>
-        </ul>
-      </div>
-    </div>
-
-    <div class="footer-bottom">
-      &copy; 2025 Shaaz Driving Academy. All rights reserved.
+    <div class="container footer-container">
+      <p>© 2025 Shaaz Driving Academy. All rights reserved.</p>
+      <p>123 Your Street, Scarborough, ON M1M 1M1 | Phone: (123) 456-7890 | Email: info@shaazdriving.com</p>
+      <p>
+        <small>
+          Licensed by [Relevant Authority]. Your safety is our priority.
+          <br>
+          <i class="fab fa-facebook"></i> <i class="fab fa-instagram"></i> <i class="fab fa-twitter"></i>
+        </small>
+      </p>
     </div>
   </footer>
 
   <script>
-  document.querySelectorAll('.faq-question').forEach(button => {
-    button.addEventListener('click', () => {
-      const answer = button.nextElementSibling;
-
-      if (answer.style.maxHeight) {
-        answer.style.maxHeight = null;
-      } else {
-        // Close all open answers (optional)
-        document.querySelectorAll('.faq-answer').forEach(ans => ans.style.maxHeight = null);
-
-        answer.style.maxHeight = answer.scrollHeight + "px";
-      }
+    document.addEventListener('DOMContentLoaded', function() {
+      document.querySelectorAll('.faq-question').forEach(btn => {
+        btn.addEventListener('click', function() {
+          // For true accordion: close others
+          document.querySelectorAll('.faq-item').forEach(item => {
+            if (item !== btn.parentElement) {
+              item.classList.remove('open');
+            }
+          });
+          // Toggle current
+          btn.parentElement.classList.toggle('open');
+        });
+      });
     });
-  });
-</script>
-
+  </script>
 </body>
 </html>
