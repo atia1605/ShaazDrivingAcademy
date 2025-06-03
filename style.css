@@ -112,46 +112,61 @@ header nav ul li a,
 footer {
   background: #222;
   color: white;
-  padding: 40px 20px 20px;
+  padding: 60px 20px 20px;
+  font-size: 15px;
 }
 
 .bottom-info-container {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
-  gap: 20px;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 40px;
   max-width: 1200px;
   margin: auto;
 }
 
-.info-column {
-  flex: 1;
-  min-width: 200px;
-}
-
 .info-column h4 {
-  margin-bottom: 10px;
+  margin-bottom: 20px;
+  font-size: 16px;
+  text-transform: uppercase;
+  color: #f0f0f0;
 }
 
 .info-column ul {
   list-style: none;
 }
 
+.info-column ul li {
+  margin-bottom: 10px;
+}
+
 .info-column ul li a {
-  color: #bbb;
+  color: #ccc;
   text-decoration: none;
-  display: block;
-  margin: 5px 0;
+  font-size: 14px;
+  transition: color 0.3s ease;
+}
+
+.info-column ul li a:hover {
+  color: #fff;
 }
 
 .footer-bottom {
   text-align: center;
-  margin-top: 20px;
+  margin-top: 40px;
   font-size: 14px;
   color: #aaa;
+  border-top: 1px solid #444;
+  padding-top: 20px;
 }
 
-@media (max-width: 768px) {
+@media (max-width: 992px) {
+  .bottom-info-container {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 30px;
+  }
+}
+
+@media (max-width: 600px) {
   header .logo, header nav {
     float: none;
     text-align: center;
@@ -163,7 +178,7 @@ footer {
   }
 
   .bottom-info-container {
-    flex-direction: column;
+    grid-template-columns: 1fr;
     text-align: center;
   }
 }
