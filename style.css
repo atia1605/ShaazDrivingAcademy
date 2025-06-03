@@ -20,7 +20,7 @@ body {
 }
 
 header {
-  background: #222;
+  background: #1d1d1d;
   color: #fff;
   padding: 20px 0;
 }
@@ -79,8 +79,8 @@ header nav ul li a,
 }
 
 .achievements {
-  background: #f4f4f4;
-  padding: 40px 0;
+  background: #f9f9f9;
+  padding: 60px 20px;
   text-align: center;
 }
 
@@ -89,8 +89,21 @@ header nav ul li a,
   margin: 10px 0;
 }
 
-.courses, .locations, .testimonials {
-  padding: 40px 20px;
+.courses {
+  background: #f0f0f0;
+  padding: 60px 20px;
+  text-align: center;
+}
+
+.locations {
+  background: #ffffff;
+  padding: 60px 20px;
+  text-align: center;
+}
+
+.testimonials {
+  background: #f0f0f0;
+  padding: 60px 20px;
   text-align: center;
 }
 
@@ -106,7 +119,12 @@ header nav ul li a,
   padding: 20px;
   width: 250px;
   border-radius: 8px;
-  background: #f9f9f9;
+  background: #fff;
+  transition: box-shadow 0.3s ease;
+}
+
+.package:hover {
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.15);
 }
 
 footer {
