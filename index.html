@@ -56,36 +56,45 @@
       </div>
     </div>
 
-   <aside style="flex: 1; background: #f9f9f9; padding: 20px; border-radius: 8px; border: 1px solid #ddd;">
+ <aside style="flex: 1; background: #f9f9f9; padding: 20px; border-radius: 8px; border: 1px solid #ddd;">
   <h3>Frequently Asked Questions</h3>
+
   <div class="faq-item">
-    <button class="faq-question">How long are the courses?</button>
+    <button class="faq-question">What documents do I need to bring to start driving lessons?</button>
     <div class="faq-answer">
-      <p>Courses range from 10 to 30 hours depending on the package.</p>
+      <p>You need to bring your learner’s permit, a valid ID, and any other documents required by your local licensing authority.</p>
     </div>
   </div>
 
   <div class="faq-item">
-    <button class="faq-question">Do you offer online classes?</button>
+    <button class="faq-question">How many driving lessons do I need?</button>
     <div class="faq-answer">
-      <p>Yes, theory lessons are available online.</p>
+      <p>The number of lessons varies depending on your experience and confidence. Typically, students take between 10 and 30 hours of lessons.</p>
     </div>
   </div>
 
   <div class="faq-item">
-    <button class="faq-question">What is the minimum age?</button>
+    <button class="faq-question">What payment methods do you accept?</button>
     <div class="faq-answer">
-      <p>Students must be at least 16 years old.</p>
+      <p>We accept cash, credit/debit cards, e-transfers, and payment plans can also be arranged.</p>
     </div>
   </div>
 
   <div class="faq-item">
-    <button class="faq-question">Can I reschedule lessons?</button>
+    <button class="faq-question">Can I change or cancel a lesson?</button>
     <div class="faq-answer">
-      <p>Yes, with 24 hours notice.</p>
+      <p>Yes, you can reschedule or cancel lessons with at least 24 hours notice to avoid any fees.</p>
+    </div>
+  </div>
+
+  <div class="faq-item">
+    <button class="faq-question">How soon can I start driving lessons?</button>
+    <div class="faq-answer">
+      <p>You can start lessons as soon as you have your learner’s permit and all required documents.</p>
     </div>
   </div>
 </aside>
+
 
   </div>
 </section>
@@ -145,5 +154,23 @@
       &copy; 2025 Shaaz Driving Academy. All rights reserved.
     </div>
   </footer>
+
+  <script>
+  document.querySelectorAll('.faq-question').forEach(button => {
+    button.addEventListener('click', () => {
+      const answer = button.nextElementSibling;
+
+      if (answer.style.maxHeight) {
+        answer.style.maxHeight = null;
+      } else {
+        // Close all open answers (optional)
+        document.querySelectorAll('.faq-answer').forEach(ans => ans.style.maxHeight = null);
+
+        answer.style.maxHeight = answer.scrollHeight + "px";
+      }
+    });
+  });
+</script>
+
 </body>
 </html>
