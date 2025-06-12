@@ -409,6 +409,21 @@ html, body {
 }
 }
 
+/* Responsive fix for info-section button overlapping */
+@media (max-width: 600px) {
+  .info-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .info-section .btn-primary {
+    width: 100%;
+    max-width: 300px;
+    margin-top: 16px;
+  }
+}
 
 
 /* Two-column layout */
