@@ -183,6 +183,8 @@ h1 {
   margin-bottom: 20px;
   flex: 1 1 300px;
   min-width: 250px;
+  position: relative;
+  padding-bottom: 60px;
 }
 .course-card h4 {
   color: #f9b000;
@@ -195,6 +197,13 @@ h1 {
 .course-card .note {
   font-size: 0.9em;
   color: #888;
+}
+.course-card a.btn-primary {
+  display: inline-block;
+  margin-top: 15px;
+  width: 100%;
+  text-align: center;
+  font-size: 1rem;
 }
 
 /* Locations (Updated Background Section) */
@@ -326,7 +335,7 @@ html, body {
 }
 
 /* Avoid any container exceeding viewport width */
-.container, .header-container, .hero-container, .hero-section h2 {
+.container, .header-container, .hero-container,{
   max-width: 100%;
   overflow-x: hidden;
 }
