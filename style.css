@@ -411,17 +411,12 @@ html, body {
 
 /* Responsive fix for info-section button overlapping */
 @media (max-width: 600px) {
-  .info-section {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-  }
-
-  .info-section .btn-primary {
+  #vehicle .btn-primary {
+    display: block;
     width: 100%;
     max-width: 300px;
-    margin-top: 16px;
+    margin-top: 12px;
+    text-align: center;
   }
 }
 
