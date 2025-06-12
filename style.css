@@ -187,6 +187,7 @@ h1 {
   display: flex;
   gap: 20px;
   flex-wrap: wrap;
+  background-color: #dbeefb;
 }
 .location-card {
   background: #f9f9f9;
