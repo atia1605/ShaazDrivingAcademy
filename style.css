@@ -298,6 +298,24 @@ footer i {
   color: #f9b000;
   font-size: 1.2em;
 }
+/* Prevent mobile overflow */
+html, body {
+  max-width: 100%;
+  overflow-x: hidden;
+  box-sizing: border-box;
+}
+
+/* Ensure all elements respect box-sizing */
+*, *::before, *::after {
+  box-sizing: inherit;
+}
+
+/* Avoid any container exceeding viewport width */
+.container, .header-container, .hero-container {
+  max-width: 100%;
+  overflow-x: hidden;
+}
+
 
 /* Responsive */
 @media (max-width: 900px) {
