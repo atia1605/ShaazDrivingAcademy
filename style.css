@@ -137,6 +137,21 @@ h1 {
   margin-bottom: 15px;
   text-shadow: 2px 2px 6px rgba(0,0,0,0.7);
 }
+.hero-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 20px;
+}
+
+.hero-buttons .btn-primary,
+.hero-buttons .btn-secondary {
+  flex: 1 1 200px;
+  max-width: 250px;
+  text-align: center;
+}
+
 
 /* Info Sections */
 .info-section {
@@ -371,7 +386,21 @@ html, body {
     max-width: 100%;
     padding: 0 15px;
   }
+  @media (max-width: 600px) {
+  .hero-buttons {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .hero-buttons .btn-primary,
+  .hero-buttons .btn-secondary {
+    width: 100%;
+    max-width: 300px;
+  }
 }
+
+
+
 
 /* Two-column layout */
 .two-column-container {
