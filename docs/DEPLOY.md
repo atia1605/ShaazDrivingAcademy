@@ -64,13 +64,15 @@ That full string becomes `DATABASE_URL` on Render.
    | `STRIPE_SECRET_KEY` | `sk_live_...` or `sk_test_...` from [Stripe](https://dashboard.stripe.com/apikeys) |
    | `NODE_VERSION` | `20` |
 
-   Optional (email alerts when forms are used):
+   **Email — notify you when someone registers or uses Contact** (optional but recommended):
 
    | Key | Purpose |
    |-----|---------|
-   | `RESEND_API_KEY` | [Resend](https://resend.com) API key |
-   | `RESEND_FROM` | Verified sender, e.g. `Shaaz <noreply@yourdomain.com>` |
-   | `SITE_OWNER_EMAIL` | Where to receive notifications |
+   | `RESEND_API_KEY` | API key from [Resend](https://resend.com) (free tier available) |
+   | `RESEND_FROM` | A **verified** sender address on your domain, e.g. `Shaaz Driving <onboarding@resend.dev>` for testing, or `Shaaz <noreply@yourdomain.com>` after you [verify your domain](https://resend.com/docs/dashboard/domains/introduction) |
+   | `SITE_OWNER_EMAIL` | Your inbox — where alerts are sent (your Hotmail/Gmail business address). Comma-separated = multiple recipients. |
+
+   **Resend quick setup:** (1) Create a Resend account. (2) **API Keys** → create a key → paste as `RESEND_API_KEY` on Render. (3) For testing, Resend allows sending **from** `onboarding@resend.dev` — use `RESEND_FROM=Shaaz <onboarding@resend.dev>` and set `SITE_OWNER_EMAIL` to the email you use to log into Resend (or any inbox Resend accepts for testing). (4) Redeploy the API. (5) Submit a test registration — you should get **“New registration: …”** in your owner inbox. Production: add your real domain in Resend and use a `noreply@…` on that domain.
 
 5. Deploy. When it is live, open `https://YOUR-SERVICE.onrender.com/api/health` — you should see JSON with `"ok": true`.
 

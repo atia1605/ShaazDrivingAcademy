@@ -1,12 +1,43 @@
 /**
- * Optional Resend integration — set RESEND_API_KEY and RESEND_FROM in .env
- * https://resend.com/docs/send-with-node
+ * Owner notifications via [Resend](https://resend.com).
+ * Set on Render: RESEND_API_KEY, RESEND_FROM, SITE_OWNER_EMAIL
  */
-export async function sendOwnerNotification(subject: string, html: string): Promise<void> {
+type NotifyOptions = {
+  /** Lets the owner hit Reply to reach the customer (contact / registration). */
+  replyTo?: string;
+};
+
+export async function sendOwnerNotification(
+  subject: string,
+  html: string,
+  options?: NotifyOptions
+): Promise<void> {
   const apiKey = process.env.RESEND_API_KEY;
   const from = process.env.RESEND_FROM;
-  const to = process.env.SITE_OWNER_EMAIL;
-  if (!apiKey || !from || !to) return;
+  const toRaw = process.env.SITE_OWNER_EMAIL;
+
+  if (!apiKey || !from || !toRaw) {
+    console.warn(
+      "[email] Owner notification skipped: set RESEND_API_KEY, RESEND_FROM, and SITE_OWNER_EMAIL on the server."
+    );
+    return;
+  }
+
+  const to = toRaw
+    .split(",")
+    .map((s) => s.trim())
+    .filter(Boolean);
+
+  const payload: Record<string, unknown> = {
+    from,
+    to,
+    subject,
+    html,
+  };
+
+  if (options?.replyTo) {
+    payload.reply_to = options.replyTo;
+  }
 
   const res = await fetch("https://api.resend.com/emails", {
     method: "POST",
@@ -14,11 +45,11 @@ export async function sendOwnerNotification(subject: string, html: string): Prom
       Authorization: `Bearer ${apiKey}`,
       "Content-Type": "application/json",
     },
-    body: JSON.stringify({ from, to, subject, html }),
+    body: JSON.stringify(payload),
   });
 
   if (!res.ok) {
     const text = await res.text();
-    console.error("Resend error:", res.status, text);
+    console.error("[email] Resend error:", res.status, text);
   }
 }

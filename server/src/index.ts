@@ -151,7 +151,8 @@ app.post("/api/contact", async (req, res) => {
     `Website contact: ${parsed.data.name}`,
     `<p><strong>Name:</strong> ${escapeHtml(parsed.data.name)}</p>
      <p><strong>Email:</strong> ${escapeHtml(parsed.data.email)}</p>
-     <p><strong>Message:</strong></p><p>${escapeHtml(parsed.data.message).replace(/\n/g, "<br/>")}</p>`
+     <p><strong>Message:</strong></p><p>${escapeHtml(parsed.data.message).replace(/\n/g, "<br/>")}</p>`,
+    { replyTo: parsed.data.email }
   ).catch(() => {});
 
   res.status(201).json({ id: row.id, message: "Thank you — we received your message." });
@@ -174,12 +175,14 @@ app.post("/api/register-interest", async (req, res) => {
   });
 
   await sendOwnerNotification(
-    `Registration interest: ${parsed.data.fullName}`,
-    `<p><strong>Name:</strong> ${escapeHtml(parsed.data.fullName)}</p>
+    `New registration: ${parsed.data.fullName}`,
+    `<p>Someone submitted the <strong>Register online</strong> form on your website.</p>
+     <p><strong>Name:</strong> ${escapeHtml(parsed.data.fullName)}</p>
      <p><strong>Email:</strong> ${escapeHtml(parsed.data.email)}</p>
      <p><strong>Phone:</strong> ${escapeHtml(phone || "—")}</p>
-     <p><strong>Course:</strong> ${escapeHtml(courseType || "—")}</p>
-     <p><strong>Notes:</strong></p><p>${escapeHtml(notes || "—").replace(/\n/g, "<br/>")}</p>`
+     <p><strong>Course interest:</strong> ${escapeHtml(courseType || "—")}</p>
+     <p><strong>Notes:</strong></p><p>${escapeHtml(notes || "—").replace(/\n/g, "<br/>")}</p>`,
+    { replyTo: parsed.data.email }
   ).catch(() => {});
 
   res.status(201).json({ id: row.id, message: "Registration interest saved. We'll be in touch." });
