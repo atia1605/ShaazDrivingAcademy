@@ -74,6 +74,8 @@ That full string becomes `DATABASE_URL` on Render.
 
    **Resend quick setup:** (1) Create a Resend account. (2) **API Keys** → create a key → paste as `RESEND_API_KEY` on Render. (3) For testing, Resend allows sending **from** `onboarding@resend.dev` — use `RESEND_FROM=Shaaz <onboarding@resend.dev>` and set `SITE_OWNER_EMAIL` to the email you use to log into Resend (or any inbox Resend accepts for testing). (4) Redeploy the API. (5) Submit a test registration — you should get **“New registration: …”** in your owner inbox. Production: add your real domain in Resend and use a `noreply@…` on that domain.
 
+   **Emails land in Junk / Spam:** This is common until you fully authenticate your **own** domain (not `@resend.dev`). In Resend: **Domains** → add **shaazdriving.com** (or your domain) → add the **DNS records** they show (**SPF**, **DKIM**, often **DMARC**). Then set `RESEND_FROM` to an address on that domain, e.g. `Shaaz Driving <notifications@shaazdriving.com>`. In Outlook/Hotmail: open the message → **Not junk** / **Never block sender**; add the sender to **Safe senders**. Low-volume transactional mail improves after DNS verifies (can take up to 48 hours).
+
 5. Deploy. When it is live, open `https://YOUR-SERVICE.onrender.com/api/health` — you should see JSON with `"ok": true`.
 
 **Note:** Free Render web services **spin down** after idle time; the first request after sleep can take ~30–60 seconds.

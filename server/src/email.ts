@@ -7,6 +7,20 @@ type NotifyOptions = {
   replyTo?: string;
 };
 
+/** Plain-text part helps deliverability (multipart/alternative). */
+function htmlToPlainText(html: string): string {
+  return html
+    .replace(/<br\s*\/?>/gi, "\n")
+    .replace(/<\/p>/gi, "\n")
+    .replace(/<[^>]+>/g, "")
+    .replace(/&nbsp;/g, " ")
+    .replace(/&amp;/g, "&")
+    .replace(/&lt;/g, "<")
+    .replace(/&gt;/g, ">")
+    .replace(/\n{3,}/g, "\n\n")
+    .trim();
+}
+
 export async function sendOwnerNotification(
   subject: string,
   html: string,
@@ -28,11 +42,14 @@ export async function sendOwnerNotification(
     .map((s) => s.trim())
     .filter(Boolean);
 
+  const text = htmlToPlainText(html);
+
   const payload: Record<string, unknown> = {
     from,
     to,
     subject,
     html,
+    text,
   };
 
   if (options?.replyTo) {
@@ -49,7 +66,7 @@ export async function sendOwnerNotification(
   });
 
   if (!res.ok) {
-    const text = await res.text();
-    console.error("[email] Resend error:", res.status, text);
+    const errText = await res.text();
+    console.error("[email] Resend error:", res.status, errText);
   }
 }
