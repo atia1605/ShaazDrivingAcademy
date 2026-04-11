@@ -61,6 +61,15 @@ function getStripe(): Stripe | null {
   return new Stripe(key);
 }
 
+/** Root URL — Render opens this in the browser; the API had no / route before (404). */
+app.get("/", (_req, res) => {
+  res.json({
+    service: "shaaz-driving-api",
+    message: "This host is the API only. The public website is at https://www.shaazdriving.com",
+    health: "/api/health",
+  });
+});
+
 app.get("/api/health", (_req, res) => {
   res.json({
     ok: true,
