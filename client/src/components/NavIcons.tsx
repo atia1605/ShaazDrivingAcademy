@@ -84,3 +84,32 @@ export function IconUserPlus(props: SVGProps<SVGSVGElement>) {
     </svg>
   );
 }
+
+export function IconMonitor(props: SVGProps<SVGSVGElement>) {
+  return (
+    <svg viewBox="0 0 24 24" width="1.1em" height="1.1em" fill="none" stroke="currentColor" strokeWidth="2" aria-hidden {...props}>
+      <rect x="2" y="4" width="20" height="13" rx="2" />
+      <path d="M8 21h8M12 17v4" strokeLinecap="round" />
+    </svg>
+  );
+}
+
+export function IconGlobe(props: SVGProps<SVGSVGElement>) {
+  return (
+    <svg viewBox="0 0 24 24" width="1.1em" height="1.1em" fill="none" stroke="currentColor" strokeWidth="2" aria-hidden {...props}>
+      <circle cx="12" cy="12" r="9" />
+      <path d="M3 12h18M12 3c2.5 3 4 5.2 4 9s-1.5 6-4 9c-2.5-3-4-5.2-4-9s1.5-6 4-9z" />
+    </svg>
+  );
+}
+
+export function IconHeart(props: SVGProps<SVGSVGElement>) {
+  return (
+    <svg viewBox="0 0 24 24" width="1.1em" height="1.1em" fill="none" stroke="currentColor" strokeWidth="2" aria-hidden {...props}>
+      <path
+        d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"
+        strokeLinejoin="round"
+      />
+    </svg>
+  );
+}

@@ -103,3 +103,61 @@ export const courseTypes = [
   { value: "ptc", label: "Vehicle for hire (PTC)" },
   { value: "other", label: "Other / not sure" },
 ] as const;
+
+/** In-class, in-car, and digital / homelink — used on Courses page */
+export const classroomModes = [
+  {
+    title: "In-class instruction",
+    lead:
+      "Build a strong theory foundation in a structured classroom with a qualified instructor — rules of the road, signs, defensive driving, and how to handle real situations before you get behind the wheel.",
+    bullets: [
+      "MTO-aligned curriculum for Beginner Driver Education (BDE)",
+      "Discussion and Q&A so concepts stick — not just memorization",
+      "You can often start in-class before your G1; check with us when you book",
+    ],
+  },
+  {
+    title: "In-car training",
+    lead:
+      "Hands-on driving in a dual-controlled vehicle with a licensed instructor. Each lesson builds on the last, from basics to test-ready skills on routes you will actually use.",
+    bullets: [
+      "Parking, intersections, lane changes, highway practice, and road-test preparation",
+      "Clear feedback after every session so you know what to improve",
+      "A valid G1 (or appropriate licence) is required for in-car lessons",
+    ],
+  },
+  {
+    title: "Digital & homelink",
+    lead:
+      "Flexible online classroom components and homelink hours let you review on your own time and stay on track between in-person sessions.",
+    bullets: [
+      "Digital options where offered — learn in the format that fits your schedule",
+      "Homelink work complements in-class and in-car training for a complete BDE record",
+      "Revisit material anytime so you are confident for tests and real-world driving",
+    ],
+  },
+] as const;
+
+export const seniorCoursesContent = {
+  intro:
+    "Returning after a break, refreshing for a renewal, or simply want more confidence on busier roads? We offer patient, respectful instruction tailored to experienced drivers — at your pace, with clear communication.",
+  highlights: [
+    "Refresher lessons: highways, night driving, winter conditions, and complex intersections",
+    "Updates on Ontario traffic laws, signage, and right-of-way in today’s traffic",
+    "Stress-free practice — we explain modern vehicle tech and road layouts step by step",
+    "Flexible scheduling and lesson plans built around your goals, not a one-size-fits-all package",
+  ],
+  closing: "Tell us what you would like to achieve and we will recommend a plan that fits.",
+} as const;
+
+export const immigrantCoursesContent = {
+  intro:
+    "New to Canada? We help you turn your experience into safe driving here — from Ontario’s graduated licensing system to reading signs, handling Toronto-area traffic, and preparing for your road test.",
+  highlights: [
+    "Guidance whether you are starting fresh or exchanging an international licence — your path depends on the MTO and your background; we help you understand the next steps",
+    "Clear explanations of school zones, transit lanes, winter driving, and unwritten “local” habits on busy streets",
+    "Practice on routes and scenarios similar to your test centre so nothing feels unfamiliar",
+    "Patient instructors who take extra time when English is a second language — we repeat and demonstrate until you are comfortable",
+  ],
+  closing: "Share your situation by phone or email and we will outline the best program for you.",
+} as const;

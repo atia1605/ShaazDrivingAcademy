@@ -27,8 +27,10 @@ export function HowItWorks() {
               <span className="how-step" aria-hidden>
                 {i + 1}
               </span>
-              <h3>{s.title}</h3>
-              <p>{s.text}</p>
+              <div className="how-card-content">
+                <h3>{s.title}</h3>
+                <p>{s.text}</p>
+              </div>
             </li>
           ))}
         </ol>

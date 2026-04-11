@@ -639,24 +639,51 @@ a:hover {
   margin: 0;
   padding: 0;
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-  gap: 1.25rem;
+  /* Single column on phones — avoids 2 cramped columns from auto-fit + minmax(240px) */
+  grid-template-columns: minmax(0, 1fr);
+  gap: 1rem;
+}
+
+.how-grid > li {
+  min-width: 0;
+}
+
+@media (min-width: 640px) {
+  .how-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 1.15rem;
+  }
+}
+
+@media (min-width: 900px) {
+  .how-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 1.25rem;
+  }
 }
 
 .how-card {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.85rem;
+  min-width: 0;
+  width: 100%;
   background: var(--color-surface);
   border-radius: var(--radius-lg);
-  padding: 1.5rem 1.35rem;
+  padding: 1.25rem 1.1rem;
   border: 1px solid var(--color-border);
   box-shadow: var(--shadow);
-  position: relative;
-  padding-top: 2.25rem;
+}
+
+@media (min-width: 640px) {
+  .how-card {
+    gap: 1rem;
+    padding: 1.5rem 1.35rem;
+  }
 }
 
 .how-step {
-  position: absolute;
-  top: 1rem;
-  left: 1.35rem;
+  flex-shrink: 0;
   width: 2rem;
   height: 2rem;
   border-radius: 10px;
@@ -669,10 +696,18 @@ a:hover {
   justify-content: center;
 }
 
+.how-card-content {
+  flex: 1;
+  min-width: 0;
+}
+
 .how-card h3 {
   margin: 0 0 0.5rem;
-  font-size: 1.08rem;
+  font-size: clamp(1rem, 2.8vw, 1.08rem);
   color: var(--color-navy);
+  line-height: 1.3;
+  overflow-wrap: break-word;
+  word-wrap: break-word;
 }
 
 .how-card p {
@@ -680,6 +715,8 @@ a:hover {
   color: var(--color-muted);
   font-size: 0.95rem;
   line-height: 1.55;
+  overflow-wrap: break-word;
+  word-wrap: break-word;
 }
 
 /* Grid cards */
@@ -758,6 +795,226 @@ a:hover {
   border-radius: var(--radius);
   padding: 1.25rem;
   border: 1px solid var(--color-border);
+}
+
+.lesson-price-note {
+  margin: 0 0 1rem;
+  max-width: 62ch;
+  font-size: 0.95rem;
+  line-height: 1.55;
+  color: var(--color-navy-mid);
+  padding: 0.75rem 1rem;
+  border-radius: var(--radius);
+  background: rgba(15, 118, 110, 0.08);
+  border: 1px solid rgba(15, 118, 110, 0.22);
+}
+
+.lesson-price-note a {
+  color: var(--color-teal);
+  font-weight: 600;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+.lesson-price-note a:hover {
+  color: var(--color-navy);
+}
+
+.course-subsection-lead {
+  margin: 0 0 1.25rem;
+  max-width: 62ch;
+  font-size: 1.02rem;
+  line-height: 1.65;
+  color: var(--color-muted);
+}
+
+.course-feature-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 1.25rem;
+  margin-bottom: 0.25rem;
+}
+
+.course-feature-card {
+  background: var(--color-surface);
+  border-radius: var(--radius-lg);
+  padding: 1.35rem 1.25rem;
+  border: 1px solid var(--color-border);
+  box-shadow: var(--shadow);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.course-feature-card:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-hover);
+}
+
+.course-feature-icon {
+  width: 2.75rem;
+  height: 2.75rem;
+  border-radius: 12px;
+  background: var(--color-teal-soft);
+  color: var(--color-teal);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 0.85rem;
+}
+
+.course-feature-icon svg {
+  width: 1.35rem;
+  height: 1.35rem;
+}
+
+.course-feature-card h4 {
+  margin: 0 0 0.5rem;
+  font-size: 1.08rem;
+  color: var(--color-navy);
+}
+
+.course-feature-lead {
+  margin: 0 0 1rem;
+  font-size: 0.94rem;
+  line-height: 1.6;
+  color: var(--color-muted);
+}
+
+.course-feature-bullets {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.course-feature-bullets li {
+  position: relative;
+  padding-left: 1.35rem;
+  margin-bottom: 0.55rem;
+  font-size: 0.9rem;
+  line-height: 1.5;
+  color: var(--color-navy-mid);
+}
+
+.course-feature-bullets li:last-child {
+  margin-bottom: 0;
+}
+
+.course-feature-bullets li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0.45rem;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--color-teal);
+}
+
+.course-pillar-band {
+  margin-top: 2.5rem;
+  padding: 1.75rem 1.5rem 1.85rem;
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--color-border);
+}
+
+.course-pillar-band--seniors {
+  background: linear-gradient(165deg, #f6f9fc 0%, #eef4f2 100%);
+}
+
+.course-pillar-band--immigrants {
+  background: linear-gradient(165deg, #f0faf8 0%, #e8f3f2 100%);
+}
+
+.course-pillar-title {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-top: 0;
+  margin-bottom: 1rem;
+}
+
+.course-pillar-title-icon {
+  display: flex;
+  color: var(--color-teal);
+}
+
+.course-pillar-title-icon svg {
+  width: 1.35rem;
+  height: 1.35rem;
+}
+
+.course-split {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.75rem;
+  align-items: start;
+}
+
+.course-pillar-intro p {
+  margin: 0 0 1rem;
+  line-height: 1.65;
+  color: var(--color-text);
+}
+
+.course-pillar-closing {
+  margin-bottom: 0 !important;
+  font-size: 0.95rem;
+}
+
+.course-pillar-badge {
+  display: inline-block;
+  margin: 0 0 0.75rem;
+  padding: 0.35rem 0.75rem;
+  font-size: 0.82rem;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+  color: var(--color-navy-mid);
+  background: rgba(255, 255, 255, 0.75);
+  border: 1px solid rgba(15, 118, 110, 0.2);
+  border-radius: 999px;
+}
+
+.course-pillar-badge--accent {
+  background: rgba(15, 118, 110, 0.12);
+  border-color: rgba(15, 118, 110, 0.35);
+  color: var(--color-teal);
+}
+
+.course-pillar-cta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.65rem;
+  margin-top: 1.15rem;
+}
+
+.course-check-list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.course-check-list li {
+  position: relative;
+  padding: 0.75rem 0.85rem 0.75rem 2.35rem;
+  background: rgba(255, 255, 255, 0.65);
+  border: 1px solid var(--color-border);
+  border-radius: 12px;
+  font-size: 0.92rem;
+  line-height: 1.5;
+  color: var(--color-navy-mid);
+}
+
+.course-check-list li::before {
+  content: "✓";
+  position: absolute;
+  left: 0.75rem;
+  top: 0.7rem;
+  font-weight: 800;
+  color: var(--color-teal);
+  font-size: 0.95rem;
 }
 
 .package-list {
@@ -1293,6 +1550,10 @@ a:hover {
 /* Responsive */
 @media (max-width: 900px) {
   .two-col {
+    grid-template-columns: 1fr;
+  }
+
+  .course-split {
     grid-template-columns: 1fr;
   }
 
