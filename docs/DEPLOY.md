@@ -36,6 +36,8 @@ mongodb+srv://MYUSER:MYPASSWORD@nahia16.ujjzkva.mongodb.net/shaaz?retryWrites=tr
 
 That full string becomes `DATABASE_URL` on Render.
 
+**Automatic fix on deploy:** If you still paste Atlas’s default string with **`...mongodb.net/?...`** (no name before `?`), the server’s `start-prod` script inserts **`/shaaz`** before `?` so Prisma can start. You can override the name with env **`MONGODB_DATABASE`** (default `shaaz`).
+
 **Local development:** use Docker from the repo root: `docker compose up -d` and the `DATABASE_URL` in `server/.env.example`.
 
 ## 2. Deploy the API on Render
