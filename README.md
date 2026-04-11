@@ -83,7 +83,13 @@ SQLite is fine for a single small server. For managed hosting or higher traffic,
 
 ### Custom domain (GitHub Pages)
 
-The previous root `CNAME` for `www.shaazdriving.com` is mirrored in `client/public/CNAME` so static exports include it. GitHub Pages only serves **static** files; you still need to host the API separately (Railway, Render, Fly.io, a VPS, etc.) and configure `VITE_API_URL` as above.
+The `CNAME` file lives in `client/public/CNAME` so each build includes `www.shaazdriving.com`. GitHub Pages only serves **static** files; you still need to host the API separately (Railway, Render, Fly.io, a VPS, etc.) and configure `VITE_API_URL` as above.
+
+**Repo settings to check:**
+
+1. **Settings → Pages → Build and deployment:** Source must be **GitHub Actions** (not “Deploy from a branch”), or workflows will not publish your site.
+2. **Settings → Pages → Custom domain:** Enter `www.shaazdriving.com`, save, and wait for DNS check (your DNS already points `www` at GitHub).
+3. **Optional:** On the repo home page, click **⚙️** next to “About” and set **Website** to `https://www.shaazdriving.com` so the link appears under the repo description (this is separate from Actions).
 
 ## API endpoints
 

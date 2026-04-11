@@ -3,6 +3,7 @@ name: Deploy to GitHub Pages
 on:
   push:
     branches: [main]
+  workflow_dispatch:
 
 permissions:
   contents: read
@@ -27,10 +28,12 @@ jobs:
       - name: Install dependencies
         run: npm ci
 
+      - name: Configure GitHub Pages
+        uses: actions/configure-pages@v5
+
       - name: Build client
         run: npm run build --workspace=client
         env:
-          # Optional: set in repo Settings → Secrets and variables → Actions
           VITE_API_URL: ${{ secrets.VITE_API_URL }}
 
       - name: SPA fallback for GitHub Pages
@@ -44,9 +47,13 @@ jobs:
   deploy:
     needs: build
     runs-on: ubuntu-latest
+    permissions:
+      pages: write
+      id-token: write
     environment:
       name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
+      # Always show your live site in the Actions deployment summary (output from deploy-pages can be empty before custom domain is wired in GitHub settings).
+      url: https://www.shaazdriving.com
     steps:
       - name: Deploy to GitHub Pages
         id: deployment
