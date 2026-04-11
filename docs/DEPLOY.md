@@ -78,12 +78,9 @@ That full string becomes `DATABASE_URL` on Render.
 
 ## 3. Point the website at the API
 
-1. In GitHub: **Repository → Settings → Secrets and variables → Actions**.
-2. Add **`VITE_API_URL`** in either place (both work; the workflow uses the secret if set, otherwise the variable):
-   - **Secrets** — encrypted, hidden in logs (fine for URLs too).
-   - **Variables** — not secret; easier to read/edit. Your API URL is public in the built site anyway.
-3. Value: your API origin **with no trailing slash**, e.g. `https://shaazdrivingacademy.onrender.com`
-4. Re-run the **Deploy to GitHub Pages** workflow (or push to `main`).
+1. **API URL in the static site:** The client reads **`VITE_API_URL`** from **`client/.env.production`** (committed). It should be your Render API origin **with no trailing slash**, e.g. `https://shaazdrivingacademy.onrender.com`. After changing hosts, edit that file (and the `PROD_FALLBACK_API` constant in `client/src/api.ts` if you use the fallback) and push — then redeploy Pages.
+2. Optional: GitHub **Secrets / Variables** named `VITE_API_URL` are **not** required for the default setup (the workflow no longer injects an empty value that would override `.env.production`).
+3. Re-run **Deploy to GitHub Pages** after pushing client changes.
 
 ## 4. Stripe
 

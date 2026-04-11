@@ -12,14 +12,22 @@ const prisma = new PrismaClient();
 const app = express();
 const PORT = Number(process.env.PORT) || 4000;
 
-const clientOrigins = (process.env.CLIENT_ORIGIN || "http://localhost:5173")
+const defaultClientOrigins =
+  "http://localhost:5173,http://127.0.0.1:5173,https://www.shaazdriving.com,https://shaazdrivingacademy.onrender.com";
+
+const clientOrigins = (process.env.CLIENT_ORIGIN || defaultClientOrigins)
   .split(",")
   .map((s) => s.trim())
   .filter(Boolean);
 
 const publicAppUrl = (process.env.PUBLIC_APP_URL || "http://localhost:5173").replace(/\/$/, "");
 
-app.use(helmet());
+app.use(
+  helmet({
+    // Allow API responses to be read from www.shaazdriving.com (GitHub Pages)
+    crossOriginResourcePolicy: { policy: "cross-origin" },
+  })
+);
 app.use(
   cors({
     origin: clientOrigins.length === 1 ? clientOrigins[0] : clientOrigins,
