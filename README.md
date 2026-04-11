@@ -1,6 +1,6 @@
 # Shaaz Driving Academy — full stack website
 
-This repository contains a **React (Vite + TypeScript)** frontend, a **Node.js (Express)** API, and a **SQLite** database via **Prisma**. Contact messages and registration interest are stored in the database. **Stripe** powers secure card payments (deposits/fees); optional **Resend** can email you when forms are submitted.
+This repository contains a **React (Vite + TypeScript)** frontend, a **Node.js (Express)** API, and a **PostgreSQL** database via **Prisma**. Contact messages and registration interest are stored in the database. **Stripe** powers secure card payments (deposits/fees); optional **Resend** can email you when forms are submitted.
 
 ## Project layout
 
@@ -9,12 +9,15 @@ This repository contains a **React (Vite + TypeScript)** frontend, a **Node.js (
 | `client/` | React SPA — marketing pages, FAQ, register, pay |
 | `server/` | REST API — contact, registration, Stripe Checkout, health |
 | `server/prisma/` | Database schema and migrations |
+| `docs/DEPLOY.md` | **Deploy the API** (Render, Neon, `VITE_API_URL`, Stripe) |
+| `render.yaml` | Optional Render Blueprint for the API |
 | `legacy-static/` | Previous single-page HTML/CSS (archived) |
 
 ## Prerequisites
 
 - Node.js 20+ recommended
 - npm
+- [Docker](https://www.docker.com/) (for local PostgreSQL only)
 
 ## Local development
 
@@ -24,19 +27,25 @@ This repository contains a **React (Vite + TypeScript)** frontend, a **Node.js (
    npm install
    ```
 
-2. **Configure the API** — copy `server/.env.example` to `server/.env` (already present for local dev with defaults):
+2. **Start PostgreSQL** (one terminal):
 
-   - `DATABASE_URL` — SQLite file (default: `file:./dev.db` under `server/prisma/`)
-   - `PORT` — API port (default `4000`)
-   - `CLIENT_ORIGIN` — must match the Vite dev server (`http://localhost:5173`)
+   ```bash
+   docker compose up -d
+   ```
 
-3. **Apply database migrations** (first run or after schema changes):
+3. **Configure the API** — copy `server/.env.example` to `server/.env` if needed. Defaults expect:
+
+   - `DATABASE_URL` — `postgresql://postgres:postgres@localhost:5432/shaaz`
+   - `PORT` — `4000`
+   - `CLIENT_ORIGIN` — include `http://localhost:5173` (and production origin when testing CORS)
+
+4. **Apply database migrations**:
 
    ```bash
    npm run db:migrate --workspace=server
    ```
 
-4. **Run client + API together**:
+5. **Run client + API together**:
 
    ```bash
    npm run dev
@@ -44,13 +53,19 @@ This repository contains a **React (Vite + TypeScript)** frontend, a **Node.js (
 
    - Site: [http://localhost:5173](http://localhost:5173)
    - API: [http://localhost:4000](http://localhost:4000)  
-   - Vite proxies `/api/*` to the API during development, so forms work without extra env vars.
+   - Vite proxies `/api/*` to the API during development, so forms work without `VITE_API_URL`.
 
-5. **Inspect data** (optional):
+6. **Inspect data** (optional):
 
    ```bash
    npm run db:studio --workspace=server
    ```
+
+## Production: API + live forms + Stripe
+
+GitHub Pages only hosts the **static** frontend. The API must run on a Node host with Postgres (e.g. **Render** + **Neon**).
+
+Follow **[docs/DEPLOY.md](docs/DEPLOY.md)** step by step: create a database, deploy `server/`, set `VITE_API_URL` in GitHub Actions secrets, then redeploy the site.
 
 ## Production build
 
@@ -61,47 +76,35 @@ npm run build
 - Client output: `client/dist/`
 - Server output: `server/dist/`
 
-Run the API in production:
+Production start (runs migrations, then the server):
 
 ```bash
-cd server
-node dist/index.js
+cd server && npm run start:prod
 ```
 
-Set `CLIENT_ORIGIN` to your real site URL (e.g. `https://www.shaazdriving.com`). Set `PUBLIC_APP_URL` to that same public URL so Stripe returns learners to your site after payment.
-
-For the React app, set `VITE_API_URL` at **build time** to your public API base URL (no trailing slash), e.g.:
-
-```bash
-cd client
-VITE_API_URL=https://api.example.com npm run build
-```
-
-### Database in production
-
-SQLite is fine for a single small server. For managed hosting or higher traffic, switch Prisma to **PostgreSQL**: change `provider` and `url` in `server/prisma/schema.prisma`, run migrations, and set `DATABASE_URL` accordingly.
+Set `CLIENT_ORIGIN` and `PUBLIC_APP_URL` to your public site (e.g. `https://www.shaazdriving.com`). For the React app on GitHub Pages, set the **`VITE_API_URL`** repository secret to your API origin (no trailing slash).
 
 ### Custom domain (GitHub Pages)
 
-The `CNAME` file lives in `client/public/CNAME` so each build includes `www.shaazdriving.com`. GitHub Pages only serves **static** files; you still need to host the API separately (Railway, Render, Fly.io, a VPS, etc.) and configure `VITE_API_URL` as above.
+The `CNAME` file lives in `client/public/CNAME` so each build includes `www.shaazdriving.com`.
 
 **Repo settings to check:**
 
-1. **Settings → Pages → Build and deployment:** Source must be **GitHub Actions** (not “Deploy from a branch”), or workflows will not publish your site.
-2. **Settings → Pages → Custom domain:** Enter `www.shaazdriving.com`, save, and wait for DNS check (your DNS already points `www` at GitHub).
-3. **Optional:** On the repo home page, click **⚙️** next to “About” and set **Website** to `https://www.shaazdriving.com` so the link appears under the repo description (this is separate from Actions).
+1. **Settings → Pages → Build and deployment:** Source must be **GitHub Actions**.
+2. **Settings → Pages → Custom domain:** `www.shaazdriving.com` (DNS must point at GitHub).
+3. **Actions secrets:** `VITE_API_URL` = your deployed API URL (see [docs/DEPLOY.md](docs/DEPLOY.md)).
 
 ## API endpoints
 
 - `GET /api/health` — liveness check (includes whether Stripe is configured)
-- `GET /api/payment-options` — catalog of pay-online items (amounts defined in `server/src/payments.ts`)
-- `POST /api/checkout-session` — JSON body: `{ productKey, customerEmail? }` — returns `{ url }` for Stripe Checkout
-- `POST /api/contact` — JSON body: `{ name, email, message }`
-- `POST /api/register-interest` — JSON body: `{ fullName, email, phone?, courseType?, notes? }`
+- `GET /api/payment-options` — catalog of pay-online items (amounts in `server/src/payments.ts`)
+- `POST /api/checkout-session` — JSON: `{ productKey, customerEmail? }` → `{ url }` for Stripe Checkout
+- `POST /api/contact` — JSON: `{ name, email, message }`
+- `POST /api/register-interest` — JSON: `{ fullName, email, phone?, courseType?, notes? }`
 
 ### Stripe
 
-Use [Stripe](https://stripe.com) test keys while developing. Adjust deposit amounts in `server/src/payments.ts` (amounts are in **cents**, CAD). After a successful payment, users land on `/pay/success` on your site.
+Use [Stripe](https://stripe.com) test keys while developing. Adjust amounts in `server/src/payments.ts` (values are in **cents**, CAD).
 
 ## License
 

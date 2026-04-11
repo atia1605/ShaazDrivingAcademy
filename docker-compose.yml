@@ -1,0 +1,18 @@
+# Local PostgreSQL for API development (Prisma).
+# Usage: docker compose up -d
+# Then set server/.env DATABASE_URL=postgresql://postgres:postgres@localhost:5432/shaaz
+
+services:
+  db:
+    image: postgres:16-alpine
+    ports:
+      - "5432:5432"
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_DB: shaaz
+    volumes:
+      - shaaz_pgdata:/var/lib/postgresql/data
+
+volumes:
+  shaaz_pgdata:

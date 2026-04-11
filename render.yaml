@@ -1,0 +1,15 @@
+# Render Blueprint — https://render.com/docs/blueprint-spec
+# Create a PostgreSQL database separately (e.g. Neon free tier) and set DATABASE_URL in the service.
+
+services:
+  - type: web
+    name: shaaz-driving-api
+    runtime: node
+    plan: free
+    region: oregon
+    buildCommand: npm ci && npm run db:generate --workspace=server && npm run build --workspace=server
+    startCommand: cd server && npm run start:prod
+    healthCheckPath: /api/health
+    envVars:
+      - key: NODE_VERSION
+        value: "20"
