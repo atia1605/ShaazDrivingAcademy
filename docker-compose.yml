@@ -1,18 +1,17 @@
-# Local PostgreSQL for API development (Prisma).
+# Local MongoDB for API development (Prisma).
 # Usage: docker compose up -d
-# Then set server/.env DATABASE_URL=postgresql://postgres:postgres@localhost:5432/shaaz
+# Then set server/.env DATABASE_URL (see server/.env.example)
 
 services:
-  db:
-    image: postgres:16-alpine
+  mongo:
+    image: mongo:7
     ports:
-      - "5432:5432"
+      - "27017:27017"
     environment:
-      POSTGRES_USER: postgres
-      POSTGRES_PASSWORD: postgres
-      POSTGRES_DB: shaaz
+      MONGO_INITDB_ROOT_USERNAME: root
+      MONGO_INITDB_ROOT_PASSWORD: example
     volumes:
-      - shaaz_pgdata:/var/lib/postgresql/data
+      - shaaz_mongodata:/data/db
 
 volumes:
-  shaaz_pgdata:
+  shaaz_mongodata:

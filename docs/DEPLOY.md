@@ -1,38 +1,44 @@
 # Deploy the API (forms, Stripe, database)
 
-The **React site** on GitHub Pages is static. The **API** (`server/`) must run on a host that supports **Node.js** and **PostgreSQL**.
+The **React site** on GitHub Pages is static. The **API** (`server/`) must run on a host that supports **Node.js** and **MongoDB** (via [Prisma MongoDB](https://www.prisma.io/docs/concepts/database-connectors/mongodb)).
 
-## 1. Create a PostgreSQL database
+## 1. Create a MongoDB database
 
-Use any managed Postgres. Free options:
+**Recommended for production:** [MongoDB Atlas](https://www.mongodb.com/cloud/atlas) — free tier, managed cluster.
 
-- **[Neon](https://neon.tech)** — serverless Postgres, free tier  
-- **[Supabase](https://supabase.com)** — Postgres + extras  
-- **Render PostgreSQL** — if available on your plan  
+1. Create a project and a **cluster** (e.g. M0 free).
+2. **Database Access:** add a database user (username + password).
+3. **Network Access:** allow access from everywhere (`0.0.0.0/0`) for Render, or Render’s outbound IPs if you prefer lockdown.
+4. **Connect** → Drivers → copy the **connection string** (starts with `mongodb+srv://`).
+5. Replace `<password>` with your user’s password and set the database name (e.g. `shaaz`).
 
-Copy the **connection string** (usually starts with `postgresql://` or `postgres://`). This becomes `DATABASE_URL`.
+That string becomes `DATABASE_URL` on Render.
+
+**Local development:** use Docker from the repo root: `docker compose up -d` and the `DATABASE_URL` in `server/.env.example`.
 
 ## 2. Deploy the API on Render
 
 1. Sign up at [render.com](https://render.com) and connect your GitHub account.
-2. **New → Blueprint** → connect the `ShaazDrivingAcademy` repo, or **New → Web Service** and select the repo.
+2. **New → Web Service** and select the `ShaazDrivingAcademy` repo.
 3. Configure:
-   - **Root directory:** leave empty (repository root).
+
+   - **Root directory:** leave **empty** (repository root).
+   - **Runtime:** **Node**
    - **Build command:**  
      `npm ci && npm run db:generate --workspace=server && npm run build --workspace=server`
    - **Start command:**  
-     `cd server && npm run start:prod`
-   - **Instance type:** Free (or paid for production traffic).
+     `cd server && npm run start:prod`  
+     (This runs `prisma db push` to sync the schema, then starts the server.)
 
 4. In **Environment**, add:
 
    | Key | Example value |
    |-----|----------------|
-   | `DATABASE_URL` | `postgresql://user:pass@host.region.aws.neon.tech/neondb?sslmode=require` |
+   | `DATABASE_URL` | `mongodb+srv://user:pass@cluster.xxxxx.mongodb.net/shaaz?retryWrites=true&w=majority` |
    | `CLIENT_ORIGIN` | `https://www.shaazdriving.com` |
    | `PUBLIC_APP_URL` | `https://www.shaazdriving.com` |
    | `STRIPE_SECRET_KEY` | `sk_live_...` or `sk_test_...` from [Stripe](https://dashboard.stripe.com/apikeys) |
-   | `NODE_VERSION` | `20` (optional if already in `render.yaml`) |
+   | `NODE_VERSION` | `20` |
 
    Optional (email alerts when forms are used):
 
@@ -48,44 +54,34 @@ Copy the **connection string** (usually starts with `postgresql://` or `postgres
 
 ## 3. Point the website at the API
 
-The GitHub Actions build for the **client** must know your API base URL.
-
 1. In GitHub: **Repository → Settings → Secrets and variables → Actions**.
-2. Add or update **`VITE_API_URL`** to your API origin **with no trailing slash**, e.g.  
+2. Set **`VITE_API_URL`** to your API origin **with no trailing slash**, e.g.  
    `https://shaaz-driving-api.onrender.com`
-3. Re-run the **Deploy to GitHub Pages** workflow (Actions → workflow → **Run workflow**), or push any commit to `main`.
+3. Re-run the **Deploy to GitHub Pages** workflow (or push to `main`).
 
-After redeploy, contact forms, registration, and Stripe checkout on **www.shaazdriving.com** will call that API.
+## 4. Stripe
 
-## 4. Stripe live mode
+- Use **test** keys until you are ready for real charges.
+- `PUBLIC_APP_URL` must be your public site URL for Stripe return redirects.
 
-- Use **live** secret keys only when you are ready to charge real cards.  
-- Set **success/cancel** URLs: the server uses `PUBLIC_APP_URL` for Stripe redirects.  
-- Test with **test keys** first (`sk_test_...`).
-
-## 5. Local development (Postgres)
+## 5. Local development (MongoDB)
 
 ```bash
 docker compose up -d
 ```
 
-Set in `server/.env`:
-
-```env
-DATABASE_URL="postgresql://postgres:postgres@localhost:5432/shaaz"
-```
-
-Then:
+Ensure `server/.env` has `DATABASE_URL` matching `server/.env.example`, then:
 
 ```bash
-npm run db:migrate --workspace=server
+npm run db:push --workspace=server
 npm run dev
 ```
 
-(Migrate creates tables in your local Postgres.)
+(`db:push` applies the Prisma schema to your local MongoDB.)
 
 ## Troubleshooting
 
-- **CORS errors in the browser:** `CLIENT_ORIGIN` must exactly match the site origin (`https://www.shaazdriving.com`, no path). You can set multiple origins separated by commas.
+- **CORS in the browser:** `CLIENT_ORIGIN` must match the site origin (`https://www.shaazdriving.com`). Multiple origins: comma-separated.
 - **503 on `/api/checkout-session`:** `STRIPE_SECRET_KEY` missing or invalid.
-- **Database errors on start:** `DATABASE_URL` wrong, or migrations not applied — `start:prod` runs `prisma migrate deploy` automatically.
+- **Prisma / Mongo connection errors:** Check Atlas network access, user/password in the URI, and that `DATABASE_URL` uses `mongodb+srv://` for Atlas.
+- **`directConnection=true`:** Use for a **single local** MongoDB node; Atlas SRV URLs usually do not need it.
