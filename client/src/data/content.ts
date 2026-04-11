@@ -1,3 +1,97 @@
+/** First three topics for the home page FAQ teaser (plain text answers) */
+export const homeFaqTeaserItems = [
+  {
+    q: "How do I get a driving instructor and schedule in car lessons?",
+    a: "On your last day of in-class instruction you receive your in-car instructor's name and number, then you book appointments based on availability.",
+  },
+  {
+    q: "How do I book my road test?",
+    a: "Book online at DriveTest — choose a date and DriveTest centre that works for you.",
+  },
+  {
+    q: "Can I do a course without G1?",
+    a: "You can start in-class without a G1. You need a valid G1 before any in-car training.",
+  },
+] as const;
+
+/**
+ * Embedded on the home page for general Ontario licensing information.
+ * Hosted on YouTube; not produced by Shaaz Driving Academy — see disclaimer in the section.
+ */
+export const homeYoutubeVideos = [
+  {
+    youtubeId: "iTw0Ohi8_7c",
+    title: "G1, G2 & full G — how Ontario licensing works",
+    caption: "Explains the graduated system, from the knowledge test to G2 and full G road tests.",
+    tag: "G1 · G2 · G",
+  },
+  {
+    youtubeId: "klAItlQNNXg",
+    title: "G1, G2 & G — what’s the difference?",
+    caption: "Clarifies each level, restrictions, and why the steps exist before you book lessons.",
+    tag: "Levels & rules",
+  },
+  {
+    youtubeId: "TQpLFMrmehI",
+    title: "G1 knowledge test — study orientation",
+    caption: "Extra practice mindset for the written test; always follow the official MTO handbook.",
+    tag: "G1 prep",
+  },
+] as const;
+
+/** Official MTO / DriveTest links plus optional third-party practice sites (see UI disclaimer). */
+export const g1PracticeLinks = [
+  {
+    label: "New drivers — get a G licence (Ontario.ca)",
+    href: "https://www.ontario.ca/page/get-g-drivers-licence-new-drivers",
+    kind: "official" as const,
+  },
+  {
+    label: "Official MTO Driver's Handbook",
+    href: "https://www.ontario.ca/document/official-mto-drivers-handbook",
+    kind: "official" as const,
+  },
+  {
+    label: "DriveTest — knowledge tests & fees",
+    href: "https://www.drivetest.ca/tests/knowledge-tests/",
+    kind: "official" as const,
+  },
+  {
+    label: "Find a DriveTest centre (search)",
+    href: "https://www.drivetest.ca/drivetest-centre-search/",
+    kind: "official" as const,
+  },
+  {
+    label: "Practice questions — G1.ca (unofficial)",
+    href: "https://www.g1.ca/",
+    kind: "practice" as const,
+  },
+] as const;
+
+/** Toronto-area DriveTest centres where G1 knowledge tests are offered — confirm hours on drivetest.ca. */
+export const torontoG1DriveTestCentres = [
+  {
+    name: "Toronto Downsview",
+    address: "37 Carl Hall Rd, North York, ON M3K 2E2",
+    mapsUrl: "https://www.google.com/maps/search/?api=1&query=DriveTest+Toronto+Downsview+37+Carl+Hall+Rd",
+  },
+  {
+    name: "Toronto Etobicoke",
+    address: "5555 Eglinton Ave W, Etobicoke, ON M9C 5M1",
+    mapsUrl: "https://www.google.com/maps/search/?api=1&query=DriveTest+5555+Eglinton+Ave+W+Etobicoke",
+  },
+  {
+    name: "Toronto Metro East",
+    address: "1448 Lawrence Ave E, North York, ON M4A 2V6",
+    mapsUrl: "https://www.google.com/maps/search/?api=1&query=DriveTest+1448+Lawrence+Ave+E+Toronto",
+  },
+  {
+    name: "Toronto Port Union",
+    address: "91 Rylander Blvd, Scarborough, ON M1B 5M5",
+    mapsUrl: "https://www.google.com/maps/search/?api=1&query=DriveTest+91+Rylander+Blvd+Scarborough",
+  },
+] as const;
+
 export const faqItems = [
   {
     q: "How do I get a driving instructor and schedule in car lessons?",
@@ -19,6 +113,10 @@ export const faqItems = [
   {
     q: "Do I need to bring my certificate to the road test?",
     a: "A paper copy is required for the road test day. You are certified electronically through the MTO system.",
+  },
+  {
+    q: "I have a driver's licence from another country. How do I apply in Ontario and what tests do I need?",
+    aHtml: `<p>When you move to Ontario, you may use a valid foreign licence for <strong>60 days</strong>. After that you must apply for an Ontario licence. Whether you can <strong>exchange</strong> your licence or must take <strong>knowledge and/or road tests</strong> depends on your country (Ontario has exchange agreements with some countries only), how long you have been driving, and the class of licence you hold.</p><p>You usually apply <strong>in person</strong> at a <a href="https://www.drivetest.ca/drivetest-centre-search/" target="_blank" rel="noopener noreferrer">DriveTest centre</a> (or certain ServiceOntario locations). Bring <strong>original</strong> identity documents, your foreign licence, and any proof of driving experience. For more than one year of experience credit you may need an official letter from the licensing authority. Expect a <strong>vision test</strong>; you may also need <strong>G1 knowledge</strong> and <strong>road test(s)</strong> depending on your case.</p><p>Read the official steps here: <a href="https://www.ontario.ca/page/exchange-out-province-drivers-licence" target="_blank" rel="noopener noreferrer">Exchange an out-of-province or foreign licence (Ontario.ca)</a> and <a href="https://drivetest.ca/licences/exchanges-foreign-licences/" target="_blank" rel="noopener noreferrer">Exchanges &amp; foreign licences (DriveTest)</a>. Shaaz can help with <strong>lessons and road-test preparation</strong> once you know what Ontario requires for you — <a href="/contact">contact us</a> with your country and licence type.</p>`,
   },
 ] as const;
 

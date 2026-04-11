@@ -24,7 +24,9 @@ export function HomeQuickLinks() {
         <h2 id="quicklinks-heading" className="quicklinks-title">
           Explore
         </h2>
-        <p className="section-intro">Jump to a topic — each section has its own page.</p>
+        <p className="section-intro">
+          Browse courses, locations, and answers to common questions — everything you need to get started.
+        </p>
         <ul className="quicklinks-grid">
           {links.map(({ to, label, Icon, desc }) => (
             <li key={to}>

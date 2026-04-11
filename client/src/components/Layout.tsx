@@ -1,4 +1,5 @@
 import { Outlet } from "react-router-dom";
+import { FaqChatbot } from "./FaqChatbot";
 import { Footer } from "./Footer";
 import { Header } from "./Header";
 import { StickyMobileCta } from "./StickyMobileCta";
@@ -16,6 +17,7 @@ export function Layout() {
       </main>
       <Footer />
       <StickyMobileCta />
+      <FaqChatbot />
     </div>
   );
 }

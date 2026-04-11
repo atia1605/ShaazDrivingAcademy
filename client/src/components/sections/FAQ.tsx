@@ -23,7 +23,7 @@ export function FAQ() {
                 </button>
                 <div className="faq-a" hidden={!isOpen}>
                   {"aHtml" in item ? (
-                    <p dangerouslySetInnerHTML={{ __html: item.aHtml }} />
+                    <div className="faq-a-html" dangerouslySetInnerHTML={{ __html: item.aHtml }} />
                   ) : (
                     <p>{item.a}</p>
                   )}
