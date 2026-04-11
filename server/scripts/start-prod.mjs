@@ -16,11 +16,16 @@ function ensureDatabaseUrl() {
     process.exit(1);
   }
   const name = process.env.MONGODB_DATABASE || "shaaz";
-  let fixed = url;
-  if (/\.mongodb\.net\/\?/.test(fixed)) {
-    fixed = fixed.replace(/(\.mongodb\.net)\/\?/, `$1/${name}?`);
-  } else if (/\.mongodb\.net\?(?!\/)/.test(fixed)) {
-    fixed = fixed.replace(/(\.mongodb\.net)\?/, `$1/${name}?`);
+  let fixed = url.trim();
+  // ...mongodb.net/  (Atlas default — only a slash, no database name)
+  if (/\.mongodb\.net\/$/i.test(fixed)) {
+    fixed = fixed.replace(/(\.mongodb\.net)\/$/i, `$1/${name}`);
+  } else if (/\.mongodb\.net\/\?/i.test(fixed)) {
+    fixed = fixed.replace(/(\.mongodb\.net)\/\?/i, `$1/${name}?`);
+  } else if (/\.mongodb\.net\?(?!\/)/i.test(fixed)) {
+    fixed = fixed.replace(/(\.mongodb\.net)\?/i, `$1/${name}?`);
+  } else if (/\.mongodb\.net$/i.test(fixed)) {
+    fixed = fixed.replace(/(\.mongodb\.net)$/i, `$1/${name}`);
   }
   if (fixed !== url) {
     console.warn(`[start-prod] Inserted database name "${name}" in DATABASE_URL (required by Prisma).`);
