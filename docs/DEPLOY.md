@@ -10,9 +10,31 @@ The **React site** on GitHub Pages is static. The **API** (`server/`) must run o
 2. **Database Access:** add a database user (username + password).
 3. **Network Access:** allow access from everywhere (`0.0.0.0/0`) for Render, or Render’s outbound IPs if you prefer lockdown.
 4. **Connect** → Drivers → copy the **connection string** (starts with `mongodb+srv://`).
-5. Replace `<password>` with your user’s password and set the database name (e.g. `shaaz`).
+5. Replace `<password>` with your user’s password.
 
-That string becomes `DATABASE_URL` on Render.
+### Prisma requires a database name in the URL (fixes `P1013`)
+
+Atlas often gives you a string that ends with **`mongodb.net/?retryWrites=...`** — there is **no database name** between the host and `?`. **Prisma will fail** with:
+
+`Database must be defined in the connection string` ([P1013](https://www.prisma.io/docs/reference/api-reference/error-reference#p1013)).
+
+**Fix:** insert your database name **after** the host, **before** the query string:
+
+| Wrong | Right |
+|--------|--------|
+| `...@cluster.mongodb.net/?retryWrites=true...` | `...@cluster.mongodb.net/shaaz?retryWrites=true...` |
+
+Use any name you like (`shaaz`, `production`, etc.). MongoDB will create it when Prisma runs `db push`.
+
+**Example `DATABASE_URL` for Render:**
+
+```text
+mongodb+srv://MYUSER:MYPASSWORD@nahia16.ujjzkva.mongodb.net/shaaz?retryWrites=true&w=majority&appName=Cluster0
+```
+
+(URL-encode special characters in the password if needed.)
+
+That full string becomes `DATABASE_URL` on Render.
 
 **Local development:** use Docker from the repo root: `docker compose up -d` and the `DATABASE_URL` in `server/.env.example`.
 
@@ -81,6 +103,7 @@ npm run dev
 
 ## Troubleshooting
 
+- **`P1013` / “Database must be defined in the connection string”:** Your Atlas URL is missing **`/dbname`** before `?`. Example: `...mongodb.net/shaaz?retryWrites=...` (see section above).
 - **CORS in the browser:** `CLIENT_ORIGIN` must match the site origin (`https://www.shaazdriving.com`). Multiple origins: comma-separated.
 - **503 on `/api/checkout-session`:** `STRIPE_SECRET_KEY` missing or invalid.
 - **Prisma / Mongo connection errors:** Check Atlas network access, user/password in the URI, and that `DATABASE_URL` uses `mongodb+srv://` for Atlas.
