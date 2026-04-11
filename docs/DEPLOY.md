@@ -78,6 +78,8 @@ That full string becomes `DATABASE_URL` on Render.
 
 **Note:** Free Render web services **spin down** after idle time; the first request after sleep can take ~30–60 seconds.
 
+**“Localhost” in logs vs your browser:** Logs may say `listening on …:10000` (or another port). That is **inside Render’s network**. Do **not** open `http://localhost:10000` on your own computer — that is not your API. Always use the service URL Render shows, e.g. `https://shaazdrivingacademy.onrender.com` and test `https://shaazdrivingacademy.onrender.com/api/health`.
+
 ## 3. Point the website at the API
 
 1. **API URL in the static site:** The client reads **`VITE_API_URL`** from **`client/.env.production`** (committed). It should be your Render API origin **with no trailing slash**, e.g. `https://shaazdrivingacademy.onrender.com`. After changing hosts, edit that file (and the `PROD_FALLBACK_API` constant in `client/src/api.ts` if you use the fallback) and push — then redeploy Pages.

@@ -200,6 +200,7 @@ app.use((_req, res) => {
   res.status(404).json({ error: "Not found" });
 });
 
-app.listen(PORT, () => {
-  console.log(`API listening on http://localhost:${PORT}`);
+// Bind all interfaces — required for Render, Railway, Docker, etc. (not only 127.0.0.1)
+app.listen(PORT, "0.0.0.0", () => {
+  console.log(`API listening on 0.0.0.0:${PORT} (open your service’s https://… URL in a browser — not localhost from these logs)`);
 });
