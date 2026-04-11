@@ -11,6 +11,7 @@ export function Header() {
     <header className="site-header">
       <div className="container header-inner">
         <Link to="/" className="brand" onClick={() => setMenuOpen(false)}>
+          <span className="brand-mark" aria-hidden />
           Shaaz Driving Academy
         </Link>
         <button
@@ -27,9 +28,9 @@ export function Header() {
         <nav className={`main-nav ${menuOpen ? "open" : ""}`}>
           <ul className="nav-list">
             <li>
-              <a href="#about" onClick={() => setMenuOpen(false)}>
+              <Link to="/#about" onClick={() => setMenuOpen(false)}>
                 About
-              </a>
+              </Link>
             </li>
             <li className="has-dropdown">
               <span className="dropdown-trigger">
@@ -37,55 +38,64 @@ export function Header() {
               </span>
               <ul className="dropdown-menu">
                 <li>
-                  <a href="#certification-courses" onClick={() => setMenuOpen(false)}>
+                  <Link to="/#certification-courses" onClick={() => setMenuOpen(false)}>
                     Certification
-                  </a>
+                  </Link>
                 </li>
                 <li>
-                  <a href="#individual-lessons" onClick={() => setMenuOpen(false)}>
+                  <Link to="/#individual-lessons" onClick={() => setMenuOpen(false)}>
                     Individual lessons
-                  </a>
+                  </Link>
                 </li>
                 <li>
-                  <a href="#classroom-training" onClick={() => setMenuOpen(false)}>
+                  <Link to="/#classroom-training" onClick={() => setMenuOpen(false)}>
                     Classroom training
-                  </a>
+                  </Link>
                 </li>
                 <li>
-                  <a href="#senior-courses" onClick={() => setMenuOpen(false)}>
+                  <Link to="/#senior-courses" onClick={() => setMenuOpen(false)}>
                     Seniors
-                  </a>
+                  </Link>
                 </li>
                 <li>
-                  <a href="#immigrant-courses" onClick={() => setMenuOpen(false)}>
+                  <Link to="/#immigrant-courses" onClick={() => setMenuOpen(false)}>
                     New immigrants
-                  </a>
+                  </Link>
                 </li>
               </ul>
             </li>
             <li>
-              <a href="#locations" onClick={() => setMenuOpen(false)}>
+              <Link to="/#locations" onClick={() => setMenuOpen(false)}>
                 Locations
-              </a>
+              </Link>
             </li>
             <li>
-              <a href="#vehicle" onClick={() => setMenuOpen(false)}>
+              <Link to="/#vehicle" onClick={() => setMenuOpen(false)}>
                 Vehicle for hire
-              </a>
+              </Link>
             </li>
             <li>
-              <a href="#faq" onClick={() => setMenuOpen(false)}>
+              <Link to="/#faq" onClick={() => setMenuOpen(false)}>
                 FAQ
-              </a>
+              </Link>
             </li>
             <li>
-              <a href="#contact" onClick={() => setMenuOpen(false)}>
+              <Link to="/#contact" onClick={() => setMenuOpen(false)}>
                 Contact
-              </a>
+              </Link>
             </li>
             <li>
-              <NavLink to="/register" className={navClass} onClick={() => setMenuOpen(false)}>
-                Register online
+              <NavLink to="/pay" className={navClass} onClick={() => setMenuOpen(false)}>
+                Pay online
+              </NavLink>
+            </li>
+            <li>
+              <NavLink
+                to="/register"
+                className={({ isActive }) => `nav-link nav-cta${isActive ? " active" : ""}`}
+                onClick={() => setMenuOpen(false)}
+              >
+                Register
               </NavLink>
             </li>
           </ul>

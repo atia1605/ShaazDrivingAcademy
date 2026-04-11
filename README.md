@@ -1,13 +1,13 @@
 # Shaaz Driving Academy — full stack website
 
-This repository contains a **React (Vite + TypeScript)** frontend, a **Node.js (Express)** API, and a **SQLite** database via **Prisma**. Contact messages and online registration interest are stored in the database.
+This repository contains a **React (Vite + TypeScript)** frontend, a **Node.js (Express)** API, and a **SQLite** database via **Prisma**. Contact messages and registration interest are stored in the database. **Stripe** powers secure card payments (deposits/fees); optional **Resend** can email you when forms are submitted.
 
 ## Project layout
 
 | Path | Purpose |
 |------|---------|
-| `client/` | React SPA — marketing pages, FAQ, forms |
-| `server/` | REST API — `/api/contact`, `/api/register-interest`, `/api/health` |
+| `client/` | React SPA — marketing pages, FAQ, register, pay |
+| `server/` | REST API — contact, registration, Stripe Checkout, health |
 | `server/prisma/` | Database schema and migrations |
 | `legacy-static/` | Previous single-page HTML/CSS (archived) |
 
@@ -68,7 +68,9 @@ cd server
 node dist/index.js
 ```
 
-Set `CLIENT_ORIGIN` to your real site URL (e.g. `https://www.shaazdriving.com`). For the React app, set `VITE_API_URL` at **build time** to your public API base URL (no trailing slash), e.g.:
+Set `CLIENT_ORIGIN` to your real site URL (e.g. `https://www.shaazdriving.com`). Set `PUBLIC_APP_URL` to that same public URL so Stripe returns learners to your site after payment.
+
+For the React app, set `VITE_API_URL` at **build time** to your public API base URL (no trailing slash), e.g.:
 
 ```bash
 cd client
@@ -85,9 +87,15 @@ The previous root `CNAME` for `www.shaazdriving.com` is mirrored in `client/publ
 
 ## API endpoints
 
-- `GET /api/health` — liveness check
+- `GET /api/health` — liveness check (includes whether Stripe is configured)
+- `GET /api/payment-options` — catalog of pay-online items (amounts defined in `server/src/payments.ts`)
+- `POST /api/checkout-session` — JSON body: `{ productKey, customerEmail? }` — returns `{ url }` for Stripe Checkout
 - `POST /api/contact` — JSON body: `{ name, email, message }`
 - `POST /api/register-interest` — JSON body: `{ fullName, email, phone?, courseType?, notes? }`
+
+### Stripe
+
+Use [Stripe](https://stripe.com) test keys while developing. Adjust deposit amounts in `server/src/payments.ts` (amounts are in **cents**, CAD). After a successful payment, users land on `/pay/success` on your site.
 
 ## License
 
