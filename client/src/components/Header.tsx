@@ -1,8 +1,19 @@
 import { useState } from "react";
 import { Link, NavLink } from "react-router-dom";
+import {
+  IconBook,
+  IconCard,
+  IconCar,
+  IconHelp,
+  IconHome,
+  IconInfo,
+  IconMail,
+  IconMapPin,
+  IconUserPlus,
+} from "./NavIcons";
 
 const navClass = ({ isActive }: { isActive: boolean }) =>
-  isActive ? "nav-link active" : "nav-link";
+  isActive ? "nav-link nav-link-icon active" : "nav-link nav-link-icon";
 
 export function Header() {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -28,74 +39,92 @@ export function Header() {
         <nav className={`main-nav ${menuOpen ? "open" : ""}`}>
           <ul className="nav-list">
             <li>
-              <Link to="/#about" onClick={() => setMenuOpen(false)}>
-                About
-              </Link>
+              <NavLink to="/" className={navClass} end onClick={() => setMenuOpen(false)}>
+                <IconHome /> Home
+              </NavLink>
+            </li>
+            <li>
+              <NavLink to="/about" className={navClass} onClick={() => setMenuOpen(false)}>
+                <IconInfo /> About
+              </NavLink>
             </li>
             <li className="has-dropdown">
-              <span className="dropdown-trigger">
-                Courses <span className="caret" aria-hidden />
-              </span>
+              <NavLink
+                to="/courses"
+                className={({ isActive }) =>
+                  `nav-link nav-link-icon dropdown-trigger${isActive ? " active" : ""}`
+                }
+                onClick={() => setMenuOpen(false)}
+              >
+                <IconBook /> Courses <span className="caret" aria-hidden />
+              </NavLink>
               <ul className="dropdown-menu">
                 <li>
-                  <Link to="/#certification-courses" onClick={() => setMenuOpen(false)}>
+                  <Link to="/courses#certification-courses" onClick={() => setMenuOpen(false)}>
                     Certification
                   </Link>
                 </li>
                 <li>
-                  <Link to="/#individual-lessons" onClick={() => setMenuOpen(false)}>
+                  <Link to="/courses#individual-lessons" onClick={() => setMenuOpen(false)}>
                     Individual lessons
                   </Link>
                 </li>
                 <li>
-                  <Link to="/#classroom-training" onClick={() => setMenuOpen(false)}>
+                  <Link to="/courses#classroom-training" onClick={() => setMenuOpen(false)}>
                     Classroom training
                   </Link>
                 </li>
                 <li>
-                  <Link to="/#senior-courses" onClick={() => setMenuOpen(false)}>
+                  <Link to="/courses#senior-courses" onClick={() => setMenuOpen(false)}>
                     Seniors
                   </Link>
                 </li>
                 <li>
-                  <Link to="/#immigrant-courses" onClick={() => setMenuOpen(false)}>
+                  <Link to="/courses#immigrant-courses" onClick={() => setMenuOpen(false)}>
                     New immigrants
+                  </Link>
+                </li>
+                <li>
+                  <Link to="/courses" onClick={() => setMenuOpen(false)}>
+                    View all courses
                   </Link>
                 </li>
               </ul>
             </li>
             <li>
-              <Link to="/#locations" onClick={() => setMenuOpen(false)}>
-                Locations
-              </Link>
+              <NavLink to="/locations" className={navClass} onClick={() => setMenuOpen(false)}>
+                <IconMapPin /> Locations
+              </NavLink>
             </li>
             <li>
-              <Link to="/#vehicle" onClick={() => setMenuOpen(false)}>
-                Vehicle for hire
-              </Link>
+              <NavLink to="/vehicle" className={navClass} onClick={() => setMenuOpen(false)}>
+                <IconCar /> Vehicle
+              </NavLink>
             </li>
             <li>
-              <Link to="/#faq" onClick={() => setMenuOpen(false)}>
-                FAQ
-              </Link>
+              <NavLink to="/faq" className={navClass} onClick={() => setMenuOpen(false)}>
+                <IconHelp /> FAQ
+              </NavLink>
             </li>
             <li>
-              <Link to="/#contact" onClick={() => setMenuOpen(false)}>
-                Contact
-              </Link>
+              <NavLink to="/contact" className={navClass} onClick={() => setMenuOpen(false)}>
+                <IconMail /> Contact
+              </NavLink>
             </li>
             <li>
               <NavLink to="/pay" className={navClass} onClick={() => setMenuOpen(false)}>
-                Pay online
+                <IconCard /> Pay
               </NavLink>
             </li>
             <li>
               <NavLink
                 to="/register"
-                className={({ isActive }) => `nav-link nav-cta${isActive ? " active" : ""}`}
+                className={({ isActive }) =>
+                  `nav-link nav-link-icon nav-cta${isActive ? " active" : ""}`
+                }
                 onClick={() => setMenuOpen(false)}
               >
-                Register
+                <IconUserPlus /> Register
               </NavLink>
             </li>
           </ul>

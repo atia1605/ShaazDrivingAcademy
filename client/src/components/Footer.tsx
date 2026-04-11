@@ -21,10 +21,16 @@ export function Footer() {
               <Link to="/pay">Pay online</Link>
             </li>
             <li>
-              <Link to="/#faq">FAQ</Link>
+              <Link to="/faq">FAQ</Link>
             </li>
             <li>
-              <Link to="/#contact">Contact</Link>
+              <Link to="/contact">Contact</Link>
+            </li>
+            <li>
+              <Link to="/about">About</Link>
+            </li>
+            <li>
+              <Link to="/courses">Courses</Link>
             </li>
           </ul>
         </div>
