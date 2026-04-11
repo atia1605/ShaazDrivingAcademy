@@ -79,9 +79,11 @@ That full string becomes `DATABASE_URL` on Render.
 ## 3. Point the website at the API
 
 1. In GitHub: **Repository → Settings → Secrets and variables → Actions**.
-2. Set **`VITE_API_URL`** to your API origin **with no trailing slash**, e.g.  
-   `https://shaaz-driving-api.onrender.com`
-3. Re-run the **Deploy to GitHub Pages** workflow (or push to `main`).
+2. Add **`VITE_API_URL`** in either place (both work; the workflow uses the secret if set, otherwise the variable):
+   - **Secrets** — encrypted, hidden in logs (fine for URLs too).
+   - **Variables** — not secret; easier to read/edit. Your API URL is public in the built site anyway.
+3. Value: your API origin **with no trailing slash**, e.g. `https://shaazdrivingacademy.onrender.com`
+4. Re-run the **Deploy to GitHub Pages** workflow (or push to `main`).
 
 ## 4. Stripe
 

@@ -34,7 +34,8 @@ jobs:
       - name: Build client
         run: npm run build --workspace=client
         env:
-          VITE_API_URL: ${{ secrets.VITE_API_URL }}
+          # Use Repository secret OR Variable named VITE_API_URL (secret wins if both are set)
+          VITE_API_URL: ${{ secrets.VITE_API_URL || vars.VITE_API_URL }}
 
       - name: SPA fallback for GitHub Pages
         run: cp client/dist/index.html client/dist/404.html
