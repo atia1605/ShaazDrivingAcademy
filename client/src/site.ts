@@ -42,6 +42,16 @@ export const SITE = {
     url: "https://www.tiktok.com/@shaazdrivingacademy",
     handle: "@shaazdrivingacademy",
   },
+  /**
+   * Google Maps search for this address (opens listing & reviews).
+   * Replace with your direct Business Profile / “Write a review” link from Google Business if you prefer.
+   */
+  googleMapsListingUrl: `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent("Shaaz Driving Academy 3096 Danforth Ave Scarborough ON M1L 1B1")}`,
+  /**
+   * Same idea as a Google Search for “Shaaz Driving Academy reviews” — without `sxsrf`, `si`, `ved`, etc.
+   * Those long copy-pasted URLs from the address bar are session-specific and break when shared on a website.
+   */
+  googleReviewsSearchUrl: `https://www.google.com/search?q=${encodeURIComponent("Shaaz Driving Academy reviews")}`,
 } as const;
 
 /** Brand image (`client/public/images/shaaz-logo.png`) — shown as a circle in header/footer */

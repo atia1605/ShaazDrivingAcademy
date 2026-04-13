@@ -120,6 +120,12 @@ export const faqItems = [
   },
 ] as const;
 
+/**
+ * Home testimonials — text transcribed from public Google Maps reviews (and earlier featured quotes).
+ * Optional `avatarSrc` = single-reviewer headshot under `public/` when you have permission (avoid using multi-review screenshots as avatars).
+ */
+export type TestimonialEntry = { quote: string; author: string; avatarSrc?: string };
+
 export const testimonials = [
   {
     quote:
@@ -136,7 +142,42 @@ export const testimonials = [
       "Best driving instructor! He helped my cousin get his G2 . My cousin is new to Canada , and has a language barrier. We've worked with other driving instructors but Shohan walked him through the rules and provided great help explaining the criteria for his exam. If you've recently obtained your G1 and your looking for an educational instructor- Shaaz Driving Academy is the best!",
     author: "Stephanie Anton",
   },
-] as const;
+  {
+    quote:
+      "If you want to pass your test in one go then you have to go with Sohan. He is professional and is in depth with his teaching but at the same time tells you funny story to keep you relax and calm during the lessons as well as before the test. Really motivating and friendly person to learn driving from.",
+    author: "Vedant Goswami",
+  },
+  {
+    quote:
+      "I passed my G driving test today on my 1st try because of Shohan. He was such an incredible instructor. He was professional, easy going and made learning driving more fun. He gave some great tips which really helped me improve my driving skills. He made sure that I was very comfortable and prepared for my test; I was very confident during my test day. I would recommend anyone looking to learn to drive to choose this school and ask for Shohan, you will be in really great hands!!!",
+    author: "Manu Jeevan Prakash",
+  },
+  {
+    quote:
+      "Shohan is an amazing Instructor. He is definitely strict and that is his quality that he will make sure you learn the rules right and follow it rigorously. He teaches all the minor details not just to pass the test but will also help you forever in your driving. Whether it is G or G2, he is highly recommend for all 10/10. He will not only teaches you the driving but he is very very cool and makes you very much comfortable during driving and specially before your exam. Thank you so much Shohan for all your help and support in getting me license here in Canada.",
+    author: "Miten Soni",
+  },
+  {
+    quote:
+      "The best learning experience. I passed my G2 today!! Shohan gives a lot of tips and feedback while learning how to drive and on the day of the exam. He will make sure he takes you on the exam when you are ready. I would definitely recommend Shohan as your driver instructor!!!",
+    author: "Rexhina Malo",
+  },
+  {
+    quote:
+      "Shohan was an excellent instructor. I was a complete novice with barely any experience, and his guidance helped me pass my G2 road test in one attempt. Shohan put me at ease and helped me learn right from the basics while making the classes entertaining and upbeat. Highly recommend Shohan and Shaaz Academy for their professionalism, patience, and knowledge (Also great food recommendations haha)",
+    author: "Vinita Kumar",
+  },
+  {
+    quote:
+      "Passed my G2 today and it was my first attempt. Shohan is a good driving instructor and he made me feel comfortable while learning how to drive. I will definitely recommend if anyone is now learning to drive. He's the best.",
+    author: "Teneisha Frederick",
+  },
+  {
+    quote:
+      "This is one of Toronto's best driving schools, and I highly recommend it! Shohan was my instructor, and he was a true professional who was always punctual and friendly. He made sure I understood all driving techniques (parallel parking, lane switching, front and reverse parking, etc.) and used his strategies to make learning a breeze; he genuinely made driving fun. As a consequence, I was able to earn my G2. Thanks, Shohan!",
+    author: "Tanvir N Hasan",
+  },
+] as readonly TestimonialEntry[];
 
 export const bdePackages = [
   {
