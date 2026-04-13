@@ -37,7 +37,15 @@ export const SITE = {
     display: "416-877-4783",
     contactName: "Md Shahjahan Uddin",
   },
+  /** Official TikTok — update `url` / `handle` if the profile changes */
+  tiktok: {
+    url: "https://www.tiktok.com/@shaazdrivingacademy",
+    handle: "@shaazdrivingacademy",
+  },
 } as const;
+
+/** Brand image (`client/public/images/shaaz-logo.png`) — shown as a circle in header/footer */
+export const SITE_LOGO_SRC = `${import.meta.env.BASE_URL}images/shaaz-logo.png`;
 
 /** All voice lines for footers, locations, FAQ bot, etc. */
 export const SITE_PHONE_LIST = [SITE.phonePrimary, SITE.phoneSecondary, SITE.phoneTertiary] as const;

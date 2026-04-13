@@ -1,6 +1,7 @@
 import { useState } from "react";
 import type { FormEvent } from "react";
 import { postJson } from "../../api";
+import { TikTokIcon } from "../TikTokIcon";
 import { SITE, SITE_LANGUAGES_DISPLAY, SITE_PHONE_LIST } from "../../site";
 
 const mailtoBody = (name: string, email: string, message: string) =>
@@ -58,6 +59,14 @@ export function Contact() {
                 <span className="contact-card-hint">Tap to call</span>
               </a>
             ))}
+            <a href={SITE.tiktok.url} className="contact-card contact-card-tiktok" target="_blank" rel="noopener noreferrer">
+              <span className="contact-card-label">Follow us</span>
+              <span className="contact-card-value contact-card-tiktok-value">
+                <TikTokIcon className="contact-card-tiktok-icon" />
+                TikTok {SITE.tiktok.handle}
+              </span>
+              <span className="contact-card-hint">Opens TikTok in a new tab</span>
+            </a>
           </div>
 
           <div className="contact-form-wrap card">

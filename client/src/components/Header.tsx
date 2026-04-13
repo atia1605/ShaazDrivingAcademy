@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { Link, NavLink } from "react-router-dom";
+import { LogoImagePreview } from "./LogoImagePreview";
 import {
   IconBook,
   IconCard,
@@ -21,10 +22,12 @@ export function Header() {
   return (
     <header className="site-header">
       <div className="container header-inner">
-        <Link to="/" className="brand" onClick={() => setMenuOpen(false)}>
-          <span className="brand-mark" aria-hidden />
-          Shaaz Driving Academy
-        </Link>
+        <div className="brand">
+          <LogoImagePreview imgClassName="brand-logo" width={44} height={44} />
+          <Link to="/" className="brand-text-link" onClick={() => setMenuOpen(false)}>
+            Shaaz Driving Academy
+          </Link>
+        </div>
         <button
           type="button"
           className="nav-toggle"
