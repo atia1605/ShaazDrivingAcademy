@@ -1,7 +1,10 @@
 import { Link } from "react-router-dom";
+import { useDocumentTitle } from "../hooks/useDocumentTitle";
 import { SITE } from "../site";
 
 export function PaySuccess() {
+  useDocumentTitle("Payment Received | Shaaz Driving Academy");
+
   return (
     <div className="page-pay">
       <section className="pay-success section">

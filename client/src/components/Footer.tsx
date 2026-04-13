@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
-import { SITE } from "../site";
+import { WebDesignerCredit } from "./WebDesignerCredit";
+import { SITE, SITE_LANGUAGES_DISPLAY, SITE_PHONE_LIST } from "../site";
 
 export function Footer() {
   return (
@@ -8,7 +9,8 @@ export function Footer() {
         <div className="footer-col footer-brand">
           <strong className="footer-title">{SITE.name}</strong>
           <p className="footer-blurb">
-            Ministry-approved driver education in the GTA. Your safety and success on the road come first.
+            Ministry-approved driver education for {SITE.serviceArea} and the GTA. Your safety and success on the road
+            come first. Lessons explained in {SITE_LANGUAGES_DISPLAY}.
           </p>
         </div>
         <div className="footer-col">
@@ -32,6 +34,12 @@ export function Footer() {
             <li>
               <Link to="/courses">Courses</Link>
             </li>
+            <li>
+              <Link to="/locations">Locations</Link>
+            </li>
+            <li>
+              <Link to="/vehicle">Vehicle for hire (PTC)</Link>
+            </li>
           </ul>
         </div>
         <div className="footer-col">
@@ -40,12 +48,13 @@ export function Footer() {
             <li>
               <a href={`mailto:${SITE.email}`}>{SITE.email}</a>
             </li>
-            <li>
-              <a href={`tel:${SITE.phonePrimary.tel}`}>{SITE.phonePrimary.display}</a>
-            </li>
-            <li>
-              <a href={`tel:${SITE.phoneSecondary.tel}`}>{SITE.phoneSecondary.display}</a>
-            </li>
+            {SITE_PHONE_LIST.map((p) => (
+              <li key={p.tel}>
+                <a href={`tel:${p.tel}`}>
+                  {p.contactName}: {p.display}
+                </a>
+              </li>
+            ))}
           </ul>
         </div>
       </div>
@@ -56,6 +65,7 @@ export function Footer() {
           <p className="footer-meta">
             Licensed by Province of Ontario, Ministry of Transportation (MTO). Your safety is our priority.
           </p>
+          <WebDesignerCredit />
         </div>
       </div>
     </footer>

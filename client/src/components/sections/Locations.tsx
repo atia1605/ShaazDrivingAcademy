@@ -1,15 +1,25 @@
+import { SITE, SITE_PHONE_LIST } from "../../site";
+
 export function Locations() {
   return (
     <section id="locations" className="section section-alt">
       <div className="container">
-        <h2>Locations and pricing</h2>
-        <p className="section-intro">Visit us or call for current rates and availability at each location.</p>
+        <h2>Location &amp; contact</h2>
+        <p className="section-intro">
+          One convenient <strong>Danforth</strong> address — we serve students from <strong>Toronto</strong>,{" "}
+          <strong>Scarborough</strong>, and across the GTA. Call for current rates and availability.
+        </p>
         <div className="grid-locations">
           <article className="card location-card">
-            <h3>Scarborough</h3>
-            <p>3098 Danforth Ave, Scarborough ON M1L 1B1</p>
-            <p>
-              Phone: <a href="tel:4166865799">416-686-5799</a>
+            <h3>Toronto &amp; Scarborough</h3>
+            <p>{SITE.address}</p>
+            <p className="location-phones">
+              {SITE_PHONE_LIST.map((p) => (
+                <span key={p.tel} className="location-phone-line">
+                  <span className="location-phone-name">{p.contactName}: </span>
+                  <a href={`tel:${p.tel}`}>{p.display}</a>
+                </span>
+              ))}
             </p>
           </article>
         </div>

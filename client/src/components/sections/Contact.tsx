@@ -1,7 +1,7 @@
 import { useState } from "react";
 import type { FormEvent } from "react";
 import { postJson } from "../../api";
-import { SITE } from "../../site";
+import { SITE, SITE_LANGUAGES_DISPLAY, SITE_PHONE_LIST } from "../../site";
 
 const mailtoBody = (name: string, email: string, message: string) =>
   `Name: ${name}\nEmail: ${email}\n\n${message}`;
@@ -38,7 +38,10 @@ export function Contact() {
       <div className="container">
         <div className="section-head">
           <h2>Contact us</h2>
-          <p className="section-intro">Send a message online, email us directly, or call — we are here to help.</p>
+          <p className="section-intro">
+            Send a message online, email us directly, or call — we serve {SITE.serviceArea} from our Danforth location.
+            We offer instruction and support in <strong>{SITE_LANGUAGES_DISPLAY}</strong>.
+          </p>
         </div>
 
         <div className="contact-grid">
@@ -48,16 +51,13 @@ export function Contact() {
               <span className="contact-card-value">{SITE.email}</span>
               <span className="contact-card-hint">Tap to open your mail app</span>
             </a>
-            <a href={`tel:${SITE.phonePrimary.tel}`} className="contact-card">
-              <span className="contact-card-label">Phone</span>
-              <span className="contact-card-value">{SITE.phonePrimary.display}</span>
-              <span className="contact-card-hint">Primary line</span>
-            </a>
-            <a href={`tel:${SITE.phoneSecondary.tel}`} className="contact-card">
-              <span className="contact-card-label">Phone</span>
-              <span className="contact-card-value">{SITE.phoneSecondary.display}</span>
-              <span className="contact-card-hint">Scarborough / office</span>
-            </a>
+            {SITE_PHONE_LIST.map((p) => (
+              <a key={p.tel} href={`tel:${p.tel}`} className="contact-card">
+                <span className="contact-card-label">{p.contactName}</span>
+                <span className="contact-card-value">{p.display}</span>
+                <span className="contact-card-hint">Tap to call</span>
+              </a>
+            ))}
           </div>
 
           <div className="contact-form-wrap card">

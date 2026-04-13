@@ -3,9 +3,11 @@ import type { FormEvent } from "react";
 import { Link } from "react-router-dom";
 import { postJson } from "../api";
 import { courseTypes } from "../data/content";
+import { useDocumentTitle } from "../hooks/useDocumentTitle";
 import { SITE } from "../site";
 
 export function Register() {
+  useDocumentTitle("Register for Driving Lessons | Shaaz Driving Academy Toronto & Scarborough");
   const [fullName, setFullName] = useState("");
   const [email, setEmail] = useState("");
   const [phone, setPhone] = useState("");

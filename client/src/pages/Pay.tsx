@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { getJson, postJson } from "../api";
+import { useDocumentTitle } from "../hooks/useDocumentTitle";
 import { SITE } from "../site";
 
 type PaymentOption = {
@@ -16,6 +17,8 @@ type PaymentOptionsResponse = {
 };
 
 export function Pay() {
+  useDocumentTitle("Pay Online | Course Deposit | Shaaz Driving Academy");
+
   const [data, setData] = useState<PaymentOptionsResponse | null>(null);
   const [loadError, setLoadError] = useState<string | null>(null);
   const [email, setEmail] = useState("");

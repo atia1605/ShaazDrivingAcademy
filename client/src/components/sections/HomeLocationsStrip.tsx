@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { SITE } from "../../site";
+import { SITE, SITE_LANGUAGES_DISPLAY, SITE_PHONE_LIST } from "../../site";
 
 export function HomeLocationsStrip() {
   return (
@@ -8,29 +8,28 @@ export function HomeLocationsStrip() {
       aria-labelledby="home-locations-strip-heading"
     >
       <div className="container">
-        <h2 id="home-locations-strip-heading">Our locations</h2>
+        <h2 id="home-locations-strip-heading">Visit us — Toronto &amp; Scarborough</h2>
         <p className="section-intro">
-          Ministry-approved training with convenient <strong>GTA</strong> access — Toronto (Danforth) and Scarborough.
+          One <strong>Danforth</strong> location serving <strong>Toronto</strong>, <strong>Scarborough</strong>, and the
+          wider <strong>GTA</strong>. Reach any of our lines below. Support in <strong>{SITE_LANGUAGES_DISPLAY}</strong>.
         </p>
-        <div className="home-locations-grid">
+        <div className="home-locations-grid home-locations-grid--single">
           <article className="home-location-card">
-            <h3>Toronto</h3>
+            <h3>{SITE.serviceArea}</h3>
             <p className="home-location-address">{SITE.address}</p>
-            <p>
-              <a href={`tel:${SITE.phonePrimary.tel}`}>{SITE.phonePrimary.display}</a>
-            </p>
-          </article>
-          <article className="home-location-card">
-            <h3>Scarborough</h3>
-            <p className="home-location-address">{SITE.locationScarborough}</p>
-            <p>
-              <a href={`tel:${SITE.phoneSecondary.tel}`}>{SITE.phoneSecondary.display}</a>
-            </p>
+            <ul className="home-location-phone-list">
+              {SITE_PHONE_LIST.map((p) => (
+                <li key={p.tel}>
+                  <span className="home-location-phone-name">{p.contactName}</span>
+                  <a href={`tel:${p.tel}`}>{p.display}</a>
+                </li>
+              ))}
+            </ul>
           </article>
         </div>
         <p className="home-locations-more">
           <Link to="/locations" className="btn btn-primary">
-            Locations &amp; details
+            Location &amp; details
           </Link>
         </p>
       </div>

@@ -9,7 +9,7 @@ const steps = [
   },
   {
     title: "Start learning",
-    text: "Complete classroom and in-car training with licensed instructors, then book your road test with confidence.",
+    text: "Friendly, experienced instructors teach you step by step with hands-on coaching in the car. When you are ready, we help you pick a DriveTest location and practice plan that fit you — then book your test with confidence.",
   },
 ];
 

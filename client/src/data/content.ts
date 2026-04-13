@@ -256,6 +256,7 @@ export const immigrantCoursesContent = {
     "Clear explanations of school zones, transit lanes, winter driving, and unwritten “local” habits on busy streets",
     "Practice on routes and scenarios similar to your test centre so nothing feels unfamiliar",
     "Patient instructors who take extra time when English is a second language — we repeat and demonstrate until you are comfortable",
+    "Multilingual explanations when helpful — Bangla, English, Urdu, Hindi, Arabic, Sylheti, and Chittagong",
   ],
   closing: "Share your situation by phone or email and we will outline the best program for you.",
 } as const;

@@ -1,0 +1,5 @@
+# https://www.shaazdriving.com
+User-agent: *
+Allow: /
+
+Sitemap: https://www.shaazdriving.com/sitemap.xml

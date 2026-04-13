@@ -1,10 +1,15 @@
-import { SITE } from "../site";
+import { SITE, SITE_LANGUAGES_DISPLAY } from "../site";
 
 export function TopBar() {
   return (
     <div className="top-bar">
       <div className="container top-bar-inner">
-        <span className="top-bar-tag">GTA · MTO-approved BDE</span>
+        <div className="top-bar-left">
+          <span className="top-bar-tag">GTA · MTO-approved BDE</span>
+          <span className="top-bar-lang" title={`Languages: ${SITE_LANGUAGES_DISPLAY}`}>
+            Bangla · English · Urdu · Hindi · Arabic · Sylheti · Chittagong
+          </span>
+        </div>
         <div className="top-bar-links">
           <a className="top-bar-link" href={`mailto:${SITE.email}`}>
             <span className="sr-only">Email </span>
@@ -14,6 +19,7 @@ export function TopBar() {
             ·
           </span>
           <a className="top-bar-link" href={`tel:${SITE.phonePrimary.tel}`}>
+            <span className="sr-only">{SITE.phonePrimary.contactName} </span>
             {SITE.phonePrimary.display}
           </a>
         </div>

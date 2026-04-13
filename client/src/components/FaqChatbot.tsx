@@ -1,7 +1,7 @@
 import { useCallback, useEffect, useRef, useState } from "react";
 import { Link } from "react-router-dom";
 import { faqItems } from "../data/content";
-import { SITE } from "../site";
+import { SITE, SITE_PHONE_LIST } from "../site";
 import { matchFaqIndex } from "../utils/faqChatMatch";
 
 function FaqAnswer({ item }: { item: (typeof faqItems)[number] }) {
@@ -207,8 +207,14 @@ export function FaqChatbot() {
                       <ul className="faq-chat-fallback-list">
                         <li>
                           Call{" "}
-                          <a href={`tel:${SITE.phonePrimary.tel}`}>{SITE.phonePrimary.display}</a> or{" "}
-                          <a href={`tel:${SITE.phoneSecondary.tel}`}>{SITE.phoneSecondary.display}</a>
+                          {SITE_PHONE_LIST.map((p, i) => (
+                            <span key={p.tel}>
+                              {i > 0 ? " · " : ""}
+                              <a href={`tel:${p.tel}`}>
+                                {p.contactName}: {p.display}
+                              </a>
+                            </span>
+                          ))}
                         </li>
                         <li>
                           Email{" "}
