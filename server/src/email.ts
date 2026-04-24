@@ -31,9 +31,11 @@ export async function sendOwnerNotification(
   const toRaw = process.env.SITE_OWNER_EMAIL;
 
   if (!apiKey || !from || !toRaw) {
-    console.warn(
-      "[email] Owner notification skipped: set RESEND_API_KEY, RESEND_FROM, and SITE_OWNER_EMAIL on the server."
-    );
+    const missing: string[] = [];
+    if (!apiKey) missing.push("RESEND_API_KEY");
+    if (!from) missing.push("RESEND_FROM");
+    if (!toRaw) missing.push("SITE_OWNER_EMAIL");
+    console.warn(`[email] Owner notification skipped — missing env: ${missing.join(", ")}`);
     return;
   }
 
@@ -65,9 +67,20 @@ export async function sendOwnerNotification(
     body: JSON.stringify(payload),
   });
 
+  const resText = await res.text();
   if (!res.ok) {
-    const errText = await res.text();
-    console.error("[email] Resend error:", res.status, errText);
+    console.error("[email] Resend error:", res.status, resText);
+    return;
+  }
+  try {
+    const data = JSON.parse(resText) as { id?: string };
+    if (data.id) {
+      console.log("[email] Owner notification sent, Resend id:", data.id);
+    } else {
+      console.log("[email] Owner notification sent");
+    }
+  } catch {
+    console.log("[email] Owner notification sent");
   }
 }
 

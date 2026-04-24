@@ -70,7 +70,7 @@ That full string becomes `DATABASE_URL` on Render.
    |-----|---------|
    | `RESEND_API_KEY` | API key from [Resend](https://resend.com) (free tier available) |
    | `RESEND_FROM` | A **verified** sender address on your domain, e.g. `Shaaz Driving <onboarding@resend.dev>` for testing, or `Shaaz <noreply@yourdomain.com>` after you [verify your domain](https://resend.com/docs/dashboard/domains/introduction) |
-   | `SITE_OWNER_EMAIL` | Your inbox — where alerts are sent (your Hotmail/Gmail business address). Comma-separated = multiple recipients. |
+   | `SITE_OWNER_EMAIL` | Inbox(es) where alerts are sent — comma-separated for multiple (e.g. `nahiabaksh21@gmail.com` for testing, or `shohan@…,nahiabaksh21@gmail.com` for both). |
 
    **Resend quick setup:** (1) Create a Resend account. (2) **API Keys** → create a key → paste as `RESEND_API_KEY` on Render. (3) For testing, Resend allows sending **from** `onboarding@resend.dev` — use `RESEND_FROM=Shaaz <onboarding@resend.dev>` and set `SITE_OWNER_EMAIL` to the email you use to log into Resend (or any inbox Resend accepts for testing). (4) Redeploy the API. (5) Submit a test registration — you should get **“New registration: …”** in your owner inbox. Production: add your real domain in Resend and use a `noreply@…` on that domain.
 
@@ -126,3 +126,4 @@ npm run dev
 - **503 on `/api/checkout-session`:** `STRIPE_SECRET_KEY` missing or invalid.
 - **Prisma / Mongo connection errors:** Check Atlas network access, user/password in the URI, and that `DATABASE_URL` uses `mongodb+srv://` for Atlas.
 - **`directConnection=true`:** Use for a **single local** MongoDB node; Atlas SRV URLs usually do not need it.
+- **No email when someone registers (API still returns success):** The API saves the row even if email fails. On Render, open **Logs** and search for `[email]`. If you see `Owner notification skipped — missing env`, set `RESEND_API_KEY`, `RESEND_FROM`, and `SITE_OWNER_EMAIL` on the web service, then redeploy. If you see `Resend error`, fix the message from Resend (invalid API key, unverified domain, or test-mode recipient rules). With `RESEND_FROM` using `onboarding@resend.dev`, set `SITE_OWNER_EMAIL` to an address Resend allows for testing (often the Gmail you use for your Resend account), e.g. `nahiabaksh21@gmail.com`.
