@@ -70,3 +70,38 @@ export async function sendOwnerNotification(
     console.error("[email] Resend error:", res.status, errText);
   }
 }
+
+export async function sendOwnerSmsNotification(message: string): Promise<void> {
+  const accountSid = process.env.TWILIO_ACCOUNT_SID;
+  const authToken = process.env.TWILIO_AUTH_TOKEN;
+  const from = process.env.TWILIO_FROM_PHONE;
+  const to = process.env.SITE_OWNER_PHONE;
+
+  if (!accountSid || !authToken || !from || !to) {
+    console.warn(
+      "[sms] Owner SMS notification skipped: set TWILIO_ACCOUNT_SID, TWILIO_AUTH_TOKEN, TWILIO_FROM_PHONE, and SITE_OWNER_PHONE on the server."
+    );
+    return;
+  }
+
+  const body = new URLSearchParams({
+    From: from,
+    To: to,
+    Body: message,
+  });
+
+  const auth = Buffer.from(`${accountSid}:${authToken}`).toString("base64");
+  const res = await fetch(`https://api.twilio.com/2010-04-01/Accounts/${accountSid}/Messages.json`, {
+    method: "POST",
+    headers: {
+      Authorization: `Basic ${auth}`,
+      "Content-Type": "application/x-www-form-urlencoded",
+    },
+    body,
+  });
+
+  if (!res.ok) {
+    const errText = await res.text();
+    console.error("[sms] Twilio error:", res.status, errText);
+  }
+}

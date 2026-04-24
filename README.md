@@ -1,6 +1,6 @@
 # Shaaz Driving Academy — full stack website
 
-This repository contains a **React (Vite + TypeScript)** frontend, a **Node.js (Express)** API, and a **MongoDB** database via **Prisma**. Contact messages and registration interest are stored in the database. **Stripe** powers secure card payments (deposits/fees); optional **Resend** can email you when forms are submitted.
+This repository contains a **React (Vite + TypeScript)** frontend, a **Node.js (Express)** API, and a **MongoDB** database via **Prisma**. Contact messages and registration interest are stored in the database. **Stripe** powers secure card payments (deposits/fees); optional **Resend** can email you when forms are submitted, and optional **Twilio** can text registration submissions to your phone.
 
 ## Project layout
 

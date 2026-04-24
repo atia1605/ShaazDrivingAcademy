@@ -5,7 +5,7 @@ import helmet from "helmet";
 import Stripe from "stripe";
 import { z } from "zod";
 import { PrismaClient } from "@prisma/client";
-import { sendOwnerNotification } from "./email.js";
+import { sendOwnerNotification, sendOwnerSmsNotification } from "./email.js";
 import { PAYMENT_PRODUCTS, formatCad, type PaymentProductKey } from "./payments.js";
 
 const prisma = new PrismaClient();
@@ -185,14 +185,36 @@ app.post("/api/register-interest", async (req, res) => {
 
   await sendOwnerNotification(
     `New registration: ${parsed.data.fullName}`,
-    `<p>Someone submitted the <strong>Register online</strong> form on your website.</p>
-     <p><strong>Name:</strong> ${escapeHtml(parsed.data.fullName)}</p>
+    `<p><strong>New Register Online submission</strong></p>
+     <p>Submitted from shaazdriving.com. Full details are below:</p>
+     <hr />
+     <p><strong>Full name:</strong> ${escapeHtml(parsed.data.fullName)}</p>
      <p><strong>Email:</strong> ${escapeHtml(parsed.data.email)}</p>
-     <p><strong>Phone:</strong> ${escapeHtml(phone || "—")}</p>
-     <p><strong>Course interest:</strong> ${escapeHtml(courseType || "—")}</p>
-     <p><strong>Notes:</strong></p><p>${escapeHtml(notes || "—").replace(/\n/g, "<br/>")}</p>`,
+     <p><strong>Phone number:</strong> ${escapeHtml(phone || "Not provided")}</p>
+     <p><strong>Course interest:</strong> ${escapeHtml(courseType || "Not provided")}</p>
+     <p><strong>Notes:</strong></p>
+     <p>${escapeHtml(notes || "Not provided").replace(/\n/g, "<br/>")}</p>
+     <hr />
+     <p><strong>Quick copy:</strong></p>
+     <p>
+       Name: ${escapeHtml(parsed.data.fullName)}<br/>
+       Email: ${escapeHtml(parsed.data.email)}<br/>
+       Phone: ${escapeHtml(phone || "Not provided")}<br/>
+       Course: ${escapeHtml(courseType || "Not provided")}<br/>
+       Notes: ${escapeHtml(notes || "Not provided").replace(/\n/g, "<br/>")}
+     </p>`,
     { replyTo: parsed.data.email }
   ).catch(() => {});
+
+  const smsLines = [
+    "New website registration",
+    `Name: ${parsed.data.fullName}`,
+    `Email: ${parsed.data.email}`,
+    `Phone: ${phone || "—"}`,
+    `Course interest: ${courseType || "—"}`,
+    `Notes: ${notes || "—"}`,
+  ];
+  await sendOwnerSmsNotification(smsLines.join("\n")).catch(() => {});
 
   res.status(201).json({ id: row.id, message: "Registration interest saved. We'll be in touch." });
 });
