@@ -2,6 +2,14 @@
  * Owner notifications via [Resend](https://resend.com).
  * Set on Render: RESEND_API_KEY, RESEND_FROM, SITE_OWNER_EMAIL
  */
+export type OwnerEmailNotifyResult =
+  | { configured: false; skipped: true; sent: 0; failed: 0 }
+  | { configured: true; skipped?: false; sent: number; failed: number };
+
+export type OwnerSmsNotifyResult =
+  | { configured: false }
+  | { configured: true; ok: boolean };
+
 type NotifyOptions = {
   /** Lets the owner hit Reply to reach the customer (contact / registration). */
   replyTo?: string;
@@ -25,7 +33,7 @@ export async function sendOwnerNotification(
   subject: string,
   html: string,
   options?: NotifyOptions
-): Promise<void> {
+): Promise<OwnerEmailNotifyResult> {
   const apiKey = process.env.RESEND_API_KEY;
   const from = process.env.RESEND_FROM;
   const toRaw = process.env.SITE_OWNER_EMAIL;
@@ -36,7 +44,7 @@ export async function sendOwnerNotification(
     if (!from) missing.push("RESEND_FROM");
     if (!toRaw) missing.push("SITE_OWNER_EMAIL");
     console.warn(`[email] Owner notification skipped — missing env: ${missing.join(", ")}`);
-    return;
+    return { configured: false, skipped: true, sent: 0, failed: 0 };
   }
 
   const to = toRaw
@@ -46,9 +54,11 @@ export async function sendOwnerNotification(
 
   const text = htmlToPlainText(html);
 
-  // One Resend API call per recipient — clearer logs and avoids odd client issues with multi-to.
   const uniqueRecipients = [...new Set(to)];
   console.log("[email] Sending owner notification to", uniqueRecipients.length, "address(es)");
+
+  let sent = 0;
+  let failed = 0;
 
   for (const recipient of uniqueRecipients) {
     const basePayload: Record<string, unknown> = {
@@ -80,7 +90,6 @@ export async function sendOwnerNotification(
     try {
       let { res, resText } = await sendOnce(basePayload);
 
-      // Some registrant addresses cause Resend to reject reply_to; deliver owner mail anyway.
       if (!res.ok && res.status === 422 && basePayload.reply_to) {
         console.warn("[email] Retrying without reply_to for", recipient, res.status, resText);
         const withoutReply = { ...basePayload };
@@ -92,8 +101,10 @@ export async function sendOwnerNotification(
 
       if (!res.ok) {
         console.error("[email] Resend error for", recipient, ":", res.status, resText);
+        failed++;
         continue;
       }
+      sent++;
       try {
         const data = JSON.parse(resText) as { id?: string };
         if (data.id) {
@@ -106,11 +117,14 @@ export async function sendOwnerNotification(
       }
     } catch (err) {
       console.error("[email] Network error calling Resend for", recipient, ":", err);
+      failed++;
     }
   }
+
+  return { configured: true, sent, failed };
 }
 
-export async function sendOwnerSmsNotification(message: string): Promise<void> {
+export async function sendOwnerSmsNotification(message: string): Promise<OwnerSmsNotifyResult> {
   const accountSid = process.env.TWILIO_ACCOUNT_SID;
   const authToken = process.env.TWILIO_AUTH_TOKEN;
   const from = process.env.TWILIO_FROM_PHONE;
@@ -120,7 +134,7 @@ export async function sendOwnerSmsNotification(message: string): Promise<void> {
     console.warn(
       "[sms] Owner SMS notification skipped: set TWILIO_ACCOUNT_SID, TWILIO_AUTH_TOKEN, TWILIO_FROM_PHONE, and SITE_OWNER_PHONE on the server."
     );
-    return;
+    return { configured: false };
   }
 
   const body = new URLSearchParams({
@@ -129,18 +143,25 @@ export async function sendOwnerSmsNotification(message: string): Promise<void> {
     Body: message,
   });
 
-  const auth = Buffer.from(`${accountSid}:${authToken}`).toString("base64");
-  const res = await fetch(`https://api.twilio.com/2010-04-01/Accounts/${accountSid}/Messages.json`, {
-    method: "POST",
-    headers: {
-      Authorization: `Basic ${auth}`,
-      "Content-Type": "application/x-www-form-urlencoded",
-    },
-    body,
-  });
+  try {
+    const auth = Buffer.from(`${accountSid}:${authToken}`).toString("base64");
+    const res = await fetch(`https://api.twilio.com/2010-04-01/Accounts/${accountSid}/Messages.json`, {
+      method: "POST",
+      headers: {
+        Authorization: `Basic ${auth}`,
+        "Content-Type": "application/x-www-form-urlencoded",
+      },
+      body,
+    });
 
-  if (!res.ok) {
-    const errText = await res.text();
-    console.error("[sms] Twilio error:", res.status, errText);
+    if (!res.ok) {
+      const errText = await res.text();
+      console.error("[sms] Twilio error:", res.status, errText);
+      return { configured: true, ok: false };
+    }
+    return { configured: true, ok: true };
+  } catch (err) {
+    console.error("[sms] Twilio network error:", err);
+    return { configured: true, ok: false };
   }
 }

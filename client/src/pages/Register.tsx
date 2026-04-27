@@ -4,7 +4,16 @@ import { Link } from "react-router-dom";
 import { postJson } from "../api";
 import { courseTypes } from "../data/content";
 import { useDocumentTitle } from "../hooks/useDocumentTitle";
+import type { OwnerEmailNotify, OwnerSmsNotify } from "../ownerNotifyStatus";
+import { describeOwnerEmailNotify, describeOwnerSmsNotify } from "../ownerNotifyStatus";
 import { SITE } from "../site";
+
+type RegisterResponse = {
+  message: string;
+  id: string;
+  ownerEmailNotify: OwnerEmailNotify;
+  ownerSmsNotify: OwnerSmsNotify;
+};
 
 export function Register() {
   useDocumentTitle("Register for Driving Lessons | Shaaz Driving Academy Toronto & Scarborough");
@@ -15,28 +24,34 @@ export function Register() {
   const [notes, setNotes] = useState("");
   const [status, setStatus] = useState<"idle" | "loading" | "ok" | "err">("idle");
   const [errMsg, setErrMsg] = useState("");
+  const [notifyEmail, setNotifyEmail] = useState<{ text: string; tone: "ok" | "warn" | "bad" } | null>(null);
+  const [notifySms, setNotifySms] = useState<string | null>(null);
 
   async function onSubmit(e: FormEvent) {
     e.preventDefault();
     setStatus("loading");
     setErrMsg("");
+    setNotifyEmail(null);
+    setNotifySms(null);
     try {
-      await postJson<{ message: string }>("/api/register-interest", {
+      const data = await postJson<RegisterResponse>("/api/register-interest", {
         fullName,
         email,
         phone: phone || undefined,
         courseType: courseType || undefined,
         notes: notes || undefined,
       });
+      setNotifyEmail(describeOwnerEmailNotify(data.ownerEmailNotify));
+      setNotifySms(describeOwnerSmsNotify(data.ownerSmsNotify));
       setStatus("ok");
       setFullName("");
       setEmail("");
       setPhone("");
       setCourseType("");
       setNotes("");
-    } catch (e) {
+    } catch (err) {
       setStatus("err");
-      setErrMsg(e instanceof Error ? e.message : "Something went wrong.");
+      setErrMsg(err instanceof Error ? err.message : "Something went wrong.");
     }
   }
 
@@ -106,7 +121,24 @@ export function Register() {
                 <textarea value={notes} onChange={(e) => setNotes(e.target.value)} rows={4} maxLength={4000} />
               </label>
               {status === "ok" && (
-                <p className="form-success">Thanks — your request was received. We will contact you soon.</p>
+                <>
+                  <p className="form-success">Thanks — your request was received. We will contact you soon.</p>
+                  {notifyEmail && (
+                    <div
+                      className={`notify-api-status notify-api-status--${notifyEmail.tone}`}
+                      role="status"
+                      aria-live="polite"
+                    >
+                      <strong style={{ display: "block", marginBottom: "0.25rem" }}>Staff email alert</strong>
+                      {notifyEmail.text}
+                    </div>
+                  )}
+                  {notifySms && (
+                    <p className="small muted" style={{ marginTop: "0.5rem" }} role="status">
+                      {notifySms}
+                    </p>
+                  )}
+                </>
               )}
               {status === "err" && (
                 <div className="callout callout-warn">

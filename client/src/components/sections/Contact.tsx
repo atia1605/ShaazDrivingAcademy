@@ -1,6 +1,8 @@
 import { useState } from "react";
 import type { FormEvent } from "react";
 import { postJson } from "../../api";
+import type { OwnerEmailNotify } from "../../ownerNotifyStatus";
+import { describeOwnerEmailNotify } from "../../ownerNotifyStatus";
 import { TikTokIcon } from "../TikTokIcon";
 import { SITE, SITE_LANGUAGES_DISPLAY, SITE_PHONE_LIST } from "../../site";
 
@@ -13,13 +15,20 @@ export function Contact() {
   const [message, setMessage] = useState("");
   const [status, setStatus] = useState<"idle" | "loading" | "ok" | "err">("idle");
   const [errMsg, setErrMsg] = useState("");
+  const [notifyEmail, setNotifyEmail] = useState<{ text: string; tone: "ok" | "warn" | "bad" } | null>(null);
 
   async function onSubmit(e: FormEvent) {
     e.preventDefault();
     setStatus("loading");
     setErrMsg("");
+    setNotifyEmail(null);
     try {
-      await postJson<{ message: string }>("/api/contact", { name, email, message });
+      const data = await postJson<{ message: string; ownerEmailNotify: OwnerEmailNotify }>("/api/contact", {
+        name,
+        email,
+        message,
+      });
+      setNotifyEmail(describeOwnerEmailNotify(data.ownerEmailNotify));
       setStatus("ok");
       setName("");
       setEmail("");
@@ -105,7 +114,19 @@ export function Contact() {
                 />
               </label>
               {status === "ok" && (
-                <p className="form-success">Message sent. We will get back to you soon.</p>
+                <>
+                  <p className="form-success">Message sent. We will get back to you soon.</p>
+                  {notifyEmail && (
+                    <div
+                      className={`notify-api-status notify-api-status--${notifyEmail.tone}`}
+                      role="status"
+                      aria-live="polite"
+                    >
+                      <strong style={{ display: "block", marginBottom: "0.25rem" }}>Staff email alert</strong>
+                      {notifyEmail.text}
+                    </div>
+                  )}
+                </>
               )}
               {status === "err" && (
                 <div className="callout callout-warn">

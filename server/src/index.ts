@@ -161,15 +161,22 @@ app.post("/api/contact", async (req, res) => {
     data: parsed.data,
   });
 
-  await sendOwnerNotification(
+  const ownerEmailNotify = await sendOwnerNotification(
     `Website contact: ${parsed.data.name}`,
     `<p><strong>Name:</strong> ${escapeHtml(parsed.data.name)}</p>
      <p><strong>Email:</strong> ${escapeHtml(parsed.data.email)}</p>
      <p><strong>Message:</strong></p><p>${escapeHtml(parsed.data.message).replace(/\n/g, "<br/>")}</p>`,
     { replyTo: parsed.data.email }
-  ).catch((err) => console.error("[email] sendOwnerNotification (contact)", err));
+  ).catch((err) => {
+    console.error("[email] sendOwnerNotification (contact)", err);
+    return { configured: true as const, sent: 0, failed: 1 };
+  });
 
-  res.status(201).json({ id: row.id, message: "Thank you — we received your message." });
+  res.status(201).json({
+    id: row.id,
+    message: "Thank you — we received your message.",
+    ownerEmailNotify,
+  });
 });
 
 app.post("/api/register-interest", async (req, res) => {
@@ -188,7 +195,7 @@ app.post("/api/register-interest", async (req, res) => {
     },
   });
 
-  await sendOwnerNotification(
+  const ownerEmailNotify = await sendOwnerNotification(
     `New registration: ${parsed.data.fullName}`,
     `<p><strong>New Register Online submission</strong></p>
      <p>Submitted from shaazdriving.com. Full details are below:</p>
@@ -209,7 +216,10 @@ app.post("/api/register-interest", async (req, res) => {
        Notes: ${escapeHtml(notes || "Not provided").replace(/\n/g, "<br/>")}
      </p>`,
     { replyTo: parsed.data.email }
-  ).catch((err) => console.error("[email] sendOwnerNotification (registration)", err));
+  ).catch((err) => {
+    console.error("[email] sendOwnerNotification (registration)", err);
+    return { configured: true as const, sent: 0, failed: 1 };
+  });
 
   const smsLines = [
     "New website registration",
@@ -219,11 +229,17 @@ app.post("/api/register-interest", async (req, res) => {
     `Course interest: ${courseType || "—"}`,
     `Notes: ${notes || "—"}`,
   ];
-  await sendOwnerSmsNotification(smsLines.join("\n")).catch((err) =>
-    console.error("[sms] sendOwnerSmsNotification", err)
-  );
+  const ownerSmsNotify = await sendOwnerSmsNotification(smsLines.join("\n")).catch((err) => {
+    console.error("[sms] sendOwnerSmsNotification", err);
+    return { configured: true as const, ok: false };
+  });
 
-  res.status(201).json({ id: row.id, message: "Registration interest saved. We'll be in touch." });
+  res.status(201).json({
+    id: row.id,
+    message: "Registration interest saved. We'll be in touch.",
+    ownerEmailNotify,
+    ownerSmsNotify,
+  });
 });
 
 function escapeHtml(s: string): string {
