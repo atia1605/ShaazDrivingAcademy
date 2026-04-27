@@ -167,7 +167,7 @@ app.post("/api/contact", async (req, res) => {
      <p><strong>Email:</strong> ${escapeHtml(parsed.data.email)}</p>
      <p><strong>Message:</strong></p><p>${escapeHtml(parsed.data.message).replace(/\n/g, "<br/>")}</p>`,
     { replyTo: parsed.data.email }
-  ).catch(() => {});
+  ).catch((err) => console.error("[email] sendOwnerNotification (contact)", err));
 
   res.status(201).json({ id: row.id, message: "Thank you — we received your message." });
 });
@@ -209,7 +209,7 @@ app.post("/api/register-interest", async (req, res) => {
        Notes: ${escapeHtml(notes || "Not provided").replace(/\n/g, "<br/>")}
      </p>`,
     { replyTo: parsed.data.email }
-  ).catch(() => {});
+  ).catch((err) => console.error("[email] sendOwnerNotification (registration)", err));
 
   const smsLines = [
     "New website registration",
@@ -219,7 +219,9 @@ app.post("/api/register-interest", async (req, res) => {
     `Course interest: ${courseType || "—"}`,
     `Notes: ${notes || "—"}`,
   ];
-  await sendOwnerSmsNotification(smsLines.join("\n")).catch(() => {});
+  await sendOwnerSmsNotification(smsLines.join("\n")).catch((err) =>
+    console.error("[sms] sendOwnerSmsNotification", err)
+  );
 
   res.status(201).json({ id: row.id, message: "Registration interest saved. We'll be in touch." });
 });

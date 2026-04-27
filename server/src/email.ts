@@ -51,41 +51,61 @@ export async function sendOwnerNotification(
   console.log("[email] Sending owner notification to", uniqueRecipients.length, "address(es)");
 
   for (const recipient of uniqueRecipients) {
-    const payload: Record<string, unknown> = {
+    const basePayload: Record<string, unknown> = {
       from,
       to: [recipient],
       subject,
       html,
       text,
+      tags: [{ name: "source", value: "shaaz-api" }],
     };
 
     if (options?.replyTo) {
-      payload.reply_to = options.replyTo;
+      basePayload.reply_to = options.replyTo;
     }
 
-    const res = await fetch("https://api.resend.com/emails", {
-      method: "POST",
-      headers: {
-        Authorization: `Bearer ${apiKey}`,
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(payload),
-    });
+    const sendOnce = async (payload: Record<string, unknown>) => {
+      const res = await fetch("https://api.resend.com/emails", {
+        method: "POST",
+        headers: {
+          Authorization: `Bearer ${apiKey}`,
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(payload),
+      });
+      const resText = await res.text();
+      return { res, resText };
+    };
 
-    const resText = await res.text();
-    if (!res.ok) {
-      console.error("[email] Resend error for", recipient, ":", res.status, resText);
-      continue;
-    }
     try {
-      const data = JSON.parse(resText) as { id?: string };
-      if (data.id) {
-        console.log("[email] Owner notification sent to", recipient, "Resend id:", data.id);
-      } else {
+      let { res, resText } = await sendOnce(basePayload);
+
+      // Some registrant addresses cause Resend to reject reply_to; deliver owner mail anyway.
+      if (!res.ok && res.status === 422 && basePayload.reply_to) {
+        console.warn("[email] Retrying without reply_to for", recipient, res.status, resText);
+        const withoutReply = { ...basePayload };
+        delete withoutReply.reply_to;
+        const second = await sendOnce(withoutReply);
+        res = second.res;
+        resText = second.resText;
+      }
+
+      if (!res.ok) {
+        console.error("[email] Resend error for", recipient, ":", res.status, resText);
+        continue;
+      }
+      try {
+        const data = JSON.parse(resText) as { id?: string };
+        if (data.id) {
+          console.log("[email] Owner notification sent to", recipient, "Resend id:", data.id);
+        } else {
+          console.log("[email] Owner notification sent to", recipient);
+        }
+      } catch {
         console.log("[email] Owner notification sent to", recipient);
       }
-    } catch {
-      console.log("[email] Owner notification sent to", recipient);
+    } catch (err) {
+      console.error("[email] Network error calling Resend for", recipient, ":", err);
     }
   }
 }
