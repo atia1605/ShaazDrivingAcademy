@@ -71,10 +71,15 @@ app.get("/", (_req, res) => {
 });
 
 app.get("/api/health", (_req, res) => {
+  const ownerNotificationsConfigured = Boolean(
+    process.env.RESEND_API_KEY && process.env.RESEND_FROM && process.env.SITE_OWNER_EMAIL
+  );
   res.json({
     ok: true,
     service: "shaaz-driving-api",
     payments: Boolean(process.env.STRIPE_SECRET_KEY),
+    /** True when Resend env vars are present (check logs if mail still does not arrive). */
+    ownerNotificationsConfigured,
   });
 });
 
