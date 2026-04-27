@@ -1,4 +1,8 @@
 :root {
+  /* Fixed bottom nav (mobile) — bar height + optional home-indicator safe area */
+  --mobile-sticky-bar-h: 3.75rem;
+  --mobile-sticky-clearance: calc(var(--mobile-sticky-bar-h) + env(safe-area-inset-bottom, 0px));
+
   --color-navy: #0a2748;
   --color-navy-mid: #123a5c;
   --color-navy-deep: #061526;
@@ -76,7 +80,7 @@ a:hover {
 
 .main-content {
   flex: 1;
-  padding-bottom: 5.25rem;
+  padding-bottom: calc(var(--mobile-sticky-clearance) + 0.75rem);
 }
 
 @media (min-width: 769px) {
@@ -2278,6 +2282,8 @@ a:hover {
   backdrop-filter: blur(10px);
   border-top: 1px solid var(--color-border);
   box-shadow: 0 -8px 30px rgba(10, 39, 72, 0.1);
+  /* Keep buttons above iPhone/Android home indicator */
+  padding-bottom: env(safe-area-inset-bottom, 0px);
 }
 
 .sticky-btn {
@@ -2312,6 +2318,13 @@ a:hover {
 @media (min-width: 769px) {
   .sticky-mobile-cta {
     display: none;
+  }
+}
+
+/* Footer ends above fixed bottom nav on small screens */
+@media (max-width: 768px) {
+  .site-footer {
+    padding-bottom: var(--mobile-sticky-clearance);
   }
 }
 
@@ -2567,7 +2580,7 @@ a:hover {
 
 @media (max-width: 768px) {
   .faq-chat-launcher {
-    bottom: 5.1rem;
+    bottom: calc(var(--mobile-sticky-clearance) + 0.35rem);
   }
 }
 
