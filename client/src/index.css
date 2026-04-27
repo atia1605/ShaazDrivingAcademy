@@ -3283,15 +3283,23 @@ a:hover {
     flex-direction: column;
     align-items: stretch;
     box-shadow: var(--shadow);
+    z-index: 110;
   }
 
   .main-nav.open {
     display: flex;
+    /* Scroll when menu is taller than viewport minus header + bottom tab bar */
+    max-height: calc(100vh - env(safe-area-inset-top, 0px) - 6.85rem - var(--mobile-sticky-clearance));
+    max-height: calc(100dvh - env(safe-area-inset-top, 0px) - 6.85rem - var(--mobile-sticky-clearance));
+    overflow-y: auto;
+    overscroll-behavior: contain;
+    -webkit-overflow-scrolling: touch;
   }
 
   .nav-list {
     flex-direction: column;
     align-items: stretch;
+    padding-bottom: 0.35rem;
   }
 
   .has-dropdown .dropdown-menu {
