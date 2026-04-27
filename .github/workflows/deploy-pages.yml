@@ -35,8 +35,7 @@ jobs:
       - name: Build client
         run: npm run build --workspace=client
 
-      - name: SPA fallback for GitHub Pages
-        run: cp client/dist/index.html client/dist/404.html
+      # client/vite.config.ts emits dist/404.html (SPA redirect + sessionStorage restore on /).
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
