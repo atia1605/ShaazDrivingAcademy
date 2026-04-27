@@ -79,7 +79,7 @@
         ]
       }
     </script>
-    <link rel="preload" href="/images/hero-bg.jpg" as="image" />
+    <!-- No global preload for hero-bg: it caused Chrome warnings on routes without .hero-bg (e.g. /register). Home still loads it via CSS. -->
     <meta property="og:type" content="website" />
     <meta property="og:site_name" content="Shaaz Driving Academy" />
     <meta property="og:title" content="Shaaz Driving Academy | Toronto & Scarborough Driving School" />
