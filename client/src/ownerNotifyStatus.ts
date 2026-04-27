@@ -24,7 +24,8 @@ export function describeOwnerEmailNotify(n: OwnerEmailNotify): { text: string; t
   }
   if (sent === 0 && failed > 0) {
     return {
-      text: "Your submission is saved, but the staff email alert did not send. Please call or email us if you need a quick reply.",
+      text:
+        "Your registration is saved. Our automatic staff email didn’t send (technical issue on our side). Please call or email us if you need help right away—we still have your details.",
       tone: "bad",
     };
   }
