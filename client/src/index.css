@@ -3288,12 +3288,26 @@ a:hover {
 
   .main-nav.open {
     display: flex;
-    /* Scroll when menu is taller than viewport minus header + bottom tab bar */
-    max-height: calc(100vh - env(safe-area-inset-top, 0px) - 6.85rem - var(--mobile-sticky-clearance));
-    max-height: calc(100dvh - env(safe-area-inset-top, 0px) - 6.85rem - var(--mobile-sticky-clearance));
+    /* Full-height overlay so the list can scroll with touch (absolute + max-height was unreliable on iOS) */
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: var(--mobile-sticky-clearance);
+    width: 100%;
+    max-height: none;
+    height: auto;
+    min-height: 0;
+    padding: 1rem;
+    padding-top: calc(env(safe-area-inset-top, 0px) + 6.85rem);
+    padding-bottom: max(1rem, env(safe-area-inset-bottom, 0px));
     overflow-y: auto;
+    overflow-x: hidden;
     overscroll-behavior: contain;
     -webkit-overflow-scrolling: touch;
+    touch-action: pan-y;
+    box-sizing: border-box;
+    z-index: 120;
   }
 
   .nav-list {
