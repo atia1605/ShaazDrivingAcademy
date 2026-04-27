@@ -124,6 +124,102 @@ export async function sendOwnerNotification(
   return { configured: true, sent, failed };
 }
 
+export type RegistrantThankYouResult =
+  | { sent: false; reason: "not_configured" }
+  | { sent: false; reason: "failed" }
+  | { sent: true };
+
+/** Confirmation email to the person who submitted the registration form (uses same Resend `from` as staff alerts). */
+export async function sendRegistrantRegistrationThankYou(params: {
+  toEmail: string;
+  fullName: string;
+}): Promise<RegistrantThankYouResult> {
+  const apiKey = process.env.RESEND_API_KEY;
+  const from = process.env.RESEND_FROM;
+  if (!apiKey || !from) {
+    console.warn("[email] Registrant thank-you skipped — missing RESEND_API_KEY or RESEND_FROM");
+    return { sent: false, reason: "not_configured" };
+  }
+
+  const contactEmail = process.env.PUBLIC_CONTACT_EMAIL ?? "shohanchowdhury@hotmail.com";
+  const contactPhone = process.env.PUBLIC_CONTACT_PHONE ?? "647-783-7582";
+  const telHref = contactPhone.replace(/\D/g, "");
+
+  const greeting = esc(params.fullName.trim().split(/\s+/)[0] || "there");
+  const subject = "Thanks for registering — Shaaz Driving Academy";
+
+  const html = `<p>Hi ${greeting},</p>
+<p>Thank you for registering with <strong>Shaaz Driving Academy</strong>. We received your details and will get back to you shortly.</p>
+<p>If you have questions in the meantime, feel free to reach us:</p>
+<ul>
+  <li><strong>Phone:</strong> <a href="tel:${telHref}">${esc(contactPhone)}</a></li>
+  <li><strong>Email:</strong> <a href="mailto:${esc(contactEmail)}">${esc(contactEmail)}</a></li>
+</ul>
+<p>— Shaaz Driving Academy<br/>Toronto &amp; Scarborough</p>`;
+
+  const text = htmlToPlainText(html);
+
+  const basePayload: Record<string, unknown> = {
+    from,
+    to: [params.toEmail],
+    subject,
+    html,
+    text,
+    reply_to: contactEmail,
+    tags: [{ name: "source", value: "shaaz-registrant-thanks" }],
+  };
+
+  const sendOnce = async (payload: Record<string, unknown>) => {
+    const res = await fetch("https://api.resend.com/emails", {
+      method: "POST",
+      headers: {
+        Authorization: `Bearer ${apiKey}`,
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(payload),
+    });
+    const resText = await res.text();
+    return { res, resText };
+  };
+
+  try {
+    let { res, resText } = await sendOnce(basePayload);
+
+    if (!res.ok && res.status === 422 && basePayload.reply_to) {
+      console.warn("[email] Registrant thank-you: retry without reply_to", res.status, resText);
+      const withoutReply = { ...basePayload };
+      delete withoutReply.reply_to;
+      const second = await sendOnce(withoutReply);
+      res = second.res;
+      resText = second.resText;
+    }
+
+    if (!res.ok) {
+      console.error("[email] Registrant thank-you Resend error:", res.status, resText);
+      return { sent: false, reason: "failed" };
+    }
+
+    try {
+      const data = JSON.parse(resText) as { id?: string };
+      console.log("[email] Registrant thank-you sent to", params.toEmail, data.id ?? "");
+    } catch {
+      console.log("[email] Registrant thank-you sent to", params.toEmail);
+    }
+    return { sent: true };
+  } catch (err) {
+    console.error("[email] Registrant thank-you network error:", err);
+    return { sent: false, reason: "failed" };
+  }
+}
+
+function esc(s: string): string {
+  return s
+    .replace(/&/g, "&amp;")
+    .replace(/</g, "&lt;")
+    .replace(/>/g, "&gt;")
+    .replace(/"/g, "&quot;");
+}
+
 export async function sendOwnerSmsNotification(message: string): Promise<OwnerSmsNotifyResult> {
   const accountSid = process.env.TWILIO_ACCOUNT_SID;
   const authToken = process.env.TWILIO_AUTH_TOKEN;

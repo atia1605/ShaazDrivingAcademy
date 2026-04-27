@@ -5,7 +5,7 @@ import helmet from "helmet";
 import Stripe from "stripe";
 import { z } from "zod";
 import { PrismaClient } from "@prisma/client";
-import { sendOwnerNotification, sendOwnerSmsNotification } from "./email.js";
+import { sendOwnerNotification, sendOwnerSmsNotification, sendRegistrantRegistrationThankYou } from "./email.js";
 import { PAYMENT_PRODUCTS, formatCad, type PaymentProductKey } from "./payments.js";
 
 const prisma = new PrismaClient();
@@ -234,11 +234,20 @@ app.post("/api/register-interest", async (req, res) => {
     return { configured: true as const, ok: false };
   });
 
+  const registrantThankYou = await sendRegistrantRegistrationThankYou({
+    toEmail: parsed.data.email,
+    fullName: parsed.data.fullName,
+  });
+
   res.status(201).json({
     id: row.id,
     message: "Registration interest saved. We'll be in touch.",
     ownerEmailNotify,
     ownerSmsNotify,
+    registrantEmail:
+      registrantThankYou.sent === true
+        ? { sent: true }
+        : { sent: false, reason: registrantThankYou.reason },
   });
 });
 

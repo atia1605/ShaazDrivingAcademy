@@ -6,6 +6,8 @@ export type OwnerEmailNotify =
 
 export type OwnerSmsNotify = { configured: false } | { configured: true; ok: boolean };
 
+export type RegistrantEmailStatus = { sent: true } | { sent: false; reason: "not_configured" | "failed" };
+
 export type NotifyTone = "ok" | "warn" | "bad";
 
 export function describeOwnerEmailNotify(n: OwnerEmailNotify): { text: string; tone: NotifyTone } {
@@ -41,4 +43,21 @@ export function describeOwnerEmailNotify(n: OwnerEmailNotify): { text: string; t
 export function describeOwnerSmsNotify(n: OwnerSmsNotify): string | null {
   if (!n.configured) return null;
   return n.ok ? "SMS alert to instructor: sent." : "SMS alert to instructor: not sent (check Twilio settings on the server).";
+}
+
+/** Confirmation email row on the Register success screen */
+export function registrantEmailUi(n: RegistrantEmailStatus): { text: string; tone: "ok" | "warn" } | null {
+  if (n.sent) {
+    return {
+      text: "We sent a confirmation email to your address — please check your inbox (and spam/junk).",
+      tone: "ok",
+    };
+  }
+  if (n.reason === "failed") {
+    return {
+      text: "We couldn’t send a confirmation email right now; your registration is still saved and we’ll contact you.",
+      tone: "warn",
+    };
+  }
+  return null;
 }

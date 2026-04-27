@@ -4,8 +4,8 @@ import { Link } from "react-router-dom";
 import { postJson } from "../api";
 import { courseTypes } from "../data/content";
 import { useDocumentTitle } from "../hooks/useDocumentTitle";
-import type { OwnerEmailNotify, OwnerSmsNotify } from "../ownerNotifyStatus";
-import { describeOwnerEmailNotify, describeOwnerSmsNotify } from "../ownerNotifyStatus";
+import type { OwnerEmailNotify, OwnerSmsNotify, RegistrantEmailStatus } from "../ownerNotifyStatus";
+import { describeOwnerEmailNotify, describeOwnerSmsNotify, registrantEmailUi } from "../ownerNotifyStatus";
 import { SITE } from "../site";
 
 type RegisterResponse = {
@@ -13,6 +13,7 @@ type RegisterResponse = {
   id: string;
   ownerEmailNotify: OwnerEmailNotify;
   ownerSmsNotify: OwnerSmsNotify;
+  registrantEmail: RegistrantEmailStatus;
 };
 
 export function Register() {
@@ -26,6 +27,7 @@ export function Register() {
   const [errMsg, setErrMsg] = useState("");
   const [notifyEmail, setNotifyEmail] = useState<{ text: string; tone: "ok" | "warn" | "bad" } | null>(null);
   const [notifySms, setNotifySms] = useState<string | null>(null);
+  const [registrantNote, setRegistrantNote] = useState<{ text: string; tone: "ok" | "warn" } | null>(null);
 
   async function onSubmit(e: FormEvent) {
     e.preventDefault();
@@ -33,6 +35,7 @@ export function Register() {
     setErrMsg("");
     setNotifyEmail(null);
     setNotifySms(null);
+    setRegistrantNote(null);
     try {
       const data = await postJson<RegisterResponse>("/api/register-interest", {
         fullName,
@@ -43,6 +46,7 @@ export function Register() {
       });
       setNotifyEmail(describeOwnerEmailNotify(data.ownerEmailNotify));
       setNotifySms(describeOwnerSmsNotify(data.ownerSmsNotify));
+      setRegistrantNote(registrantEmailUi(data.registrantEmail));
       setStatus("ok");
       setFullName("");
       setEmail("");
@@ -123,6 +127,16 @@ export function Register() {
               {status === "ok" && (
                 <>
                   <p className="form-success">Thanks — your request was received. We will contact you soon.</p>
+                  {registrantNote && (
+                    <div
+                      className={`notify-api-status notify-api-status--${registrantNote.tone}`}
+                      role="status"
+                      aria-live="polite"
+                    >
+                      <strong style={{ display: "block", marginBottom: "0.25rem" }}>Confirmation email</strong>
+                      {registrantNote.text}
+                    </div>
+                  )}
                   {notifyEmail && (
                     <div
                       className={`notify-api-status notify-api-status--${notifyEmail.tone}`}

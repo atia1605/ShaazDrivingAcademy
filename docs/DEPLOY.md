@@ -71,6 +71,8 @@ That full string becomes `DATABASE_URL` on Render.
    | `RESEND_API_KEY` | API key from [Resend](https://resend.com) (free tier available) |
    | `RESEND_FROM` | A **verified** sender address on your domain, e.g. `Shaaz Driving <onboarding@resend.dev>` for testing, or `Shaaz <noreply@yourdomain.com>` after you [verify your domain](https://resend.com/docs/dashboard/domains/introduction) |
    | `SITE_OWNER_EMAIL` | Inbox(es) where alerts are sent — comma-separated for multiple (e.g. `nahiabaksh21@gmail.com` for testing, or `shohan@…,nahiabaksh21@gmail.com` for both). |
+   | `PUBLIC_CONTACT_EMAIL` | (Optional) Phone/email shown to customers in the automatic **thank-you** email after registration; defaults match the site if unset. |
+   | `PUBLIC_CONTACT_PHONE` | (Optional) Same — display phone for that thank-you email. |
 
    **Resend quick setup:** (1) Create a Resend account. (2) **API Keys** → create a key → paste as `RESEND_API_KEY` on Render. (3) For testing, Resend allows sending **from** `onboarding@resend.dev` — use `RESEND_FROM=Shaaz <onboarding@resend.dev>` and set `SITE_OWNER_EMAIL` to the email you use to log into Resend (or any inbox Resend accepts for testing). (4) Redeploy the API. (5) Submit a test registration — you should get **“New registration: …”** in your owner inbox. Production: add your real domain in Resend and use a `noreply@…` on that domain.
 
