@@ -1,7 +1,8 @@
 :root {
-  /* Fixed bottom nav (mobile) — bar height + optional home-indicator safe area */
+  /* Fixed bottom nav — bar row + bottom inset (home indicator / Android gesture bar when reported) */
   --mobile-sticky-bar-h: 3.75rem;
-  --mobile-sticky-clearance: calc(var(--mobile-sticky-bar-h) + env(safe-area-inset-bottom, 0px));
+  --mobile-system-bottom: env(safe-area-inset-bottom, 0px);
+  --mobile-sticky-clearance: calc(var(--mobile-sticky-bar-h) + var(--mobile-system-bottom));
 
   --color-navy: #0a2748;
   --color-navy-mid: #123a5c;
@@ -22,6 +23,17 @@
   --shadow-hover: 0 14px 40px rgba(10, 39, 72, 0.12);
   --font: "Plus Jakarta Sans", system-ui, -apple-system, sans-serif;
   --max: 1140px;
+}
+
+@media (max-width: 768px) {
+  :root {
+    /*
+     * Android 3-button nav often does NOT add safe-area-inset-bottom (still 0 with viewport-fit=cover).
+     * Reserve minimum space so the sticky bar + page padding sit above system Back / Home / Recents.
+     */
+    --mobile-system-bottom: max(env(safe-area-inset-bottom, 0px), 3rem);
+    --mobile-sticky-clearance: calc(var(--mobile-sticky-bar-h) + var(--mobile-system-bottom));
+  }
 }
 
 *,
@@ -2282,8 +2294,8 @@ a:hover {
   backdrop-filter: blur(10px);
   border-top: 1px solid var(--color-border);
   box-shadow: 0 -8px 30px rgba(10, 39, 72, 0.1);
-  /* Keep buttons above iPhone/Android home indicator */
-  padding-bottom: env(safe-area-inset-bottom, 0px);
+  /* Same inset as clearance math (includes Android nav-bar fallback on narrow viewports) */
+  padding-bottom: var(--mobile-system-bottom);
 }
 
 .sticky-btn {
@@ -3308,7 +3320,7 @@ a:hover {
     max-height: calc(100svh - var(--mobile-sticky-clearance));
     padding: 1rem;
     padding-top: calc(env(safe-area-inset-top, 0px) + 6.85rem);
-    padding-bottom: max(1rem, env(safe-area-inset-bottom, 0px));
+    padding-bottom: max(1rem, var(--mobile-system-bottom));
     box-sizing: border-box;
     z-index: 130;
   }
