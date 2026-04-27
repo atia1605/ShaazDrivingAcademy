@@ -3249,6 +3249,13 @@ a:hover {
   }
 }
 
+/* Desktop: inner wrapper must not affect horizontal nav layout */
+@media (min-width: 769px) {
+  .main-nav-scroll {
+    display: contents;
+  }
+}
+
 @media (max-width: 768px) {
   .footer-grid {
     grid-template-columns: 1fr;
@@ -3288,32 +3295,39 @@ a:hover {
 
   .main-nav.open {
     display: flex;
-    /* Full-height overlay so the list can scroll with touch (absolute + max-height was unreliable on iOS) */
+    flex-direction: column;
+    overflow: hidden;
+    /* Outer panel clips; inner .main-nav-scroll scrolls (flex+overflow on same node breaks iOS touch scroll) */
     position: fixed;
     top: 0;
     left: 0;
     right: 0;
-    bottom: var(--mobile-sticky-clearance);
     width: 100%;
-    max-height: none;
-    height: auto;
-    min-height: 0;
+    height: calc(100vh - var(--mobile-sticky-clearance));
+    height: calc(100dvh - var(--mobile-sticky-clearance));
+    max-height: calc(100svh - var(--mobile-sticky-clearance));
     padding: 1rem;
     padding-top: calc(env(safe-area-inset-top, 0px) + 6.85rem);
     padding-bottom: max(1rem, env(safe-area-inset-bottom, 0px));
+    box-sizing: border-box;
+    z-index: 130;
+  }
+
+  .main-nav-scroll {
+    flex: 1 1 auto;
+    min-height: 0;
+    width: 100%;
     overflow-y: auto;
     overflow-x: hidden;
     overscroll-behavior: contain;
     -webkit-overflow-scrolling: touch;
     touch-action: pan-y;
-    box-sizing: border-box;
-    z-index: 120;
   }
 
   .nav-list {
     flex-direction: column;
     align-items: stretch;
-    padding-bottom: 0.35rem;
+    padding-bottom: 2rem;
   }
 
   .has-dropdown .dropdown-menu {

@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Link, NavLink } from "react-router-dom";
 import { LogoImagePreview } from "./LogoImagePreview";
 import {
@@ -18,6 +18,15 @@ const navClass = ({ isActive }: { isActive: boolean }) =>
 
 export function Header() {
   const [menuOpen, setMenuOpen] = useState(false);
+
+  useEffect(() => {
+    if (!menuOpen) return;
+    const prev = document.body.style.overflow;
+    document.body.style.overflow = "hidden";
+    return () => {
+      document.body.style.overflow = prev;
+    };
+  }, [menuOpen]);
 
   return (
     <header className="site-header">
@@ -40,6 +49,7 @@ export function Header() {
           <span />
         </button>
         <nav className={`main-nav ${menuOpen ? "open" : ""}`}>
+          <div className="main-nav-scroll">
           <ul className="nav-list">
             <li>
               <NavLink to="/" className={navClass} end onClick={() => setMenuOpen(false)}>
@@ -131,6 +141,7 @@ export function Header() {
               </NavLink>
             </li>
           </ul>
+          </div>
         </nav>
       </div>
     </header>
