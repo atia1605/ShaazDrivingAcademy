@@ -46,41 +46,47 @@ export async function sendOwnerNotification(
 
   const text = htmlToPlainText(html);
 
-  const payload: Record<string, unknown> = {
-    from,
-    to,
-    subject,
-    html,
-    text,
-  };
+  // One Resend API call per recipient — clearer logs and avoids odd client issues with multi-to.
+  const uniqueRecipients = [...new Set(to)];
+  console.log("[email] Sending owner notification to", uniqueRecipients.length, "address(es)");
 
-  if (options?.replyTo) {
-    payload.reply_to = options.replyTo;
-  }
+  for (const recipient of uniqueRecipients) {
+    const payload: Record<string, unknown> = {
+      from,
+      to: [recipient],
+      subject,
+      html,
+      text,
+    };
 
-  const res = await fetch("https://api.resend.com/emails", {
-    method: "POST",
-    headers: {
-      Authorization: `Bearer ${apiKey}`,
-      "Content-Type": "application/json",
-    },
-    body: JSON.stringify(payload),
-  });
-
-  const resText = await res.text();
-  if (!res.ok) {
-    console.error("[email] Resend error:", res.status, resText);
-    return;
-  }
-  try {
-    const data = JSON.parse(resText) as { id?: string };
-    if (data.id) {
-      console.log("[email] Owner notification sent, Resend id:", data.id);
-    } else {
-      console.log("[email] Owner notification sent");
+    if (options?.replyTo) {
+      payload.reply_to = options.replyTo;
     }
-  } catch {
-    console.log("[email] Owner notification sent");
+
+    const res = await fetch("https://api.resend.com/emails", {
+      method: "POST",
+      headers: {
+        Authorization: `Bearer ${apiKey}`,
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(payload),
+    });
+
+    const resText = await res.text();
+    if (!res.ok) {
+      console.error("[email] Resend error for", recipient, ":", res.status, resText);
+      continue;
+    }
+    try {
+      const data = JSON.parse(resText) as { id?: string };
+      if (data.id) {
+        console.log("[email] Owner notification sent to", recipient, "Resend id:", data.id);
+      } else {
+        console.log("[email] Owner notification sent to", recipient);
+      }
+    } catch {
+      console.log("[email] Owner notification sent to", recipient);
+    }
   }
 }
 
