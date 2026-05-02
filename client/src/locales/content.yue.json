@@ -1,0 +1,467 @@
+{
+  "content": {
+    "aboutPage": {
+      "h2": "關於我哋",
+      "p1": "{{brand}} 係 Ministry（交通廳）認可嘅新手駕駛課程（BDE）提供者。所有課堂同路面課程均由持牌專業教練教授。我哋致力提供優質駕駛教育，服務 GTA 超過 20 年。",
+      "p2": "我哋歡迎來自唔同背景嘅學員。若果有助你學習，我哋可以用 {{languages}} 解釋規則、動作同路試要求 — 預約時或者第一堂提出就得。"
+    },
+    "registerPage": {
+      "breadcrumb": "報名",
+      "h1": "網上報名",
+      "leadStart": "講低你需要咩 — 我哋會跟進時間表同下一步。要繳按金？",
+      "leadPay": "網上付款",
+      "leadMid": "提交表格後，或者致電",
+      "leadEnd": "任何時間都得。",
+      "fullName": "全名",
+      "email": "電郵",
+      "phone": "電話（選填）",
+      "courseInterest": "有意報讀嘅課程",
+      "notes": "備註（選填）",
+      "success": "多謝 — 已收到你嘅申請。我哋會盡快聯絡你。",
+      "confirmationEmail": "確認電郵",
+      "staffEmail": "職員電郵提示",
+      "submitting": "提交緊…",
+      "submit": "提交報名",
+      "backHome": "返回主頁",
+      "errHelpIntro": "致電",
+      "errHelpOr": "或電郵",
+      "errHelpEnd": "我哋會幫你完成報名。"
+    },
+    "payPage": {
+      "breadcrumb": "網上付款",
+      "h1": "網上付款",
+      "lead": "呢頁仲係準備緊。網上信用卡結帳未開通。要繳按金或費用請致電或電郵我哋 — 我哋會協助你完成付款。",
+      "stripeDisabledIntro": "網上付款未開通。結帳準備好之前請致電 ",
+      "stripeDisabledMid": " 或電郵 ",
+      "stripeDisabledEnd": " 付款。",
+      "receiptEmail": "收據電郵（建議填寫）",
+      "redirecting": "轉緊頁…",
+      "payCard": "用卡付款",
+      "footnoteBefore": "唔知揀邊項費用？ ",
+      "footnoteLink": "網上報名",
+      "footnoteAfter": " 或者致電我哋 — 付款前樂意解答。",
+      "payErr": "無法開始付款。"
+    },
+    "contactPage": {
+      "h2": "聯絡我哋",
+      "intro": "網上留言、直接電郵或者致電 — 我哋喺 Danforth 為 {{area}} 提供服務。",
+      "mailtoSubject": "網站留言",
+      "email": "電郵",
+      "tapMail": "撳一下開電郵程式",
+      "tapCall": "撳一下致電",
+      "followTiktok": "追蹤我哋",
+      "opensTiktok": "新分頁開 TikTok",
+      "formTitle": "發送信息",
+      "formSub": "通常一個工作天內回覆。",
+      "name": "姓名",
+      "message": "留言內容",
+      "sent": "已送出。我哋會盡快回覆。",
+      "staffEmail": "職員電郵提示",
+      "errReach": "你亦可直接用電郵聯絡：",
+      "openDraft": "開電郵草稿",
+      "sending": "發送緊…",
+      "send": "發送信息"
+    },
+    "locationsPage": {
+      "h2": "地點同聯絡",
+      "intro": "喺 <strong>Danforth</strong> 有方便嘅地址 — 歡迎來自 {{cities}} 及附近嘅學員。致電查詢最新收費同檔期。",
+      "cardTitle": "我哋嘅 Danforth 辦事處"
+    },
+    "faqPage": {
+      "h2": "常見問題"
+    },
+    "homeLocationsStrip": {
+      "h2": "嚟探我哋 — GTA、密西沙加同更多",
+      "intro": "<strong>Danforth</strong> 一個點 — 歡迎來自 {{cities}} 嘅學員。下面任何電話都得。支援語言：",
+      "officeTitle": "我哋嘅辦事處",
+      "cta": "地點同詳情"
+    },
+    "homeCourseCta": {
+      "h2": "課程同價錢",
+      "p": "BDE 套餐、單對單路面堂同可議價 — 報名前可以睇晒細節同套餐選項。",
+      "btn": "睇課程同價錢"
+    },
+    "homeFaqTeaser": {
+      "h2": "常見問題",
+      "intro": "簡短答案 — FAQ 頁有更詳細說明。",
+      "more": "睇晒所有 FAQ"
+    },
+    "homeVideos": {
+      "h2": "影片 — G1、G2、G",
+      "introBefore": "YouTube 獨立講解安大略分級牌、筆試準備同各級關係。請永遠以",
+      "handbook": "MTO 官方《駕駛手冊》",
+      "introMid": "同",
+      "introAfter": "嘅規則同預約為準。",
+      "disclaimer": "呢啲影片唔係 {{brand}} 製作；只係分享一般資訊。"
+    },
+    "homeG1": {
+      "h2": "G1 筆試 — 溫習連結同多倫多地區中心",
+      "intro": "G1 知識試喺 <strong>DriveTest</strong> 中心應考。先用<strong>官方手冊</strong>溫習；第三方練習網唔係 MTO 營運 — 只做額外練習。",
+      "studyTitle": "溫習同練習連結",
+      "practiceNote": "只係示例題 — 規則以官方手冊為準。",
+      "centresTitle": "多倫多地區 DriveTest 中心",
+      "centresLead": "呢度（同 GTA 其他地點）有 G1 筆試。時間同輪候會變 — 去之前請喺 <a href=\"https://www.drivetest.ca\" target=\"_blank\" rel=\"noopener noreferrer\">drivetest.ca</a> 確認。",
+      "map": "地圖",
+      "foot": "地址只供快速參考；最新資料請用 <a href=\"https://www.drivetest.ca/drivetest-centre-search/\" target=\"_blank\" rel=\"noopener noreferrer\">官方中心搜尋</a>。"
+    },
+    "lessonReport": {
+      "h2": "好似專業咁跟進進度",
+      "intro": "睇下我哋點樣整理每堂之後嘅回饋 — 主題清晰、分數簡單、下一步清楚。下面卡片<strong>只係示範</strong>；你真實嘅報告可能唔同。用箭咀或者點掣瀏覽。",
+      "carouselLabel": "示範練習報告投影片",
+      "prev": "上一張",
+      "next": "下一張",
+      "dots": "報告投影片",
+      "slideOf": "第 {{n}} 張，共 {{total}} 張",
+      "scoreAriaTable": "按主題評分",
+      "topic": "主題",
+      "score": "分數",
+      "notes": "備註",
+      "scoreAria": "分數 {{grade}}"
+    },
+    "trustCarousel": {
+      "line1": "友善教練 · 一步一步上堂",
+      "sub": "資深教練、路面實操同著重路試準備 — 包括揀一個適合你嘅 DriveTest 地點。滑動或者撳下一個睇更多。",
+      "carouselLabel": "亮點",
+      "prev": "上一個亮點",
+      "next": "下一個亮點",
+      "dots": "亮點",
+      "slideOf": "亮點 {{n}}／{{total}}"
+    },
+    "testimonials": {
+      "h2": "學員評價",
+      "intro1": "我哋好珍惜同學員同家庭建立嘅關係。下面係精選語錄 — 部分抄錄自公開嘅 Google Maps 評論 — 更多請見",
+      "maps": "Google Maps",
+      "introMid": "或",
+      "search": "Google 搜尋（評論）",
+      "ariaStars": "評分 5 星滿分",
+      "badge": "Google 評論",
+      "prevArrow": "顯示上一批評價",
+      "nextArrow": "顯示下一批評價",
+      "marqueeAria": "學員評價自動滾動。游標移上去或者聚焦呢度可以暫停。",
+      "openMaps": "喺 Google Maps 開啟",
+      "openSearch": "喺 Google 搜尋開啟"
+    },
+    "webDesigner": {
+      "credit": "網站由 {{name}} 設計 — 撳呢度睇詳情",
+      "title": "網頁設計師",
+      "close": "閂",
+      "closeAria": "閂"
+    },
+    "courseTypes": [
+      { "value": "", "label": "揀課程（可唔填）" },
+      { "value": "bde-package", "label": "BDE 認證套餐" },
+      { "value": "individual-g1g2", "label": "單對單堂（G1 → G2）" },
+      { "value": "individual-g2g", "label": "單對單堂（G2 → G）" },
+      { "value": "classroom", "label": "課堂／網上課堂" },
+      { "value": "senior", "label": "長者課程" },
+      { "value": "immigrant", "label": "新移民課程" },
+      { "value": "other", "label": "其他／唔肯定" }
+    ],
+    "coursesUi": {
+      "h2": "我哋嘅駕駛課程",
+      "intro": "揀完整 BDE 套餐或者彈性單對單堂。標價另加適用稅。",
+      "taxNote": "另（+）稅",
+      "individualH3": "單對單路面堂",
+      "negotiable": "價錢可以傾",
+      "callDiscuss": "— 隨時致電",
+      "optionsEnd": "傾適合你嘅選項。",
+      "g1g2": "G1 去 G2",
+      "g2g": "G2 去 G",
+      "bookInquire": "預約／查詢",
+      "classroomH3": "課堂訓練",
+      "classroomLead": "BDE 課程有三部分 — 課堂理論、路面實操同彈性網上／homelink — 令你學到嘅係真本事，唔係淨係紙上時數。",
+      "seniorsH3": "長者課程",
+      "seniorsBadge": "適合成熟同有經驗嘅司機",
+      "seniorsAria": "我哋為長者提供咩",
+      "seniorsRegister": "登記意向",
+      "seniorsCall": "致電",
+      "immigrantsH3": "新移民課程",
+      "immigrantsBadge": "初嚟安大略上路",
+      "immigrantsAria": "新嚟人士支援",
+      "immigrantsContact": "聯絡我哋",
+      "immigrantsEmail": "電郵",
+      "bdeWas": "原價",
+      "bdePickupStudent": "接送地點 — 學員揀",
+      "bdePickupInstructor": "接送地點 — 教練揀"
+    },
+    "bdePackages": [
+      {
+        "title": "套餐 1",
+        "beforePrice": "$899.99",
+        "studentPrice": "$749.99",
+        "instructorPrice": "$699.99",
+        "items": [
+          "路面訓練 10 小時",
+          "課堂 20 小時",
+          "交通廳認證",
+          "homelink 10 小時"
+        ]
+      },
+      {
+        "title": "套餐 2",
+        "beforePrice": "$1,199.99",
+        "studentPrice": "$999.99",
+        "instructorPrice": "$949.99",
+        "items": [
+          "路面訓練 11 小時",
+          "課堂 20 小時",
+          "交通廳認證",
+          "homelink 10 小時",
+          "本地 G2 路試可用教練車",
+          "我哋亦會幫你約路試"
+        ]
+      },
+      {
+        "title": "套餐 3",
+        "beforePrice": "$1,499.99",
+        "studentPrice": "$1,199.99",
+        "instructorPrice": "$1,149.99",
+        "items": [
+          "路面訓練 15 小時",
+          "課堂 20 小時",
+          "交通廳認證",
+          "homelink 10 小時",
+          "本地 G2 路試可用教練車",
+          "我哋亦會幫你約路試"
+        ]
+      }
+    ],
+    "g1g2Packages": [
+      { "id": "g1g2-5", "label": "5 小時路面堂", "price": "$250 + HST" },
+      { "id": "g1g2-10", "label": "10 小時路面堂", "price": "$490 + HST" },
+      { "id": "g1g2-1rt", "label": "1 小時連路試（市內）", "price": "$195 + HST" },
+      { "id": "g1g2-3rt", "label": "3 小時連迷你路試套餐（市內）", "price": "$300 + HST" },
+      { "id": "g1g2-5rt", "label": "5 小時連路試（市內）", "price": "$390 + HST" },
+      { "id": "g1g2-10rt", "label": "10 小時連路試（市內）", "price": "$625 + HST" }
+    ],
+    "g2gPackages": [
+      { "id": "g2g-5", "label": "5 小時路面堂", "price": "$300 + HST" },
+      { "id": "g2g-10", "label": "10 小時路面堂", "price": "$590 + HST" },
+      { "id": "g2g-1rt", "label": "1 小時連路試（市內）", "price": "$220 + HST" },
+      { "id": "g2g-3rt", "label": "3 小時連迷你路試套餐（市內）", "price": "$340 + HST" },
+      { "id": "g2g-5rt", "label": "5 小時連路試（市內）", "price": "$475 + HST" },
+      { "id": "g2g-10rt", "label": "10 小時連路試（市內）", "price": "$750 + HST" }
+    ],
+    "classroomModes": [
+      {
+        "title": "課堂教學",
+        "lead": "喺課堂同持牌教練打好理論基礎 — 交通規則、路牌、防禦駕駛同應對真實情況，先未摸軚盤。",
+        "bullets": [
+          "符合 MTO 嘅新手駕駛教育（BDE）課程",
+          "討論同問答幫概念鞏固 — 唔係死背",
+          "好多時未拎 G1 都可以先上課堂 — 預約時同我哋確認"
+        ]
+      },
+      {
+        "title": "路面訓練",
+        "lead": "喺雙控車同持牌教練實際駕駛。每堂承接上一堂，由基本技巧練到應考水平，用你真係會行嘅路段。",
+        "bullets": [
+          "泊位、路口、轉線、高速公路練習同路試準備",
+          "每堂之後有清晰回饋，知邊度要改",
+          "路面堂必須有有效 G1（或合適牌照）"
+        ]
+      },
+      {
+        "title": "網上同 homelink",
+        "lead": "彈性網上課堂同 homelink 時數，俾你自己時間溫習，喺面授之間保持進度。",
+        "bullets": [
+          "有提供嘅數碼選項 — 配合你時間表",
+          "homelink 配合課堂同路面，先有完整 BDE 紀錄",
+          "隨時重溫，考試同上路都更有信心"
+        ]
+      }
+    ],
+    "seniorCourses": {
+      "intro": "休息完返嚟、換領牌想更新定係想喺繁忙路段更有信心？我哋為有經驗司機提供耐心、尊重你節奏嘅指導 — 溝通清晰。",
+      "highlights": [
+        "進階堂：高速公路、夜間、冬季路面同複雜路口",
+        "安大略最新交通法例、路牌同「路權」更新",
+        "輕鬆練習 — 逐步講解新車科技同道路設計",
+        "時間彈性、按你目標設計 — 唔係一式一樣套餐"
+      ],
+      "closing": "講低你想達到咩，我哋會推介適合你嘅計劃。"
+    },
+    "immigrantCourses": {
+      "intro": "新嚟加拿大？我哋幫你將經驗轉化成呢度安全駕駛 — 由安大略分級牌、睇路牌、多倫多區車流到路試準備。",
+      "highlights": [
+        "無論由零開始定換國際牌 — 路線視乎 MTO 同你背景；我哋幫你理清下一步",
+        "清楚解釋校區、巴士線、冬季駕駛同繁忙街道嘅「本地」習慣",
+        "喺接近你考試中心嘅路段練習，減少陌生感",
+        "英文唔係母語時教練會多花时间 — 重複示範到你安心",
+        "需要時可用多種語言解釋 — 孟加拉語、英語、烏爾都語、印地語、阿拉伯語、法語、西班牙語、粵語、尼泊爾語、錫萊特語、吉大港語"
+      ],
+      "closing": "打電話或者電郵講你嘅情況，我哋會建議最適合嘅課程。"
+    },
+    "faqItems": [
+      {
+        "q": "點樣先約到教練同上路面堂？",
+        "a": "最後一日課堂完咗會收到路面教練嘅姓名同電話，然後你自己聯絡教練按檔期約時間。"
+      },
+      {
+        "q": "點樣約路試？",
+        "aHtml": "登入 <a href=\"https://www.drivetest.ca\" target=\"_blank\" rel=\"noopener noreferrer\">www.drivetest.ca</a>，填資料並預約就近 DriveTest 中心最早嘅路試日期。"
+      },
+      {
+        "q": "未有 G1 可唔可以上課？",
+        "a": "課堂理論可以未有 G1。任何路面堂都必須先有有效 G1。"
+      },
+      {
+        "q": "餘款點樣交？",
+        "a": "餘款可以喺我哋駕駛學校現金或支票繳付。"
+      },
+      {
+        "q": "路試當日要不要帶證書？",
+        "a": "路試當日要帶紙本證書。你嘅認證亦會經 MTO 系統電子備案。"
+      },
+      {
+        "q": "外國牌點樣喺安省申請？要考咩試？",
+        "aHtml": "<p>移居安大略後，你可以用有效外國牌最多 <strong>60 日</strong>；之後必須申請安省牌。可否<strong>直接換領</strong>抑或要考<strong>筆試同／或路試</strong>，視乎國家（安省只同部分國家有協議）、駕齡同牌照類別。</p><p>一般<strong>親身</strong>去 <a href=\"https://www.drivetest.ca/drivetest-centre-search/\" target=\"_blank\" rel=\"noopener noreferrer\">DriveTest 中心</a>（或部分 ServiceOntario）。帶備<strong>正本</strong>身分文件、外國牌同駕駛經驗證明。經驗超過一年可能要發牌機構正式信件。通常要做<strong>視力檢查</strong>；視乎個案亦可能要<strong>G1 筆試</strong>同<strong>路試</strong>。</p><p>官方步驟請睇：<a href=\"https://www.ontario.ca/page/exchange-out-province-drivers-licence\" target=\"_blank\" rel=\"noopener noreferrer\">換領外省或外國駕駛執照（Ontario.ca）</a>同 <a href=\"https://drivetest.ca/licences/exchanges-foreign-licences/\" target=\"_blank\" rel=\"noopener noreferrer\">換領同外國牌照（DriveTest）</a>。知清楚安省對你嘅要求後，{{brand}}可以幫<strong>上堂同路試準備</strong> — <a href=\"/contact\">聯絡我哋</a>並提供國家同牌照類型。</p>"
+      }
+    ],
+    "homeFaqTeaserItems": [
+      {
+        "q": "點樣先約到教練同上路面堂？",
+        "a": "最後一日課堂會收到路面教練嘅名同電話，再按檔期約。"
+      },
+      {
+        "q": "點樣約路試？",
+        "a": "喺 DriveTest 網上預約 — 揀適合你嘅日期同中心。"
+      },
+      {
+        "q": "未有 G1 可唔可以上課？",
+        "a": "可以先上課堂理論。路面堂之前要有有效 G1。"
+      }
+    ],
+    "youtubeVideos": [
+      {
+        "youtubeId": "iTw0Ohi8_7c",
+        "title": "G1、G2、同埋正式 G — 安大略考牌點運作",
+        "caption": "介紹漸進式制度，由筆試到 G2 同正式 G 路試。",
+        "tag": "G1 · G2 · G"
+      },
+      {
+        "youtubeId": "klAItlQNNXg",
+        "title": "G1、G2、G — 有咩分別？",
+        "caption": "講清楚每級限制同點解要有呢啲階段，先好約路面堂。",
+        "tag": "級別同規則"
+      },
+      {
+        "youtubeId": "TQpLFMrmehI",
+        "title": "G1 筆試 — 溫習方向",
+        "caption": "筆試額外練習心態；永遠以 MTO 官方《駕駛手冊》為準。",
+        "tag": "G1 溫習"
+      }
+    ],
+    "g1PracticeLinks": [
+      {
+        "label": "新司機 — 點樣攞 G 牌（Ontario.ca）",
+        "href": "https://www.ontario.ca/page/get-g-drivers-licence-new-drivers",
+        "kind": "official"
+      },
+      {
+        "label": "MTO 官方《駕駛手冊》",
+        "href": "https://www.ontario.ca/document/official-mto-drivers-handbook",
+        "kind": "official"
+      },
+      {
+        "label": "DriveTest — 筆試同收費",
+        "href": "https://www.drivetest.ca/tests/knowledge-tests/",
+        "kind": "official"
+      },
+      {
+        "label": "搵 DriveTest 中心（搜尋）",
+        "href": "https://www.drivetest.ca/drivetest-centre-search/",
+        "kind": "official"
+      },
+      {
+        "label": "練習題 — G1.ca（非官方）",
+        "href": "https://www.g1.ca/",
+        "kind": "practice"
+      }
+    ],
+    "lessonReportSlides": [
+      {
+        "title": "G2 準備 — 堂數概覽",
+        "meta": "示範技巧追蹤 · 路面堂重點",
+        "rows": [
+          { "topic": "三點掉頭同窄位", "grade": "9", "tone": "green" },
+          { "topic": "複雜路口路權", "grade": "8", "tone": "purple" },
+          { "topic": "高速公路併入同保持車線", "grade": "7", "tone": "orange" }
+        ],
+        "notes": "下一堂：近你嘅 DriveTest 中心模擬路試路線，再加喺較多車嘅街度練斜泊。約路試前請教練記低你想改嘅習慣。"
+      },
+      {
+        "title": "BDE 課堂 — 單元總結",
+        "meta": "理論進度 · 示範摘要",
+        "rows": [
+          { "topic": "交通規則同路牌複習", "grade": "10", "tone": "green" },
+          { "topic": "防禦性駕駛情境", "grade": "9", "tone": "green" },
+          { "topic": "homelink 自修完成", "grade": "8", "tone": "purple" }
+        ],
+        "notes": "一路將課堂概念同路上見到嘅嘢連埋。課堂做完會收到路面教練聯絡，約實操時間。"
+      },
+      {
+        "title": "路試準備 — 清單",
+        "meta": "考前習慣 · 示範清單",
+        "rows": [
+          { "topic": "觀察同盲點檢查", "grade": "9", "tone": "green" },
+          { "topic": "學校區車速控制", "grade": "8", "tone": "purple" },
+          { "topic": "泊車同駛離策略", "grade": "8", "tone": "orange" }
+        ],
+        "notes": "路試當日帶證書（紙本）同駕駛執照。前一堂同教練確認預約時間同路線。"
+      }
+    ],
+    "trustSlides": [
+      {
+        "headline": "GTA 頂尖之一",
+        "sub": "家庭揀選嘅駕校 — 教得清楚、有耐性，路上見真章。",
+        "sourceType": "brand"
+      },
+      {
+        "headline": "友善教練",
+        "sub": "喺輕鬆鼓勵嘅氣氛學 — 隨時發問，唔使趕。",
+        "source": "貼心駕駛培訓"
+      },
+      {
+        "headline": "一步一步",
+        "sub": "每項技巧拆細做，由第一日就覺得駕到。",
+        "source": "結構化堂數"
+      },
+      {
+        "headline": "實戰指導",
+        "sub": "同車旁指導直到扭軚、觀察同習慣變自然。",
+        "source": "路面指導"
+      },
+      {
+        "headline": "資深團隊",
+        "sub": "熟識 GTA 路況、考官期望同唔同學員嘅學法。",
+        "source": "持牌專業人員"
+      },
+      {
+        "headline": "針對路試",
+        "sub": "堂數著重 DriveTest 考啲乜 — 跟計劃好多學員成績唔錯。",
+        "source": "考試日準備"
+      },
+      {
+        "headline": "啱你嘅考試中心",
+        "sub": "幫你了解邊個 DriveTest 地點、時間同練習路線最啱你。",
+        "source": "本地經驗 · GTA"
+      },
+      {
+        "headline": "MTO 認可 BDE",
+        "sub": "新手駕駛課程包課堂、路面同網上部分 — 安大略全面認可。",
+        "source": "交通廳"
+      },
+      {
+        "headline": "GTA 廿年以上",
+        "sub": "由 GTA 到密西沙加、溫莎同更遠 — G1 到正式 G 同一隊人。",
+        "sourceType": "brand"
+      },
+      {
+        "headline": "多語支援",
+        "sub": "孟加拉文、英文、烏爾都文、印地文、阿拉伯文、法文、西班牙文、粵語、尼泊爾文、Sylheti、吉大港話 — 用最幫到你嘅語言學。",
+        "source": "當有助你學習嘅時候"
+      }
+    ]
+  }
+}

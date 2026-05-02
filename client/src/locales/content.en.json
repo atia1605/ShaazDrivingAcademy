@@ -159,8 +159,8 @@
     ],
     "coursesUi": {
       "h2": "Our driving courses",
-      "intro": "Choose a full BDE package or flexible individual lessons. Prices shown plus applicable tax and certification fees where noted.",
-      "taxNote": "Plus (+) tax and certification fee",
+      "intro": "Choose a full BDE package or flexible individual lessons. Prices shown plus applicable tax.",
+      "taxNote": "Plus (+) tax",
       "individualH3": "Individual lessons",
       "negotiable": "Prices are negotiable",
       "callDiscuss": "— feel free to call",
@@ -179,11 +179,17 @@
       "immigrantsBadge": "New to Ontario roads",
       "immigrantsAria": "Support for newcomers",
       "immigrantsContact": "Contact us",
-      "immigrantsEmail": "Email"
+      "immigrantsEmail": "Email",
+      "bdeWas": "Was",
+      "bdePickupStudent": "Pickup & drop-off — student chooses locations",
+      "bdePickupInstructor": "Pickup & drop-off — instructor chooses locations"
     },
     "bdePackages": [
       {
         "title": "Package 1",
+        "beforePrice": "$899.99",
+        "studentPrice": "$749.99",
+        "instructorPrice": "$699.99",
         "items": [
           "10 Hours Of In-Car Training",
           "20 Hours Of In-class Sessions",
@@ -193,6 +199,9 @@
       },
       {
         "title": "Package 2",
+        "beforePrice": "$1,199.99",
+        "studentPrice": "$999.99",
+        "instructorPrice": "$949.99",
         "items": [
           "11 Hours Of In-Car Training",
           "20 Hours Of In-Class Sessions",
@@ -204,6 +213,9 @@
       },
       {
         "title": "Package 3",
+        "beforePrice": "$1,499.99",
+        "studentPrice": "$1,199.99",
+        "instructorPrice": "$1,149.99",
         "items": [
           "15 Hours Of In-Car Training",
           "20 Hours Of In-Class Sessions",
@@ -276,7 +288,7 @@
         "Clear explanations of school zones, transit lanes, winter driving, and unwritten “local” habits on busy streets",
         "Practice on routes and scenarios similar to your test centre so nothing feels unfamiliar",
         "Patient instructors who take extra time when English is a second language — we repeat and demonstrate until you are comfortable",
-        "Multilingual explanations when helpful — Bangla, English, Urdu, Hindi, Arabic, Sylheti, and Chittagong"
+        "Multilingual explanations when helpful — Bangla, English, Urdu, Hindi, Arabic, French, Spanish, Cantonese, Nepali, Sylheti, and Chittagong"
       ],
       "closing": "Share your situation by phone or email and we will outline the best program for you."
     },
@@ -447,7 +459,7 @@
       },
       {
         "headline": "Multilingual support",
-        "sub": "Bangla, English, Urdu, Hindi, Arabic, Sylheti, Chittagong — learn in the language that helps you most.",
+        "sub": "Bangla, English, Urdu, Hindi, Arabic, French, Spanish, Cantonese, Nepali, Sylheti, Chittagong — learn in the language that helps you most.",
         "source": "When it helps you learn"
       }
     ]

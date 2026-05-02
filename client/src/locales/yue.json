@@ -1,0 +1,205 @@
+{
+  "lang": {
+    "label": "語言",
+    "translateTo": "轉成",
+    "en": "English",
+    "bn": "Bangla",
+    "ur": "Urdu",
+    "fr": "Français",
+    "es": "Español",
+    "yue": "粵語",
+    "ne": "नेपाली",
+    "ar": "العربية"
+  },
+  "site": {
+    "languagesInline": "Bangla · English · Urdu · Hindi · Arabic · French · Spanish · Cantonese · Nepali · Sylheti · Chittagong",
+    "languagesDisplay": "Bangla, English, Urdu, Hindi, Arabic, French, Spanish, Cantonese, Nepali, Sylheti and Chittagong"
+  },
+  "topBar": {
+    "tag": "GTA · MTO 認可 BDE",
+    "languagesTitle": "我哋可以用呢啲語言協助你"
+  },
+  "nav": {
+    "toggle": "開閂選單",
+    "home": "主頁",
+    "about": "關於我哋",
+    "courses": "課程",
+    "certification": "認證",
+    "individualLessons": "單對單路試堂",
+    "classroomTraining": "課堂訓練",
+    "seniors": "長者",
+    "newImmigrants": "新移民",
+    "viewAllCourses": "睇晒所有課程",
+    "locations": "地點",
+    "faq": "常見問題",
+    "contact": "聯絡",
+    "pay": "付款",
+    "register": "報名"
+  },
+  "sticky": {
+    "aria": "快捷操作",
+    "call": "打電話",
+    "email": "電郵",
+    "pay": "付款",
+    "register": "報名"
+  },
+  "promoBanner": {
+    "aria": "畢業生優惠",
+    "line": "中學／大學畢業生 — 特別折扣",
+    "cta": "即刻致電"
+  },
+  "footer": {
+    "blurb": "省交通部認可駕駛學校，服務 {{area}} 學員。你嘅安全同路上成功係我哋首要目標。可以用 {{languages}} 講解。",
+    "follow": "追蹤我哋",
+    "tiktok": "TikTok {{handle}}",
+    "quickLinks": "快速連結",
+    "registerOnline": "網上報名",
+    "payOnline": "網上付款",
+    "contactHeading": "聯絡",
+    "rights": "© {{year}} {{name}}。版權所有。",
+    "mto": "安大略省交通廳（MTO）發牌。你嘅安全係我哋嘅首要考慮。"
+  },
+  "breadcrumb": {
+    "label": "導航路徑",
+    "home": "主頁"
+  },
+  "meta": {
+    "home": "{{brand}} | GTA、密西沙加同安省 — BDE、G1、G2 同 G 課程",
+    "about": "關於 {{brand}} | MTO 認可 GTA 駕駛學校",
+    "courses": "駕駛課程同價錢 | 安省同 GTA BDE | {{brand}}",
+    "locations": "駕駛學校 | Danforth 辦事處同服務範圍 | {{brand}}",
+    "faq": "常見問題 | 路試、G1、BDE 同付款 | {{brand}}",
+    "contact": "聯絡 {{brand}} | 電話、電郵同 GTA 地點",
+    "register": "報名學車 | {{brand}} 安省同 GTA",
+    "pay": "網上付款 | 課程按金 | {{brand}}",
+    "paySuccess": "已收到付款 | {{brand}}"
+  },
+  "metaDesc": {
+    "home": "MTO 認可 BDE 同駕駛課程，服務 GTA、密西沙加、溫莎同全省。多語支援。Danforth 一個辦事處。網上報名同付款。",
+    "about": "關於 Shaaz Driving Academy — MTO 認可駕駛教育、資深教練，喺士嘉堡 Danforth 辦事超過 20 年。",
+    "courses": "課程同價錢：BDE 套餐、G1、G2、G 準備 — 課堂、網上同路面訓練，遍及 GTA 同安省。",
+    "locations": "士嘉堡 Danforth 辦事處同 GTA／安省服務區 — 密西沙加、溫莎、賓頓等地。",
+    "faq": "路試、G1／G2、BDE 證書、付款、時間表同 DriveTest 準備常見問題 — Shaaz Driving Academy 安省。",
+    "contact": "致電或電郵 Shaaz Driving Academy 報名或查詢。服務 GTA、密西沙加、溫莎同安省。",
+    "register": "網上報名 BDE 或單對單課程。快速表格 — 我哋會確認課程同下一步。",
+    "pay": "網上繳交課程按金或費用。安全結帳。需要幫手請致電或電郵。",
+    "paySuccess": "已收到你嘅付款。多謝選擇 Shaaz Driving Academy。"
+  },
+  "notify": {
+    "ownerEmailNotConfigured": "伺服器未設定職員電郵提示。你嘅提交仍然已保存。",
+    "ownerEmailSent": "已發送職員電郵通知（{{count}} 個收件箱）。",
+    "ownerEmailFailed": "你嘅報名已保存。自動職員電郵未能發送（技術問題）。請致電或電郵我哋。",
+    "ownerEmailMixed": "職員電郵：已發送 {{sent}}／{{total}} 個通知。部分收件箱可能未收到。",
+    "ownerEmailSaved": "你嘅提交已保存。",
+    "smsSent": "教練 SMS 提示：已發送。",
+    "smsNotSent": "教練 SMS 提示：未發送（請檢查伺服器 Twilio）。",
+    "registrantSent": "已向你嘅電郵發送確認 — 請查看收件箱（同垃圾郵件）。",
+    "registrantFailed": "暫時無法發送確認電郵；你嘅報名已保存，我哋會聯絡你。",
+    "contactOwnerSaved": "你嘅訊息已保存。",
+    "genericErr": "發生錯誤。"
+  },
+  "pay": {
+    "loadError": "暫時無法載入付款選項 — 呢部分仍在設定。請致電或電郵繳交按金或費用。"
+  },
+  "paySuccessPage": {
+    "heading": "多謝你嘅付款",
+    "lead": "你嘅卡已成功扣數。Stripe 會將收據發去結帳時輸入嘅電郵。",
+    "helpPrefix": "如對課程或下一步有疑問，請致電",
+    "helpMid": "或電郵",
+    "home": "返回主頁",
+    "register": "完成報名"
+  },
+  "breadcrumbCurrent": {
+    "about": "關於",
+    "courses": "課程",
+    "locations": "地點",
+    "faq": "常見問題",
+    "contact": "聯絡"
+  },
+  "hero": {
+    "eyebrow": "政府認可 · GTA 服務超過 20 年",
+    "title": "由第一堂到考試日都駕得有信心",
+    "lead": "MTO 認可 BDE 同彈性路面堂，友善資深教練逐步指導。隨時網上報名或付款。需要時可以用 {{languages}} 講解。",
+    "seo1Title": "BDE 同課程",
+    "seo1Body": "課堂、路面同網上部分，遍及 GTA 同安省。",
+    "seo1Link": "課程同價錢",
+    "seo2Title": "G1、G2、G",
+    "seo2Body": "套餐同單對單；路試準備，幫你揀 DriveTest 中心同練習計劃。",
+    "seo3Strong": "GTA",
+    "seo3Mid": "— Danforth 一個點服務",
+    "seo3Link": "GTA、密西沙加同更多",
+    "ctaRegister": "網上報名",
+    "ctaPay": "繳按金",
+    "emailUs": "電郵我哋",
+    "panelAria": "重點",
+    "stat1a": "MTO 認可",
+    "stat1b": "BDE 認可課程",
+    "stat2a": "友善即場指導",
+    "stat2b": "按部就班 · 耐性教練",
+    "stat3a": "路試準備",
+    "stat3b": "針對考試 · DriveTest 貼士",
+    "stat4a": "語言",
+    "panelNote": "致電 {{name}}（{{phone}}）— 快速回覆。"
+  },
+  "howItWorks": {
+    "title": "流程點運作",
+    "intro": "由第一次聯絡到攞牌嘅簡單路線。",
+    "step1Title": "揀課程",
+    "step1Text": "瀏覽 BDE 套餐或單對單堂，或者講你嘅目標 — 我哋會配合適合嘅計劃。",
+    "step2Title": "網上報名同付款",
+    "step2Text": "提交資料並用卡安全繳按金。鍾意電話或電郵？我哋一撳就到。",
+    "step3Title": "開始學習",
+    "step3Text": "資深教練逐步喺車上指導。準備好嘅時候，我哋幫你揀 DriveTest 地點同練習計劃 — 然後有信心咁約考。"
+  },
+  "homeQuickLinks": {
+    "title": "探索",
+    "intro": "瀏覽課程、地點同常見問題 — 起步所需嘅都在呢度。",
+    "about": "關於我哋",
+    "aboutDesc": "我哋係邊個",
+    "courses": "課程",
+    "coursesDesc": "BDE 同路面堂",
+    "locations": "地點",
+    "locationsDesc": "嚟睇我哋",
+    "faq": "常見問題",
+    "faqDesc": "常見疑問",
+    "contact": "聯絡",
+    "contactDesc": "搵我哋"
+  },
+  "homeAreas": {
+    "title": "GTA 同安省駕駛課程同 BDE",
+    "intro": "{{brand}} 歡迎多倫多、士嘉堡、北約克、東約克、怡陶碧谷、阿積士、賓頓、皮克林、奧克維爾、奧沙華、惠特比、於人村、密西沙加、溫莎同 GTA 各區學員。我哋提供 MTO 認可 BDE 套餐、G1→G2 同 G2→G 單對單堂，同路試準備支援。",
+    "coursesPricing": "課程同價錢",
+    "locationsLink": "辦事處同服務範圍",
+    "faq": "常見問題",
+    "contact": "聯絡"
+  },
+  "contact": {
+    "offerLanguages": "我哋可以提供教學同支援嘅語言包括"
+  },
+  "faqChat": {
+    "launcher": "常見問題",
+    "title": "有咩唔明可以問",
+    "subtitle": "喺下面輸入問題。若 FAQ 有相近答案會用返 — 其他情況請致電或電郵。",
+    "clear": "清除對話",
+    "close": "閂",
+    "welcome": "你好！可以問路試、G1、付款、證書或上堂。試下下面快捷問題，或者自己打問題。",
+    "fromFaq": "來自我哋嘅 FAQ",
+    "fallback": "FAQ 暫時未有咁細嘅答案。{{name}} 可以直接幫你：",
+    "fallbackCall": "致電",
+    "fallbackEmail": "電郵",
+    "fallbackVisit": "去我哋嘅",
+    "faqPage": "FAQ 頁",
+    "or": "或",
+    "contactForm": "聯絡表格",
+    "inputLabel": "輸入你嘅問題",
+    "placeholder": "輸入問題然後撳送出…",
+    "send": "送出",
+    "fullFaq": "完整 FAQ 頁",
+    "contact": "聯絡",
+    "quickPrompts": [
+      "點樣約路試？",
+      "未有 G1 可唔可以上課？",
+      "我喺外國有牌，點樣喺安省申請同要考咩試？"
+    ]
+  }
+}

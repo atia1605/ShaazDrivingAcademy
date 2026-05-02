@@ -182,6 +182,9 @@ export const testimonials = [
 export const bdePackages = [
   {
     title: "Package 1",
+    beforePrice: "$899.99",
+    studentPrice: "$749.99",
+    instructorPrice: "$699.99",
     items: [
       "10 Hours Of In-Car Training",
       "20 Hours Of In-class Sessions",
@@ -191,6 +194,9 @@ export const bdePackages = [
   },
   {
     title: "Package 2",
+    beforePrice: "$1,199.99",
+    studentPrice: "$999.99",
+    instructorPrice: "$949.99",
     items: [
       "11 Hours Of In-Car Training",
       "20 Hours Of In-Class Sessions",
@@ -202,6 +208,9 @@ export const bdePackages = [
   },
   {
     title: "Package 3",
+    beforePrice: "$1,499.99",
+    studentPrice: "$1,199.99",
+    instructorPrice: "$1,149.99",
     items: [
       "15 Hours Of In-Car Training",
       "20 Hours Of In-Class Sessions",

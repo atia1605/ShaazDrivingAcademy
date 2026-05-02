@@ -1,13 +1,19 @@
 {
   "lang": {
     "label": "Language",
+    "translateTo": "Translate to",
     "en": "English",
     "bn": "Bangla",
-    "ur": "Urdu"
+    "ur": "Urdu",
+    "fr": "Français",
+    "es": "Español",
+    "yue": "Cantonese (粵語)",
+    "ne": "नेपाली",
+    "ar": "العربية"
   },
   "site": {
-    "languagesInline": "Bangla · English · Urdu · Hindi · Arabic · Sylheti · Chittagong",
-    "languagesDisplay": "Bangla, English, Urdu, Hindi, Arabic, Sylheti and Chittagong"
+    "languagesInline": "Bangla · English · Urdu · Hindi · Arabic · French · Spanish · Cantonese · Nepali · Sylheti · Chittagong",
+    "languagesDisplay": "Bangla, English, Urdu, Hindi, Arabic, French, Spanish, Cantonese, Nepali, Sylheti and Chittagong"
   },
   "topBar": {
     "tag": "GTA · MTO-approved BDE",

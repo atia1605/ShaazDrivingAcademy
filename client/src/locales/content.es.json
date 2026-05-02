@@ -1,0 +1,467 @@
+{
+  "content": {
+    "aboutPage": {
+      "h2": "Sobre nosotros",
+      "p1": "{{brand}} es un proveedor de cursos de educación para conductores principiantes (BDE) aprobado por el ministerio. Todo el programa en aula y en vehículo lo imparten instructores profesionales con licencia completa. Nos comprometemos con una educación vial de calidad y llevamos más de 20 años sirviendo al GTA.",
+      "p2": "Damos la bienvenida a estudiantes de diversos orígenes. Cuando le ayude a aprender, podemos explicar reglas, maniobras y qué esperar en el examen de manejo en {{languages}} — pídalo al reservar o en su primera clase."
+    },
+    "registerPage": {
+      "breadcrumb": "Registrarse",
+      "h1": "Registro en línea",
+      "leadStart": "Díganos qué necesita — le responderemos con la programación y los siguientes pasos. ¿Necesita pagar un depósito?",
+      "leadPay": "Pagar en línea",
+      "leadMid": "después de enviar el formulario, o llame",
+      "leadEnd": "en cualquier momento.",
+      "fullName": "Nombre completo",
+      "email": "Correo electrónico",
+      "phone": "Teléfono (opcional)",
+      "courseInterest": "Curso de interés",
+      "notes": "Notas (opcional)",
+      "success": "Gracias — recibimos su solicitud. Nos pondremos en contacto pronto.",
+      "confirmationEmail": "Correo de confirmación",
+      "staffEmail": "Alerta de correo al personal",
+      "submitting": "Enviando…",
+      "submit": "Enviar registro",
+      "backHome": "Volver al inicio",
+      "errHelpIntro": "Llame",
+      "errHelpOr": "o escriba a",
+      "errHelpEnd": "y le ayudaremos a registrarse."
+    },
+    "payPage": {
+      "breadcrumb": "Pagar en línea",
+      "h1": "Pagar en línea",
+      "lead": "Esta página está en preparación. El pago con tarjeta en línea aún no está disponible. Para pagar un depósito o una tarifa, llame o escríbanos — le ayudamos a completar el pago.",
+      "stripeDisabledIntro": "Los pagos en línea aún no están disponibles. Hasta que el checkout esté listo, llame ",
+      "stripeDisabledMid": " o escriba a ",
+      "stripeDisabledEnd": " para pagar.",
+      "receiptEmail": "Correo para el recibo (recomendado)",
+      "redirecting": "Redirigiendo…",
+      "payCard": "Pagar con tarjeta",
+      "footnoteBefore": "¿Dudas sobre qué tarifa elegir? ",
+      "footnoteLink": "Regístrese en línea",
+      "footnoteAfter": " o llámenos — con gusto le ayudamos antes de pagar.",
+      "payErr": "No se pudo iniciar el pago."
+    },
+    "contactPage": {
+      "h2": "Contáctenos",
+      "intro": "Envíe un mensaje en línea, escríbanos directamente o llame — atendemos {{area}} desde nuestra ubicación en Danforth.",
+      "mailtoSubject": "Mensaje desde el sitio web",
+      "email": "Correo",
+      "tapMail": "Toque para abrir su aplicación de correo",
+      "tapCall": "Toque para llamar",
+      "followTiktok": "Síganos",
+      "opensTiktok": "Abre TikTok en una pestaña nueva",
+      "formTitle": "Enviar un mensaje",
+      "formSub": "Normalmente respondemos en un día hábil.",
+      "name": "Nombre",
+      "message": "Mensaje",
+      "sent": "Mensaje enviado. Nos pondremos en contacto pronto.",
+      "staffEmail": "Alerta de correo al personal",
+      "errReach": "También puede escribirnos a:",
+      "openDraft": "Abrir borrador de correo",
+      "sending": "Enviando…",
+      "send": "Enviar mensaje"
+    },
+    "locationsPage": {
+      "h2": "Ubicación y contacto",
+      "intro": "Una dirección práctica en <strong>Danforth</strong> — damos la bienvenida a estudiantes de {{cities}} y comunidades cercanas. Llame por tarifas y disponibilidad actuales.",
+      "cardTitle": "Nuestra oficina Danforth"
+    },
+    "faqPage": {
+      "h2": "Preguntas frecuentes"
+    },
+    "homeLocationsStrip": {
+      "h2": "Visítenos — GTA, Mississauga y más",
+      "intro": "Una ubicación en <strong>Danforth</strong> — damos la bienvenida a estudiantes de {{cities}}. Llame a cualquiera de nuestras líneas abajo. Apoyo en",
+      "officeTitle": "Nuestra oficina",
+      "cta": "Ubicación y detalles"
+    },
+    "homeCourseCta": {
+      "h2": "Cursos y precios",
+      "p": "Paquetes BDE, clases individuales y tarifas negociables — revise todos los detalles y opciones antes de registrarse.",
+      "btn": "Ver cursos y precios"
+    },
+    "homeFaqTeaser": {
+      "h2": "Preguntas comunes",
+      "intro": "Respuestas rápidas — más detalle en nuestra página de preguntas frecuentes.",
+      "more": "Ver todas las preguntas"
+    },
+    "homeVideos": {
+      "h2": "Videos — G1, G2 y G",
+      "introBefore": "Videos independientes de YouTube sobre el sistema de licencias por etapas de Ontario, preparación para el examen escrito y cómo encajan los niveles. Base siempre en el",
+      "handbook": "Manual oficial del conductor del MTO",
+      "introMid": "y",
+      "introAfter": "para reglas oficiales y reservas.",
+      "disclaimer": "Estos videos no son producidos por {{brand}}; los compartimos solo como información general."
+    },
+    "homeG1": {
+      "h2": "Examen escrito G1 — enlaces de estudio y centros del área de Toronto",
+      "intro": "El examen de conocimientos G1 se realiza en centros <strong>DriveTest</strong>. Estudie primero el <strong>manual oficial</strong>; los sitios de práctica de terceros no son del MTO — úselos solo como repaso extra.",
+      "studyTitle": "Enlaces de estudio y práctica",
+      "practiceNote": "Solo preguntas de ejemplo — verifique siempre las reglas en el manual oficial.",
+      "centresTitle": "Centros DriveTest del área de Toronto",
+      "centresLead": "Aquí se ofrecen exámenes de conocimientos G1 (y en otros sitios del GTA). Los horarios y tiempos de espera varían — confirme en <a href=\"https://www.drivetest.ca\" target=\"_blank\" rel=\"noopener noreferrer\">drivetest.ca</a> antes de ir.",
+      "map": "Mapa",
+      "foot": "Las direcciones son orientativas; use la <a href=\"https://www.drivetest.ca/drivetest-centre-search/\" target=\"_blank\" rel=\"noopener noreferrer\">búsqueda oficial de centros</a> para datos actualizados."
+    },
+    "lessonReport": {
+      "h2": "Siga su progreso como un profesional",
+      "intro": "Vea cómo estructuramos la retroalimentación después de las clases — temas claros, calificaciones simples y próximos pasos. Las tarjetas de abajo son <strong>solo ejemplos</strong>; su informe real puede ser distinto. Use las flechas o puntos para desplazarse.",
+      "carouselLabel": "Diapositivas de ejemplo de informe de clase",
+      "prev": "Diapositiva anterior",
+      "next": "Diapositiva siguiente",
+      "dots": "Diapositivas del informe",
+      "slideOf": "Diapositiva {{n}} de {{total}}",
+      "scoreAriaTable": "Calificaciones por tema",
+      "topic": "Tema",
+      "score": "Calificación",
+      "notes": "Notas",
+      "scoreAria": "Calificación {{grade}}"
+    },
+    "trustCarousel": {
+      "line1": "Instructores amables · clases paso a paso",
+      "sub": "Entrenadores con experiencia, práctica en vehículo y fuerte enfoque en el examen de manejo — incluida ayuda para elegir un centro DriveTest adecuado. Deslice o pulse siguiente para leer más.",
+      "carouselLabel": "Aspectos destacados",
+      "prev": "Aspecto anterior",
+      "next": "Aspecto siguiente",
+      "dots": "Aspectos destacados",
+      "slideOf": "Aspecto {{n}} de {{total}}"
+    },
+    "testimonials": {
+      "h2": "Lo que dicen los estudiantes",
+      "intro1": "Estamos orgullosos de las relaciones que construimos con estudiantes y familias. Abajo hay citas destacadas — varias transcritas de reseñas públicas en Google Maps — vea más en",
+      "maps": "Google Maps",
+      "introMid": "o",
+      "search": "Google Search (reseñas)",
+      "ariaStars": "Calificación de 5 de 5",
+      "badge": "Reseña de Google",
+      "prevArrow": "Mostrar reseñas anteriores",
+      "nextArrow": "Mostrar reseñas siguientes",
+      "marqueeAria": "Reseñas de estudiantes, desplazamiento automático. Pausa al pasar el cursor o enfocar aquí.",
+      "openMaps": "Abrir en Google Maps",
+      "openSearch": "Abrir en Google Search"
+    },
+    "webDesigner": {
+      "credit": "Sitio por {{name}} — pulse para detalles",
+      "title": "Diseñador web",
+      "close": "Cerrar",
+      "closeAria": "Cerrar"
+    },
+    "courseTypes": [
+      { "value": "", "label": "Seleccione un curso (opcional)" },
+      { "value": "bde-package", "label": "Paquete de certificación BDE" },
+      { "value": "individual-g1g2", "label": "Clases individuales (G1 → G2)" },
+      { "value": "individual-g2g", "label": "Clases individuales (G2 → G)" },
+      { "value": "classroom", "label": "Aula / aula digital" },
+      { "value": "senior", "label": "Cursos para personas mayores" },
+      { "value": "immigrant", "label": "Cursos para nuevos inmigrantes" },
+      { "value": "other", "label": "Otro / no estoy seguro" }
+    ],
+    "coursesUi": {
+      "h2": "Nuestros cursos de manejo",
+      "intro": "Elija un paquete BDE completo o clases individuales flexibles. Precios mostrados más impuestos aplicables.",
+      "taxNote": "Más (+) impuestos",
+      "individualH3": "Clases individuales",
+      "negotiable": "Los precios son negociables",
+      "callDiscuss": "— no dude en llamar",
+      "optionsEnd": "para hablar de opciones que le funcionen.",
+      "g1g2": "G1 a G2",
+      "g2g": "G2 a G",
+      "bookInquire": "Reservar / consultar",
+      "classroomH3": "Formación en aula",
+      "classroomLead": "Los programas BDE combinan tres partes — teoría en aula, práctica en vehículo y trabajo digital/homelink flexible — para graduarse con habilidades reales, no solo horas en el papel.",
+      "seniorsH3": "Cursos para personas mayores",
+      "seniorsBadge": "Para conductores maduros y con experiencia",
+      "seniorsAria": "Lo que ofrecemos a mayores",
+      "seniorsRegister": "Registre su interés",
+      "seniorsCall": "Llamar",
+      "immigrantsH3": "Cursos para nuevos inmigrantes",
+      "immigrantsBadge": "Nuevo en las carreteras de Ontario",
+      "immigrantsAria": "Apoyo para recién llegados",
+      "immigrantsContact": "Contáctenos",
+      "immigrantsEmail": "Correo",
+      "bdeWas": "Antes",
+      "bdePickupStudent": "Recogida y regreso — el alumno elige los lugares",
+      "bdePickupInstructor": "Recogida y regreso — el instructor elige los lugares"
+    },
+    "bdePackages": [
+      {
+        "title": "Paquete 1",
+        "beforePrice": "$899.99",
+        "studentPrice": "$749.99",
+        "instructorPrice": "$699.99",
+        "items": [
+          "10 horas de práctica en vehículo",
+          "20 horas de sesiones en aula",
+          "Certificación del Ministerio de Transporte",
+          "10 horas homelink"
+        ]
+      },
+      {
+        "title": "Paquete 2",
+        "beforePrice": "$1,199.99",
+        "studentPrice": "$999.99",
+        "instructorPrice": "$949.99",
+        "items": [
+          "11 horas de práctica en vehículo",
+          "20 horas de sesiones en aula",
+          "Certificación del Ministerio de Transporte",
+          "10 horas homelink",
+          "Uso del vehículo del instructor para examen G2 local",
+          "También reservamos su examen de manejo"
+        ]
+      },
+      {
+        "title": "Paquete 3",
+        "beforePrice": "$1,499.99",
+        "studentPrice": "$1,199.99",
+        "instructorPrice": "$1,149.99",
+        "items": [
+          "15 horas de práctica en vehículo",
+          "20 horas de sesiones en aula",
+          "Certificación del Ministerio de Transporte",
+          "10 horas homelink",
+          "Uso del vehículo del instructor para examen G2 local",
+          "También reservamos su examen de manejo"
+        ]
+      }
+    ],
+    "g1g2Packages": [
+      { "id": "g1g2-5", "label": "5 horas de clases", "price": "$250 + HST" },
+      { "id": "g1g2-10", "label": "10 horas de clases", "price": "$490 + HST" },
+      { "id": "g1g2-1rt", "label": "1 hora y examen de manejo (en ciudad)", "price": "$195 + HST" },
+      { "id": "g1g2-3rt", "label": "3 horas y paquete mini examen (en ciudad)", "price": "$300 + HST" },
+      { "id": "g1g2-5rt", "label": "5 horas y examen de manejo (en ciudad)", "price": "$390 + HST" },
+      { "id": "g1g2-10rt", "label": "10 horas y examen de manejo (en ciudad)", "price": "$625 + HST" }
+    ],
+    "g2gPackages": [
+      { "id": "g2g-5", "label": "5 horas de clases", "price": "$300 + HST" },
+      { "id": "g2g-10", "label": "10 horas de clases", "price": "$590 + HST" },
+      { "id": "g2g-1rt", "label": "1 hora y examen de manejo (en ciudad)", "price": "$220 + HST" },
+      { "id": "g2g-3rt", "label": "3 horas y paquete mini examen (en ciudad)", "price": "$340 + HST" },
+      { "id": "g2g-5rt", "label": "5 horas y examen de manejo (en ciudad)", "price": "$475 + HST" },
+      { "id": "g2g-10rt", "label": "10 horas y examen de manejo (en ciudad)", "price": "$750 + HST" }
+    ],
+    "classroomModes": [
+      {
+        "title": "Enseñanza en aula",
+        "lead": "Construya una base teórica sólida en un aula estructurada con un instructor calificado — reglas de circulación, señales, conducción defensiva y cómo manejar situaciones reales antes de conducir.",
+        "bullets": [
+          "Currículo alineado con el MTO para educación de conductores principiantes (BDE)",
+          "Debate y preguntas para que los conceptos queden claros — no solo memorización",
+          "A menudo puede empezar en aula antes del G1; consúltenos al reservar"
+        ]
+      },
+      {
+        "title": "Práctica en vehículo",
+        "lead": "Conducción práctica en un vehículo con doble comando con instructor licenciado. Cada clase se apoya en la anterior, de lo básico a habilidades listas para el examen en rutas reales.",
+        "bullets": [
+          "Estacionamiento, intersecciones, cambios de carril, práctica en autopista y preparación para el examen",
+          "Retroalimentación clara tras cada sesión para saber qué mejorar",
+          "Se requiere un G1 válido (o licencia adecuada) para clases en vehículo"
+        ]
+      },
+      {
+        "title": "Digital y homelink",
+        "lead": "Componentes de aula en línea flexibles y horas homelink para repasar a su ritmo entre sesiones presenciales.",
+        "bullets": [
+          "Opciones digitales donde se ofrezcan — aprenda en el formato que encaje con su horario",
+          "El trabajo homelink complementa el aula y el vehículo para un registro BDE completo",
+          "Revise el material cuando quiera para sentirse seguro en exámenes y en la vida real"
+        ]
+      }
+    ],
+    "seniorCourses": {
+      "intro": "¿Regresa tras una pausa, renovación o quiere más seguridad en calles concurridas? Ofrecemos instrucción paciente y respetuosa para conductores con experiencia — a su ritmo y con comunicación clara.",
+      "highlights": [
+        "Clases de repaso: autopistas, conducción nocturna, invierno e intersecciones complejas",
+        "Actualización sobre leyes de tránsito de Ontario, señales y prioridad en la circulación actual",
+        "Práctica sin estrés — explicamos tecnología moderna del vehículo y diseño de calles paso a paso",
+        "Horarios flexibles y planes según sus metas, no un paquete único para todos"
+      ],
+      "closing": "Díganos qué desea lograr y recomendaremos un plan adecuado."
+    },
+    "immigrantCourses": {
+      "intro": "¿Nuevo en Canadá? Le ayudamos a convertir su experiencia en conducción segura aquí — desde el sistema de licencias por etapas de Ontario hasta leer señales, manejar el tráfico del área de Toronto y preparar su examen de manejo.",
+      "highlights": [
+        "Orientación si empieza de cero o cambia una licencia internacional — su camino depende del MTO y su perfil; le ayudamos a entender los siguientes pasos",
+        "Explicaciones claras de zonas escolares, carriles de transporte, invierno y hábitos locales en calles ocupadas",
+        "Práctica en rutas y escenarios parecidos a su centro de examen para que nada sea extraño",
+        "Instructores pacientes que dedican más tiempo cuando el inglés es segunda lengua — repetimos y demostramos hasta que se sienta cómodo",
+        "Explicaciones multilingües cuando ayude — bangla, inglés, urdu, hindi, árabe, francés, español, cantonés, nepalí, sylheti y chittagonian"
+      ],
+      "closing": "Cuéntenos su situación por teléfono o correo y delinearemos el mejor programa para usted."
+    },
+    "faqItems": [
+      {
+        "q": "¿Cómo consigo un instructor y programo clases en vehículo?",
+        "a": "El último día de teoría en aula recibirá el nombre y número del instructor en vehículo. Luego lo contacta y reserva citas según disponibilidad."
+      },
+      {
+        "q": "¿Cómo reservo mi examen de manejo?",
+        "aHtml": "Entre a <a href=\"https://www.drivetest.ca\" target=\"_blank\" rel=\"noopener noreferrer\">www.drivetest.ca</a>, complete sus datos y reserve la próxima fecha disponible en un centro DriveTest cercano."
+      },
+      {
+        "q": "¿Puedo hacer un curso sin G1?",
+        "a": "La parte en aula puede hacerse sin licencia G1. Se requiere G1 para cualquier práctica en vehículo."
+      },
+      {
+        "q": "¿Cómo pago el saldo?",
+        "a": "El saldo puede pagarse en efectivo o cheque en nuestra escuela de manejo."
+      },
+      {
+        "q": "¿Debo llevar mi certificado al examen de manejo?",
+        "a": "Se requiere una copia en papel el día del examen. Su certificación también está registrada electrónicamente en el sistema del MTO."
+      },
+      {
+        "q": "Tengo licencia de otro país. ¿Cómo solicito en Ontario y qué exámenes necesito?",
+        "aHtml": "<p>Cuando se muda a Ontario puede usar una licencia extranjera válida durante <strong>60 días</strong>. Después debe solicitar licencia de Ontario. Si puede <strong>cambiar</strong> su licencia o debe hacer <strong>exámenes de conocimiento y/o de manejo</strong> depende del país (Ontario solo tiene acuerdos con algunos países), del tiempo conduciendo y de la clase de licencia.</p><p>Normalmente solicita <strong>en persona</strong> en un <a href=\"https://www.drivetest.ca/drivetest-centre-search/\" target=\"_blank\" rel=\"noopener noreferrer\">centro DriveTest</a> (o ciertos ServiceOntario). Traiga documentos de identidad <strong>originales</strong>, su licencia extranjera y prueba de experiencia. Para más de un año de experiencia puede necesitar carta oficial de la autoridad licenciadora. Habrá <strong>examen visual</strong>; también puede necesitar <strong>conocimientos G1</strong> y <strong>examen(es) de manejo</strong> según su caso.</p><p>Lea los pasos oficiales: <a href=\"https://www.ontario.ca/page/exchange-out-province-drivers-licence\" target=\"_blank\" rel=\"noopener noreferrer\">Canjear licencia extranjera o de otra provincia (Ontario.ca)</a> y <a href=\"https://drivetest.ca/licences/exchanges-foreign-licences/\" target=\"_blank\" rel=\"noopener noreferrer\">Canjes y licencias extranjeras (DriveTest)</a>. {{brand}} puede ayudar con <strong>clases y preparación para el examen</strong> cuando sepa qué exige Ontario en su caso — <a href=\"/contact\">contáctenos</a> con su país y tipo de licencia.</p>"
+      }
+    ],
+    "homeFaqTeaserItems": [
+      {
+        "q": "¿Cómo consigo un instructor y programo clases en vehículo?",
+        "a": "El último día en aula recibe nombre y número del instructor en vehículo; luego reserva citas según disponibilidad."
+      },
+      {
+        "q": "¿Cómo reservo mi examen de manejo?",
+        "a": "Reserve en línea en DriveTest — elija fecha y centro que le convengan."
+      },
+      {
+        "q": "¿Puedo hacer un curso sin G1?",
+        "a": "Puede empezar en aula sin G1. Necesita un G1 válido antes de cualquier práctica en vehículo."
+      }
+    ],
+    "youtubeVideos": [
+      {
+        "youtubeId": "iTw0Ohi8_7c",
+        "title": "G1, G2 y G completa — cómo funciona la licencia en Ontario",
+        "caption": "Explica el sistema por etapas, del examen escrito a los exámenes de manejo G2 y G completa.",
+        "tag": "G1 · G2 · G"
+      },
+      {
+        "youtubeId": "klAItlQNNXg",
+        "title": "G1, G2 y G — ¿cuál es la diferencia?",
+        "caption": "Aclara cada nivel, restricciones y por qué existen estas etapas antes de reservar clases.",
+        "tag": "Niveles y reglas"
+      },
+      {
+        "youtubeId": "TQpLFMrmehI",
+        "title": "Examen de conocimientos G1 — orientación de estudio",
+        "caption": "Complemento para preparar el examen escrito; siga siempre el manual oficial del MTO.",
+        "tag": "Prepa G1"
+      }
+    ],
+    "g1PracticeLinks": [
+      {
+        "label": "Conductores nuevos — obtener licencia G (Ontario.ca)",
+        "href": "https://www.ontario.ca/page/get-g-drivers-licence-new-drivers",
+        "kind": "official"
+      },
+      {
+        "label": "Manual oficial del conductor del MTO",
+        "href": "https://www.ontario.ca/document/official-mto-drivers-handbook",
+        "kind": "official"
+      },
+      {
+        "label": "DriveTest — exámenes de conocimiento y tarifas",
+        "href": "https://www.drivetest.ca/tests/knowledge-tests/",
+        "kind": "official"
+      },
+      {
+        "label": "Buscar un centro DriveTest",
+        "href": "https://www.drivetest.ca/drivetest-centre-search/",
+        "kind": "official"
+      },
+      {
+        "label": "Preguntas de práctica — G1.ca (no oficial)",
+        "href": "https://www.g1.ca/",
+        "kind": "practice"
+      }
+    ],
+    "lessonReportSlides": [
+      {
+        "title": "Prepa G2 — resumen de sesión",
+        "meta": "Seguimiento de habilidades (ejemplo) · Enfoque en vehículo",
+        "rows": [
+          { "topic": "Tres puntos y espacios estrechos", "grade": "9", "tone": "green" },
+          { "topic": "Prioridad en intersecciones complejas", "grade": "8", "tone": "purple" },
+          { "topic": "Incorporación a autopista y disciplina de carril", "grade": "7", "tone": "orange" }
+        ],
+        "notes": "Próxima sesión: ruta tipo examen cerca de su centro DriveTest, más estacionamiento paralelo en calle con más tráfico. Pida que anoten hábitos a pulir antes de reservar el examen."
+      },
+      {
+        "title": "Aula BDE — cierre de módulo",
+        "meta": "Progreso teórico · Resumen (ejemplo)",
+        "rows": [
+          { "topic": "Reglas de circulación y repaso de señales", "grade": "10", "tone": "green" },
+          { "topic": "Escenarios de conducción defensiva", "grade": "9", "tone": "green" },
+          { "topic": "Homelink completado", "grade": "8", "tone": "purple" }
+        ],
+        "notes": "Relacione la teoría con lo que ve en la calle. Al terminar el aula recibirá el contacto del instructor en vehículo para programar la práctica."
+      },
+      {
+        "title": "Listo para el examen — lista",
+        "meta": "Hábitos pre-examen · Lista (ejemplo)",
+        "rows": [
+          { "topic": "Observación y revisiones de punto ciego", "grade": "9", "tone": "green" },
+          { "topic": "Control de velocidad en zonas escolares", "grade": "8", "tone": "purple" },
+          { "topic": "Estacionamiento y estrategia de salida", "grade": "8", "tone": "orange" }
+        ],
+        "notes": "Traiga certificado (copia en papel) y licencia el día del examen. Confirme hora y ruta con su instructor la clase anterior."
+      }
+    ],
+    "trustSlides": [
+      {
+        "headline": "Entre las mejores del GTA",
+        "sub": "Una escuela que las familias eligen por enseñanza clara, paciencia y resultados reales en la carretera.",
+        "sourceType": "brand"
+      },
+      {
+        "headline": "Instructores amables",
+        "sub": "Aprenda en un auto tranquilo y alentador — pregunte cuando quiera sin sentirse presionado.",
+        "source": "Formación de apoyo"
+      },
+      {
+        "headline": "Paso a paso",
+        "sub": "Cada habilidad se divide en etapas simples para que conducir se sienta manejable desde el primer día.",
+        "source": "Planes de clase estructurados"
+      },
+      {
+        "headline": "Coaching práctico",
+        "sub": "Acompañamiento en el vehículo hasta que maniobras, observación y hábitos se sientan naturales.",
+        "source": "Instrucción en vehículo"
+      },
+      {
+        "headline": "Equipo experimentado",
+        "sub": "Instructores que conocen el tráfico del GTA, las expectativas de los examinadores y cómo aprenden distintos estudiantes.",
+        "source": "Profesionales licenciados"
+      },
+      {
+        "headline": "Enfocado en el examen",
+        "sub": "Las clases destacan lo que DriveTest evalúa — muchos estudiantes logran buenos resultados siguiendo el plan.",
+        "source": "Preparación para el día del examen"
+      },
+      {
+        "headline": "El centro adecuado para usted",
+        "sub": "Le ayudamos a entender qué ubicación DriveTest, momento y práctica de ruta le convienen mejor.",
+        "source": "Conocimiento local · GTA"
+      },
+      {
+        "headline": "BDE aprobado por el MTO",
+        "sub": "Educación para conductores principiantes con aula, vehículo y componente digital — plenamente reconocida en Ontario.",
+        "source": "Ministerio de Transporte"
+      },
+      {
+        "headline": "Más de 20 años en el GTA",
+        "sub": "Del GTA a Mississauga, Windsor y más allá — un equipo de confianza del G1 al G completo.",
+        "sourceType": "brand"
+      },
+      {
+        "headline": "Apoyo multilingüe",
+        "sub": "Bangla, inglés, urdu, hindi, árabe, francés, español, cantonés, nepalí, sylheti, chittagonian — aprenda en el idioma que más le ayude.",
+        "source": "Cuando ayuda a aprender"
+      }
+    ]
+  }
+}

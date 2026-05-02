@@ -5,7 +5,13 @@ import { SITE } from "../../site";
 
 const classroomIcons = [IconBook, IconCar, IconMonitor] as const;
 
-type BdePackage = { title: string; items: string[] };
+type BdePackage = {
+  title: string;
+  beforePrice: string;
+  studentPrice: string;
+  instructorPrice: string;
+  items: string[];
+};
 type Pkg = { id: string; label: string; price: string };
 type ClassroomMode = { title: string; lead: string; bullets: string[] };
 type Pillar = { intro: string; highlights: string[]; closing: string };
@@ -29,6 +35,20 @@ export function Courses() {
           {bdePackages.map((pkg) => (
             <article key={pkg.title} className="card course-card">
               <h3>{pkg.title}</h3>
+              <div className="bde-package-pricing">
+                <p className="bde-price-was">
+                  <span className="bde-was-label">{t("content.coursesUi.bdeWas")}</span>{" "}
+                  <del>{pkg.beforePrice}</del>
+                </p>
+                <div className="bde-price-tier">
+                  <span className="bde-price-amount">{pkg.studentPrice}</span>
+                  <span className="bde-price-tier-label">{t("content.coursesUi.bdePickupStudent")}</span>
+                </div>
+                <div className="bde-price-tier">
+                  <span className="bde-price-amount">{pkg.instructorPrice}</span>
+                  <span className="bde-price-tier-label">{t("content.coursesUi.bdePickupInstructor")}</span>
+                </div>
+              </div>
               <ul>
                 {pkg.items.map((line) => (
                   <li key={line}>{line}</li>

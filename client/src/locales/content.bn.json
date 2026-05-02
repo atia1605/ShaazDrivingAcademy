@@ -1,31 +1,31 @@
 {
   "content": {
     "aboutPage": {
-      "h2": "About us",
-      "p1": "{{brand}} is a Ministry-approved Beginner Driver Education course provider. All in-class and in-car curriculum is delivered by professional, fully licensed instructors. We are committed to quality driver education and have served the GTA for over 20 years.",
-      "p2": "We welcome students from diverse backgrounds. When it helps you learn, we can explain rules, manoeuvres, and road-test expectations in {{languages}} — ask when you book or on your first lesson."
+      "h2": "আমাদের সম্পর্কে",
+      "p1": "{{brand}} মন্ত্রালয়-অনুমোদিত বিগিনার ড্রাইভার এডুকেশন (BDE) কোর্স প্রদানকারী। সব ইন-ক্লাস ও ইন-কার পাঠ্যক্রম পেশাদার, সম্পূর্ণ লাইসেন্সপ্রাপ্ত ইন্সট্রাক্টরদের দ্বারা পাঠানো হয়। আমরা মানসম্মত ড্রাইভার শিক্ষায় প্রতিশ্রুতিবদ্ধ এবং ২০ বছরের বেশি ধরে GTA তে সেবা দিচ্ছি।",
+      "p2": "আমরা নানা পটভূমির শিক্ষার্থীদের স্বাগত জানাই। শেখায় সাহায্য করলে আমরা {{languages}} ভাষায় নিয়ম, মোড়ফের ও রোড-টেস্ট প্রত্যাশা ব্যাখ্যা করতে পারি — বুক করার সময় বা প্রথম লেসনে জিজ্ঞাসা করুন।"
     },
     "registerPage": {
-      "breadcrumb": "Register",
-      "h1": "Register online",
-      "leadStart": "Tell us what you need — we will follow up with scheduling and next steps. Need to pay a deposit?",
-      "leadPay": "Pay online",
-      "leadMid": "after you submit, or call",
-      "leadEnd": "anytime.",
-      "fullName": "Full name",
-      "email": "Email",
-      "phone": "Phone (optional)",
-      "courseInterest": "Course interest",
-      "notes": "Notes (optional)",
-      "success": "Thanks — your request was received. We will contact you soon.",
-      "confirmationEmail": "Confirmation email",
-      "staffEmail": "Staff email alert",
-      "submitting": "Submitting…",
-      "submit": "Submit registration",
-      "backHome": "Back to home",
-      "errHelpIntro": "Call",
-      "errHelpOr": "or email",
-      "errHelpEnd": "and we will help you register."
+      "breadcrumb": "নিবন্ধন",
+      "h1": "অনলাইনে নিবন্ধন",
+      "leadStart": "আপনার প্রয়োজন জানান — আমরা সময়সূচি ও পরবর্তী পদক্ষেপে যোগাযোগ করব। ডিপোজিট দিতে হবে?",
+      "leadPay": "অনলাইনে পে করুন",
+      "leadMid": "ফর্ম জমা দেওয়ার পর, অথবা কল করুন",
+      "leadEnd": "যেকোনো সময়।",
+      "fullName": "পূর্ণ নাম",
+      "email": "ইমেইল",
+      "phone": "ফোন (ঐচ্ছিক)",
+      "courseInterest": "আগ্রহের কোর্স",
+      "notes": "নোট (ঐচ্ছিক)",
+      "success": "ধন্যবাদ — আপনার অনুরোধ পেয়েছি। আমরা শীঘ্রই যোগাযোগ করব।",
+      "confirmationEmail": "নিশ্চিতকরণ ইমেইল",
+      "staffEmail": "স্টাফ ইমেইল সতর্কতা",
+      "submitting": "জমা দেওয়া হচ্ছে…",
+      "submit": "নিবন্ধন জমা দিন",
+      "backHome": "হোমে ফিরুন",
+      "errHelpIntro": "কল করুন",
+      "errHelpOr": "অথবা ইমেইল করুন",
+      "errHelpEnd": "— আমরা নিবন্ধনে সাহায্য করব।"
     },
     "payPage": {
       "breadcrumb": "অনলাইন পেমেন্ট",
@@ -34,32 +34,33 @@
       "stripeDisabledIntro": "অনলাইন পেমেন্ট এখনও উপলব্ধ নয়। চেকআউট প্রস্তুত না হওয়া পর্যন্ত কল করুন ",
       "stripeDisabledMid": " অথবা ইমেইল ",
       "stripeDisabledEnd": " করে পে করুন।",
-      "receiptEmail": "Email for receipt (recommended)",
-      "redirecting": "Redirecting…",
-      "payCard": "Pay with card",
-      "footnoteBefore": "Questions about which fee to choose? ",
-      "footnoteLink": "Register online",
-      "footnoteAfter": " or call us — we are happy to help before you pay.",
-      "payErr": "Payment could not start."
+      "receiptEmail": "রসিদের জন্য ইমেইল (সুপারিশকৃত)",
+      "redirecting": "পুনর্নির্দেশিত হচ্ছে…",
+      "payCard": "কার্ডে পে করুন",
+      "footnoteBefore": "কোন ফি নেবেন জানেন না? ",
+      "footnoteLink": "অনলাইনে নিবন্ধন",
+      "footnoteAfter": " অথবা আমাদের কল করুন — পেমেন্টের আগে সাহায্য করতে পেরে খুশি।",
+      "payErr": "পেমেন্ট শুরু করা গেল না।"
     },
     "contactPage": {
-      "h2": "Contact us",
-      "intro": "Send a message online, email us directly, or call — we serve {{area}} from our Danforth location.",
-      "email": "Email",
-      "tapMail": "Tap to open your mail app",
-      "tapCall": "Tap to call",
-      "followTiktok": "Follow us",
-      "opensTiktok": "Opens TikTok in a new tab",
-      "formTitle": "Send a message",
-      "formSub": "We usually reply within one business day.",
-      "name": "Name",
-      "message": "Message",
-      "sent": "Message sent. We will get back to you soon.",
-      "staffEmail": "Staff email alert",
-      "errReach": "You can still reach us by email:",
-      "openDraft": "Open email draft",
-      "sending": "Sending…",
-      "send": "Send message"
+      "h2": "যোগাযোগ",
+      "intro": "অনলাইনে বার্তা পাঠান, সরাসরি ইমেইল করুন অথবা কল করুন — আমরা Danforth অবস্থান থেকে {{area}} এ সেবা দিই।",
+      "mailtoSubject": "ওয়েবসাইট থেকে বার্তা",
+      "email": "ইমেইল",
+      "tapMail": "মেল অ্যাপ খুলতে ট্যাপ করুন",
+      "tapCall": "কল করতে ট্যাপ করুন",
+      "followTiktok": "আমাদের ফলো করুন",
+      "opensTiktok": "নতুন ট্যাবে TikTok খোলে",
+      "formTitle": "বার্তা পাঠান",
+      "formSub": "সাধারণত এক ব্যবসায়িক দিনের মধ্যে উত্তর দিই।",
+      "name": "নাম",
+      "message": "বার্তা",
+      "sent": "বার্তা পাঠানো হয়েছে। আমরা শীঘ্রই যোগাযোগ করব।",
+      "staffEmail": "স্টাফ ইমেইল সতর্কতা",
+      "errReach": "আপনি এখনও ইমেইলে যোগাযোগ করতে পারেন:",
+      "openDraft": "ইমেইল খসড়া খুলুন",
+      "sending": "পাঠানো হচ্ছে…",
+      "send": "বার্তা পাঠান"
     },
     "locationsPage": {
       "h2": "অবস্থান ও যোগাযোগ",
@@ -67,7 +68,7 @@
       "cardTitle": "আমাদের ড্যানফোর্থ অফিস"
     },
     "faqPage": {
-      "h2": "Frequently asked questions"
+      "h2": "প্রায়শই জিজ্ঞাসিত প্রশ্ন"
     },
     "homeLocationsStrip": {
       "h2": "আমাদের দেখুন — জিটিএ, মিসিসাগা ও আরও",
@@ -147,162 +148,174 @@
       "closeAria": "বন্ধ"
     },
     "courseTypes": [
-      { "value": "", "label": "Select a course (optional)" },
-      { "value": "bde-package", "label": "BDE certification package" },
-      { "value": "individual-g1g2", "label": "Individual lessons (G1 → G2)" },
-      { "value": "individual-g2g", "label": "Individual lessons (G2 → G)" },
-      { "value": "classroom", "label": "Classroom / digital classroom" },
-      { "value": "senior", "label": "Courses for seniors" },
-      { "value": "immigrant", "label": "Courses for new immigrants" },
-      { "value": "other", "label": "Other / not sure" }
+      { "value": "", "label": "কোর্স বেছে নিন (ঐচ্ছিক)" },
+      { "value": "bde-package", "label": "BDE সার্টিফিকেশন প্যাকেজ" },
+      { "value": "individual-g1g2", "label": "ব্যক্তিগত লেসন (G1 → G2)" },
+      { "value": "individual-g2g", "label": "ব্যক্তিগত লেসন (G2 → G)" },
+      { "value": "classroom", "label": "ক্লাসরুম / ডিজিটাল ক্লাসরুম" },
+      { "value": "senior", "label": "সিনিয়রদের কোর্স" },
+      { "value": "immigrant", "label": "নতুন অভিবাসীদের কোর্স" },
+      { "value": "other", "label": "অন্যান্য / নিশ্চিত নয়" }
     ],
     "coursesUi": {
-      "h2": "Our driving courses",
-      "intro": "Choose a full BDE package or flexible individual lessons. Prices shown plus applicable tax and certification fees where noted.",
-      "taxNote": "Plus (+) tax and certification fee",
-      "individualH3": "Individual lessons",
-      "negotiable": "Prices are negotiable",
-      "callDiscuss": "— feel free to call",
-      "optionsEnd": "to discuss options that work for you.",
-      "g1g2": "G1 to G2",
-      "g2g": "G2 to G",
-      "bookInquire": "Book / inquire",
-      "classroomH3": "Classroom training",
-      "classroomLead": "BDE programs combine three parts — in-class theory, in-car practice, and flexible digital / homelink work — so you graduate with skills that stick, not just hours on paper.",
-      "seniorsH3": "Courses for seniors",
-      "seniorsBadge": "For mature & experienced drivers",
-      "seniorsAria": "What we offer seniors",
-      "seniorsRegister": "Register your interest",
-      "seniorsCall": "Call",
-      "immigrantsH3": "Courses for new immigrants",
-      "immigrantsBadge": "New to Ontario roads",
-      "immigrantsAria": "Support for newcomers",
-      "immigrantsContact": "Contact us",
-      "immigrantsEmail": "Email"
+      "h2": "আমাদের ড্রাইভিং কোর্স",
+      "intro": "সম্পূর্ণ BDE প্যাকেজ বা নমনীয় ব্যক্তিগত পাঠ বেছে নিন। প্রদর্শিত মূল্যের সঙ্গে প্রযোজ্য কর।",
+      "taxNote": "সঙ্গে (+) কর",
+      "individualH3": "ব্যক্তিগত লেসন",
+      "negotiable": "মূল্য আলোচনাসাপেক্ষ",
+      "callDiscuss": "— নিঃসংকোচে কল করুন",
+      "optionsEnd": "আপনার জন্য কাজ করে এমন বিকল্প নিয়ে কথা বলতে।",
+      "g1g2": "G1 থেকে G2",
+      "g2g": "G2 থেকে G",
+      "bookInquire": "বুক / জিজ্ঞাসা",
+      "classroomH3": "ক্লাসরুম ট্রেনিং",
+      "classroomLead": "BDE প্রোগ্রাম তিন অংশ মিলিয়ে — ক্লাসে তত্ত্ব, গাড়িতে হাতে-কলমে অনুশীলন, আর নমনীয় ডিজিটাল / homelink — যাতে শুধু কাগজে ঘণ্টা নয়, দীর্ঘমেয়াদি দক্ষতা পান।",
+      "seniorsH3": "সিনিয়রদের কোর্স",
+      "seniorsBadge": "পরিণত ও অভিজ্ঞ চালকদের জন্য",
+      "seniorsAria": "সিনিয়রদের আমরা কী দিই",
+      "seniorsRegister": "আগ্রহ নিবন্ধন করুন",
+      "seniorsCall": "কল করুন",
+      "immigrantsH3": "নতুন অভিবাসীদের কোর্স",
+      "immigrantsBadge": "অন্টারিওর রাস্তায় নতুন",
+      "immigrantsAria": "নতুন আগমনকারীদের সহায়তা",
+      "immigrantsContact": "যোগাযোগ করুন",
+      "immigrantsEmail": "ইমেইল",
+      "bdeWas": "আগে",
+      "bdePickupStudent": "পিকআপ ও ড্রপ-অফ — শিক্ষার্থী ঠিকানা বেছে নেয়",
+      "bdePickupInstructor": "পিকআপ ও ড্রপ-অফ — ইন্সট্রাক্টর ঠিকানা বেছে নেয়"
     },
     "bdePackages": [
       {
-        "title": "Package 1",
+        "title": "প্যাকেজ 1",
+        "beforePrice": "$899.99",
+        "studentPrice": "$749.99",
+        "instructorPrice": "$699.99",
         "items": [
-          "10 Hours Of In-Car Training",
-          "20 Hours Of In-class Sessions",
-          "Certification with The Ministry of Transportation",
-          "10 hours homelink"
+          "গাড়িতে প্রশিক্ষণ ১০ ঘণ্টা",
+          "ক্লাসে সেশন ২০ ঘণ্টা",
+          "পরিবহন মন্ত্রণালয়ের সঙ্গে সার্টিফিকেশন",
+          "homelink ১০ ঘণ্টা"
         ]
       },
       {
-        "title": "Package 2",
+        "title": "প্যাকেজ 2",
+        "beforePrice": "$1,199.99",
+        "studentPrice": "$999.99",
+        "instructorPrice": "$949.99",
         "items": [
-          "11 Hours Of In-Car Training",
-          "20 Hours Of In-Class Sessions",
-          "Certification With Ministry of Transportation",
-          "10 hours homelink",
-          "Use of an Instructor car for local G2 Road Test",
-          "We will also book your Road Test"
+          "গাড়িতে প্রশিক্ষণ ১১ ঘণ্টা",
+          "ক্লাসে সেশন ২০ ঘণ্টা",
+          "পরিবহন মন্ত্রণালয়ের সঙ্গে সার্টিফিকেশন",
+          "homelink ১০ ঘণ্টা",
+          "স্থানীয় G2 রোড টেস্টের জন্য ইন্সট্রাক্টরের গাড়ি ব্যবহার",
+          "আমরা আপনার রোড টেস্টও বুক করব"
         ]
       },
       {
-        "title": "Package 3",
+        "title": "প্যাকেজ 3",
+        "beforePrice": "$1,499.99",
+        "studentPrice": "$1,199.99",
+        "instructorPrice": "$1,149.99",
         "items": [
-          "15 Hours Of In-Car Training",
-          "20 Hours Of In-Class Sessions",
-          "Certification With Ministry of Transportation",
-          "10 hours homelink",
-          "Use of an Instructor's car For local G2 Road Test",
-          "We will also book your Road Test"
+          "গাড়িতে প্রশিক্ষণ ১৫ ঘণ্টা",
+          "ক্লাসে সেশন ২০ ঘণ্টা",
+          "পরিবহন মন্ত্রণালয়ের সঙ্গে সার্টিফিকেশন",
+          "homelink ১০ ঘণ্টা",
+          "স্থানীয় G2 রোড টেস্টের জন্য ইন্সট্রাক্টরের গাড়ি",
+          "আমরা আপনার রোড টেস্টও বুক করব"
         ]
       }
     ],
     "g1g2Packages": [
-      { "id": "g1g2-5", "label": "5 hours of lessons", "price": "$250 + HST" },
-      { "id": "g1g2-10", "label": "10 hours of lessons", "price": "$490 + HST" },
-      { "id": "g1g2-1rt", "label": "1 Hour and Road Test (in town)", "price": "$195 + HST" },
-      { "id": "g1g2-3rt", "label": "3 Hours and Road Test mini package (in town)", "price": "$300 + HST" },
-      { "id": "g1g2-5rt", "label": "5 Hours and Road Test (in town)", "price": "$390 + HST" },
-      { "id": "g1g2-10rt", "label": "10 Hours and Road Test (in town)", "price": "$625 + HST" }
+      { "id": "g1g2-5", "label": "৫ ঘণ্টার লেসন", "price": "$250 + HST" },
+      { "id": "g1g2-10", "label": "১০ ঘণ্টার লেসন", "price": "$490 + HST" },
+      { "id": "g1g2-1rt", "label": "১ ঘণ্টা ও রোড টেস্ট (শহরে)", "price": "$195 + HST" },
+      { "id": "g1g2-3rt", "label": "৩ ঘণ্টা ও রোড টেস্ট মিনি প্যাকেজ (শহরে)", "price": "$300 + HST" },
+      { "id": "g1g2-5rt", "label": "৫ ঘণ্টা ও রোড টেস্ট (শহরে)", "price": "$390 + HST" },
+      { "id": "g1g2-10rt", "label": "১০ ঘণ্টা ও রোড টেস্ট (শহরে)", "price": "$625 + HST" }
     ],
     "g2gPackages": [
-      { "id": "g2g-5", "label": "5 hours of lessons", "price": "$300 + HST" },
-      { "id": "g2g-10", "label": "10 hours of lessons", "price": "$590 + HST" },
-      { "id": "g2g-1rt", "label": "1 Hour and Road Test (in town)", "price": "$220 + HST" },
-      { "id": "g2g-3rt", "label": "3 Hours and Road Test mini package (in town)", "price": "$340 + HST" },
-      { "id": "g2g-5rt", "label": "5 Hours and Road Test (in town)", "price": "$475 + HST" },
-      { "id": "g2g-10rt", "label": "10 Hours and Road Test (in town)", "price": "$750 + HST" }
+      { "id": "g2g-5", "label": "৫ ঘণ্টার লেসন", "price": "$300 + HST" },
+      { "id": "g2g-10", "label": "১০ ঘণ্টার লেসন", "price": "$590 + HST" },
+      { "id": "g2g-1rt", "label": "১ ঘণ্টা ও রোড টেস্ট (শহরে)", "price": "$220 + HST" },
+      { "id": "g2g-3rt", "label": "৩ ঘণ্টা ও রোড টেস্ট মিনি প্যাকেজ (শহরে)", "price": "$340 + HST" },
+      { "id": "g2g-5rt", "label": "৫ ঘণ্টা ও রোড টেস্ট (শহরে)", "price": "$475 + HST" },
+      { "id": "g2g-10rt", "label": "১০ ঘণ্টা ও রোড টেস্ট (শহরে)", "price": "$750 + HST" }
     ],
     "classroomModes": [
       {
-        "title": "In-class instruction",
-        "lead": "Build a strong theory foundation in a structured classroom with a qualified instructor — rules of the road, signs, defensive driving, and how to handle real situations before you get behind the wheel.",
+        "title": "ক্লাসে নির্দেশনা",
+        "lead": "যোগ্য ইন্সট্রাক্টরের সঙ্গে গঠনমূলক ক্লাসরুমে শক্ত তাত্ত্বিক ভিত্তি তৈরি করুন — রাস্তার নিয়ম, সাইন, প্রতিরক্ষামূলক ড্রাইভিং, এবং স্টিয়ারিংয়ের আগে বাস্তব পরিস্থিতি সামলানো।",
         "bullets": [
-          "MTO-aligned curriculum for Beginner Driver Education (BDE)",
-          "Discussion and Q&A so concepts stick — not just memorization",
-          "You can often start in-class before your G1; check with us when you book"
+          "বিগিনার ড্রাইভার এডুকেশন (BDE) এর জন্য MTO-সারিবদ্ধ পাঠ্যক্রম",
+          "আলোচনা ও প্রশ্নোত্তর যাতে ধারণা লেগে থাকে — শুধু মুখস্থ নয়",
+          "প্রায়ই G1 এর আগে ক্লাস শুরু করা যায়; বুক করার সময় আমাদের জিজ্ঞাসা করুন"
         ]
       },
       {
-        "title": "In-car training",
-        "lead": "Hands-on driving in a dual-controlled vehicle with a licensed instructor. Each lesson builds on the last, from basics to test-ready skills on routes you will actually use.",
+        "title": "গাড়িতে প্রশিক্ষণ",
+        "lead": "লাইসেন্সপ্রাপ্ত ইন্সট্রাক্টরের সঙ্গে ডুয়াল-কন্ট্রোল গাড়িতে হাতে-কলমে ড্রাইভিং। প্রতিটি লেসন আগেরটির উপর ভিত্তি করে — প্রাথমিক থেকে টেস্ট-প্রস্তুত দক্ষতা, আপনি যে রাস্তা ব্যবহার করবেন।",
         "bullets": [
-          "Parking, intersections, lane changes, highway practice, and road-test preparation",
-          "Clear feedback after every session so you know what to improve",
-          "A valid G1 (or appropriate licence) is required for in-car lessons"
+          "পার্কিং, ইন্টারসেকশন, লেন পরিবর্তন, হাইওয়ে অনুশীলন ও রোড-টেস্ট প্রস্তুতি",
+          "প্রতিটি সেশনের পর পরিষ্কার ফিডব্যাক যাতে জানেন কী উন্নত করতে হবে",
+          "ইন-কার লেসনের জন্য বৈধ G1 (বা উপযুক্ত লাইসেন্স) লাগবে"
         ]
       },
       {
-        "title": "Digital & homelink",
-        "lead": "Flexible online classroom components and homelink hours let you review on your own time and stay on track between in-person sessions.",
+        "title": "ডিজিটাল ও homelink",
+        "lead": "নমনীয় অনলাইন ক্লাস উপাদান ও homelink ঘণ্টা আপনার সময়ে পর্যালোচনা করতে ও ব্যক্তিগত সেশনের মাঝে ট্র্যাকে থাকতে দেয়।",
         "bullets": [
-          "Digital options where offered — learn in the format that fits your schedule",
-          "Homelink work complements in-class and in-car training for a complete BDE record",
-          "Revisit material anytime so you are confident for tests and real-world driving"
+          "যেখানে দেওয়া হয় ডিজিটাল বিকল্প — আপনার সময়সূচির মতো ফরম্যাটে শিখুন",
+          "Homelink কাজ ক্লাস ও গাড়ির প্রশিক্ষণ পূরণ করে সম্পূর্ণ BDE রেকর্ডের জন্য",
+          "যেকোনো সময় মেটেরিয়াল আবার দেখুন যাতে পরীক্ষা ও বাস্তব ড্রাইভিংয়ে আত্মবিশ্বাস থাকে"
         ]
       }
     ],
     "seniorCourses": {
-      "intro": "Returning after a break, refreshing for a renewal, or simply want more confidence on busier roads? We offer patient, respectful instruction tailored to experienced drivers — at your pace, with clear communication.",
+      "intro": "বিরতির পর ফিরছেন, নবায়নের জন্য রিফ্রেশ করছেন, নাকি ব্যস্ত রাস্তায় আরও আত্মবিশ্বাস চান? আমরা অভিজ্ঞ চালকদের জন্য ধৈর্যশীল, সম্মানজনক নির্দেশনা দিই — আপনার গতিতে, পরিষ্কার যোগাযোগের সঙ্গে।",
       "highlights": [
-        "Refresher lessons: highways, night driving, winter conditions, and complex intersections",
-        "Updates on Ontario traffic laws, signage, and right-of-way in today’s traffic",
-        "Stress-free practice — we explain modern vehicle tech and road layouts step by step",
-        "Flexible scheduling and lesson plans built around your goals, not a one-size-fits-all package"
+        "রিফ্রেশার লেসন: হাইওয়ে, রাতের ড্রাইভিং, শীত ও জটিল ইন্টারসেকশন",
+        "আজকের ট্রাফিকে অন্টারিওর আইন, সাইন ও অগ্রাধিকার আপডেট",
+        "টেনশনমুক্ত অনুশীলন — আধুনিক গাড়ির প্রযুক্তি ও রাস্তার লেআউট ধাপে ধাপে ব্যাখ্যা",
+        "নমনীয় সময়সূচি ও আপনার লক্ষ্য ভিত্তিক লেসন পরিকল্পনা, এক প্যাকেজ সবার জন্য নয়"
       ],
-      "closing": "Tell us what you would like to achieve and we will recommend a plan that fits."
+      "closing": "আপনি কী অর্জন করতে চান জানান — আমরা উপযুক্ত পরিকল্পনা সুপারিশ করব।"
     },
     "immigrantCourses": {
-      "intro": "New to Canada? We help you turn your experience into safe driving here — from Ontario’s graduated licensing system to reading signs, handling Toronto-area traffic, and preparing for your road test.",
+      "intro": "কানাডায় নতুন? অন্টারিওর গ্র্যাজুয়েট লাইসেন্সিং থেকে সাইন পড়া, টরন্টো এলাকার ট্রাফিক ও রোড টেস্ট প্রস্তুতি পর্যন্ত — আপনার অভিজ্ঞতাকে এখানে নিরাপদ ড্রাইভিংয়ে রূপ দিতে সাহায্য করি।",
       "highlights": [
-        "Guidance whether you are starting fresh or exchanging an international licence — your path depends on the MTO and your background; we help you understand the next steps",
-        "Clear explanations of school zones, transit lanes, winter driving, and unwritten “local” habits on busy streets",
-        "Practice on routes and scenarios similar to your test centre so nothing feels unfamiliar",
-        "Patient instructors who take extra time when English is a second language — we repeat and demonstrate until you are comfortable",
-        "Multilingual explanations when helpful — Bangla, English, Urdu, Hindi, Arabic, Sylheti, and Chittagong"
+        "নতুন শুরু বা আন্তর্জাতিক লাইসেন্স বিনিময় — আপনার পথ MTO ও পটভূমির উপর নির্ভর; পরবর্তী পদক্ষেপ বুঝতে সাহায্য করি",
+        "স্কুল জোন, ট্রানজিট লেন, শীতের ড্রাইভিং ও ব্যস্ত রাস্তায় লোকাল অভ্যাস পরিষ্কারভাবে",
+        "টেস্ট কেন্দ্রের মতো রুট ও পরিস্থিতিতে অনুশীলন যাতে অচেনা না লাগে",
+        "ইংরেজি দ্বিতীয় ভাষা হলে অতিরিক্ত সময় দেন এমন ইন্সট্রাক্টর — আরাম না হওয়া পর্যন্ত আমরা দোহরাই ও দেখাই",
+        "প্রয়োজনে বহুভাষিক ব্যাখ্যা — বাংলা, ইংরেজি, উর্দু, হিন্দি, আরবি, ফরাসি, স্প্যানিশ, ক্যান্টোনিজ, নেপালি, সিলেটি ও চট্টগ্রাম"
       ],
-      "closing": "Share your situation by phone or email and we will outline the best program for you."
+      "closing": "ফোন বা ইমেইলে আপনার পরিস্থিতি জানান — আমরা সেরা প্রোগ্রামের রূপরেখা দেব।"
     },
     "faqItems": [
       {
-        "q": "How do I get a driving instructor and schedule in car lessons?",
-        "a": "On your final day of in-class instruction, you will receive an in-car instructor's name and number. You will then contact the instructor and book appointments based on availability."
+        "q": "ড্রাইভিং ইন্সট্রাক্টর পাব কীভাবে ও ইন-কার লেসন কীভাবে সূচি করব?",
+        "a": "ইন-ক্লাসের শেষ দিনে ইন-কার ইন্সট্রাক্টরের নাম ও নম্বর পাবেন। এরপর ইন্সট্রাক্টরকে যোগাযোগ করে উপলব্ধতা অনুযায়ী সময় ঠিক করুন।"
       },
       {
-        "q": "How do I book my road test?",
-        "aHtml": "Log on to <a href=\"https://www.drivetest.ca\" target=\"_blank\" rel=\"noopener noreferrer\">www.drivetest.ca</a>, fill in your information and book your road test for the next available date at a DriveTest centre near you."
+        "q": "রোড টেস্ট কীভাবে বুক করব?",
+        "aHtml": "<a href=\"https://www.drivetest.ca\" target=\"_blank\" rel=\"noopener noreferrer\">www.drivetest.ca</a>-এ লগ ইন করে তথ্য দিন এবং আপনার কাছের DriveTest কেন্দ্রে পরবর্তী উপলব্ধ তারিখে রোড টেস্ট বুক করুন।"
       },
       {
-        "q": "Can I do a course without G1?",
-        "a": "In-class can be done without the G1 license. G1 license is required for in-car instruction."
+        "q": "আমি কি G1 ছাড়া কোর্স করতে পারি?",
+        "a": "ইন-ক্লাস G1 ছাড়াই করা যায়। ইন-কার নির্দেশনার জন্য বৈধ G1 লাগবে।"
       },
       {
-        "q": "How can I pay the balance?",
-        "a": "Balance of payment can be paid by cash or cheque at our driving school location."
+        "q": "বাকি টাকা কীভাবে দেব?",
+        "a": "বাকি নগদ বা চেক দিয়ে আমাদের ড্রাইভিং স্কুলে পরিশোধ করা যায়।"
       },
       {
-        "q": "Do I need to bring my certificate to the road test?",
-        "a": "A paper copy is required for the road test day. You are certified electronically through the MTO system."
+        "q": "রোড টেস্টে কি সার্টিফিকেট নিয়ে যেতে হবে?",
+        "a": "টেস্ট দিনে কাগজের কপি লাগবে। MTO সিস্টেমের মাধ্যমে আপনার সার্টিফিকেশন ইলেকট্রনিকভাবে থাকে।"
       },
       {
-        "q": "I have a driver's licence from another country. How do I apply in Ontario and what tests do I need?",
-        "aHtml": "<p>When you move to Ontario, you may use a valid foreign licence for <strong>60 days</strong>. After that you must apply for an Ontario licence. Whether you can <strong>exchange</strong> your licence or must take <strong>knowledge and/or road tests</strong> depends on your country (Ontario has exchange agreements with some countries only), how long you have been driving, and the class of licence you hold.</p><p>You usually apply <strong>in person</strong> at a <a href=\"https://www.drivetest.ca/drivetest-centre-search/\" target=\"_blank\" rel=\"noopener noreferrer\">DriveTest centre</a> (or certain ServiceOntario locations). Bring <strong>original</strong> identity documents, your foreign licence, and any proof of driving experience. For more than one year of experience credit you may need an official letter from the licensing authority. Expect a <strong>vision test</strong>; you may also need <strong>G1 knowledge</strong> and <strong>road test(s)</strong> depending on your case.</p><p>Read the official steps here: <a href=\"https://www.ontario.ca/page/exchange-out-province-drivers-licence\" target=\"_blank\" rel=\"noopener noreferrer\">Exchange an out-of-province or foreign licence (Ontario.ca)</a> and <a href=\"https://drivetest.ca/licences/exchanges-foreign-licences/\" target=\"_blank\" rel=\"noopener noreferrer\">Exchanges &amp; foreign licences (DriveTest)</a>. {{brand}} can help with <strong>lessons and road-test preparation</strong> once you know what Ontario requires for you — <a href=\"/#/contact\">contact us</a> with your country and licence type.</p>"
+        "q": "আমার অন্য দেশের লাইসেন্স আছে। অন্টারিওতে কীভাবে আবেদন করব ও কোন পরীক্ষা দিতে হবে?",
+        "aHtml": "<p>অন্টারিওতে এলে আপনি <strong>৬০ দিন</strong> পর্যন্ত বৈধ বিদেশি লাইসেন্স ব্যবহার করতে পারেন। এরপর অন্টারিও লাইসেন্সের জন্য আবেদন করতে হবে। আপনি লাইসেন্স <strong>বিনিময়</strong> করতে পারবেন নাকি <strong>জ্ঞান ও/বা রোড টেস্ট</strong> দিতে হবে তা দেশ (কিছু দেশের সঙ্গেই অন্টারিওর চুক্তি), ড্রাইভিংয়ের সময় ও লাইসেন্স শ্রেণির উপর নির্ভর করে।</p><p>সাধারণত <a href=\"https://www.drivetest.ca/drivetest-centre-search/\" target=\"_blank\" rel=\"noopener noreferrer\">DriveTest কেন্দ্রে</a> (বা কিছু ServiceOntario) <strong>সশরীরে</strong> আবেদন করেন। <strong>মূল</strong> পরিচয়পত্র, বিদেশি লাইসেন্স ও ড্রাইভিং অভিজ্ঞতার প্রমাণ নিন। এক বছরের বেশি অভিজ্ঞতার জন্য লাইসেন্স কর্তৃপক্ষের আধিকারিক চিঠি লাগতে পারে। <strong>দৃষ্টি পরীক্ষা</strong> হবে; প্রয়োজনে <strong>G1 জ্ঞান</strong> ও <strong>রোড টেস্ট</strong>ও।</p><p>আধিকারিক পদক্ষেপ: <a href=\"https://www.ontario.ca/page/exchange-out-province-drivers-licence\" target=\"_blank\" rel=\"noopener noreferrer\">প্রদেশ বা বিদেশি লাইসেন্স বিনিময় (Ontario.ca)</a> ও <a href=\"https://drivetest.ca/licences/exchanges-foreign-licences/\" target=\"_blank\" rel=\"noopener noreferrer\">বিনিময় ও বিদেশি লাইসেন্স (DriveTest)</a>। অন্টারিওতে আপনার জন্য কী প্রয়োজন জেনে {{brand}} <strong>লেসন ও রোড টেস্ট প্রস্তুতিতে</strong> সাহায্য করতে পারে — দেশ ও লাইসেন্সের ধরন নিয়ে <a href=\"/contact\">যোগাযোগ করুন</a>।</p>"
       }
     ],
     "homeFaqTeaserItems": [
@@ -446,7 +459,7 @@
       },
       {
         "headline": "বহুভাষিক সহায়তা",
-        "sub": "বাংলা, ইংরেজি, উর্দু, হিন্দি, আরবি, সিলেটি, চট্টগ্রাম — যে ভাষায় শেখা সহজ হয়।",
+        "sub": "বাংলা, ইংরেজি, উর্দু, হিন্দি, আরবি, ফরাসি, স্প্যানিশ, ক্যান্টোনিজ, নেপালি, সিলেটি, চট্টগ্রাম — যে ভাষায় শেখা সহজ হয়।",
         "source": "যখন শেখায় সাহায্য করে"
       }
     ]

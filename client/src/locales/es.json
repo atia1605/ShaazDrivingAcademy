@@ -1,0 +1,205 @@
+{
+  "lang": {
+    "label": "Idioma",
+    "translateTo": "Traducir a",
+    "en": "English",
+    "bn": "Bangla",
+    "ur": "Urdu",
+    "fr": "Français",
+    "es": "Español",
+    "yue": "Cantonese (粵語)",
+    "ne": "नेपाली",
+    "ar": "العربية"
+  },
+  "site": {
+    "languagesInline": "Bangla · English · Urdu · Hindi · Arabic · French · Spanish · Cantonese · Nepali · Sylheti · Chittagong",
+    "languagesDisplay": "Bangla, English, Urdu, Hindi, Arabic, French, Spanish, Cantonese, Nepali, Sylheti and Chittagong"
+  },
+  "topBar": {
+    "tag": "GTA · BDE aprobado por el MTO",
+    "languagesTitle": "Idiomas en los que podemos ayudarte"
+  },
+  "nav": {
+    "toggle": "Abrir o cerrar el menú",
+    "home": "Inicio",
+    "about": "Acerca de",
+    "courses": "Cursos",
+    "certification": "Certificación",
+    "individualLessons": "Clases individuales",
+    "classroomTraining": "Formación en aula",
+    "seniors": "Personas mayores",
+    "newImmigrants": "Nuevos inmigrantes",
+    "viewAllCourses": "Ver todos los cursos",
+    "locations": "Ubicaciones",
+    "faq": "Preguntas frecuentes",
+    "contact": "Contacto",
+    "pay": "Pagar",
+    "register": "Registrarse"
+  },
+  "sticky": {
+    "aria": "Acciones rápidas",
+    "call": "Llamar",
+    "email": "Correo",
+    "pay": "Pagar",
+    "register": "Registrarse"
+  },
+  "promoBanner": {
+    "aria": "Oferta para graduados",
+    "line": "Graduados de secundaria y universidad — descuento especial",
+    "cta": "Llame ahora"
+  },
+  "footer": {
+    "blurb": "Educación vial aprobada por el ministerio para estudiantes en {{area}}. Tu seguridad y éxito en la carretera son lo primero. Clases explicadas en {{languages}}.",
+    "follow": "Síguenos",
+    "tiktok": "TikTok {{handle}}",
+    "quickLinks": "Enlaces rápidos",
+    "registerOnline": "Registro en línea",
+    "payOnline": "Pagar en línea",
+    "contactHeading": "Contacto",
+    "rights": "© {{year}} {{name}}. Todos los derechos reservados.",
+    "mto": "Licenciado por la provincia de Ontario, Ministerio de Transporte (MTO). Tu seguridad es nuestra prioridad."
+  },
+  "breadcrumb": {
+    "label": "Migas de pan",
+    "home": "Inicio"
+  },
+  "meta": {
+    "home": "{{brand}} | GTA, Mississauga y Ontario — BDE, G1, G2 y clases G",
+    "about": "Acerca de {{brand}} | Escuela de manejo del GTA aprobada por el MTO",
+    "courses": "Cursos de manejo y precios | BDE Ontario y GTA | {{brand}}",
+    "locations": "Escuela de manejo | Oficina Danforth y zona de servicio | {{brand}}",
+    "faq": "FAQ | Exámenes de manejo, G1, BDE y pagos | {{brand}}",
+    "contact": "Contactar {{brand}} | Teléfono, correo y ubicaciones GTA",
+    "register": "Registrarse en clases de manejo | {{brand}} Ontario y GTA",
+    "pay": "Pagar en línea | Depósito del curso | {{brand}}",
+    "paySuccess": "Pago recibido | {{brand}}"
+  },
+  "metaDesc": {
+    "home": "BDE y clases de manejo aprobados por el MTO en el GTA, Mississauga, Windsor y Ontario. Apoyo multilingüe. Una oficina en Danforth. Registro y pago en línea.",
+    "about": "Acerca de Shaaz Driving Academy — educación para conductores aprobada por el MTO, instructores con experiencia y más de 20 años desde nuestra oficina Danforth en Scarborough.",
+    "courses": "Cursos y precios: paquetes BDE, preparación G1, G2 y G — en aula, digital y en auto en el GTA y Ontario.",
+    "locations": "Nuestra oficina en Danforth Ave en Scarborough y zonas GTA y Ontario — Mississauga, Windsor, Brampton y más.",
+    "faq": "Preguntas sobre exámenes de manejo, G1 y G2, certificación BDE, pagos, horarios y preparación DriveTest — Shaaz Driving Academy Ontario.",
+    "contact": "Contacte a Shaaz Driving Academy por teléfono o correo para clases e inscripción. Servimos el GTA, Mississauga, Windsor y Ontario.",
+    "register": "Regístrese en línea para BDE o clases individuales. Formulario rápido — confirmaremos su curso y los siguientes pasos.",
+    "pay": "Pague un depósito o tarifa en línea para Shaaz Driving Academy. Pago seguro. ¿Necesita ayuda? Llame o escríbanos.",
+    "paySuccess": "Su pago fue recibido. Gracias por elegir Shaaz Driving Academy."
+  },
+  "notify": {
+    "ownerEmailNotConfigured": "Las alertas por correo del personal no están configuradas en el servidor. Su envío sigue guardado.",
+    "ownerEmailSent": "Notificación por correo al personal enviada ({{count}} bandeja(s)).",
+    "ownerEmailFailed": "Su registro está guardado. Nuestro correo automático al personal no se envió (problema técnico). Llame o escríbenos.",
+    "ownerEmailMixed": "Correo del personal: {{sent}} de {{total}} notificación(es) enviada(s). Algunas bandejas pueden no haberla recibido.",
+    "ownerEmailSaved": "Su envío está guardado.",
+    "smsSent": "Alerta SMS al instructor: enviada.",
+    "smsNotSent": "Alerta SMS al instructor: no enviada (revise Twilio en el servidor).",
+    "registrantSent": "Enviamos un correo de confirmación a su dirección — revise su bandeja (y spam).",
+    "registrantFailed": "No pudimos enviar el correo de confirmación ahora; su registro está guardado y nos pondremos en contacto.",
+    "contactOwnerSaved": "Su mensaje está guardado.",
+    "genericErr": "Algo salió mal."
+  },
+  "pay": {
+    "loadError": "No pudimos cargar las opciones de pago ahora — esta sección aún se está configurando. Llame o escríbanos para pagar un depósito o tarifa."
+  },
+  "paySuccessPage": {
+    "heading": "Gracias por su pago",
+    "lead": "Su tarjeta fue cobrada correctamente. Stripe enviará un recibo al correo que ingresó al pagar.",
+    "helpPrefix": "Si tiene preguntas sobre su curso o los siguientes pasos, llame",
+    "helpMid": "o escriba a",
+    "home": "Volver al inicio",
+    "register": "Completar registro"
+  },
+  "breadcrumbCurrent": {
+    "about": "Acerca de",
+    "courses": "Cursos",
+    "locations": "Ubicaciones",
+    "faq": "FAQ",
+    "contact": "Contacto"
+  },
+  "hero": {
+    "eyebrow": "Aprobado por el ministerio · Más de 20 años en el GTA",
+    "title": "Conduzca con confianza — desde su primera clase hasta el día del examen",
+    "lead": "BDE aprobado por el MTO y clases prácticas flexibles con instructores amables y experimentados — coaching paso a paso. Registro o pago en línea cuando quiera. En {{languages}} cuando le ayude a aprender.",
+    "seo1Title": "BDE y clases",
+    "seo1Body": "componentes en aula, en auto y digitales en el GTA y Ontario.",
+    "seo1Link": "Cursos y precios",
+    "seo2Title": "G1, G2 y G",
+    "seo2Body": "paquetes y clases individuales; preparación para el examen con ayuda para elegir un centro DriveTest y plan de práctica.",
+    "seo3Strong": "GTA",
+    "seo3Mid": "— una ubicación Danforth que sirve a",
+    "seo3Link": "GTA, Mississauga y más",
+    "ctaRegister": "Registrarse en línea",
+    "ctaPay": "Pagar un depósito",
+    "emailUs": "Escríbanos",
+    "panelAria": "Destacados",
+    "stat1a": "Aprobado MTO",
+    "stat1b": "Proveedor BDE",
+    "stat2a": "Amable y práctico",
+    "stat2b": "Paso a paso · instructores pacientes",
+    "stat3a": "Listo para el examen",
+    "stat3b": "Enfoque en aprobar · guía DriveTest",
+    "stat4a": "Idiomas",
+    "panelNote": "Llame a {{name}} ({{phone}}) — respuestas rápidas."
+  },
+  "howItWorks": {
+    "title": "Cómo funciona",
+    "intro": "Un camino simple desde el primer contacto hasta obtener su licencia.",
+    "step1Title": "Elija su curso",
+    "step1Text": "Explore paquetes BDE o clases individuales, o díganos sus metas — le recomendaremos el programa adecuado.",
+    "step2Title": "Registro y pago en línea",
+    "step2Text": "Envíe sus datos y pague depósitos de forma segura con tarjeta. ¿Prefiere teléfono o correo? Estamos a un toque.",
+    "step3Title": "Comience a aprender",
+    "step3Text": "Instructores experimentados le enseñan paso a paso con coaching práctico en el auto. Cuando esté listo, le ayudamos a elegir un lugar DriveTest y un plan de práctica — y luego reservar su examen con confianza."
+  },
+  "homeQuickLinks": {
+    "title": "Explorar",
+    "intro": "Explore cursos, ubicaciones y respuestas a preguntas frecuentes — todo lo que necesita para empezar.",
+    "about": "Acerca de",
+    "aboutDesc": "Quiénes somos",
+    "courses": "Cursos",
+    "coursesDesc": "BDE y clases",
+    "locations": "Ubicaciones",
+    "locationsDesc": "Visítenos",
+    "faq": "FAQ",
+    "faqDesc": "Preguntas comunes",
+    "contact": "Contacto",
+    "contactDesc": "Póngase en contacto"
+  },
+  "homeAreas": {
+    "title": "Clases de manejo y BDE en el GTA y Ontario",
+    "intro": "{{brand}} atiende a estudiantes de Toronto, Scarborough, North York, East York, Etobicoke, Ajax, Brampton, Pickering, Oakville, Oshawa, Whitby, Unionville, Mississauga, Windsor y comunidades del GTA. Ofrecemos paquetes BDE aprobados por el MTO, clases individuales G1→G2 y G2→G, y apoyo para preparar el examen de manejo.",
+    "coursesPricing": "Cursos y precios",
+    "locationsLink": "Oficina y zona de servicio",
+    "faq": "FAQ",
+    "contact": "Contacto"
+  },
+  "contact": {
+    "offerLanguages": "Ofrecemos instrucción y apoyo en"
+  },
+  "faqChat": {
+    "launcher": "FAQ",
+    "title": "Pregúntenos lo que sea",
+    "subtitle": "Escriba su pregunta abajo. Las respuestas usan nuestra FAQ cuando hay coincidencia — para lo demás, contáctenos por teléfono o correo.",
+    "clear": "Borrar chat",
+    "close": "Cerrar",
+    "welcome": "¡Hola! Pregunte sobre exámenes de manejo, G1, pagos, certificados o clases. Pruebe los atajos de abajo o escriba su propia pregunta.",
+    "fromFaq": "De nuestra FAQ",
+    "fallback": "Aún no tengo una respuesta específica en nuestra FAQ para eso. {{name}} puede ayudarle directamente:",
+    "fallbackCall": "Llamar",
+    "fallbackEmail": "Correo",
+    "fallbackVisit": "Visite nuestra",
+    "faqPage": "página de FAQ",
+    "or": "o",
+    "contactForm": "formulario de contacto",
+    "inputLabel": "Escriba su pregunta",
+    "placeholder": "Escriba su pregunta y pulse Enviar…",
+    "send": "Enviar",
+    "fullFaq": "Página FAQ completa",
+    "contact": "Contacto",
+    "quickPrompts": [
+      "¿Cómo reservo mi examen de manejo?",
+      "¿Puedo hacer un curso sin G1?",
+      "Tengo licencia de otro país. ¿Cómo solicito en Ontario y qué exámenes necesito?"
+    ]
+  }
+}

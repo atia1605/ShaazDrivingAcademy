@@ -5,6 +5,10 @@ export const SITE_LANGUAGES = [
   "Urdu",
   "Hindi",
   "Arabic",
+  "French",
+  "Spanish",
+  "Cantonese",
+  "Nepali",
   "Sylheti",
   "Chittagong",
 ] as const;
