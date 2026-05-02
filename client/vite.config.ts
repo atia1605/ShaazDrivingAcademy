@@ -3,7 +3,10 @@ import fs from "node:fs";
 import path from "node:path";
 import { defineConfig, type Plugin } from "vite";
 
-/** GitHub Pages has no SPA rewrites; HashRouter avoids 404 on in-app routes. This 404.html redirects bare paths (e.g. /register) to /#/register for bookmarks. */
+/**
+ * GitHub Pages serves 404.html for unknown paths. Copy index.html so the SPA loads
+ * with BrowserRouter (clean URLs like /faq for SEO). Real missing assets still 404 from /assets/.
+ */
 let ghSpaOutDir = "";
 
 function githubPagesSpaFallback(): Plugin {
@@ -13,33 +16,11 @@ function githubPagesSpaFallback(): Plugin {
       ghSpaOutDir = path.resolve(config.root, config.build.outDir);
     },
     closeBundle() {
-      const redirectPage = `<!DOCTYPE html>
-<html lang="en-CA">
-<head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Redirecting…</title>
-<script>
-(function () {
-  var pathname = window.location.pathname || "/";
-  var segments = pathname.split("/").filter(Boolean);
-  var last = segments[segments.length - 1] || "";
-  if (pathname.indexOf("/assets/") === 0 || /^[^/]+\\.[a-zA-Z0-9]{1,12}$/.test(last)) {
-    document.documentElement.innerHTML = '<body style="font-family:system-ui,sans-serif;padding:2rem"><p>404 Not Found</p></body>';
-    return;
-  }
-  var tail = pathname.replace(/^\\/+|\\/+$/g, "");
-  if (!tail) {
-    window.location.replace(window.location.origin + "/");
-    return;
-  }
-  window.location.replace(window.location.origin + "/#/" + tail + window.location.search);
-})();
-</script>
-</head>
-<body></body>
-</html>`;
-      fs.writeFileSync(path.join(ghSpaOutDir, "404.html"), redirectPage, "utf8");
+      const indexPath = path.join(ghSpaOutDir, "index.html");
+      const dest404 = path.join(ghSpaOutDir, "404.html");
+      if (fs.existsSync(indexPath)) {
+        fs.copyFileSync(indexPath, dest404);
+      }
     },
   };
 }

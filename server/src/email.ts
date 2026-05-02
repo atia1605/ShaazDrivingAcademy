@@ -155,7 +155,7 @@ export async function sendRegistrantRegistrationThankYou(params: {
   <li><strong>Phone:</strong> <a href="tel:${telHref}">${esc(contactPhone)}</a></li>
   <li><strong>Email:</strong> <a href="mailto:${esc(contactEmail)}">${esc(contactEmail)}</a></li>
 </ul>
-<p>— Shaaz Driving Academy<br/>GTA, Hamilton, Ottawa &amp; Ontario</p>`;
+<p>— Shaaz Driving Academy<br/>GTA, Mississauga &amp; Ontario</p>`;
 
   const text = htmlToPlainText(html);
 

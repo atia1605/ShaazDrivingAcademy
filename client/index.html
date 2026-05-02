@@ -6,11 +6,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
     <meta
       name="description"
-      content="Shaaz Driving Academy — MTO-approved BDE and driving lessons across the GTA, Hamilton, Ottawa, Windsor, Brampton, and Ontario. One Danforth office; multilingual support: Bangla, English, Urdu, Hindi, Arabic, Sylheti, Chittagong. G1, G2, G prep. Call 647-783-7582."
+      content="Shaaz Driving Academy — MTO-approved BDE and driving lessons across the GTA, Mississauga, Windsor, Brampton, and Ontario. One Danforth office; multilingual support: Bangla, English, Urdu, Hindi, Arabic, Sylheti, Chittagong. G1, G2, G prep. Call 647-783-7582."
     />
     <meta
       name="keywords"
-      content="driving school Toronto, driving school Scarborough, driving school Brampton, driving school Hamilton, driving school Ottawa, driving school Windsor, North York, East York, Etobicoke, Ajax, Pickering, Oakville, Oshawa, Whitby, Unionville, Orleans, multilingual driving instructor, Bangla driving lessons, Urdu Hindi Arabic, BDE course GTA, MTO approved driving school, G2 lessons GTA, Sylheti Chittagong"
+      content="driving school Toronto, driving school Mississauga, driving school Scarborough, driving school Brampton, driving school Windsor, North York, East York, Etobicoke, Ajax, Pickering, Oakville, Oshawa, Whitby, Unionville, multilingual driving instructor, Bangla driving lessons, Urdu Hindi Arabic, BDE course GTA, MTO approved driving school, G2 lessons GTA, Sylheti Chittagong"
     />
     <meta name="geo.region" content="CA-ON" />
     <meta name="geo.placename" content="Toronto" />
@@ -24,10 +24,11 @@
             "@id": "https://www.shaazdriving.com/#drivingschool",
             "name": "Shaaz Driving Academy",
             "url": "https://www.shaazdriving.com",
+            "sameAs": ["https://www.tiktok.com/@shaazdrivingacademy"],
             "image": "https://www.shaazdriving.com/images/hero-bg.jpg",
             "telephone": ["+16477837582", "+16416865799", "+14168774783"],
             "email": "shohanchowdhury@hotmail.com",
-            "description": "MTO-approved Beginner Driver Education (BDE), individual driving lessons, and G1, G2, and G road test preparation across the GTA, Hamilton, Ottawa, Windsor, and other Ontario communities (students welcome from Toronto, Scarborough, North York, East York, Etobicoke, Ajax, Brampton, Pickering, Oakville, Oshawa, Whitby, Unionville, Orleans, and more). Instruction available in Bangla, English, Urdu, Hindi, Arabic, Sylheti, and Chittagong.",
+            "description": "MTO-approved Beginner Driver Education (BDE), individual driving lessons, and G1, G2, and G road test preparation across the GTA, Mississauga, Windsor, and other Ontario communities (students welcome from Toronto, Scarborough, North York, East York, Etobicoke, Ajax, Brampton, Pickering, Oakville, Oshawa, Whitby, Unionville, Mississauga, Windsor, and more). Instruction available in Bangla, English, Urdu, Hindi, Arabic, Sylheti, and Chittagong.",
             "knowsLanguage": ["Bangla", "English", "Urdu", "Hindi", "Arabic", "Sylheti", "Chittagong"],
             "address": {
               "@type": "PostalAddress",
@@ -51,9 +52,7 @@
               { "@type": "City", "name": "Oshawa" },
               { "@type": "City", "name": "Whitby" },
               { "@type": "City", "name": "Unionville" },
-              { "@type": "City", "name": "Hamilton" },
-              { "@type": "City", "name": "Ottawa" },
-              { "@type": "City", "name": "Orleans" },
+              { "@type": "City", "name": "Mississauga" },
               { "@type": "City", "name": "Windsor" }
             ],
             "priceRange": "$$",
@@ -94,10 +93,10 @@
     <!-- No global preload for hero-bg: it caused Chrome warnings on routes without .hero-bg (e.g. /register). Home still loads it via CSS. -->
     <meta property="og:type" content="website" />
     <meta property="og:site_name" content="Shaaz Driving Academy" />
-    <meta property="og:title" content="Shaaz Driving Academy | GTA, Hamilton, Ottawa & Ontario Driving School" />
+    <meta property="og:title" content="Shaaz Driving Academy | GTA, Mississauga & Ontario Driving School" />
     <meta
       property="og:description"
-      content="Ministry-approved BDE and driving lessons across the GTA, Hamilton, Ottawa, Windsor, and Ontario. Multilingual: Bangla, English, Urdu, Hindi, Arabic, Sylheti, Chittagong. 20+ years serving drivers."
+      content="Ministry-approved BDE and driving lessons across the GTA, Mississauga, Windsor, and Ontario. Multilingual: Bangla, English, Urdu, Hindi, Arabic, Sylheti, Chittagong. 20+ years serving drivers."
     />
     <meta property="og:url" content="https://www.shaazdriving.com/" />
     <meta property="og:image" content="https://www.shaazdriving.com/images/hero-bg.jpg" />
@@ -107,7 +106,7 @@
     <meta name="twitter:title" content="Shaaz Driving Academy | GTA Driving School" />
     <meta
       name="twitter:description"
-      content="MTO-approved BDE and lessons across the GTA, Hamilton, Ottawa & Ontario. Bangla, English, Urdu, Hindi, Arabic, Sylheti, Chittagong. Call 647-783-7582."
+      content="MTO-approved BDE and lessons across the GTA, Mississauga, Windsor & Ontario. Bangla, English, Urdu, Hindi, Arabic, Sylheti, Chittagong. Call 647-783-7582."
     />
     <meta name="twitter:image" content="https://www.shaazdriving.com/images/hero-bg.jpg" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -116,9 +115,18 @@
       href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap"
       rel="stylesheet"
     />
-    <title>Shaaz Driving Academy | GTA, Hamilton, Ottawa &amp; Ontario | BDE &amp; Lessons</title>
+    <title>Shaaz Driving Academy | GTA, Mississauga &amp; Ontario | BDE &amp; Lessons</title>
   </head>
   <body>
+    <!-- Legacy HashRouter URLs (#/faq) → path URLs (/faq) for bookmarks & SEO -->
+    <script>
+      (function () {
+        var h = location.hash;
+        if (h.length > 2 && h.startsWith("#/")) {
+          history.replaceState(null, "", "/" + h.slice(2) + location.search);
+        }
+      })();
+    </script>
     <div id="root"></div>
     <script type="module" src="/src/main.tsx"></script>
   </body>

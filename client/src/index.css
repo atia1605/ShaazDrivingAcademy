@@ -3791,3 +3791,219 @@ a:hover {
     max-width: 520px;
   }
 }
+
+/* —— Graduate discount promo strip (home, under each section) —— */
+.grad-discount-banner {
+  position: relative;
+  z-index: 0;
+  overflow: hidden;
+  background: linear-gradient(90deg, var(--color-navy-deep) 0%, #0c3254 45%, var(--color-navy-deep) 100%);
+  border-block: 2px solid var(--color-gold);
+  box-shadow:
+    inset 0 0 32px rgba(232, 162, 0, 0.12),
+    0 4px 18px rgba(10, 39, 72, 0.12);
+}
+
+.grad-discount-banner__shine {
+  pointer-events: none;
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    105deg,
+    transparent 0%,
+    transparent 38%,
+    rgba(255, 236, 179, 0.55) 48%,
+    rgba(255, 255, 255, 0.42) 52%,
+    transparent 62%,
+    transparent 100%
+  );
+  background-size: 220% 100%;
+  animation: grad-banner-shine 3.2s ease-in-out infinite;
+}
+
+@keyframes grad-banner-shine {
+  0% {
+    background-position: 120% 0;
+  }
+  100% {
+    background-position: -120% 0;
+  }
+}
+
+.grad-discount-banner__inner {
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+  min-height: 2.85rem;
+  padding: 0.45rem 0;
+}
+
+.grad-discount-banner__marquee {
+  flex: 1;
+  min-width: 0;
+  overflow: hidden;
+  mask-image: linear-gradient(90deg, transparent 0%, #000 8%, #000 92%, transparent 100%);
+}
+
+.grad-discount-banner__track {
+  display: flex;
+  width: max-content;
+  animation: grad-banner-scroll 26s linear infinite;
+}
+
+@keyframes grad-banner-scroll {
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+.grad-discount-banner__group {
+  display: flex;
+  align-items: center;
+  gap: 0.45rem;
+  padding-right: 2.25rem;
+  flex-shrink: 0;
+  white-space: nowrap;
+  color: #fff;
+  font-weight: 600;
+  font-size: clamp(0.78rem, 2.4vw, 0.98rem);
+  letter-spacing: 0.02em;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.35);
+}
+
+.grad-discount-banner__star {
+  color: var(--color-gold-bright);
+  filter: drop-shadow(0 0 8px rgba(255, 210, 90, 0.9));
+  animation: grad-banner-twinkle 1.8s ease-in-out infinite;
+}
+
+@keyframes grad-banner-twinkle {
+  0%,
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.65;
+    transform: scale(1.15);
+  }
+}
+
+.grad-discount-banner__sep {
+  color: rgba(255, 255, 255, 0.45);
+  font-weight: 500;
+}
+
+.grad-discount-banner__cta {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  padding: 0.42rem 1rem;
+  border-radius: 999px;
+  border: none;
+  background: linear-gradient(180deg, #ffe566 0%, var(--color-gold-bright) 38%, var(--color-gold) 100%);
+  color: var(--color-navy-deep);
+  font-weight: 700;
+  font-size: 0.78rem;
+  letter-spacing: 0.04em;
+  text-decoration: none;
+  text-transform: uppercase;
+  box-shadow:
+    0 0 22px rgba(255, 200, 60, 0.65),
+    inset 0 1px 0 rgba(255, 255, 255, 0.55);
+  animation: grad-banner-pulse 2.2s ease-in-out infinite;
+}
+
+.grad-discount-banner__cta:hover {
+  color: var(--color-navy-deep);
+  filter: brightness(1.06);
+}
+
+.grad-discount-banner__cta-glow {
+  position: absolute;
+  inset: -2px;
+  border-radius: inherit;
+  background: linear-gradient(120deg, transparent 30%, rgba(255, 255, 255, 0.55) 50%, transparent 70%);
+  opacity: 0;
+  animation: grad-banner-cta-sweep 2.5s ease-in-out infinite;
+  pointer-events: none;
+}
+
+@keyframes grad-banner-pulse {
+  0%,
+  100% {
+    box-shadow:
+      0 0 18px rgba(255, 200, 60, 0.5),
+      inset 0 1px 0 rgba(255, 255, 255, 0.55);
+  }
+  50% {
+    box-shadow:
+      0 0 30px rgba(255, 230, 140, 0.95),
+      inset 0 1px 0 rgba(255, 255, 255, 0.65);
+  }
+}
+
+@keyframes grad-banner-cta-sweep {
+  0%,
+  40% {
+    opacity: 0;
+    transform: translateX(-40%);
+  }
+  55% {
+    opacity: 1;
+  }
+  70%,
+  100% {
+    opacity: 0;
+    transform: translateX(40%);
+  }
+}
+
+@media (max-width: 520px) {
+  .grad-discount-banner__inner {
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0.5rem;
+    padding-block: 0.35rem;
+  }
+
+  .grad-discount-banner__marquee {
+    width: 100%;
+    order: 1;
+  }
+
+  .grad-discount-banner__cta {
+    order: 2;
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .grad-discount-banner__shine,
+  .grad-discount-banner__cta-glow {
+    animation: none;
+    display: none;
+  }
+
+  .grad-discount-banner__star {
+    animation: none;
+  }
+
+  .grad-discount-banner__track {
+    animation: none;
+    margin-inline: auto;
+  }
+
+  .grad-discount-banner__track .grad-discount-banner__group:last-child {
+    display: none;
+  }
+
+  .grad-discount-banner__cta {
+    animation: none;
+  }
+}

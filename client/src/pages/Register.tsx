@@ -3,7 +3,7 @@ import type { FormEvent } from "react";
 import { useTranslation } from "react-i18next";
 import { Link } from "react-router-dom";
 import { postJson } from "../api";
-import { useDocumentTitle } from "../hooks/useDocumentTitle";
+import { usePageSeo } from "../hooks/usePageSeo";
 import type { OwnerEmailNotify, OwnerSmsNotify, RegistrantEmailStatus } from "../ownerNotifyStatus";
 import { describeOwnerEmailNotify, describeOwnerSmsNotify, registrantEmailUi } from "../ownerNotifyStatus";
 import { SITE } from "../site";
@@ -20,7 +20,10 @@ type CourseOpt = { value: string; label: string };
 
 export function Register() {
   const { t } = useTranslation();
-  useDocumentTitle(t("meta.register", { brand: SITE.name }));
+  usePageSeo({
+    title: t("meta.register", { brand: SITE.name }),
+    description: t("metaDesc.register"),
+  });
 
   const courseTypes = t("content.courseTypes", { returnObjects: true }) as CourseOpt[];
 

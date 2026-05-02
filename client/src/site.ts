@@ -28,9 +28,7 @@ export const SITE_SERVICE_CITIES = [
   "Oshawa",
   "Whitby",
   "Unionville",
-  "Hamilton",
-  "Ottawa",
-  "Orleans",
+  "Mississauga",
   "Windsor",
 ] as const;
 
@@ -44,6 +42,20 @@ function oxfordCommaList(items: readonly string[]): string {
 
 /** Comma-separated prose list for {{area}} / {{cities}} in copy */
 export const SITE_SERVICE_AREA = oxfordCommaList(SITE_SERVICE_CITIES);
+
+/** Production origin for canonical URLs and JSON-LD (must match live domain). */
+export const SITE_ORIGIN = "https://www.shaazdriving.com" as const;
+
+/**
+ * Full canonical URL for the current route (respects Vite `base` for GitHub Pages builds).
+ */
+export function siteCanonicalUrl(pathname: string): string {
+  const base = import.meta.env.BASE_URL;
+  const normalizedBase = base.endsWith("/") ? base : `${base}/`;
+  const tail =
+    pathname === "/" || pathname === "" ? "" : pathname.startsWith("/") ? pathname.slice(1) : pathname;
+  return `${SITE_ORIGIN}${normalizedBase}${tail}`;
+}
 
 /** Public contact details — shown across the site */
 export const SITE = {

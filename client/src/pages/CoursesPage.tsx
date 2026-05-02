@@ -3,12 +3,15 @@ import { useTranslation } from "react-i18next";
 import { useLocation } from "react-router-dom";
 import { SubpageBreadcrumb } from "../components/SubpageBreadcrumb";
 import { Courses } from "../components/sections/Courses";
-import { useDocumentTitle } from "../hooks/useDocumentTitle";
+import { usePageSeo } from "../hooks/usePageSeo";
 import { SITE } from "../site";
 
 export function CoursesPage() {
   const { t } = useTranslation();
-  useDocumentTitle(t("meta.courses", { brand: SITE.name }));
+  usePageSeo({
+    title: t("meta.courses", { brand: SITE.name }),
+    description: t("metaDesc.courses"),
+  });
 
   const { hash } = useLocation();
 

@@ -37,6 +37,11 @@
     "pay": "Pay",
     "register": "Register"
   },
+  "promoBanner": {
+    "aria": "Graduate discount offer",
+    "line": "High school & university graduates — special discount",
+    "cta": "Call now"
+  },
   "footer": {
     "blurb": "Ministry-approved driver education for students across {{area}}. Your safety and success on the road come first. Lessons explained in {{languages}}.",
     "follow": "Follow us",
@@ -53,7 +58,7 @@
     "home": "Home"
   },
   "meta": {
-    "home": "{{brand}} | GTA, Hamilton, Ottawa & Ontario — BDE, G1, G2 & G Lessons",
+    "home": "{{brand}} | GTA, Mississauga & Ontario — BDE, G1, G2 & G Lessons",
     "about": "About {{brand}} | MTO-Approved GTA Driving School",
     "courses": "Driving Courses & Lesson Prices | BDE Ontario & GTA | {{brand}}",
     "locations": "Driving School | Danforth Office & Service Area | {{brand}}",
@@ -62,6 +67,17 @@
     "register": "Register for Driving Lessons | {{brand}} Ontario & GTA",
     "pay": "Pay Online | Course Deposit | {{brand}}",
     "paySuccess": "Payment Received | {{brand}}"
+  },
+  "metaDesc": {
+    "home": "MTO-approved BDE and driving lessons across the GTA, Mississauga, Windsor, and Ontario. Multilingual support. One Danforth office. Register and pay online.",
+    "about": "About Shaaz Driving Academy — MTO-approved driver education, experienced instructors, and 20+ years serving Ontario students from our Scarborough Danforth office.",
+    "courses": "Driving courses and pricing: BDE packages, G1, G2, and G prep — classroom, digital, and in-car training across the GTA and Ontario.",
+    "locations": "Our Danforth Ave office in Scarborough and GTA & Ontario service areas — Mississauga, Windsor, Brampton, and more.",
+    "faq": "FAQ on road tests, G1 and G2, BDE certification, payments, schedules, and DriveTest prep — Shaaz Driving Academy Ontario.",
+    "contact": "Contact Shaaz Driving Academy by phone or email for lessons and registration. Serving the GTA, Mississauga, Windsor, and Ontario.",
+    "register": "Register online for BDE or individual driving lessons. Quick form — we'll confirm your course and next steps.",
+    "pay": "Pay a course deposit or fee online for Shaaz Driving Academy. Secure checkout. Need help? Call or email us.",
+    "paySuccess": "Your payment was received. Thank you for choosing Shaaz Driving Academy."
   },
   "notify": {
     "ownerEmailNotConfigured": "Staff email alerts are not configured on the server. Your submission is still saved.",
@@ -105,7 +121,7 @@
     "seo2Body": "packages and individual lessons; road-test prep with help choosing a DriveTest centre and practice plan.",
     "seo3Strong": "GTA",
     "seo3Mid": "— one Danforth location serving",
-    "seo3Link": "GTA, Hamilton, Ottawa & more",
+    "seo3Link": "GTA, Mississauga & more",
     "ctaRegister": "Register online",
     "ctaPay": "Pay a deposit",
     "emailUs": "Email us",
@@ -145,7 +161,7 @@
   },
   "homeAreas": {
     "title": "Driving lessons & BDE across the GTA and Ontario",
-    "intro": "{{brand}} serves students from Toronto, Scarborough, North York, East York, Etobicoke, Ajax, Brampton, Pickering, Oakville, Oshawa, Whitby, Unionville, Hamilton, Ottawa, Orleans, Windsor, and communities across the GTA. We offer MTO-approved BDE packages, individual lessons for G1→G2 and G2→G, and support for road test preparation.",
+    "intro": "{{brand}} serves students from Toronto, Scarborough, North York, East York, Etobicoke, Ajax, Brampton, Pickering, Oakville, Oshawa, Whitby, Unionville, Mississauga, Windsor, and communities across the GTA. We offer MTO-approved BDE packages, individual lessons for G1→G2 and G2→G, and support for road test preparation.",
     "coursesPricing": "Courses & pricing",
     "locationsLink": "Office & service area",
     "faq": "FAQ",

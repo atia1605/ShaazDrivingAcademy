@@ -1,11 +1,15 @@
 import { useTranslation } from "react-i18next";
 import { Link } from "react-router-dom";
-import { useDocumentTitle } from "../hooks/useDocumentTitle";
+import { usePageSeo } from "../hooks/usePageSeo";
 import { SITE } from "../site";
 
 export function PaySuccess() {
   const { t } = useTranslation();
-  useDocumentTitle(t("meta.paySuccess", { brand: SITE.name }));
+  usePageSeo({
+    title: t("meta.paySuccess", { brand: SITE.name }),
+    description: t("metaDesc.paySuccess"),
+    robots: "noindex, follow",
+  });
 
   return (
     <div className="page-pay">
