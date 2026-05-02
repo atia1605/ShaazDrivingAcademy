@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { useTranslation } from "react-i18next";
 import { Link } from "react-router-dom";
 import { getJson, postJson } from "../api";
 import { useDocumentTitle } from "../hooks/useDocumentTitle";
@@ -17,7 +18,8 @@ type PaymentOptionsResponse = {
 };
 
 export function Pay() {
-  useDocumentTitle("Pay Online | Course Deposit | Shaaz Driving Academy");
+  const { t } = useTranslation();
+  useDocumentTitle(t("meta.pay", { brand: SITE.name }));
 
   const [data, setData] = useState<PaymentOptionsResponse | null>(null);
   const [loadError, setLoadError] = useState<string | null>(null);
@@ -28,8 +30,8 @@ export function Pay() {
   useEffect(() => {
     getJson<PaymentOptionsResponse>("/api/payment-options")
       .then(setData)
-      .catch(() => setLoadError("Could not load payment options. Is the API running?"));
-  }, []);
+      .catch(() => setLoadError(t("pay.loadError")));
+  }, [t]);
 
   async function startCheckout(key: string) {
     setErr(null);
@@ -41,7 +43,7 @@ export function Pay() {
       });
       window.location.href = url;
     } catch (e) {
-      setErr(e instanceof Error ? e.message : "Payment could not start.");
+      setErr(e instanceof Error ? e.message : t("content.payPage.payErr"));
     } finally {
       setLoadingKey(null);
     }
@@ -52,13 +54,10 @@ export function Pay() {
       <section className="pay-hero">
         <div className="container">
           <p className="breadcrumb">
-            <Link to="/">Home</Link> / Pay online
+            <Link to="/">{t("breadcrumb.home")}</Link> / {t("content.payPage.breadcrumb")}
           </p>
-          <h1>Pay securely online</h1>
-          <p className="lead pay-lead">
-            Pay deposits and fees with <strong>Stripe</strong> — the same trusted checkout used by thousands of
-            businesses. You will receive a receipt by email after payment.
-          </p>
+          <h1>{t("content.payPage.h1")}</h1>
+          <p className="lead pay-lead">{t("content.payPage.lead")}</p>
         </div>
       </section>
 
@@ -67,25 +66,23 @@ export function Pay() {
           {loadError && (
             <div className="callout callout-warn" role="alert">
               <p>{loadError}</p>
-              <p className="small muted">
-                For local testing, run <code>npm run dev</code> from the project root so the API is available. For
-                production, set <code>VITE_API_URL</code> to your API URL.
-              </p>
             </div>
           )}
 
           {data && !data.payOnlineEnabled && (
             <div className="callout callout-info">
               <p>
-                <strong>Payments are being set up.</strong> Add a Stripe secret key on the server to enable checkout.
-                Until then, call <a href={`tel:${SITE.phonePrimary.tel}`}>{SITE.phonePrimary.display}</a> or email{" "}
-                <a href={`mailto:${SITE.email}`}>{SITE.email}</a> to pay.
+                {t("content.payPage.stripeDisabledIntro")}
+                <a href={`tel:${SITE.phonePrimary.tel}`}>{SITE.phonePrimary.display}</a>
+                {t("content.payPage.stripeDisabledMid")}
+                <a href={`mailto:${SITE.email}`}>{SITE.email}</a>
+                {t("content.payPage.stripeDisabledEnd")}
               </p>
             </div>
           )}
 
           <label className="field pay-email-field">
-            <span>Email for receipt (recommended)</span>
+            <span>{t("content.payPage.receiptEmail")}</span>
             <input
               type="email"
               value={email}
@@ -115,15 +112,15 @@ export function Pay() {
                   disabled={!data.payOnlineEnabled || loadingKey !== null}
                   onClick={() => startCheckout(item.key)}
                 >
-                  {loadingKey === item.key ? "Redirecting…" : "Pay with card"}
+                  {loadingKey === item.key ? t("content.payPage.redirecting") : t("content.payPage.payCard")}
                 </button>
               </article>
             ))}
           </div>
 
           <p className="small muted pay-footnote">
-            Questions about which fee to choose?{" "}
-            <Link to="/register">Register online</Link> or call us — we are happy to help before you pay.
+            {t("content.payPage.footnoteBefore")} <Link to="/register">{t("content.payPage.footnoteLink")}</Link>
+            {t("content.payPage.footnoteAfter")}
           </p>
         </div>
       </section>

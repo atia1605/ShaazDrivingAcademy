@@ -1,13 +1,16 @@
+import { useTranslation } from "react-i18next";
 import { SubpageBreadcrumb } from "../components/SubpageBreadcrumb";
 import { FAQ } from "../components/sections/FAQ";
 import { useDocumentTitle } from "../hooks/useDocumentTitle";
+import { SITE } from "../site";
 
 export function FAQPage() {
-  useDocumentTitle("FAQ | Road Tests, G1, BDE & Payments | Shaaz Driving Academy");
+  const { t } = useTranslation();
+  useDocumentTitle(t("meta.faq", { brand: SITE.name }));
 
   return (
     <>
-      <SubpageBreadcrumb current="FAQ" />
+      <SubpageBreadcrumb current={t("breadcrumbCurrent.faq")} />
       <FAQ />
     </>
   );

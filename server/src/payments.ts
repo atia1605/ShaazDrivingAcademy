@@ -10,11 +10,6 @@ export const PAYMENT_PRODUCTS = {
     description: "Deposit toward G1→G2 or G2→G lesson packages.",
     amountCents: 100_00,
   },
-  "ptc-registration": {
-    name: "Vehicle for hire (PTC) registration",
-    description: "Registration fee toward the PTC licensing program.",
-    amountCents: 75_00,
-  },
 } as const;
 
 export type PaymentProductKey = keyof typeof PAYMENT_PRODUCTS;

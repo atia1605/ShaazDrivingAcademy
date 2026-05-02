@@ -1,41 +1,39 @@
+import { useTranslation } from "react-i18next";
 import { Link } from "react-router-dom";
-import {
-  IconBook,
-  IconCar,
-  IconHelp,
-  IconInfo,
-  IconMail,
-  IconMapPin,
-} from "../NavIcons";
-
-const links = [
-  { to: "/about", label: "About us", Icon: IconInfo, desc: "Who we are" },
-  { to: "/courses", label: "Courses", Icon: IconBook, desc: "BDE & lessons" },
-  { to: "/locations", label: "Locations", Icon: IconMapPin, desc: "Visit us" },
-  { to: "/vehicle", label: "Vehicle for hire", Icon: IconCar, desc: "PTC program" },
-  { to: "/faq", label: "FAQ", Icon: IconHelp, desc: "Common questions" },
-  { to: "/contact", label: "Contact", Icon: IconMail, desc: "Get in touch" },
-] as const;
+import { IconBook, IconHelp, IconInfo, IconMail, IconMapPin } from "../NavIcons";
 
 export function HomeQuickLinks() {
+  const { t } = useTranslation();
+
+  const links = [
+    { to: "/about", labelKey: "homeQuickLinks.about", descKey: "homeQuickLinks.aboutDesc", Icon: IconInfo },
+    { to: "/courses", labelKey: "homeQuickLinks.courses", descKey: "homeQuickLinks.coursesDesc", Icon: IconBook },
+    {
+      to: "/locations",
+      labelKey: "homeQuickLinks.locations",
+      descKey: "homeQuickLinks.locationsDesc",
+      Icon: IconMapPin,
+    },
+    { to: "/faq", labelKey: "homeQuickLinks.faq", descKey: "homeQuickLinks.faqDesc", Icon: IconHelp },
+    { to: "/contact", labelKey: "homeQuickLinks.contact", descKey: "homeQuickLinks.contactDesc", Icon: IconMail },
+  ] as const;
+
   return (
     <section className="section section-quicklinks" aria-labelledby="quicklinks-heading">
       <div className="container">
         <h2 id="quicklinks-heading" className="quicklinks-title">
-          Explore
+          {t("homeQuickLinks.title")}
         </h2>
-        <p className="section-intro">
-          Browse courses, locations, and answers to common questions — everything you need to get started.
-        </p>
+        <p className="section-intro">{t("homeQuickLinks.intro")}</p>
         <ul className="quicklinks-grid">
-          {links.map(({ to, label, Icon, desc }) => (
+          {links.map(({ to, labelKey, descKey, Icon }) => (
             <li key={to}>
               <Link to={to} className="quicklink-card">
                 <span className="quicklink-icon" aria-hidden>
                   <Icon />
                 </span>
-                <span className="quicklink-label">{label}</span>
-                <span className="quicklink-desc">{desc}</span>
+                <span className="quicklink-label">{t(labelKey)}</span>
+                <span className="quicklink-desc">{t(descKey)}</span>
               </Link>
             </li>
           ))}

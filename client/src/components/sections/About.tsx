@@ -1,19 +1,18 @@
-import { SITE_LANGUAGES_DISPLAY } from "../../site";
+import { useTranslation } from "react-i18next";
+import { SITE } from "../../site";
 
 export function About() {
+  const { t } = useTranslation();
+
   return (
     <section id="about" className="section section-alt">
       <div className="container narrow">
-        <h2>About us</h2>
+        <h2>{t("content.aboutPage.h2")}</h2>
+        <p className="lead">{t("content.aboutPage.p1", { brand: SITE.name })}</p>
         <p className="lead">
-          Shaaz Driving Academy is a Ministry-approved Beginner Driver Education course provider. All in-class and
-          in-car curriculum is delivered by professional, fully licensed instructors. We are committed to quality
-          driver education and have served the GTA for over 20 years.
-        </p>
-        <p className="lead">
-          We welcome students from diverse backgrounds. When it helps you learn, we can explain rules, manoeuvres, and
-          road-test expectations in <strong>{SITE_LANGUAGES_DISPLAY}</strong> — ask when you book or on your first
-          lesson.
+          {t("content.aboutPage.p2", {
+            languages: t("site.languagesDisplay"),
+          })}
         </p>
       </div>
     </section>

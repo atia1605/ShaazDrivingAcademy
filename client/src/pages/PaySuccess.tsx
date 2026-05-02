@@ -1,9 +1,11 @@
+import { useTranslation } from "react-i18next";
 import { Link } from "react-router-dom";
 import { useDocumentTitle } from "../hooks/useDocumentTitle";
 import { SITE } from "../site";
 
 export function PaySuccess() {
-  useDocumentTitle("Payment Received | Shaaz Driving Academy");
+  const { t } = useTranslation();
+  useDocumentTitle(t("meta.paySuccess", { brand: SITE.name }));
 
   return (
     <div className="page-pay">
@@ -13,21 +15,19 @@ export function PaySuccess() {
             <div className="success-icon" aria-hidden>
               ✓
             </div>
-            <h1>Thank you for your payment</h1>
-            <p className="lead">
-              Your card was charged successfully. Stripe will email a receipt to the address you entered at checkout.
-            </p>
+            <h1>{t("paySuccessPage.heading")}</h1>
+            <p className="lead">{t("paySuccessPage.lead")}</p>
             <p className="muted">
-              If you have questions about your course or next steps, call{" "}
-              <a href={`tel:${SITE.phonePrimary.tel}`}>{SITE.phonePrimary.display}</a> or email{" "}
+              {t("paySuccessPage.helpPrefix")}{" "}
+              <a href={`tel:${SITE.phonePrimary.tel}`}>{SITE.phonePrimary.display}</a> {t("paySuccessPage.helpMid")}{" "}
               <a href={`mailto:${SITE.email}`}>{SITE.email}</a>.
             </p>
             <div className="form-actions" style={{ marginTop: "1.5rem" }}>
               <Link to="/" className="btn btn-primary">
-                Back to home
+                {t("paySuccessPage.home")}
               </Link>
               <Link to="/register" className="btn btn-ghost">
-                Complete registration
+                {t("paySuccessPage.register")}
               </Link>
             </div>
           </div>

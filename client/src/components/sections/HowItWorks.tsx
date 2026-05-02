@@ -1,25 +1,29 @@
-const steps = [
-  {
-    title: "Choose your course",
-    text: "Browse BDE packages or individual lessons, or tell us your goals — we will match you to the right program.",
-  },
-  {
-    title: "Register & pay online",
-    text: "Submit your details and pay deposits securely by card. Prefer phone or email? We are one tap away.",
-  },
-  {
-    title: "Start learning",
-    text: "Friendly, experienced instructors teach you step by step with hands-on coaching in the car. When you are ready, we help you pick a DriveTest location and practice plan that fit you — then book your test with confidence.",
-  },
-];
+import { useTranslation } from "react-i18next";
 
 export function HowItWorks() {
+  const { t } = useTranslation();
+
+  const steps = [
+    {
+      title: t("howItWorks.step1Title"),
+      text: t("howItWorks.step1Text"),
+    },
+    {
+      title: t("howItWorks.step2Title"),
+      text: t("howItWorks.step2Text"),
+    },
+    {
+      title: t("howItWorks.step3Title"),
+      text: t("howItWorks.step3Text"),
+    },
+  ];
+
   return (
     <section className="section section-how" aria-labelledby="how-heading">
       <div className="container">
         <div className="section-head">
-          <h2 id="how-heading">How it works</h2>
-          <p className="section-intro">A simple path from first contact to getting your licence.</p>
+          <h2 id="how-heading">{t("howItWorks.title")}</h2>
+          <p className="section-intro">{t("howItWorks.intro")}</p>
         </div>
         <ol className="how-grid">
           {steps.map((s, i) => (

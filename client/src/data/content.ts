@@ -239,7 +239,6 @@ export const courseTypes = [
   { value: "classroom", label: "Classroom / digital classroom" },
   { value: "senior", label: "Courses for seniors" },
   { value: "immigrant", label: "Courses for new immigrants" },
-  { value: "ptc", label: "Vehicle for hire (PTC)" },
   { value: "other", label: "Other / not sure" },
 ] as const;
 

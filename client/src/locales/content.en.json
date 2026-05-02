@@ -1,0 +1,455 @@
+{
+  "content": {
+    "aboutPage": {
+      "h2": "About us",
+      "p1": "{{brand}} is a Ministry-approved Beginner Driver Education course provider. All in-class and in-car curriculum is delivered by professional, fully licensed instructors. We are committed to quality driver education and have served the GTA for over 20 years.",
+      "p2": "We welcome students from diverse backgrounds. When it helps you learn, we can explain rules, manoeuvres, and road-test expectations in {{languages}} — ask when you book or on your first lesson."
+    },
+    "registerPage": {
+      "breadcrumb": "Register",
+      "h1": "Register online",
+      "leadStart": "Tell us what you need — we will follow up with scheduling and next steps. Need to pay a deposit?",
+      "leadPay": "Pay online",
+      "leadMid": "after you submit, or call",
+      "leadEnd": "anytime.",
+      "fullName": "Full name",
+      "email": "Email",
+      "phone": "Phone (optional)",
+      "courseInterest": "Course interest",
+      "notes": "Notes (optional)",
+      "success": "Thanks — your request was received. We will contact you soon.",
+      "confirmationEmail": "Confirmation email",
+      "staffEmail": "Staff email alert",
+      "submitting": "Submitting…",
+      "submit": "Submit registration",
+      "backHome": "Back to home",
+      "errHelpIntro": "Call",
+      "errHelpOr": "or email",
+      "errHelpEnd": "and we will help you register."
+    },
+    "payPage": {
+      "breadcrumb": "Pay online",
+      "h1": "Pay online",
+      "lead": "This page is a work in progress. Online card checkout is not available yet. To pay a deposit or fee, please call or email us — we’ll help you complete payment.",
+      "stripeDisabledIntro": "Online payments are not available yet. Until checkout is ready, call ",
+      "stripeDisabledMid": " or email ",
+      "stripeDisabledEnd": " to pay.",
+      "receiptEmail": "Email for receipt (recommended)",
+      "redirecting": "Redirecting…",
+      "payCard": "Pay with card",
+      "footnoteBefore": "Questions about which fee to choose? ",
+      "footnoteLink": "Register online",
+      "footnoteAfter": " or call us — we are happy to help before you pay.",
+      "payErr": "Payment could not start."
+    },
+    "contactPage": {
+      "h2": "Contact us",
+      "intro": "Send a message online, email us directly, or call — we serve {{area}} from our Danforth location.",
+      "mailtoSubject": "Message from website",
+      "email": "Email",
+      "tapMail": "Tap to open your mail app",
+      "tapCall": "Tap to call",
+      "followTiktok": "Follow us",
+      "opensTiktok": "Opens TikTok in a new tab",
+      "formTitle": "Send a message",
+      "formSub": "We usually reply within one business day.",
+      "name": "Name",
+      "message": "Message",
+      "sent": "Message sent. We will get back to you soon.",
+      "staffEmail": "Staff email alert",
+      "errReach": "You can still reach us by email:",
+      "openDraft": "Open email draft",
+      "sending": "Sending…",
+      "send": "Send message"
+    },
+    "locationsPage": {
+      "h2": "Location & contact",
+      "intro": "One convenient <strong>Danforth</strong> address — we welcome students from {{cities}} and surrounding communities. Call for current rates and availability.",
+      "cardTitle": "Our Danforth office"
+    },
+    "faqPage": {
+      "h2": "Frequently asked questions"
+    },
+    "homeLocationsStrip": {
+      "h2": "Visit us — GTA, Hamilton, Ottawa & more",
+      "intro": "One <strong>Danforth</strong> location — we welcome students from {{cities}}. Reach any of our lines below. Support in",
+      "officeTitle": "Our office",
+      "cta": "Location & details"
+    },
+    "homeCourseCta": {
+      "h2": "Courses & pricing",
+      "p": "BDE packages, individual lessons, and negotiable rates — explore full details and package options before you register.",
+      "btn": "See courses & pricing"
+    },
+    "homeFaqTeaser": {
+      "h2": "Common questions",
+      "intro": "Quick answers — more detail on our FAQ page.",
+      "more": "View all FAQs"
+    },
+    "homeVideos": {
+      "h2": "Videos — G1, G2 & G",
+      "introBefore": "Independent YouTube explainers on Ontario’s graduated licensing, written test prep, and how the levels fit together. Always rely on the",
+      "handbook": "official MTO Driver's Handbook",
+      "introMid": "and",
+      "introAfter": "for authoritative rules and booking.",
+      "disclaimer": "These videos are not produced by {{brand}}; we share them for general information only."
+    },
+    "homeG1": {
+      "h2": "G1 written test — practice links & Toronto-area centres",
+      "intro": "The G1 knowledge test is written at <strong>DriveTest</strong> centres. Study from the <strong>official handbook</strong> first; third-party practice sites are not run by the MTO — use them only as extra review.",
+      "studyTitle": "Study & practice links",
+      "practiceNote": "Sample questions only — always verify rules in the official handbook.",
+      "centresTitle": "Toronto-area DriveTest centres",
+      "centresLead": "G1 knowledge tests are offered here (and at other GTA sites). Hours and wait times vary — confirm on <a href=\"https://www.drivetest.ca\" target=\"_blank\" rel=\"noopener noreferrer\">drivetest.ca</a> before you visit.",
+      "map": "Map",
+      "foot": "Addresses are for quick reference; use the <a href=\"https://www.drivetest.ca/drivetest-centre-search/\" target=\"_blank\" rel=\"noopener noreferrer\">official centre search</a> for the latest details."
+    },
+    "lessonReport": {
+      "h2": "Track progress like a pro",
+      "intro": "See how we structure feedback after lessons — clear topics, simple scores, and next steps. The cards below are <strong>samples only</strong>; your real report may look different. Use the arrows or dots to browse slides.",
+      "carouselLabel": "Sample lesson report slides",
+      "prev": "Previous slide",
+      "next": "Next slide",
+      "dots": "Report slides",
+      "slideOf": "Slide {{n}} of {{total}}",
+      "scoreAriaTable": "Topic scores",
+      "topic": "Topic",
+      "score": "Score",
+      "notes": "Notes",
+      "scoreAria": "Score {{grade}}"
+    },
+    "trustCarousel": {
+      "line1": "Friendly instructors · step-by-step lessons",
+      "sub": "Experienced coaches, hands-on in-car training, and a strong road-test focus — including help picking a DriveTest location that fits you. Swipe or tap next to read more.",
+      "carouselLabel": "Trust highlights",
+      "prev": "Previous highlight",
+      "next": "Next highlight",
+      "dots": "Trust highlights",
+      "slideOf": "Highlight {{n}} of {{total}}"
+    },
+    "testimonials": {
+      "h2": "What students say",
+      "intro1": "We are proud of the relationships we build with students and families. Below are featured quotes — including several transcribed from public Google Maps reviews — see more on",
+      "maps": "Google Maps",
+      "introMid": "or",
+      "search": "Google Search (reviews)",
+      "ariaStars": "Rated 5 out of 5",
+      "badge": "Google review",
+      "prevArrow": "Show previous reviews",
+      "nextArrow": "Show next reviews",
+      "marqueeAria": "Student reviews, auto-scrolling. Pause by hovering or focusing here.",
+      "openMaps": "Open on Google Maps",
+      "openSearch": "Open in Google Search"
+    },
+    "webDesigner": {
+      "credit": "Website by {{name}} — tap for details",
+      "title": "Web designer",
+      "close": "Close",
+      "closeAria": "Close"
+    },
+    "courseTypes": [
+      { "value": "", "label": "Select a course (optional)" },
+      { "value": "bde-package", "label": "BDE certification package" },
+      { "value": "individual-g1g2", "label": "Individual lessons (G1 → G2)" },
+      { "value": "individual-g2g", "label": "Individual lessons (G2 → G)" },
+      { "value": "classroom", "label": "Classroom / digital classroom" },
+      { "value": "senior", "label": "Courses for seniors" },
+      { "value": "immigrant", "label": "Courses for new immigrants" },
+      { "value": "other", "label": "Other / not sure" }
+    ],
+    "coursesUi": {
+      "h2": "Our driving courses",
+      "intro": "Choose a full BDE package or flexible individual lessons. Prices shown plus applicable tax and certification fees where noted.",
+      "taxNote": "Plus (+) tax and certification fee",
+      "individualH3": "Individual lessons",
+      "negotiable": "Prices are negotiable",
+      "callDiscuss": "— feel free to call",
+      "optionsEnd": "to discuss options that work for you.",
+      "g1g2": "G1 to G2",
+      "g2g": "G2 to G",
+      "bookInquire": "Book / inquire",
+      "classroomH3": "Classroom training",
+      "classroomLead": "BDE programs combine three parts — in-class theory, in-car practice, and flexible digital / homelink work — so you graduate with skills that stick, not just hours on paper.",
+      "seniorsH3": "Courses for seniors",
+      "seniorsBadge": "For mature & experienced drivers",
+      "seniorsAria": "What we offer seniors",
+      "seniorsRegister": "Register your interest",
+      "seniorsCall": "Call",
+      "immigrantsH3": "Courses for new immigrants",
+      "immigrantsBadge": "New to Ontario roads",
+      "immigrantsAria": "Support for newcomers",
+      "immigrantsContact": "Contact us",
+      "immigrantsEmail": "Email"
+    },
+    "bdePackages": [
+      {
+        "title": "Package 1",
+        "items": [
+          "10 Hours Of In-Car Training",
+          "20 Hours Of In-class Sessions",
+          "Certification with The Ministry of Transportation",
+          "10 hours homelink"
+        ]
+      },
+      {
+        "title": "Package 2",
+        "items": [
+          "11 Hours Of In-Car Training",
+          "20 Hours Of In-Class Sessions",
+          "Certification With Ministry of Transportation",
+          "10 hours homelink",
+          "Use of an Instructor car for local G2 Road Test",
+          "We will also book your Road Test"
+        ]
+      },
+      {
+        "title": "Package 3",
+        "items": [
+          "15 Hours Of In-Car Training",
+          "20 Hours Of In-Class Sessions",
+          "Certification With Ministry of Transportation",
+          "10 hours homelink",
+          "Use of an Instructor's car For local G2 Road Test",
+          "We will also book your Road Test"
+        ]
+      }
+    ],
+    "g1g2Packages": [
+      { "id": "g1g2-5", "label": "5 hours of lessons", "price": "$250 + HST" },
+      { "id": "g1g2-10", "label": "10 hours of lessons", "price": "$490 + HST" },
+      { "id": "g1g2-1rt", "label": "1 Hour and Road Test (in town)", "price": "$195 + HST" },
+      { "id": "g1g2-3rt", "label": "3 Hours and Road Test mini package (in town)", "price": "$300 + HST" },
+      { "id": "g1g2-5rt", "label": "5 Hours and Road Test (in town)", "price": "$390 + HST" },
+      { "id": "g1g2-10rt", "label": "10 Hours and Road Test (in town)", "price": "$625 + HST" }
+    ],
+    "g2gPackages": [
+      { "id": "g2g-5", "label": "5 hours of lessons", "price": "$300 + HST" },
+      { "id": "g2g-10", "label": "10 hours of lessons", "price": "$590 + HST" },
+      { "id": "g2g-1rt", "label": "1 Hour and Road Test (in town)", "price": "$220 + HST" },
+      { "id": "g2g-3rt", "label": "3 Hours and Road Test mini package (in town)", "price": "$340 + HST" },
+      { "id": "g2g-5rt", "label": "5 Hours and Road Test (in town)", "price": "$475 + HST" },
+      { "id": "g2g-10rt", "label": "10 Hours and Road Test (in town)", "price": "$750 + HST" }
+    ],
+    "classroomModes": [
+      {
+        "title": "In-class instruction",
+        "lead": "Build a strong theory foundation in a structured classroom with a qualified instructor — rules of the road, signs, defensive driving, and how to handle real situations before you get behind the wheel.",
+        "bullets": [
+          "MTO-aligned curriculum for Beginner Driver Education (BDE)",
+          "Discussion and Q&A so concepts stick — not just memorization",
+          "You can often start in-class before your G1; check with us when you book"
+        ]
+      },
+      {
+        "title": "In-car training",
+        "lead": "Hands-on driving in a dual-controlled vehicle with a licensed instructor. Each lesson builds on the last, from basics to test-ready skills on routes you will actually use.",
+        "bullets": [
+          "Parking, intersections, lane changes, highway practice, and road-test preparation",
+          "Clear feedback after every session so you know what to improve",
+          "A valid G1 (or appropriate licence) is required for in-car lessons"
+        ]
+      },
+      {
+        "title": "Digital & homelink",
+        "lead": "Flexible online classroom components and homelink hours let you review on your own time and stay on track between in-person sessions.",
+        "bullets": [
+          "Digital options where offered — learn in the format that fits your schedule",
+          "Homelink work complements in-class and in-car training for a complete BDE record",
+          "Revisit material anytime so you are confident for tests and real-world driving"
+        ]
+      }
+    ],
+    "seniorCourses": {
+      "intro": "Returning after a break, refreshing for a renewal, or simply want more confidence on busier roads? We offer patient, respectful instruction tailored to experienced drivers — at your pace, with clear communication.",
+      "highlights": [
+        "Refresher lessons: highways, night driving, winter conditions, and complex intersections",
+        "Updates on Ontario traffic laws, signage, and right-of-way in today’s traffic",
+        "Stress-free practice — we explain modern vehicle tech and road layouts step by step",
+        "Flexible scheduling and lesson plans built around your goals, not a one-size-fits-all package"
+      ],
+      "closing": "Tell us what you would like to achieve and we will recommend a plan that fits."
+    },
+    "immigrantCourses": {
+      "intro": "New to Canada? We help you turn your experience into safe driving here — from Ontario’s graduated licensing system to reading signs, handling Toronto-area traffic, and preparing for your road test.",
+      "highlights": [
+        "Guidance whether you are starting fresh or exchanging an international licence — your path depends on the MTO and your background; we help you understand the next steps",
+        "Clear explanations of school zones, transit lanes, winter driving, and unwritten “local” habits on busy streets",
+        "Practice on routes and scenarios similar to your test centre so nothing feels unfamiliar",
+        "Patient instructors who take extra time when English is a second language — we repeat and demonstrate until you are comfortable",
+        "Multilingual explanations when helpful — Bangla, English, Urdu, Hindi, Arabic, Sylheti, and Chittagong"
+      ],
+      "closing": "Share your situation by phone or email and we will outline the best program for you."
+    },
+    "faqItems": [
+      {
+        "q": "How do I get a driving instructor and schedule in car lessons?",
+        "a": "On your final day of in-class instruction, you will receive an in-car instructor's name and number. You will then contact the instructor and book appointments based on availability."
+      },
+      {
+        "q": "How do I book my road test?",
+        "aHtml": "Log on to <a href=\"https://www.drivetest.ca\" target=\"_blank\" rel=\"noopener noreferrer\">www.drivetest.ca</a>, fill in your information and book your road test for the next available date at a DriveTest centre near you."
+      },
+      {
+        "q": "Can I do a course without G1?",
+        "a": "In-class can be done without the G1 license. G1 license is required for in-car instruction."
+      },
+      {
+        "q": "How can I pay the balance?",
+        "a": "Balance of payment can be paid by cash or cheque at our driving school location."
+      },
+      {
+        "q": "Do I need to bring my certificate to the road test?",
+        "a": "A paper copy is required for the road test day. You are certified electronically through the MTO system."
+      },
+      {
+        "q": "I have a driver's licence from another country. How do I apply in Ontario and what tests do I need?",
+        "aHtml": "<p>When you move to Ontario, you may use a valid foreign licence for <strong>60 days</strong>. After that you must apply for an Ontario licence. Whether you can <strong>exchange</strong> your licence or must take <strong>knowledge and/or road tests</strong> depends on your country (Ontario has exchange agreements with some countries only), how long you have been driving, and the class of licence you hold.</p><p>You usually apply <strong>in person</strong> at a <a href=\"https://www.drivetest.ca/drivetest-centre-search/\" target=\"_blank\" rel=\"noopener noreferrer\">DriveTest centre</a> (or certain ServiceOntario locations). Bring <strong>original</strong> identity documents, your foreign licence, and any proof of driving experience. For more than one year of experience credit you may need an official letter from the licensing authority. Expect a <strong>vision test</strong>; you may also need <strong>G1 knowledge</strong> and <strong>road test(s)</strong> depending on your case.</p><p>Read the official steps here: <a href=\"https://www.ontario.ca/page/exchange-out-province-drivers-licence\" target=\"_blank\" rel=\"noopener noreferrer\">Exchange an out-of-province or foreign licence (Ontario.ca)</a> and <a href=\"https://drivetest.ca/licences/exchanges-foreign-licences/\" target=\"_blank\" rel=\"noopener noreferrer\">Exchanges &amp; foreign licences (DriveTest)</a>. {{brand}} can help with <strong>lessons and road-test preparation</strong> once you know what Ontario requires for you — <a href=\"/#/contact\">contact us</a> with your country and licence type.</p>"
+      }
+    ],
+    "homeFaqTeaserItems": [
+      {
+        "q": "How do I get a driving instructor and schedule in car lessons?",
+        "a": "On your last day of in-class instruction you receive your in-car instructor's name and number, then you book appointments based on availability."
+      },
+      {
+        "q": "How do I book my road test?",
+        "a": "Book online at DriveTest — choose a date and DriveTest centre that works for you."
+      },
+      {
+        "q": "Can I do a course without G1?",
+        "a": "You can start in-class without a G1. You need a valid G1 before any in-car training."
+      }
+    ],
+    "youtubeVideos": [
+      {
+        "youtubeId": "iTw0Ohi8_7c",
+        "title": "G1, G2 & full G — how Ontario licensing works",
+        "caption": "Explains the graduated system, from the knowledge test to G2 and full G road tests.",
+        "tag": "G1 · G2 · G"
+      },
+      {
+        "youtubeId": "klAItlQNNXg",
+        "title": "G1, G2 & G — what’s the difference?",
+        "caption": "Clarifies each level, restrictions, and why the steps exist before you book lessons.",
+        "tag": "Levels & rules"
+      },
+      {
+        "youtubeId": "TQpLFMrmehI",
+        "title": "G1 knowledge test — study orientation",
+        "caption": "Extra practice mindset for the written test; always follow the official MTO handbook.",
+        "tag": "G1 prep"
+      }
+    ],
+    "g1PracticeLinks": [
+      {
+        "label": "New drivers — get a G licence (Ontario.ca)",
+        "href": "https://www.ontario.ca/page/get-g-drivers-licence-new-drivers",
+        "kind": "official"
+      },
+      {
+        "label": "Official MTO Driver's Handbook",
+        "href": "https://www.ontario.ca/document/official-mto-drivers-handbook",
+        "kind": "official"
+      },
+      {
+        "label": "DriveTest — knowledge tests & fees",
+        "href": "https://www.drivetest.ca/tests/knowledge-tests/",
+        "kind": "official"
+      },
+      {
+        "label": "Find a DriveTest centre (search)",
+        "href": "https://www.drivetest.ca/drivetest-centre-search/",
+        "kind": "official"
+      },
+      {
+        "label": "Practice questions — G1.ca (unofficial)",
+        "href": "https://www.g1.ca/",
+        "kind": "practice"
+      }
+    ],
+    "lessonReportSlides": [
+      {
+        "title": "G2 prep — session overview",
+        "meta": "Sample skills tracker · In-car lesson focus",
+        "rows": [
+          { "topic": "Three-point turn & tight spaces", "grade": "9", "tone": "green" },
+          { "topic": "Right-of-way at complex intersections", "grade": "8", "tone": "purple" },
+          { "topic": "Highway merge & lane discipline", "grade": "7", "tone": "orange" }
+        ],
+        "notes": "Next session: mock road-test route near your DriveTest centre, plus parallel parking on a busier street. Ask your instructor to log any habits you want to polish before booking your test."
+      },
+      {
+        "title": "BDE classroom — module wrap-up",
+        "meta": "Theory progress · Sample summary",
+        "rows": [
+          { "topic": "Rules of the road & signage review", "grade": "10", "tone": "green" },
+          { "topic": "Defensive driving scenarios", "grade": "9", "tone": "green" },
+          { "topic": "Homelink self-study completion", "grade": "8", "tone": "purple" }
+        ],
+        "notes": "Keep linking classroom ideas to what you see on the road. When you finish in-class, you will receive your in-car instructor contact to schedule behind-the-wheel time."
+      },
+      {
+        "title": "Road test readiness — checklist",
+        "meta": "Pre-test habits · Sample checklist",
+        "rows": [
+          { "topic": "Observation & shoulder checks", "grade": "9", "tone": "green" },
+          { "topic": "Speed control in school zones", "grade": "8", "tone": "purple" },
+          { "topic": "Parking & exit strategy", "grade": "8", "tone": "orange" }
+        ],
+        "notes": "Bring your certificate (paper copy) and licence on test day. Confirm your appointment time and route with your instructor the lesson before."
+      }
+    ],
+    "trustSlides": [
+      {
+        "headline": "Among the GTA's best",
+        "sub": "A driving school families choose for clear teaching, patience, and real results on the road.",
+        "sourceType": "brand"
+      },
+      {
+        "headline": "Friendly instructors",
+        "sub": "Learn in a calm, encouraging car — ask questions anytime and never feel rushed.",
+        "source": "Supportive driver training"
+      },
+      {
+        "headline": "Step by step",
+        "sub": "Every skill is broken into simple stages so driving feels manageable from day one.",
+        "source": "Structured lesson plans"
+      },
+      {
+        "headline": "Hands-on coaching",
+        "sub": "Side-by-side guidance in the vehicle until maneuvers, observation, and habits feel natural.",
+        "source": "In-car instruction"
+      },
+      {
+        "headline": "Experienced team",
+        "sub": "Instructors who know GTA traffic, examiner expectations, and how different students learn best.",
+        "source": "Licensed professionals"
+      },
+      {
+        "headline": "Road-test focused",
+        "sub": "Lessons emphasize what DriveTest looks for — many students see strong outcomes when they follow the plan.",
+        "source": "Test-day preparation"
+      },
+      {
+        "headline": "Right test centre for you",
+        "sub": "We help you understand which DriveTest location, timing, and route practice may suit you best.",
+        "source": "Local knowledge · GTA"
+      },
+      {
+        "headline": "MTO-approved BDE",
+        "sub": "Beginner Driver Education with classroom, in-car, and digital components — fully recognized in Ontario.",
+        "source": "Ministry of Transportation"
+      },
+      {
+        "headline": "20+ years in the GTA",
+        "sub": "From the GTA to Hamilton, Ottawa, Windsor, and beyond — one trusted team for G1 through full G.",
+        "sourceType": "brand"
+      },
+      {
+        "headline": "Multilingual support",
+        "sub": "Bangla, English, Urdu, Hindi, Arabic, Sylheti, Chittagong — learn in the language that helps you most.",
+        "source": "When it helps you learn"
+      }
+    ]
+  }
+}

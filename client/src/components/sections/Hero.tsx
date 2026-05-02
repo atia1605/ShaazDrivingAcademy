@@ -1,39 +1,38 @@
+import { useTranslation } from "react-i18next";
 import { Link } from "react-router-dom";
-import { SITE, SITE_LANGUAGES_DISPLAY, SITE_PHONE_LIST } from "../../site";
+import { SITE, SITE_PHONE_LIST } from "../../site";
 
 export function Hero() {
+  const { t } = useTranslation();
+  const languages = t("site.languagesDisplay");
+
   return (
     <section className="hero" aria-labelledby="hero-heading">
       <div className="hero-bg" />
       <div className="container hero-grid">
         <div className="hero-content">
-          <p className="hero-eyebrow">Ministry-approved · Serving the GTA for 20+ years</p>
-          <h1 id="hero-heading">Drive with confidence — from your first lesson to test day</h1>
-          <p className="hero-lead">
-            <strong>MTO-approved</strong> BDE and flexible in-car lessons from <strong>friendly, experienced</strong>{" "}
-            instructors — <strong>step-by-step</strong>, <strong>hands-on</strong> coaching. Register or pay online
-            anytime. In <strong>{SITE_LANGUAGES_DISPLAY}</strong> when it helps you learn.
-          </p>
+          <p className="hero-eyebrow">{t("hero.eyebrow")}</p>
+          <h1 id="hero-heading">{t("hero.title")}</h1>
+          <p className="hero-lead">{t("hero.lead", { languages })}</p>
           <ul className="hero-seo-points">
             <li>
-              <strong>BDE &amp; lessons</strong> — classroom, in-car, and digital components for Toronto &amp;
-              Scarborough. <Link to="/courses">Courses &amp; pricing</Link>.
+              <strong>{t("hero.seo1Title")}</strong> — {t("hero.seo1Body")}{" "}
+              <Link to="/courses">{t("hero.seo1Link")}</Link>.
             </li>
             <li>
-              <strong>G1, G2 &amp; G</strong> — packages and individual lessons; road-test prep with help choosing a
-              DriveTest centre and practice plan.
+              <strong>{t("hero.seo2Title")}</strong> — {t("hero.seo2Body")}
             </li>
             <li>
-              <strong>GTA</strong> — one Danforth location serving{" "}
-              <Link to="/locations">Toronto &amp; Scarborough</Link>.
+              <strong>{t("hero.seo3Strong")}</strong> {t("hero.seo3Mid")}{" "}
+              <Link to="/locations">{t("hero.seo3Link")}</Link>.
             </li>
           </ul>
           <div className="hero-actions">
             <Link to="/register" className="btn btn-primary btn-lg">
-              Register online
+              {t("hero.ctaRegister")}
             </Link>
             <Link to="/pay" className="btn btn-secondary-light btn-lg">
-              Pay a deposit
+              {t("hero.ctaPay")}
             </Link>
           </div>
           <div className="hero-actions hero-actions-secondary">
@@ -44,35 +43,34 @@ export function Hero() {
               </a>
             ))}
             <a href={`mailto:${SITE.email}`} className="btn btn-outline">
-              Email us
+              {t("hero.emailUs")}
             </a>
           </div>
         </div>
-        <aside className="hero-panel" aria-label="Highlights">
+        <aside className="hero-panel" aria-label={t("hero.panelAria")}>
           <ul className="hero-stats">
             <li>
-              <strong>MTO-approved</strong>
-              <span>BDE provider</span>
+              <strong>{t("hero.stat1a")}</strong>
+              <span>{t("hero.stat1b")}</span>
             </li>
             <li>
-              <strong>Friendly &amp; hands-on</strong>
-              <span>Step-by-step · patient instructors</span>
+              <strong>{t("hero.stat2a")}</strong>
+              <span>{t("hero.stat2b")}</span>
             </li>
             <li>
-              <strong>Road-test ready</strong>
-              <span>Pass focus · DriveTest guidance</span>
+              <strong>{t("hero.stat3a")}</strong>
+              <span>{t("hero.stat3b")}</span>
             </li>
             <li>
-              <strong>Languages</strong>
-              <span className="hero-stat-languages">{SITE_LANGUAGES_DISPLAY}</span>
+              <strong>{t("hero.stat4a")}</strong>
+              <span className="hero-stat-languages">{languages}</span>
             </li>
           </ul>
           <p className="hero-panel-note">
-            Call{" "}
-            <a href={`tel:${SITE.phonePrimary.tel}`}>
-              {SITE.phonePrimary.contactName} ({SITE.phonePrimary.display})
-            </a>{" "}
-            — quick replies.
+            {t("hero.panelNote", {
+              name: SITE.phonePrimary.contactName,
+              phone: SITE.phonePrimary.display,
+            })}
           </p>
         </aside>
       </div>

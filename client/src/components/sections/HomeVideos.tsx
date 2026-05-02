@@ -1,27 +1,35 @@
-import { homeYoutubeVideos } from "../../data/content";
+import { useTranslation } from "react-i18next";
+import { SITE } from "../../site";
+
+type VideoItem = {
+  youtubeId: string;
+  title: string;
+  caption: string;
+  tag: string;
+};
 
 export function HomeVideos() {
+  const { t } = useTranslation();
+  const videos = t("content.youtubeVideos", { returnObjects: true }) as VideoItem[];
+
   return (
     <section className="section section-home-videos" aria-labelledby="home-videos-heading">
       <div className="container">
-        <h2 id="home-videos-heading">Videos — G1, G2 &amp; G</h2>
+        <h2 id="home-videos-heading">{t("content.homeVideos.h2")}</h2>
         <p className="section-intro home-videos-intro">
-          Independent YouTube explainers on Ontario’s graduated licensing, written test prep, and how the levels fit
-          together. Always rely on the{" "}
+          {t("content.homeVideos.introBefore")}{" "}
           <a href="https://www.ontario.ca/document/official-mto-drivers-handbook" target="_blank" rel="noopener noreferrer">
-            official MTO Driver&apos;s Handbook
+            {t("content.homeVideos.handbook")}
           </a>{" "}
-          and{" "}
+          {t("content.homeVideos.introMid")}{" "}
           <a href="https://www.drivetest.ca" target="_blank" rel="noopener noreferrer">
             DriveTest
           </a>{" "}
-          for authoritative rules and booking.
+          {t("content.homeVideos.introAfter")}
         </p>
-        <p className="home-videos-disclaimer muted small">
-          These videos are not created by Shaaz Driving Academy; we share them for general information only.
-        </p>
+        <p className="home-videos-disclaimer muted small">{t("content.homeVideos.disclaimer", { brand: SITE.name })}</p>
         <div className="home-videos-grid">
-          {homeYoutubeVideos.map((v) => (
+          {videos.map((v) => (
             <article key={v.youtubeId} className="home-video-card">
               <p className="home-video-tag">{v.tag}</p>
               <h3 className="home-video-title">{v.title}</h3>

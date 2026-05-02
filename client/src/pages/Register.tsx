@@ -1,8 +1,8 @@
 import { useState } from "react";
 import type { FormEvent } from "react";
+import { useTranslation } from "react-i18next";
 import { Link } from "react-router-dom";
 import { postJson } from "../api";
-import { courseTypes } from "../data/content";
 import { useDocumentTitle } from "../hooks/useDocumentTitle";
 import type { OwnerEmailNotify, OwnerSmsNotify, RegistrantEmailStatus } from "../ownerNotifyStatus";
 import { describeOwnerEmailNotify, describeOwnerSmsNotify, registrantEmailUi } from "../ownerNotifyStatus";
@@ -16,8 +16,14 @@ type RegisterResponse = {
   registrantEmail: RegistrantEmailStatus;
 };
 
+type CourseOpt = { value: string; label: string };
+
 export function Register() {
-  useDocumentTitle("Register for Driving Lessons | Shaaz Driving Academy Toronto & Scarborough");
+  const { t } = useTranslation();
+  useDocumentTitle(t("meta.register", { brand: SITE.name }));
+
+  const courseTypes = t("content.courseTypes", { returnObjects: true }) as CourseOpt[];
+
   const [fullName, setFullName] = useState("");
   const [email, setEmail] = useState("");
   const [phone, setPhone] = useState("");
@@ -44,9 +50,10 @@ export function Register() {
         courseType: courseType || undefined,
         notes: notes || undefined,
       });
-      setNotifyEmail(describeOwnerEmailNotify(data.ownerEmailNotify));
-      setNotifySms(describeOwnerSmsNotify(data.ownerSmsNotify));
-      setRegistrantNote(registrantEmailUi(data.registrantEmail));
+      setNotifyEmail(describeOwnerEmailNotify(data.ownerEmailNotify, t));
+      const sms = describeOwnerSmsNotify(data.ownerSmsNotify, t);
+      setNotifySms(sms);
+      setRegistrantNote(registrantEmailUi(data.registrantEmail, t));
       setStatus("ok");
       setFullName("");
       setEmail("");
@@ -55,7 +62,7 @@ export function Register() {
       setNotes("");
     } catch (err) {
       setStatus("err");
-      setErrMsg(err instanceof Error ? err.message : "Something went wrong.");
+      setErrMsg(err instanceof Error ? err.message : t("notify.genericErr"));
     }
   }
 
@@ -64,13 +71,13 @@ export function Register() {
       <section className="register-hero">
         <div className="container">
           <p className="breadcrumb">
-            <Link to="/">Home</Link> / Register
+            <Link to="/">{t("breadcrumb.home")}</Link> / {t("content.registerPage.breadcrumb")}
           </p>
-          <h1>Register online</h1>
+          <h1>{t("content.registerPage.h1")}</h1>
           <p className="lead register-lead">
-            Tell us what you need — we will follow up with scheduling and next steps. Need to pay a deposit?{" "}
-            <Link to="/pay">Pay online</Link> after you submit, or call{" "}
-            <a href={`tel:${SITE.phonePrimary.tel}`}>{SITE.phonePrimary.display}</a> anytime.
+            {t("content.registerPage.leadStart")}{" "}
+            <Link to="/pay">{t("content.registerPage.leadPay")}</Link> {t("content.registerPage.leadMid")}{" "}
+            <a href={`tel:${SITE.phonePrimary.tel}`}>{SITE.phonePrimary.display}</a> {t("content.registerPage.leadEnd")}
           </p>
         </div>
       </section>
@@ -80,7 +87,7 @@ export function Register() {
           <div className="card register-card">
             <form className="form register-form" onSubmit={onSubmit}>
               <label className="field">
-                <span>Full name</span>
+                <span>{t("content.registerPage.fullName")}</span>
                 <input
                   value={fullName}
                   onChange={(e) => setFullName(e.target.value)}
@@ -90,7 +97,7 @@ export function Register() {
                 />
               </label>
               <label className="field">
-                <span>Email</span>
+                <span>{t("content.registerPage.email")}</span>
                 <input
                   type="email"
                   value={email}
@@ -101,7 +108,7 @@ export function Register() {
                 />
               </label>
               <label className="field">
-                <span>Phone (optional)</span>
+                <span>{t("content.registerPage.phone")}</span>
                 <input
                   type="tel"
                   value={phone}
@@ -111,7 +118,7 @@ export function Register() {
                 />
               </label>
               <label className="field">
-                <span>Course interest</span>
+                <span>{t("content.registerPage.courseInterest")}</span>
                 <select value={courseType} onChange={(e) => setCourseType(e.target.value)}>
                   {courseTypes.map((o) => (
                     <option key={o.value || "empty"} value={o.value}>
@@ -121,19 +128,21 @@ export function Register() {
                 </select>
               </label>
               <label className="field">
-                <span>Notes (optional)</span>
+                <span>{t("content.registerPage.notes")}</span>
                 <textarea value={notes} onChange={(e) => setNotes(e.target.value)} rows={4} maxLength={4000} />
               </label>
               {status === "ok" && (
                 <>
-                  <p className="form-success">Thanks — your request was received. We will contact you soon.</p>
+                  <p className="form-success">{t("content.registerPage.success")}</p>
                   {registrantNote && (
                     <div
                       className={`notify-api-status notify-api-status--${registrantNote.tone}`}
                       role="status"
                       aria-live="polite"
                     >
-                      <strong style={{ display: "block", marginBottom: "0.25rem" }}>Confirmation email</strong>
+                      <strong style={{ display: "block", marginBottom: "0.25rem" }}>
+                        {t("content.registerPage.confirmationEmail")}
+                      </strong>
                       {registrantNote.text}
                     </div>
                   )}
@@ -143,7 +152,9 @@ export function Register() {
                       role="status"
                       aria-live="polite"
                     >
-                      <strong style={{ display: "block", marginBottom: "0.25rem" }}>Staff email alert</strong>
+                      <strong style={{ display: "block", marginBottom: "0.25rem" }}>
+                        {t("content.registerPage.staffEmail")}
+                      </strong>
                       {notifyEmail.text}
                     </div>
                   )}
@@ -160,17 +171,19 @@ export function Register() {
                     {errMsg}
                   </p>
                   <p className="small muted" style={{ marginTop: "0.5rem" }}>
-                    Call <a href={`tel:${SITE.phonePrimary.tel}`}>{SITE.phonePrimary.display}</a> or email{" "}
-                    <a href={`mailto:${SITE.email}`}>{SITE.email}</a> and we will help you register.
+                    {t("content.registerPage.errHelpIntro")}{" "}
+                    <a href={`tel:${SITE.phonePrimary.tel}`}>{SITE.phonePrimary.display}</a>{" "}
+                    {t("content.registerPage.errHelpOr")}{" "}
+                    <a href={`mailto:${SITE.email}`}>{SITE.email}</a> {t("content.registerPage.errHelpEnd")}
                   </p>
                 </div>
               )}
               <div className="form-actions">
                 <button type="submit" className="btn btn-primary btn-lg" disabled={status === "loading"}>
-                  {status === "loading" ? "Submitting…" : "Submit registration"}
+                  {status === "loading" ? t("content.registerPage.submitting") : t("content.registerPage.submit")}
                 </button>
                 <Link to="/" className="btn btn-ghost">
-                  Back to home
+                  {t("content.registerPage.backHome")}
                 </Link>
               </div>
             </form>

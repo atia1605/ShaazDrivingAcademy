@@ -79,7 +79,7 @@ export const trustHighlightSlides = [
   },
   {
     headline: "20+ years in the GTA",
-    sub: "Toronto, Scarborough, and surrounding areas — one trusted team for G1 through full G.",
+    sub: "From the GTA to Hamilton, Ottawa, Windsor, and beyond — one trusted team for G1 through full G.",
     source: "Shaaz Driving Academy",
   },
   {

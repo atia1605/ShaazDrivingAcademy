@@ -1,18 +1,18 @@
+import { useTranslation } from "react-i18next";
 import { Link } from "react-router-dom";
 
 export function HomeCourseCta() {
+  const { t } = useTranslation();
+
   return (
     <section className="section home-course-cta" aria-labelledby="home-cta-courses-heading">
       <div className="container home-course-cta-inner">
         <div className="home-course-cta-copy">
-          <h2 id="home-cta-courses-heading">Courses &amp; pricing</h2>
-          <p>
-            BDE packages, individual lessons, and negotiable rates — explore full details and package options before you
-            register.
-          </p>
+          <h2 id="home-cta-courses-heading">{t("content.homeCourseCta.h2")}</h2>
+          <p>{t("content.homeCourseCta.p")}</p>
         </div>
         <Link to="/courses" className="btn btn-primary btn-lg home-course-cta-btn">
-          See courses &amp; pricing
+          {t("content.homeCourseCta.btn")}
         </Link>
       </div>
     </section>

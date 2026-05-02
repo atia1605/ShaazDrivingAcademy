@@ -1,4 +1,5 @@
 import { useCallback, useEffect, useLayoutEffect, useMemo, useRef, useState } from "react";
+import { useTranslation } from "react-i18next";
 import { testimonials } from "../../data/content";
 import { SITE } from "../../site";
 
@@ -34,9 +35,9 @@ function hueFromAuthor(author: string) {
   return n;
 }
 
-function StarRow() {
+function StarRow({ ariaLabel }: { ariaLabel: string }) {
   return (
-    <span className="testimonial-float-stars" aria-label="Rated 5 out of 5">
+    <span className="testimonial-float-stars" aria-label={ariaLabel}>
       {Array.from({ length: 5 }, (_, i) => (
         <span key={i} className="testimonial-float-star" aria-hidden>
           ★
@@ -47,6 +48,7 @@ function StarRow() {
 }
 
 function TestimonialFloatCard({ author, quote, avatarSrc }: { author: string; quote: string; avatarSrc?: string }) {
+  const { t } = useTranslation();
   const h = hueFromAuthor(author);
   const h2 = (h + 52) % 360;
   return (
@@ -67,11 +69,11 @@ function TestimonialFloatCard({ author, quote, avatarSrc }: { author: string; qu
           )}
         </div>
         <div className="testimonial-float-body">
-          <StarRow />
+          <StarRow ariaLabel={t("content.testimonials.ariaStars")} />
           <p className="testimonial-float-quote">“{excerptForMarquee(quote)}”</p>
           <footer className="testimonial-float-footer">
             <cite className="testimonial-float-author">{author}</cite>
-            <span className="testimonial-float-badge">Google review</span>
+            <span className="testimonial-float-badge">{t("content.testimonials.badge")}</span>
           </footer>
         </div>
       </div>
@@ -80,6 +82,7 @@ function TestimonialFloatCard({ author, quote, avatarSrc }: { author: string; qu
 }
 
 export function Testimonials() {
+  const { t } = useTranslation();
   const loop = useMemo(() => [...testimonials, ...testimonials], []);
   const trackRef = useRef<HTMLDivElement>(null);
   const offsetRef = useRef(0);
@@ -184,16 +187,15 @@ export function Testimonials() {
   return (
     <section id="testimonials" className="section section-alt">
       <div className="container">
-        <h2>What students say</h2>
+        <h2>{t("content.testimonials.h2")}</h2>
         <p className="section-intro testimonials-intro">
-          We are proud of the relationships we build with students and families. Below are featured quotes — including
-          several transcribed from public Google Maps reviews — see more on{" "}
+          {t("content.testimonials.intro1")}{" "}
           <a href={SITE.googleMapsListingUrl} target="_blank" rel="noopener noreferrer">
-            Google Maps
+            {t("content.testimonials.maps")}
           </a>{" "}
-          or{" "}
+          {t("content.testimonials.introMid")}{" "}
           <a href={SITE.googleReviewsSearchUrl} target="_blank" rel="noopener noreferrer">
-            Google Search (reviews)
+            {t("content.testimonials.search")}
           </a>
           .
         </p>
@@ -203,7 +205,7 @@ export function Testimonials() {
             <button
               type="button"
               className="carousel-arrow carousel-arrow--prev testimonials-marquee-arrow"
-              aria-label="Show previous reviews"
+              aria-label={t("content.testimonials.prevArrow")}
               onClick={() => nudge(1)}
             >
               <span aria-hidden>‹</span>
@@ -213,7 +215,7 @@ export function Testimonials() {
           <div
             className="testimonials-marquee-shell"
             tabIndex={0}
-            aria-label="Student reviews, auto-scrolling. Pause by hovering or focusing here."
+            aria-label={t("content.testimonials.marqueeAria")}
             onMouseEnter={() => {
               hoverPauseRef.current = true;
             }}
@@ -233,8 +235,13 @@ export function Testimonials() {
               ref={trackRef}
               className={`testimonials-marquee-track${reduceMotion ? "" : " testimonials-marquee-track--js"}`}
             >
-              {loop.map((t, i) => (
-                <TestimonialFloatCard key={`${t.author}-${i}`} author={t.author} quote={t.quote} avatarSrc={t.avatarSrc} />
+              {loop.map((entry, i) => (
+                <TestimonialFloatCard
+                  key={`${entry.author}-${i}`}
+                  author={entry.author}
+                  quote={entry.quote}
+                  avatarSrc={entry.avatarSrc}
+                />
               ))}
             </div>
           </div>
@@ -243,7 +250,7 @@ export function Testimonials() {
             <button
               type="button"
               className="carousel-arrow carousel-arrow--next testimonials-marquee-arrow"
-              aria-label="Show next reviews"
+              aria-label={t("content.testimonials.nextArrow")}
               onClick={() => nudge(-1)}
             >
               <span aria-hidden>›</span>
@@ -253,7 +260,7 @@ export function Testimonials() {
 
         <p className="testimonials-marquee-foot testimonials-marquee-foot-btns">
           <a className="btn btn-ghost btn-sm" href={SITE.googleMapsListingUrl} target="_blank" rel="noopener noreferrer">
-            Open on Google Maps
+            {t("content.testimonials.openMaps")}
           </a>
           <a
             className="btn btn-ghost btn-sm"
@@ -261,7 +268,7 @@ export function Testimonials() {
             target="_blank"
             rel="noopener noreferrer"
           >
-            Open in Google Search
+            {t("content.testimonials.openSearch")}
           </a>
         </p>
       </div>

@@ -1,26 +1,29 @@
+import { useTranslation } from "react-i18next";
 import { Link } from "react-router-dom";
-import {
-  bdePackages,
-  classroomModes,
-  g1g2Packages,
-  g2gPackages,
-  immigrantCoursesContent,
-  seniorCoursesContent,
-} from "../../data/content";
 import { IconBook, IconCar, IconGlobe, IconHeart, IconMonitor } from "../NavIcons";
 import { SITE } from "../../site";
 
 const classroomIcons = [IconBook, IconCar, IconMonitor] as const;
 
+type BdePackage = { title: string; items: string[] };
+type Pkg = { id: string; label: string; price: string };
+type ClassroomMode = { title: string; lead: string; bullets: string[] };
+type Pillar = { intro: string; highlights: string[]; closing: string };
+
 export function Courses() {
+  const { t } = useTranslation();
+  const bdePackages = t("content.bdePackages", { returnObjects: true }) as BdePackage[];
+  const g1g2Packages = t("content.g1g2Packages", { returnObjects: true }) as Pkg[];
+  const g2gPackages = t("content.g2gPackages", { returnObjects: true }) as Pkg[];
+  const classroomModes = t("content.classroomModes", { returnObjects: true }) as ClassroomMode[];
+  const seniorCoursesContent = t("content.seniorCourses", { returnObjects: true }) as Pillar;
+  const immigrantCoursesContent = t("content.immigrantCourses", { returnObjects: true }) as Pillar;
+
   return (
     <section id="courses" className="section">
       <div className="container">
-        <h2>Our driving courses</h2>
-        <p className="section-intro">
-          Choose a full BDE package or flexible individual lessons. Prices shown plus applicable tax and certification
-          fees where noted.
-        </p>
+        <h2>{t("content.coursesUi.h2")}</h2>
+        <p className="section-intro">{t("content.coursesUi.intro")}</p>
 
         <div className="grid-3" id="certification-courses">
           {bdePackages.map((pkg) => (
@@ -31,21 +34,21 @@ export function Courses() {
                   <li key={line}>{line}</li>
                 ))}
               </ul>
-              <p className="muted small">Plus (+) tax and certification fee</p>
+              <p className="muted small">{t("content.coursesUi.taxNote")}</p>
             </article>
           ))}
         </div>
 
         <h3 id="individual-lessons" className="subsection-title">
-          Individual lessons
+          {t("content.coursesUi.individualH3")}
         </h3>
         <p className="lesson-price-note">
-          <strong>Prices are negotiable</strong> — feel free to call{" "}
-          <a href={`tel:${SITE.phonePrimary.tel}`}>{SITE.phonePrimary.display}</a> to discuss options that work for you.
+          <strong>{t("content.coursesUi.negotiable")}</strong> {t("content.coursesUi.callDiscuss")}{" "}
+          <a href={`tel:${SITE.phonePrimary.tel}`}>{SITE.phonePrimary.display}</a> {t("content.coursesUi.optionsEnd")}
         </p>
         <div className="two-col">
           <div className="col">
-            <h4>G1 to G2</h4>
+            <h4>{t("content.coursesUi.g1g2")}</h4>
             <div className="package-list">
               {g1g2Packages.map((p) => (
                 <div key={p.id} className="package-row" id={p.id}>
@@ -54,14 +57,14 @@ export function Courses() {
                     <span className="package-price">{p.price}</span>
                   </div>
                   <Link to="/register" className="btn btn-sm btn-primary">
-                    Book / inquire
+                    {t("content.coursesUi.bookInquire")}
                   </Link>
                 </div>
               ))}
             </div>
           </div>
           <div className="col col-muted">
-            <h4>G2 to G</h4>
+            <h4>{t("content.coursesUi.g2g")}</h4>
             <div className="package-list">
               {g2gPackages.map((p) => (
                 <div key={p.id} className="package-row" id={p.id}>
@@ -70,7 +73,7 @@ export function Courses() {
                     <span className="package-price">{p.price}</span>
                   </div>
                   <Link to="/register" className="btn btn-sm btn-primary">
-                    Book / inquire
+                    {t("content.coursesUi.bookInquire")}
                   </Link>
                 </div>
               ))}
@@ -79,12 +82,9 @@ export function Courses() {
         </div>
 
         <h3 id="classroom-training" className="subsection-title">
-          Classroom training
+          {t("content.coursesUi.classroomH3")}
         </h3>
-        <p className="course-subsection-lead">
-          BDE programs combine three parts — in-class theory, in-car practice, and flexible digital / homelink work — so
-          you graduate with skills that stick, not just hours on paper.
-        </p>
+        <p className="course-subsection-lead">{t("content.coursesUi.classroomLead")}</p>
         <div className="course-feature-grid">
           {classroomModes.map((mode, i) => {
             const Icon = classroomIcons[i];
@@ -110,23 +110,23 @@ export function Courses() {
             <span className="course-pillar-title-icon" aria-hidden>
               <IconHeart />
             </span>
-            Courses for seniors
+            {t("content.coursesUi.seniorsH3")}
           </h3>
           <div className="course-split">
             <div className="course-pillar-intro">
-              <p className="course-pillar-badge">For mature & experienced drivers</p>
+              <p className="course-pillar-badge">{t("content.coursesUi.seniorsBadge")}</p>
               <p>{seniorCoursesContent.intro}</p>
               <p className="course-pillar-closing muted">{seniorCoursesContent.closing}</p>
               <div className="course-pillar-cta">
                 <Link to="/register" className="btn btn-sm btn-primary">
-                  Register your interest
+                  {t("content.coursesUi.seniorsRegister")}
                 </Link>
                 <a href={`tel:${SITE.phonePrimary.tel}`} className="btn btn-sm btn-outline">
-                  Call {SITE.phonePrimary.display}
+                  {t("content.coursesUi.seniorsCall")} {SITE.phonePrimary.display}
                 </a>
               </div>
             </div>
-            <ul className="course-check-list" aria-label="What we offer seniors">
+            <ul className="course-check-list" aria-label={t("content.coursesUi.seniorsAria")}>
               {seniorCoursesContent.highlights.map((line) => (
                 <li key={line}>{line}</li>
               ))}
@@ -139,23 +139,23 @@ export function Courses() {
             <span className="course-pillar-title-icon" aria-hidden>
               <IconGlobe />
             </span>
-            Courses for new immigrants
+            {t("content.coursesUi.immigrantsH3")}
           </h3>
           <div className="course-split">
             <div className="course-pillar-intro">
-              <p className="course-pillar-badge course-pillar-badge--accent">New to Ontario roads</p>
+              <p className="course-pillar-badge course-pillar-badge--accent">{t("content.coursesUi.immigrantsBadge")}</p>
               <p>{immigrantCoursesContent.intro}</p>
               <p className="course-pillar-closing muted">{immigrantCoursesContent.closing}</p>
               <div className="course-pillar-cta">
                 <Link to="/contact" className="btn btn-sm btn-primary">
-                  Contact us
+                  {t("content.coursesUi.immigrantsContact")}
                 </Link>
                 <a href={`mailto:${SITE.email}`} className="btn btn-sm btn-outline">
-                  Email {SITE.email}
+                  {t("content.coursesUi.immigrantsEmail")} {SITE.email}
                 </a>
               </div>
             </div>
-            <ul className="course-check-list" aria-label="Support for newcomers">
+            <ul className="course-check-list" aria-label={t("content.coursesUi.immigrantsAria")}>
               {immigrantCoursesContent.highlights.map((line) => (
                 <li key={line}>{line}</li>
               ))}

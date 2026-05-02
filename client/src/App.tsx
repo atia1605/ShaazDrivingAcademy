@@ -9,7 +9,6 @@ import { LocationsPage } from "./pages/LocationsPage";
 import { Pay } from "./pages/Pay";
 import { PaySuccess } from "./pages/PaySuccess";
 import { Register } from "./pages/Register";
-import { VehiclePage } from "./pages/VehiclePage";
 
 export default function App() {
   return (
@@ -20,7 +19,6 @@ export default function App() {
           <Route path="about" element={<AboutPage />} />
           <Route path="courses" element={<CoursesPage />} />
           <Route path="locations" element={<LocationsPage />} />
-          <Route path="vehicle" element={<VehiclePage />} />
           <Route path="faq" element={<FAQPage />} />
           <Route path="contact" element={<ContactPage />} />
           <Route path="register" element={<Register />} />

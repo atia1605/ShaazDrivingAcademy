@@ -1,0 +1,183 @@
+{
+  "lang": {
+    "label": "Language",
+    "en": "English",
+    "bn": "Bangla",
+    "ur": "Urdu"
+  },
+  "site": {
+    "languagesInline": "Bangla · English · Urdu · Hindi · Arabic · Sylheti · Chittagong",
+    "languagesDisplay": "Bangla, English, Urdu, Hindi, Arabic, Sylheti and Chittagong"
+  },
+  "topBar": {
+    "tag": "GTA · MTO-approved BDE",
+    "languagesTitle": "Languages we support"
+  },
+  "nav": {
+    "toggle": "Toggle menu",
+    "home": "Home",
+    "about": "About",
+    "courses": "Courses",
+    "certification": "Certification",
+    "individualLessons": "Individual lessons",
+    "classroomTraining": "Classroom training",
+    "seniors": "Seniors",
+    "newImmigrants": "New immigrants",
+    "viewAllCourses": "View all courses",
+    "locations": "Locations",
+    "faq": "FAQ",
+    "contact": "Contact",
+    "pay": "Pay",
+    "register": "Register"
+  },
+  "sticky": {
+    "aria": "Quick actions",
+    "call": "Call",
+    "email": "Email",
+    "pay": "Pay",
+    "register": "Register"
+  },
+  "footer": {
+    "blurb": "Ministry-approved driver education for students across {{area}}. Your safety and success on the road come first. Lessons explained in {{languages}}.",
+    "follow": "Follow us",
+    "tiktok": "TikTok {{handle}}",
+    "quickLinks": "Quick links",
+    "registerOnline": "Register online",
+    "payOnline": "Pay online",
+    "contactHeading": "Contact",
+    "rights": "© {{year}} {{name}}. All rights reserved.",
+    "mto": "Licensed by Province of Ontario, Ministry of Transportation (MTO). Your safety is our priority."
+  },
+  "breadcrumb": {
+    "label": "Breadcrumb",
+    "home": "Home"
+  },
+  "meta": {
+    "home": "{{brand}} | GTA, Hamilton, Ottawa & Ontario — BDE, G1, G2 & G Lessons",
+    "about": "About {{brand}} | MTO-Approved GTA Driving School",
+    "courses": "Driving Courses & Lesson Prices | BDE Ontario & GTA | {{brand}}",
+    "locations": "Driving School | Danforth Office & Service Area | {{brand}}",
+    "faq": "FAQ | Road Tests, G1, BDE & Payments | {{brand}}",
+    "contact": "Contact {{brand}} | Phone, Email & GTA Locations",
+    "register": "Register for Driving Lessons | {{brand}} Ontario & GTA",
+    "pay": "Pay Online | Course Deposit | {{brand}}",
+    "paySuccess": "Payment Received | {{brand}}"
+  },
+  "notify": {
+    "ownerEmailNotConfigured": "Staff email alerts are not configured on the server. Your submission is still saved.",
+    "ownerEmailSent": "Staff email notification sent ({{count}} inbox(es)).",
+    "ownerEmailFailed": "Your registration is saved. Our automatic staff email didn't send (technical issue on our side). Please call or email us if you need help right away—we still have your details.",
+    "ownerEmailMixed": "Staff email: {{sent}} of {{total}} notification(s) sent. Some inboxes may not have received it.",
+    "ownerEmailSaved": "Your submission is saved.",
+    "smsSent": "SMS alert to instructor: sent.",
+    "smsNotSent": "SMS alert to instructor: not sent (check Twilio settings on the server).",
+    "registrantSent": "We sent a confirmation email to your address — please check your inbox (and spam/junk).",
+    "registrantFailed": "We couldn't send a confirmation email right now; your registration is still saved and we'll contact you.",
+    "contactOwnerSaved": "Your message is saved.",
+    "genericErr": "Something went wrong."
+  },
+  "pay": {
+    "loadError": "We couldn’t load payment options right now — this section is still being set up. Please call or email us to pay a deposit or fee."
+  },
+  "paySuccessPage": {
+    "heading": "Thank you for your payment",
+    "lead": "Your card was charged successfully. Stripe will email a receipt to the address you entered at checkout.",
+    "helpPrefix": "If you have questions about your course or next steps, call",
+    "helpMid": "or email",
+    "home": "Back to home",
+    "register": "Complete registration"
+  },
+  "breadcrumbCurrent": {
+    "about": "About",
+    "courses": "Courses",
+    "locations": "Locations",
+    "faq": "FAQ",
+    "contact": "Contact"
+  },
+  "hero": {
+    "eyebrow": "Ministry-approved · Serving the GTA for 20+ years",
+    "title": "Drive with confidence — from your first lesson to test day",
+    "lead": "MTO-approved BDE and flexible in-car lessons from friendly, experienced instructors — step-by-step, hands-on coaching. Register or pay online anytime. In {{languages}} when it helps you learn.",
+    "seo1Title": "BDE & lessons",
+    "seo1Body": "classroom, in-car, and digital components across the GTA and Ontario.",
+    "seo1Link": "Courses & pricing",
+    "seo2Title": "G1, G2 & G",
+    "seo2Body": "packages and individual lessons; road-test prep with help choosing a DriveTest centre and practice plan.",
+    "seo3Strong": "GTA",
+    "seo3Mid": "— one Danforth location serving",
+    "seo3Link": "GTA, Hamilton, Ottawa & more",
+    "ctaRegister": "Register online",
+    "ctaPay": "Pay a deposit",
+    "emailUs": "Email us",
+    "panelAria": "Highlights",
+    "stat1a": "MTO-approved",
+    "stat1b": "BDE provider",
+    "stat2a": "Friendly & hands-on",
+    "stat2b": "Step-by-step · patient instructors",
+    "stat3a": "Road-test ready",
+    "stat3b": "Pass focus · DriveTest guidance",
+    "stat4a": "Languages",
+    "panelNote": "Call {{name}} ({{phone}}) — quick replies."
+  },
+  "howItWorks": {
+    "title": "How it works",
+    "intro": "A simple path from first contact to getting your licence.",
+    "step1Title": "Choose your course",
+    "step1Text": "Browse BDE packages or individual lessons, or tell us your goals — we will match you to the right program.",
+    "step2Title": "Register & pay online",
+    "step2Text": "Submit your details and pay deposits securely by card. Prefer phone or email? We are one tap away.",
+    "step3Title": "Start learning",
+    "step3Text": "Friendly, experienced instructors teach you step by step with hands-on coaching in the car. When you are ready, we help you pick a DriveTest location and practice plan that fit you — then book your test with confidence."
+  },
+  "homeQuickLinks": {
+    "title": "Explore",
+    "intro": "Browse courses, locations, and answers to common questions — everything you need to get started.",
+    "about": "About us",
+    "aboutDesc": "Who we are",
+    "courses": "Courses",
+    "coursesDesc": "BDE & lessons",
+    "locations": "Locations",
+    "locationsDesc": "Visit us",
+    "faq": "FAQ",
+    "faqDesc": "Common questions",
+    "contact": "Contact",
+    "contactDesc": "Get in touch"
+  },
+  "homeAreas": {
+    "title": "Driving lessons & BDE across the GTA and Ontario",
+    "intro": "{{brand}} serves students from Toronto, Scarborough, North York, East York, Etobicoke, Ajax, Brampton, Pickering, Oakville, Oshawa, Whitby, Unionville, Hamilton, Ottawa, Orleans, Windsor, and communities across the GTA. We offer MTO-approved BDE packages, individual lessons for G1→G2 and G2→G, and support for road test preparation.",
+    "coursesPricing": "Courses & pricing",
+    "locationsLink": "Office & service area",
+    "faq": "FAQ",
+    "contact": "Contact"
+  },
+  "contact": {
+    "offerLanguages": "We offer instruction and support in"
+  },
+  "faqChat": {
+    "launcher": "FAQ",
+    "title": "Ask us anything",
+    "subtitle": "Type a question below. Replies use our FAQ when there's a close match — for anything else, reach us by phone or email.",
+    "clear": "Clear chat",
+    "close": "Close",
+    "welcome": "Hi! Ask about road tests, G1, payments, certificates, or lessons. Try the quick prompts below, or type your own question.",
+    "fromFaq": "From our FAQ",
+    "fallback": "I don't have a specific answer for that in our FAQ yet. {{name}} can help directly:",
+    "fallbackCall": "Call",
+    "fallbackEmail": "Email",
+    "fallbackVisit": "Visit our",
+    "faqPage": "FAQ page",
+    "or": "or",
+    "contactForm": "contact form",
+    "inputLabel": "Type your question",
+    "placeholder": "Type your question and press Send…",
+    "send": "Send",
+    "fullFaq": "Full FAQ page",
+    "contact": "Contact",
+    "quickPrompts": [
+      "How do I book my road test?",
+      "Can I do a course without G1?",
+      "I have a driver's licence from another country. How do I apply in Ontario and what tests do I need?"
+    ]
+  }
+}

@@ -1,8 +1,15 @@
 import { useCallback, useRef, useState } from "react";
-import { lessonReportSlides } from "../../data/homeShowcase";
+import { useTranslation } from "react-i18next";
 import { SITE } from "../../site";
 
+type Tone = "green" | "purple" | "orange";
+type Row = { topic: string; grade: string; tone: Tone };
+type Slide = { title: string; meta: string; rows: Row[]; notes: string };
+
 export function LessonReportCarousel() {
+  const { t } = useTranslation();
+  const lessonReportSlides = t("content.lessonReportSlides", { returnObjects: true }) as Slide[];
+
   const [index, setIndex] = useState(0);
   const n = lessonReportSlides.length;
   const touchStartX = useRef<number | null>(null);
@@ -11,7 +18,7 @@ export function LessonReportCarousel() {
     (dir: -1 | 1) => {
       setIndex((i) => (i + dir + n) % n);
     },
-    [n]
+    [n],
   );
 
   const slide = lessonReportSlides[index];
@@ -19,22 +26,22 @@ export function LessonReportCarousel() {
   return (
     <section className="section lesson-report-section" aria-labelledby="lesson-report-heading">
       <div className="container">
-        <h2 id="lesson-report-heading">Track progress like a pro</h2>
-        <p className="section-intro lesson-report-intro">
-          See how we structure feedback after lessons — clear topics, simple scores, and next steps. The cards below are{" "}
-          <strong>samples only</strong>; your real report may look different. Use the arrows or dots to browse slides.
-        </p>
+        <h2 id="lesson-report-heading">{t("content.lessonReport.h2")}</h2>
+        <p
+          className="section-intro lesson-report-intro"
+          dangerouslySetInnerHTML={{ __html: t("content.lessonReport.intro") }}
+        />
 
         <div
           className="lesson-report-carousel"
           role="group"
           aria-roledescription="carousel"
-          aria-label="Sample lesson report slides"
+          aria-label={t("content.lessonReport.carouselLabel")}
         >
           <button
             type="button"
             className="carousel-arrow carousel-arrow--prev"
-            aria-label="Previous slide"
+            aria-label={t("content.lessonReport.prev")}
             onClick={() => go(-1)}
           >
             <span aria-hidden>‹</span>
@@ -54,26 +61,24 @@ export function LessonReportCarousel() {
               touchStartX.current = null;
             }}
           >
-            <article
-              className="lesson-report-card"
-              key={index}
-              aria-live="polite"
-              aria-atomic="true"
-            >
+            <article className="lesson-report-card" key={index} aria-live="polite" aria-atomic="true">
               <div className="lesson-report-card-banner">{SITE.name}</div>
               <div className="lesson-report-card-body">
                 <h3 className="lesson-report-card-title">{slide.title}</h3>
                 <p className="lesson-report-card-meta">{slide.meta}</p>
-                <div className="lesson-report-table" role="table" aria-label="Topic scores">
+                <div className="lesson-report-table" role="table" aria-label={t("content.lessonReport.scoreAriaTable")}>
                   <div className="lesson-report-row lesson-report-row--head" role="row">
-                    <span role="columnheader">Topic</span>
-                    <span role="columnheader">Score</span>
+                    <span role="columnheader">{t("content.lessonReport.topic")}</span>
+                    <span role="columnheader">{t("content.lessonReport.score")}</span>
                   </div>
                   {slide.rows.map((row) => (
                     <div key={row.topic} className="lesson-report-row" role="row">
                       <span role="cell">{row.topic}</span>
                       <span role="cell">
-                        <span className={`lesson-grade lesson-grade--${row.tone}`} aria-label={`Score ${row.grade}`}>
+                        <span
+                          className={`lesson-grade lesson-grade--${row.tone}`}
+                          aria-label={t("content.lessonReport.scoreAria", { grade: row.grade })}
+                        >
                           {row.grade}
                         </span>
                       </span>
@@ -81,7 +86,7 @@ export function LessonReportCarousel() {
                   ))}
                 </div>
                 <div className="lesson-report-notes">
-                  <strong>Notes</strong>
+                  <strong>{t("content.lessonReport.notes")}</strong>
                   <p>{slide.notes}</p>
                 </div>
               </div>
@@ -91,21 +96,21 @@ export function LessonReportCarousel() {
           <button
             type="button"
             className="carousel-arrow carousel-arrow--next"
-            aria-label="Next slide"
+            aria-label={t("content.lessonReport.next")}
             onClick={() => go(1)}
           >
             <span aria-hidden>›</span>
           </button>
         </div>
 
-        <div className="carousel-dots" role="tablist" aria-label="Report slides">
-          {lessonReportSlides.map((_, i) => (
+        <div className="carousel-dots" role="tablist" aria-label={t("content.lessonReport.dots")}>
+          {lessonReportSlides.map((s, i) => (
             <button
-              key={lessonReportSlides[i].title}
+              key={s.title}
               type="button"
               role="tab"
               aria-selected={i === index}
-              aria-label={`Slide ${i + 1} of ${n}`}
+              aria-label={t("content.lessonReport.slideOf", { n: i + 1, total: n })}
               className={`carousel-dot${i === index ? " is-active" : ""}`}
               onClick={() => setIndex(i)}
             />

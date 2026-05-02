@@ -1,5 +1,7 @@
 /** Mirrors API fields from POST /api/register-interest and /api/contact */
 
+import type { TFunction } from "i18next";
+
 export type OwnerEmailNotify =
   | { configured: false; skipped?: true; sent: 0; failed: 0 }
   | { configured: true; sent: number; failed: number };
@@ -10,52 +12,51 @@ export type RegistrantEmailStatus = { sent: true } | { sent: false; reason: "not
 
 export type NotifyTone = "ok" | "warn" | "bad";
 
-export function describeOwnerEmailNotify(n: OwnerEmailNotify): { text: string; tone: NotifyTone } {
+export function describeOwnerEmailNotify(n: OwnerEmailNotify, t: TFunction): { text: string; tone: NotifyTone } {
   if (!n.configured) {
     return {
-      text: "Staff email alerts are not configured on the server. Your submission is still saved.",
+      text: t("notify.ownerEmailNotConfigured"),
       tone: "warn",
     };
   }
   const { sent, failed } = n;
   if (sent > 0 && failed === 0) {
     return {
-      text: `Staff email notification sent (${sent} inbox${sent === 1 ? "" : "es"}).`,
+      text: t("notify.ownerEmailSent", { count: sent }),
       tone: "ok",
     };
   }
   if (sent === 0 && failed > 0) {
     return {
-      text:
-        "Your registration is saved. Our automatic staff email didn’t send (technical issue on our side). Please call or email us if you need help right away—we still have your details.",
+      text: t("notify.ownerEmailFailed"),
       tone: "bad",
     };
   }
   if (sent > 0 && failed > 0) {
     return {
-      text: `Staff email: ${sent} of ${sent + failed} notification(s) sent. Some inboxes may not have received it.`,
+      text: t("notify.ownerEmailMixed", { sent, total: sent + failed }),
       tone: "warn",
     };
   }
-  return { text: "Your submission is saved.", tone: "ok" };
+  return { text: t("notify.ownerEmailSaved"), tone: "ok" };
 }
 
-export function describeOwnerSmsNotify(n: OwnerSmsNotify): string | null {
+export function describeOwnerSmsNotify(n: OwnerSmsNotify, t: TFunction): string | null {
   if (!n.configured) return null;
-  return n.ok ? "SMS alert to instructor: sent." : "SMS alert to instructor: not sent (check Twilio settings on the server).";
+  return n.ok ? t("notify.smsSent") : t("notify.smsNotSent");
 }
 
 /** Confirmation email row on the Register success screen */
-export function registrantEmailUi(n: RegistrantEmailStatus): { text: string; tone: "ok" | "warn" } | null {
+export function registrantEmailUi(n: RegistrantEmailStatus, t: TFunction): { text: string; tone: "ok" | "warn" } | null {
   if (n.sent) {
     return {
-      text: "We sent a confirmation email to your address — please check your inbox (and spam/junk).",
+      text: t("notify.registrantSent"),
       tone: "ok",
     };
   }
   if (n.reason === "failed") {
     return {
-      text: "We couldn’t send a confirmation email right now; your registration is still saved and we’ll contact you.",
+      text: t("notify.registrantFailed"),
       tone: "warn",
     };
   }

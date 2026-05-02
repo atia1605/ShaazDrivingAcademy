@@ -1,10 +1,12 @@
-import { useCallback, useEffect, useRef, useState } from "react";
+import { useCallback, useEffect, useMemo, useRef, useState } from "react";
+import { useTranslation } from "react-i18next";
 import { Link } from "react-router-dom";
-import { faqItems } from "../data/content";
 import { SITE, SITE_PHONE_LIST } from "../site";
 import { matchFaqIndex } from "../utils/faqChatMatch";
 
-function FaqAnswer({ item }: { item: (typeof faqItems)[number] }) {
+type LocalFaqItem = { q: string; a?: string; aHtml?: string };
+
+function FaqAnswer({ item }: { item: LocalFaqItem }) {
   if ("aHtml" in item && item.aHtml) {
     return (
       <div
@@ -31,13 +33,23 @@ function nextId() {
   return `m-${msgId}`;
 }
 
-const QUICK_PROMPTS = [
+/** English strings sent to `matchFaqIndex` (FAQ corpus is English). Buttons show translated labels from `faqChat.quickPrompts`. */
+const QUICK_PROMPTS_EN = [
   "How do I book my road test?",
   "Can I do a course without G1?",
   "I have a driver's licence from another country. How do I apply in Ontario and what tests do I need?",
 ] as const;
 
 export function FaqChatbot() {
+  const { t } = useTranslation();
+  const localizedFaqItems = useMemo(
+    () => t("content.faqItems", { returnObjects: true }) as LocalFaqItem[],
+    [t],
+  );
+  const quickPromptLabels = useMemo(
+    () => t("faqChat.quickPrompts", { returnObjects: true }) as string[],
+    [t],
+  );
   const [open, setOpen] = useState(false);
   const [input, setInput] = useState("");
   const [messages, setMessages] = useState<ChatMessage[]>([]);
@@ -56,7 +68,10 @@ export function FaqChatbot() {
 
   useEffect(() => {
     if (!open) return;
-    setMessages((prev) => (prev.length === 0 ? [{ id: nextId(), role: "bot", kind: "welcome" }] : prev));
+    /* Seed welcome bubble when opening — FAQ matching expects messages array updates from user sends */
+    window.queueMicrotask(() =>
+      setMessages((prev) => (prev.length === 0 ? [{ id: nextId(), role: "bot", kind: "welcome" }] : prev)),
+    );
   }, [open]);
 
   useEffect(() => {
@@ -74,8 +89,8 @@ export function FaqChatbot() {
 
   useEffect(() => {
     if (open) {
-      const t = window.setTimeout(() => inputRef.current?.focus(), 200);
-      return () => clearTimeout(t);
+      const timer = window.setTimeout(() => inputRef.current?.focus(), 200);
+      return () => clearTimeout(timer);
     }
   }, [open]);
 
@@ -115,7 +130,7 @@ export function FaqChatbot() {
             <path d="M8 9h8M8 13h5" strokeLinecap="round" />
           </svg>
         </span>
-        <span className="faq-chat-launcher-label">FAQ</span>
+        <span className="faq-chat-launcher-label">{t("faqChat.launcher")}</span>
       </button>
 
       {open ? (
@@ -136,17 +151,14 @@ export function FaqChatbot() {
           >
             <header className="faq-chat-header">
               <div>
-                <h2 id="faq-chat-title">Ask us anything</h2>
-                <p className="faq-chat-sub">
-                  Type a question below. Replies use our FAQ when there&apos;s a close match — for anything else, reach
-                  us by phone or email.
-                </p>
+                <h2 id="faq-chat-title">{t("faqChat.title")}</h2>
+                <p className="faq-chat-sub">{t("faqChat.subtitle")}</p>
               </div>
               <div className="faq-chat-header-actions">
                 <button type="button" className="faq-chat-clear" onClick={clearChat}>
-                  Clear chat
+                  {t("faqChat.clear")}
                 </button>
-                <button type="button" className="faq-chat-close" onClick={close} aria-label="Close">
+                <button type="button" className="faq-chat-close" onClick={close} aria-label={t("faqChat.close")}>
                   ×
                 </button>
               </div>
@@ -165,19 +177,16 @@ export function FaqChatbot() {
                   return (
                     <div key={m.id} className="faq-chat-msg faq-chat-msg--bot">
                       <div className="faq-chat-msg-bubble faq-chat-msg-bubble--bot">
-                        <p className="faq-chat-welcome-text">
-                          Hi! Ask about road tests, G1, payments, certificates, or lessons. Try the quick prompts below,
-                          or type your own question.
-                        </p>
+                        <p className="faq-chat-welcome-text">{t("faqChat.welcome")}</p>
                         <div className="faq-chat-quick-prompts">
-                          {QUICK_PROMPTS.map((p) => (
+                          {QUICK_PROMPTS_EN.map((en, i) => (
                             <button
-                              key={p}
+                              key={en}
                               type="button"
                               className="faq-chat-chip"
-                              onClick={() => sendText(p)}
+                              onClick={() => sendText(en)}
                             >
-                              {p}
+                              {quickPromptLabels[i] ?? en}
                             </button>
                           ))}
                         </div>
@@ -186,11 +195,12 @@ export function FaqChatbot() {
                   );
                 }
                 if (m.kind === "faq") {
-                  const item = faqItems[m.faqIndex];
+                  const item = localizedFaqItems[m.faqIndex];
+                  if (!item) return null;
                   return (
                     <div key={m.id} className="faq-chat-msg faq-chat-msg--bot">
                       <div className="faq-chat-msg-bubble faq-chat-msg-bubble--bot">
-                        <p className="faq-chat-matched-label">From our FAQ</p>
+                        <p className="faq-chat-matched-label">{t("faqChat.fromFaq")}</p>
                         <p className="faq-chat-bubble-q">{item.q}</p>
                         <FaqAnswer item={item} />
                       </div>
@@ -201,12 +211,11 @@ export function FaqChatbot() {
                   <div key={m.id} className="faq-chat-msg faq-chat-msg--bot">
                     <div className="faq-chat-msg-bubble faq-chat-msg-bubble--bot">
                       <p className="faq-chat-fallback-text">
-                        I don&apos;t have a specific answer for that in our FAQ yet.{" "}
-                        <strong>{SITE.name}</strong> can help directly:
+                        {t("faqChat.fallback", { name: SITE.name })}
                       </p>
                       <ul className="faq-chat-fallback-list">
                         <li>
-                          Call{" "}
+                          {t("faqChat.fallbackCall")}{" "}
                           {SITE_PHONE_LIST.map((p, i) => (
                             <span key={p.tel}>
                               {i > 0 ? " · " : ""}
@@ -217,12 +226,18 @@ export function FaqChatbot() {
                           ))}
                         </li>
                         <li>
-                          Email{" "}
+                          {t("faqChat.fallbackEmail")}{" "}
                           <a href={`mailto:${SITE.email}`}>{SITE.email}</a>
                         </li>
                         <li>
-                          Visit our <Link to="/faq" onClick={close}>FAQ page</Link> or{" "}
-                          <Link to="/contact" onClick={close}>contact form</Link>
+                          {t("faqChat.fallbackVisit")}{" "}
+                          <Link to="/faq" onClick={close}>
+                            {t("faqChat.faqPage")}
+                          </Link>{" "}
+                          {t("faqChat.or")}{" "}
+                          <Link to="/contact" onClick={close}>
+                            {t("faqChat.contactForm")}
+                          </Link>
                         </li>
                       </ul>
                     </div>
@@ -240,29 +255,29 @@ export function FaqChatbot() {
               }}
             >
               <label className="sr-only" htmlFor="faq-chat-input-field">
-                Type your question
+                {t("faqChat.inputLabel")}
               </label>
               <input
                 id="faq-chat-input-field"
                 ref={inputRef}
                 type="text"
                 className="faq-chat-input"
-                placeholder="Type your question and press Send…"
+                placeholder={t("faqChat.placeholder")}
                 value={input}
                 onChange={(e) => setInput(e.target.value)}
                 autoComplete="off"
               />
               <button type="submit" className="faq-chat-send btn btn-primary btn-sm">
-                Send
+                {t("faqChat.send")}
               </button>
             </form>
 
             <footer className="faq-chat-footer">
               <Link to="/faq" className="btn btn-sm btn-outline" onClick={close}>
-                Full FAQ page
+                {t("faqChat.fullFaq")}
               </Link>
               <Link to="/contact" className="btn btn-sm btn-outline" onClick={close}>
-                Contact
+                {t("faqChat.contact")}
               </Link>
             </footer>
           </div>

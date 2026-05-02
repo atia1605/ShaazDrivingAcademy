@@ -1,5 +1,6 @@
 import { useCallback, useRef, useState } from "react";
-import { trustHighlightSlides } from "../../data/homeShowcase";
+import { useTranslation } from "react-i18next";
+import { SITE } from "../../site";
 
 function LaurelIcon() {
   return (
@@ -15,19 +16,30 @@ function LaurelIcon() {
   );
 }
 
+type TrustSlide = {
+  headline: string;
+  sub: string;
+  source?: string;
+  sourceType?: "brand";
+};
+
 export function TrustHighlightsCarousel() {
+  const { t } = useTranslation();
+  const trustSlides = t("content.trustSlides", { returnObjects: true }) as TrustSlide[];
+
   const [index, setIndex] = useState(0);
-  const n = trustHighlightSlides.length;
+  const n = trustSlides.length;
   const touchStartX = useRef<number | null>(null);
 
   const go = useCallback(
     (dir: -1 | 1) => {
       setIndex((i) => (i + dir + n) % n);
     },
-    [n]
+    [n],
   );
 
-  const slide = trustHighlightSlides[index];
+  const slide = trustSlides[index];
+  const sourceText = slide.sourceType === "brand" ? SITE.name : slide.source ?? "";
 
   return (
     <section className="section trust-carousel-section" aria-labelledby="trust-carousel-heading">
@@ -36,25 +48,22 @@ export function TrustHighlightsCarousel() {
           <span className="trust-flag-emoji">🇨🇦</span>
         </div>
         <h2 id="trust-carousel-heading" className="trust-carousel-title">
-          <span className="trust-carousel-title-line">Friendly instructors · step-by-step lessons</span>
-          <span className="trust-carousel-title-accent">Shaaz Driving Academy</span>
+          <span className="trust-carousel-title-line">{t("content.trustCarousel.line1")}</span>
+          <span className="trust-carousel-title-accent">{SITE.name}</span>
         </h2>
-        <p className="trust-carousel-sub">
-          Experienced coaches, hands-on in-car training, and a strong road-test focus — including help picking a
-          DriveTest location that fits you. Swipe or tap next to read more.
-        </p>
+        <p className="trust-carousel-sub">{t("content.trustCarousel.sub")}</p>
         <div className="trust-carousel-rule" aria-hidden />
 
         <div
           className="trust-carousel-frame"
           role="group"
           aria-roledescription="carousel"
-          aria-label="Trust highlights"
+          aria-label={t("content.trustCarousel.carouselLabel")}
         >
           <button
             type="button"
             className="carousel-arrow carousel-arrow--prev carousel-arrow--on-dark"
-            aria-label="Previous highlight"
+            aria-label={t("content.trustCarousel.prev")}
             onClick={() => go(-1)}
           >
             <span aria-hidden>‹</span>
@@ -82,28 +91,28 @@ export function TrustHighlightsCarousel() {
                   <span className="trust-badge-sub">{slide.sub}</span>
                 </div>
               </div>
-              <p className="trust-badge-source">{slide.source}</p>
+              <p className="trust-badge-source">{sourceText}</p>
             </div>
           </div>
 
           <button
             type="button"
             className="carousel-arrow carousel-arrow--next carousel-arrow--on-dark"
-            aria-label="Next highlight"
+            aria-label={t("content.trustCarousel.next")}
             onClick={() => go(1)}
           >
             <span aria-hidden>›</span>
           </button>
         </div>
 
-        <div className="carousel-dots carousel-dots--light" role="tablist" aria-label="Trust highlights">
-          {trustHighlightSlides.map((_, i) => (
+        <div className="carousel-dots carousel-dots--light" role="tablist" aria-label={t("content.trustCarousel.dots")}>
+          {trustSlides.map((s, i) => (
             <button
-              key={trustHighlightSlides[i].headline}
+              key={`${s.headline}-${i}`}
               type="button"
               role="tab"
               aria-selected={i === index}
-              aria-label={`Highlight ${i + 1} of ${n}`}
+              aria-label={t("content.trustCarousel.slideOf", { n: i + 1, total: n })}
               className={`carousel-dot${i === index ? " is-active" : ""}`}
               onClick={() => setIndex(i)}
             />

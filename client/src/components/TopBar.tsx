@@ -1,16 +1,21 @@
-import { SITE, SITE_LANGUAGES_DISPLAY } from "../site";
+import { useTranslation } from "react-i18next";
+import { SITE } from "../site";
+import { LanguageSwitcher } from "./LanguageSwitcher";
 
 export function TopBar() {
+  const { t } = useTranslation();
+
   return (
     <div className="top-bar">
       <div className="container top-bar-inner">
         <div className="top-bar-left">
-          <span className="top-bar-tag">GTA · MTO-approved BDE</span>
-          <span className="top-bar-lang" title={`Languages: ${SITE_LANGUAGES_DISPLAY}`}>
-            Bangla · English · Urdu · Hindi · Arabic · Sylheti · Chittagong
+          <span className="top-bar-tag">{t("topBar.tag")}</span>
+          <span className="top-bar-lang" title={t("topBar.languagesTitle")}>
+            {t("site.languagesInline")}
           </span>
         </div>
         <div className="top-bar-links">
+          <LanguageSwitcher />
           <a className="top-bar-link" href={`mailto:${SITE.email}`}>
             <span className="sr-only">Email </span>
             {SITE.email}

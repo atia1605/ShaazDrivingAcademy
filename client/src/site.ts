@@ -14,14 +14,45 @@ const _langLast = _langParts.pop()!;
 /** e.g. "Bangla, English, … and Chittagong" */
 export const SITE_LANGUAGES_DISPLAY = `${_langParts.join(", ")} and ${_langLast}`;
 
+/** Regions and cities we highlight for students (one physical office on Danforth). */
+export const SITE_SERVICE_CITIES = [
+  "Toronto",
+  "Scarborough",
+  "North York",
+  "East York",
+  "Etobicoke",
+  "Ajax",
+  "Brampton",
+  "Pickering",
+  "Oakville",
+  "Oshawa",
+  "Whitby",
+  "Unionville",
+  "Hamilton",
+  "Ottawa",
+  "Orleans",
+  "Windsor",
+] as const;
+
+function oxfordCommaList(items: readonly string[]): string {
+  const n = items.length;
+  if (n === 0) return "";
+  if (n === 1) return items[0]!;
+  if (n === 2) return `${items[0]} and ${items[1]}`;
+  return `${items.slice(0, -1).join(", ")}, and ${items[n - 1]!}`;
+}
+
+/** Comma-separated prose list for {{area}} / {{cities}} in copy */
+export const SITE_SERVICE_AREA = oxfordCommaList(SITE_SERVICE_CITIES);
+
 /** Public contact details — shown across the site */
 export const SITE = {
   name: "Shaaz Driving Academy",
   email: "shohanchowdhury@hotmail.com",
-  /** Single visit / mailing address — Danforth corridor, serving Toronto & Scarborough */
+  /** Single visit / mailing address — Danforth corridor */
   address: "3096 Danforth Ave, Scarborough, ON M1L 1B1",
-  /** Service area label for copy and SEO */
-  serviceArea: "Toronto & Scarborough",
+  /** Cities we welcome students from — see SITE_SERVICE_CITIES */
+  serviceArea: SITE_SERVICE_AREA,
   phonePrimary: {
     tel: "6477837582",
     display: "647-783-7582",

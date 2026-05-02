@@ -1,7 +1,9 @@
 import { useCallback, useEffect, useId, useRef, useState } from "react";
+import { useTranslation } from "react-i18next";
 import { WEB_DESIGNER } from "../site";
 
 export function WebDesignerCredit() {
+  const { t } = useTranslation();
   const [open, setOpen] = useState(false);
   const titleId = useId();
   const closeRef = useRef<HTMLButtonElement>(null);
@@ -43,7 +45,7 @@ export function WebDesignerCredit() {
           aria-controls={open ? "web-designer-dialog" : undefined}
           onClick={() => setOpen(true)}
         >
-          Website by {WEB_DESIGNER.name} — tap for details
+          {t("content.webDesigner.credit", { name: WEB_DESIGNER.name })}
         </button>
       </p>
 
@@ -64,9 +66,15 @@ export function WebDesignerCredit() {
           >
             <div className="web-designer-modal-head">
               <h2 id={titleId} className="web-designer-modal-title">
-                Web designer
+                {t("content.webDesigner.title")}
               </h2>
-              <button ref={closeRef} type="button" className="web-designer-modal-close" onClick={close} aria-label="Close">
+              <button
+                ref={closeRef}
+                type="button"
+                className="web-designer-modal-close"
+                onClick={close}
+                aria-label={t("content.webDesigner.closeAria")}
+              >
                 ×
               </button>
             </div>
@@ -83,7 +91,7 @@ export function WebDesignerCredit() {
             </div>
             <div className="web-designer-modal-foot">
               <button type="button" className="btn btn-ghost web-designer-modal-done" onClick={close}>
-                Close
+                {t("content.webDesigner.close")}
               </button>
             </div>
           </div>

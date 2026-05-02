@@ -1,11 +1,14 @@
 import { useEffect } from "react";
+import { useTranslation } from "react-i18next";
 import { useLocation } from "react-router-dom";
 import { SubpageBreadcrumb } from "../components/SubpageBreadcrumb";
 import { Courses } from "../components/sections/Courses";
 import { useDocumentTitle } from "../hooks/useDocumentTitle";
+import { SITE } from "../site";
 
 export function CoursesPage() {
-  useDocumentTitle("Driving Courses & Lesson Prices | BDE Toronto & Scarborough | Shaaz Driving Academy");
+  const { t } = useTranslation();
+  useDocumentTitle(t("meta.courses", { brand: SITE.name }));
 
   const { hash } = useLocation();
 
@@ -20,7 +23,7 @@ export function CoursesPage() {
 
   return (
     <>
-      <SubpageBreadcrumb current="Courses" />
+      <SubpageBreadcrumb current={t("breadcrumbCurrent.courses")} />
       <Courses />
     </>
   );
