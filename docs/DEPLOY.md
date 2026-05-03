@@ -59,7 +59,7 @@ That full string becomes `DATABASE_URL` on Render.
    | Key | Example value |
    |-----|----------------|
    | `DATABASE_URL` | `mongodb+srv://user:pass@cluster.xxxxx.mongodb.net/shaaz?retryWrites=true&w=majority` |
-   | `CLIENT_ORIGIN` | `https://www.shaazdriving.com` |
+   | `CLIENT_ORIGIN` | `https://www.shaazdriving.com,https://shaazdriving.com` (comma-separated; include apex if visitors use `shaazdriving.com` without `www`) |
    | `PUBLIC_APP_URL` | `https://www.shaazdriving.com` |
    | `STRIPE_SECRET_KEY` | `sk_live_...` or `sk_test_...` from [Stripe](https://dashboard.stripe.com/apikeys) |
    | `NODE_VERSION` | `20` |
@@ -124,7 +124,7 @@ npm run dev
 ## Troubleshooting
 
 - **`P1013` / “Database must be defined in the connection string”:** Your Atlas URL is missing **`/dbname`** before `?`. Example: `...mongodb.net/shaaz?retryWrites=...` (see section above).
-- **CORS in the browser:** `CLIENT_ORIGIN` must match the site origin (`https://www.shaazdriving.com`). Multiple origins: comma-separated.
+- **CORS in the browser:** `CLIENT_ORIGIN` must list every origin your site uses (e.g. `https://www.shaazdriving.com` and `https://shaazdriving.com`). Multiple origins: comma-separated. If you set `CLIENT_ORIGIN` on Render, include both; omitting the apex breaks API calls from visitors who open the bare domain.
 - **503 on `/api/checkout-session`:** `STRIPE_SECRET_KEY` missing or invalid.
 - **Prisma / Mongo connection errors:** Check Atlas network access, user/password in the URI, and that `DATABASE_URL` uses `mongodb+srv://` for Atlas.
 - **`directConnection=true`:** Use for a **single local** MongoDB node; Atlas SRV URLs usually do not need it.
